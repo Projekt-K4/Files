@@ -1,1 +1,1 @@
-# K4 going wild on GitHub
+# K⁴ going wild on GitHub
