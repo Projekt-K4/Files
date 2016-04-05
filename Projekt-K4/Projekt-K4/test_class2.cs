@@ -9,5 +9,6 @@ namespace Projekt_K4
     class test_class2
     {
         //Merging via visual studio hchdhdhd
+        Console.WriteLine("test");
     }
 }
