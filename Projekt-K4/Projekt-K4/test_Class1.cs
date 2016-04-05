@@ -8,6 +8,6 @@ namespace Projekt_K4
 {
     class test_Class1
     {
-        //bla
+        //es funktioniert
     }
 }
