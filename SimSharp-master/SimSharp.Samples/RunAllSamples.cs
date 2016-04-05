@@ -24,21 +24,7 @@ namespace SimSharp.Samples {
       // Run all samples one after another
       new BankRenege().Simulate();
       Console.WriteLine();
-      new GasStationRefueling().Simulate();
-      Console.WriteLine();
-      new MachineShop().Simulate();
-      Console.WriteLine();
-      new ProcessCommunication().Simulate();
-      Console.WriteLine();
-      new SteelFactory().Simulate();
-      Console.WriteLine();
-      new MachineShopSpecialist().Simulate();
-      Console.WriteLine();
-      new SimpleShop().Simulate();
-      Console.WriteLine();
-      new KanbanControl().Simulate();
-      Console.WriteLine();
-      new MM1Queueing().Simulate();
+      Console.ReadKey();
     }
   }
 }
