@@ -21,26 +21,41 @@ using System.Collections.Generic;
 
 namespace SimSharp.Samples {
   public class K4 {
-        static IEnumerable<Event> AProcess(Environment env)
+        TimeSpan ARRIVAL_TIME = TimeSpan.FromSeconds(360);
+        TimeSpan PROCESSING_TIME = TimeSpan.FromSeconds(30);
+        TimeSpan SIMULATION_TIME = TimeSpan.FromHours(10000);
+        ContinuousStatistics statistics;
+
+        IEnumerable<Event> Patient(Environment env)
         {
-            Console.WriteLine("The time is {0}", env.NowD);
-            yield return env.TimeoutD(3.0);
-            Console.WriteLine("The time is {0}", env.NowD);
-            yield return env.TimeoutD(3.0);
-            Console.WriteLine("The time is {0}", env.NowD);
+            var triage = new Resource(env, capacity: 1);
+            while (true)
+            {
+                Console.WriteLine("Patient erreicht Krankenhaus");
+                yield return env.TimeoutExponential(ARRIVAL_TIME);
+                env.Process(triagierung(env, triage));
+            }
         }
 
-        static void Main(string[] args)
+        IEnumerable<Event> triagierung(Environment env, Resource server)
         {
-            var env = new Environment();
-            env.Process(AProcess(env));
-            env.Run();
+            using (var s = server.Request())
+            {
+                yield return s;
+                Console.WriteLine("Patient wird triagiert");
+                statistics.Update(server.InUse);
+                yield return env.TimeoutExponential(PROCESSING_TIME);
+            }
+            statistics.Update(server.InUse);
         }
 
+        void RunSimulation()
+        {
+            var env = new Environment(randomSeed: 42);
+            statistics = new ContinuousStatistics(env);
+            env.Process(Patient(env));
+            env.Run(SIMULATION_TIME);
+        }
 
-
-        public void Simulate(int rseed = 41) {
-     
     }
-  }
 }

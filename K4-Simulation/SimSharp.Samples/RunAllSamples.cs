@@ -22,7 +22,7 @@ namespace SimSharp.Samples {
   class RunAllSamples {
     public static void Main(string[] args) {
       // Run all samples one after another
-      new K4().Simulate();
+      new K4().RunSimulation();
       Console.WriteLine();
       Console.ReadKey();
     }
