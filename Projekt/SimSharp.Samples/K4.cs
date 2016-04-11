@@ -21,10 +21,25 @@ using System.Collections.Generic;
 
 namespace SimSharp.Samples {
   public class K4 {
+        static IEnumerable<Event> AProcess(Environment env)
+        {
+            Console.WriteLine("The time is {0}", env.NowD);
+            yield return env.TimeoutD(3.0);
+            Console.WriteLine("The time is {0}", env.NowD);
+            yield return env.TimeoutD(3.0);
+            Console.WriteLine("The time is {0}", env.NowD);
+        }
+
+        static void Main(string[] args)
+        {
+            var env = new Environment();
+            env.Process(AProcess(env));
+            env.Run();
+        }
 
 
 
-    public void Simulate(int rseed = 41) {
+        public void Simulate(int rseed = 41) {
      
     }
   }
