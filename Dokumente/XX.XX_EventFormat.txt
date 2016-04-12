@@ -1,0 +1,8 @@
+Das Eventlog File soll nach folgendem Schema aufgebaut sein:
+
+Momentan reicht:
+PatientenKatastrophenNr(od andere ID) - TTL - Event - TimeStamp 
+
+
+Soll folgen (für interaktiven Simulator):
+PatientenKatastrophenNr(od andere ID) - TTL - Event - TimeStamp - Alter - Geschlecht - Art und Schwere der Verletzung
