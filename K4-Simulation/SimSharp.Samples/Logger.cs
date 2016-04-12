@@ -20,7 +20,7 @@ namespace SimSharp.Samples
             }
             return log;
         }
-        public void addLog(string _date, string _time, string _patient, string _action)
+        public void addLog(System.DateTime _date, string _time, string _patient, string _action)
         {
             if (!logFile)
             {
@@ -72,4 +72,4 @@ namespace SimSharp.Samples
 
 
 }
-}
+
