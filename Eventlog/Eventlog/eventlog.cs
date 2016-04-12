@@ -11,17 +11,10 @@ namespace eventLog
     {
         static void Main(string[] args)
         {
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_1", "triagiert");
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_2", "triagiert");
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_3", "triagiert");
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_4", "triagiert");
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_5", "triagiert");
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_6", "triagiert");
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_7", "triagiert");
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_8", "triagiert");
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_9", "triagiert");
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_10", "triagiert");
-            eventLog.getLog().addLog("01.02.2014", "00:04:00", "patient_11", "triagiert");
+            eventLog.getLog().addLog("00:04:00", "patient_1", "3", "triagiert");
+            eventLog.getLog().addLog("00:04:00", "patient_2", "4", "triagiert");
+            eventLog.getLog().addLog("00:04:00", "patient_3", "5", "triagiert");
+            eventLog.getLog().addLog("00:04:00", "patient_4", "6", "triagiert");
             List<string> StringList = eventLog.getLog().toList();
 
             foreach (string s in StringList)
@@ -47,7 +40,7 @@ namespace eventLog
             }
             return log;
         }
-        public void addLog(string _date,string _time, string _patient, string _action)
+        public void addLog(string _time, string _patient, string _timeToLive, string _action)
         {
              if (!logFile)
              {
@@ -55,7 +48,7 @@ namespace eventLog
               logFile = true;
              }
             System.IO.StreamWriter file = new System.IO.StreamWriter("log.csv",true);
-            file.WriteLine(_date+ ";"+_time + ";"+_patient + ";"+_action);//write to file
+            file.WriteLine(_time + ";"+_patient + ";"+ _timeToLive + ";"+_action );//write to file
                  file.Close();
            }
         
