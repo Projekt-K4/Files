@@ -1,0 +1,19 @@
+Funktionalität des ersten Prototypen:
+Simulation läuft, bis alle Patienten triagiert sind (die Queue leer ist)
+
+Input:
+- Input: Anzahl Patienten x -> diese random erstellt
+- TTL der erstellten Patienten: Min und Max-Grenze (dazwischen random time)
+
+Triage:
+- Triage auf Basis der TTL
+- Triage dauert y Zeiteinheiten (Sekunden?)
+- Patienten warten in Queue auf Triagierung und können da sterben
+- d.h. Patienten können tot zur Triage kommen
+
+Output:
+- Ausgabe des Eventlogs: Ausgabe der Events (siehe Definition vom 12.04.)
+- Ausgabe der Statistik: 
+	. wieviele Patienten insgesamt 
+	. wieviele Patienten pro Triageklasse am Schluss
+	. wieviele Lebende/Tote
