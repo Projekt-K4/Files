@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace K4_Visualisierung
+namespace K4_Projekt
 {
     public partial class UKH : Form
     {
@@ -20,7 +20,7 @@ namespace K4_Visualisierung
             int i = 0;
             foreach (KeyValuePair<string, string> pair in test)
             {
-                i += Int32.Parse(pair.Value);
+                i+= Int32.Parse(pair.Value);
                 //Console.WriteLine(pair.Key + "\t" + pair.Value);
             }
             Queue.Text = ("Wartende Patienten: " + i.ToString());
@@ -81,8 +81,8 @@ namespace K4_Visualisierung
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+        { 
+        
         }
 
         private void Triage_Click(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace K4_Visualisierung
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void UKH_Load(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿namespace K4_Visualisierung
+﻿using System.Windows.Forms;
+namespace K4_Projekt
 {
     partial class UKH
     {
@@ -43,8 +44,10 @@
             // 
             // AUVA_LOGO
             // 
+            this.AUVA_LOGO.AccessibleDescription = "AUVA_LOGO";
+            this.AUVA_LOGO.AccessibleName = "AUVA_LOGO";
             this.AUVA_LOGO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AUVA_LOGO.Image = global::K4_Visualisierung.Properties.Resources.AUVA;
+            this.AUVA_LOGO.Image = global::K4_Projekt.Properties.Resources.AUVA_svg;
             this.AUVA_LOGO.InitialImage = null;
             this.AUVA_LOGO.Location = new System.Drawing.Point(1120, 38);
             this.AUVA_LOGO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -198,8 +201,8 @@
         {
 
         }
-
-
+           
+        
 
         #endregion
 

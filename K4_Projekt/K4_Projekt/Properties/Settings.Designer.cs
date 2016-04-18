@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace K4_Visualisierung.Properties
+namespace K4_Projekt.Properties
 {
 
 
