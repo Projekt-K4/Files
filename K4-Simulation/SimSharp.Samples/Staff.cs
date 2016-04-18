@@ -59,6 +59,8 @@ namespace SimSharp.Samples
             EmergencySurgeon    //Unfallchirurg
         };
 
+        String Type_s;
+
         //enum Spezialiced_at
 
     }
@@ -73,7 +75,7 @@ namespace SimSharp.Samples
             TheatreNurse,           //OP-Pfleger
             Nurse,                  //Pfleger
             BringAndGetService,     //Hol- und Bringsdienst
-            Beidienst,              //Beidienst
+            //Beidienst,              //Beidienst? - englisch?
             Cleaner                 //Putzkraft
         }
 
