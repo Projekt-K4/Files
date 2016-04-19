@@ -12,8 +12,8 @@ namespace SimSharp.Samples
     {
         private static int sequence = 0; //Pool aus dem fortlaufende Katastrophen Nummer für Patient erstellt wird
         public Random globalTime = new Random();
-        private List<Patient> PatientList = new List<Patient>();
-        private int position = -1;
+        private static List<Patient> patientList = new List<Patient>();
+        private static int position = -1;
     
 
 
@@ -31,7 +31,7 @@ namespace SimSharp.Samples
         {
             for (int i = 0; i < number_of_Patients; i++)
             {
-                add_Patient(PatientList, get_random_time());
+                add_Patient(patientList, get_random_time());
                 //Patient_list.Add(new Patient(get_random_time()));
             }
         }
@@ -61,7 +61,7 @@ namespace SimSharp.Samples
 
         public bool MoveNext()
         {
-            if (position < Patient_list.Count - 1)
+            if (position < patientList.Count - 1)
             {
                 ++position;
 
@@ -73,15 +73,20 @@ namespace SimSharp.Samples
 
         public void Reset()
         {
-            throw new NotImplementedException();
+            position = -1;
         }
 
         public object Current
         {
             get
             {
-                throw new NotImplementedException();
+                return patientList[position];
             }
+        }
+
+        public static object getNextPatient()
+        {
+            return patientList[++position];
         }
     }
 
@@ -113,7 +118,7 @@ namespace SimSharp.Samples
         }
         public void setTimeToLive(int TTL)
         {
-            timeToLive = ttl;
+            timeToLive = TTL;
         }
 
         public int getTriageNr()
@@ -131,20 +136,21 @@ namespace SimSharp.Samples
         // 1 slightly injured, 2 severely injured, 3 hopeless, 4 dead
         // TTL in seconds
         {
-            if (TTL <= 0) setTriageNr(4);
-            else if (TTL > 0 && TTL <= 900) setTriageNr(3); //TTL <= 15min
-            else if (TTL > 900 && TTL <= 36000) setTriageNr(2); //TTL > 15min and <= 10h
-            else setTriageNr(1); //TTL > 10h
+            if (TTL <= 0) triageNr = 4; //dead
+            else if (TTL > 0 && TTL <= 900) triageNr = 3; //TTL <= 15min -> hopeless
+            else if (TTL > 900 && TTL <= 36000) triageNr = 2; //TTL > 15min and <= 10h -> serverely injured
+            else triageNr = 1; //TTL > 10h -> slightly injured
         }
-        void setTriageNr(int i)
-        {
 
+        public void withdrawTTL(int subtrahend)
+        {
+            timeToLive -= subtrahend;
         }
     }   
 
  
 
-}
+
 class Program
     {
         static void Main()
@@ -152,6 +158,10 @@ class Program
             Patient Patient1 = new Patient(400);
 
             PatientGenerator catastrophe = new PatientGenerator(10);
+
+            PatientGenerator.getNextPatient();
+            PatientGenerator.getNextPatient();
+            PatientGenerator.getNextPatient();
         }
     }
 
