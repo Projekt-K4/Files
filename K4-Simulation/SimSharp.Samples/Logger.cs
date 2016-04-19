@@ -20,7 +20,7 @@ namespace SimSharp.Samples
             }
             return log;
         }
-        public void addLog(string _date, string _time, string _patient, string _action)
+        public void addLog(string _date, string _time, string _patient, string _triageNr, string _action)
         {
             if (!logFile)
             {
@@ -28,7 +28,7 @@ namespace SimSharp.Samples
                 logFile = true;
             }
             System.IO.StreamWriter file = new System.IO.StreamWriter("log.csv", true);
-            file.WriteLine(_date + ";" + _time + ";" + _patient + ";" + _action);//write to file
+            file.WriteLine(_date + ";" + _time + ";" + _patient + ";" + _triageNr + ";" + _action);//write to file
             file.Close();
         }
 
