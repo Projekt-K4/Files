@@ -11,7 +11,7 @@ namespace SimSharp.Samples
     class PatientGenerator : IEnumerable, IEnumerator //PatientGenerator
     {
         private static int sequence = 0; //Pool aus dem fortlaufende Katastrophen Nummer für Patient erstellt wird
-        public Random globalTime = new Random();
+        public FastRandom globalTime = new FastRandom();
         private static List<Patient> patientList = new List<Patient>();
         private static int position = -1;
     
@@ -37,12 +37,12 @@ namespace SimSharp.Samples
         }
 
 
-        public int get_random_time()
+        public TimeSpan get_random_time()
         {
-            int random_time = globalTime.Next(1, 400);
+            TimeSpan random_time = new TimeSpan(globalTime.NextInt()%6);
             return random_time;
         }
-        public bool add_Patient(List<Patient> plist, int random_time)
+        public bool add_Patient(List<Patient> plist, TimeSpan random_time)
         {
             plist.Add(new Patient(random_time));
 
@@ -88,20 +88,28 @@ namespace SimSharp.Samples
         {
             return patientList[++position];
         }
+        public List<Patient> getPatientList()
+        {
+            return patientList;
+        }
     }
 
 
     class Patient
     {
+       /* public string KID;
+        public DateTime waitingTime;
+        public DateTime TTL;
+        public DateTime arrivalTime;*/
         private int catId = PatientGenerator.get_new_id();
-        private int hospitalArriveTime;
-        private int timeToLive = 600; //Is the time the Patient has left to live
+        public DateTime hospitalArriveTime;
+        private TimeSpan timeToLive = new TimeSpan(2, 0,0); //Is the time the Patient has left to live
         private int triageNr;
         public Patient()
         {
             Console.WriteLine("Patient with default life expectancy(600) created");
         }
-        public Patient(int assignTime) //Overloaded Constructor
+        public Patient(TimeSpan assignTime) //Overloaded Constructor
         {
             timeToLive = assignTime;
             Console.WriteLine("Patient with life expectancy:" + timeToLive + "created");
@@ -112,11 +120,11 @@ namespace SimSharp.Samples
             return catId;
         }
 
-        public int getTimeToLive()
+        public TimeSpan getTimeToLive()
         {
             return timeToLive;
         }
-        public void setTimeToLive(int TTL)
+        public void setTimeToLive(TimeSpan TTL)
         {
             timeToLive = TTL;
         }
@@ -142,7 +150,7 @@ namespace SimSharp.Samples
             else triageNr = 1; //TTL > 10h -> slightly injured
         }
 
-        public void withdrawTTL(int subtrahend)
+        public void withdrawTTL(TimeSpan subtrahend)
         {
             timeToLive -= subtrahend;
         }
@@ -155,7 +163,7 @@ class Program
     {
         static void Main()
         {
-            Patient Patient1 = new Patient(400);
+            Patient Patient1 = new Patient();
 
             PatientGenerator catastrophe = new PatientGenerator(10);
 
