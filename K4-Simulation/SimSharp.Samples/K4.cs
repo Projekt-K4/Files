@@ -52,14 +52,14 @@ namespace SimSharp.Samples
 
 
 
-        public void RunSimulation()
+        public void RunSimulation(int amount)
         {
             var env = new Environment(randomSeed: 41, defaultStep: TimeSpan.FromMinutes(1));
 
             //Patients start to live
             /*List<Patient> patients = new List<Patient>();
             Random rand = new Random(41);*/
-            PatientGenerator patientGen = new PatientGenerator(50);
+            PatientGenerator patientGen = new PatientGenerator(amount);//Patients get generated
 
 
             //Patients gets generated
@@ -68,7 +68,7 @@ namespace SimSharp.Samples
                  int j = rand.Next(0, 10000);
                  patients.Add(new Patient("Patient_" + i, new DateTime(), new DateTime(1970, 1, 1).AddSeconds(j), env.Now));
              }*/
-            env.Process(Steuerprozess(env, patientGen.getPatientList()));
+            env.Process(Steuerprozess(env, patientGen.getPatientList()));//Simulation starts with generated Patientlist
             env.RunD();
            
 
