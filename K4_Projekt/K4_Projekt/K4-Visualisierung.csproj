@@ -88,6 +88,42 @@
   <ItemGroup>
     <None Include="AUVA.svg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_gruen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_rot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_blau.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_schwarz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_queue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_blau_queue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_gruen_queue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_queue1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_schwarz_queue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient_rot_queue.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
