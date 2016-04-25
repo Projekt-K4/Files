@@ -24,8 +24,11 @@ namespace SimSharp.Samples
     {
         public static void Main(string[] args)
         {
+            eventLog.getLog();//for initalizing and creating file
             // Run all samples one after another
             new K4().RunSimulation();
+            eventLog.getLog().writeToFile("C:/Users/Andreas/Desktop/log.csv");
+            eventLog.getLog().fromFileToConsole("C:/Users/Andreas/Desktop/log.csv","\t");
             Console.WriteLine();
             Console.ReadKey();
         }
