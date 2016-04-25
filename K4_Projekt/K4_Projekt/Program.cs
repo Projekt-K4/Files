@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text;
 using System.IO;
 
 namespace K4_Projekt
@@ -18,7 +15,13 @@ namespace K4_Projekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UKH());
+            UKH u = new UKH();
+
+            int patient = u.write_Queue();
+
+            u.triage(patient);
+
+            Application.Run(u);
         }
     }
 
