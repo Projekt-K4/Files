@@ -34,7 +34,7 @@ namespace SimSharp.Samples
                 logFile = true;
             }
             System.IO.StreamWriter file = new System.IO.StreamWriter(_file, true);
-            foreach(String s in puffer)
+            foreach (String s in puffer)
             {
                 file.WriteLine(s);
             }
@@ -113,4 +113,3 @@ namespace SimSharp.Samples
 
 
 }
-
