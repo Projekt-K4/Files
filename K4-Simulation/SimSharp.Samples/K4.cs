@@ -1,60 +1,79 @@
-﻿#region License Information
-/* SimSharp - A .NET port of SimPy, discrete event simulation framework
-Copyright (C) 2016  Heuristic and Evolutionary Algorithms Laboratory (HEAL)
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
-#endregion
-
+﻿
 using System;
 using System.Collections.Generic;
 
-namespace SimSharp.Samples {
-  public class K4 {
-        TimeSpan ARRIVAL_TIME = TimeSpan.FromSeconds(360);
-        TimeSpan PROCESSING_TIME = TimeSpan.FromSeconds(30);
-        TimeSpan SIMULATION_TIME = TimeSpan.FromHours(10000);
-        ContinuousStatistics statistics;
 
-        IEnumerable<Event> Patient(Environment env)
+namespace SimSharp.Samples
+{
+    public class K4
+    {
+        //Timevariables, not used in current Simulation
+        //TimeSpan ARRIVAL_TIME = TimeSpan.FromSeconds(360);
+        //TimeSpan PROCESSING_TIME = TimeSpan.FromSeconds(30);
+        //TimeSpan SIMULATION_TIME = TimeSpan.FromHours(1000);
+
+        static IEnumerable<Event> Steuerprozess(Environment env, List<Patient> patients)//Simulator start, Timer starts!
         {
-            var triage = new Resource(env, capacity: 1);
-            while (true)
+
+            //each patient arrives at the hospital after a random timestop
+            foreach (Patient pat in patients)
             {
-                Console.WriteLine("Patient erreicht Krankenhaus");
-                yield return env.TimeoutExponential(ARRIVAL_TIME);
-                env.Process(triagierung(env, triage));
+                pat.arrivalTime = env.Now;
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID().ToString(), "---", "arrived");
+                //yield return env.TimeoutUniform(TimeSpan.FromSeconds(360), TimeSpan.FromSeconds(1000));//timestop in seconds till Triage
+                yield return env.Process(Triage(env, pat));
+
+
+
             }
         }
-
-        IEnumerable<Event> triagierung(Environment env, Resource server)
+        static IEnumerable<Event> Triage(Environment env, Patient pat)
         {
-            using (var s = server.Request())
-            {
-                yield return s;
-                Console.WriteLine("Patient wird triagiert");
-                statistics.Update(server.InUse);
-                yield return env.TimeoutExponential(PROCESSING_TIME);
-            }
-            statistics.Update(server.InUse);
+            //patients arrive at the triage
+            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID().ToString(), "---", "at triage");
+
+
+            //timestop for the duration of the triage process
+            yield return env.Timeout(TimeSpan.FromSeconds(30));
+
+            //getTimeToLive() calculation
+            var support = env.Now.Subtract(pat.arrivalTime);//Timespan between now and arrival
+            var TTL = pat.getTimeToLive().Subtract(support);
+            pat.setTimeToLive(TTL - support);//subtract Timespan
+
+
+            pat.triagePatient(pat.getTimeToLive());
+
+            //patient finaly printed to log with triage number
+            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID().ToString(), pat.getTriageNr().ToString(), "get number");
+
         }
 
-        void RunSimulation()
+
+
+
+        public void RunSimulation(int amount)
         {
-            var env = new Environment(randomSeed: 42);
-            statistics = new ContinuousStatistics(env);
-            env.Process(Patient(env));
-            env.Run(SIMULATION_TIME);
+            var env = new Environment(randomSeed: 41, defaultStep: TimeSpan.FromMinutes(1));
+
+            //Patients start to live
+            /*List<Patient> patients = new List<Patient>();
+            Random rand = new Random(41);*/
+            PatientGenerator patientGen = new PatientGenerator(amount);//Patients get generated
+
+
+            //Patients gets generated
+            /* for (int i = 1; i <= 50; ++i)
+             {
+                 int j = rand.Next(0, 10000);
+                 patients.Add(new Patient("Patient_" + i, new DateTime(), new DateTime(1970, 1, 1).AddSeconds(j), env.Now));
+             }*/
+            env.Process(Steuerprozess(env, patientGen.getPatientList()));//Simulation starts with generated Patientlist
+            env.RunD();
+           
+
+
+
         }
 
     }

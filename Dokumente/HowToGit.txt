@@ -1,0 +1,3 @@
+Please follow this link: (:
+
+https://msdn.microsoft.com/en-us/library/vs/alm/code/git/get-started
