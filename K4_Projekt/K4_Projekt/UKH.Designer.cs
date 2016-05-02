@@ -156,7 +156,6 @@ namespace K4_Projekt
             this.class1.TabIndex = 11;
             this.class1.Text = "Klasse 1\r\nLeichtverletze:";
             this.class1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.class1.Click += new System.EventHandler(this.class1_Click);
             // 
             // class2
             // 
@@ -355,7 +354,6 @@ namespace K4_Projekt
             this.p_h4.TabIndex = 33;
             this.p_h4.TabStop = false;
             this.p_h4.Visible = false;
-            this.p_h4.Click += new System.EventHandler(this.pictureBox4_Click_1);
             // 
             // p_h3
             // 
@@ -499,7 +497,6 @@ namespace K4_Projekt
             this.p_lv3.TabIndex = 22;
             this.p_lv3.TabStop = false;
             this.p_lv3.Visible = false;
-            this.p_lv3.Click += new System.EventHandler(this.pictureBox3_Click_1);
             // 
             // p_lv2
             // 
@@ -539,7 +536,6 @@ namespace K4_Projekt
             this.Patient4.TabIndex = 19;
             this.Patient4.TabStop = false;
             this.Patient4.Visible = false;
-            this.Patient4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // Patient5
             // 
@@ -553,7 +549,6 @@ namespace K4_Projekt
             this.Patient5.TabIndex = 18;
             this.Patient5.TabStop = false;
             this.Patient5.Visible = false;
-            this.Patient5.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // Patient3
             // 
@@ -593,7 +588,6 @@ namespace K4_Projekt
             this.Patient1.TabIndex = 15;
             this.Patient1.TabStop = false;
             this.Patient1.Visible = false;
-            this.Patient1.Click += new System.EventHandler(this.Patient_Click);
             // 
             // Triageplatz
             // 
@@ -606,14 +600,13 @@ namespace K4_Projekt
             this.Triageplatz.Size = new System.Drawing.Size(413, 179);
             this.Triageplatz.TabIndex = 5;
             this.Triageplatz.TabStop = false;
-            this.Triageplatz.Click += new System.EventHandler(this.Triage_Click);
             // 
             // AUVA_LOGO
             // 
             this.AUVA_LOGO.AccessibleDescription = "AUVA_LOGO";
             this.AUVA_LOGO.AccessibleName = "AUVA_LOGO";
             this.AUVA_LOGO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AUVA_LOGO.Image = global::K4_Projekt.Properties.Resources.AUVA_svg;
+            this.AUVA_LOGO.Image = global::K4_Projekt.Properties.Resources.AUVA1;
             this.AUVA_LOGO.InitialImage = null;
             this.AUVA_LOGO.Location = new System.Drawing.Point(1120, 38);
             this.AUVA_LOGO.Margin = new System.Windows.Forms.Padding(4);
@@ -622,7 +615,6 @@ namespace K4_Projekt
             this.AUVA_LOGO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.AUVA_LOGO.TabIndex = 0;
             this.AUVA_LOGO.TabStop = false;
-            this.AUVA_LOGO.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // UKH
             // 
@@ -674,7 +666,6 @@ namespace K4_Projekt
             this.Name = "UKH";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Triage-Simulator UKH Linz";
-            this.Load += new System.EventHandler(this.UKH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.p_t6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_lv6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_sv6)).EndInit();

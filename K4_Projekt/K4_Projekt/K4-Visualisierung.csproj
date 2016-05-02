@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="eventLog.cs" />
     <Compile Include="UKH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\patient_rot_queue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AUVA.svg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

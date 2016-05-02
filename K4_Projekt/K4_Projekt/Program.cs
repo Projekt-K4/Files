@@ -19,6 +19,9 @@ namespace K4_Projekt
 
             int patient = u.write_Queue();
 
+            eventLog e = new eventLog();
+            e.fromFileToList("", "/t");
+
             u.triage(patient);
 
             Application.Run(u);

@@ -229,7 +229,7 @@ namespace K4_Projekt
                     p_sv3.Visible = true;
                     p_sv4.Visible = true;
                 }
-                else if (patient_number== 5)
+                else if (patient_number == 5)
                 {
                     p_sv1.Visible = true;
                     p_sv2.Visible = true;
@@ -350,56 +350,7 @@ namespace K4_Projekt
                 }
             }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Triage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UKH_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void class1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Patient_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click_1(object sender, EventArgs e)
-        {
-
-        }
+      
     }
     
 }
