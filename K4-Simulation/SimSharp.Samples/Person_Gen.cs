@@ -100,18 +100,18 @@ namespace SimSharp.Samples
 
     class Patient
     {
-       /* public string KID;
-        public DateTime waitingTime;
-        public DateTime TTL;
-        public DateTime arrivalTime;*/
+        /* public string KID;
+         public DateTime waitingTime;
+         public DateTime TTL;
+         public DateTime arrivalTime;*/
         private int KID = PatientGenerator.get_new_id();
         public DateTime arrivalTime;
         private DateTime TTL = new DateTime(); //Is the time the Patient has left to live
         private int triageNr;
-        public Patient()
-        {
-            Console.WriteLine("Patient with default life expectancy(600) created");
-        }
+        //public Patient()
+        //{
+        //    Console.WriteLine("Patient with default life expectancy(600) created");
+        //}
         //public Patient(DateTime assignTime) //Overloaded Constructor
         //{
         //    TTL = assignTime;
@@ -153,7 +153,7 @@ namespace SimSharp.Samples
         }
 
 
-        public void triagePatient(DateTime TTL)
+        public void triagePatient(DateTime TTL)//changes of this method, has to be also changed in Priority class
         // 1 slightly injured, 2 severely injured, 3 hopeless, 4 dead
         // TTL in seconds
         {
