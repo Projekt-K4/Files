@@ -14,6 +14,7 @@ namespace SimSharp.Samples
 
         static IEnumerable<Event> Steuerprozess(Environment env, List<Patient> patients)//Simulator start, Timer starts!
         {
+            var triageWagon = new PreemptiveResource(env);
 
             //each patient arrives at the hospital after a random timestop
             foreach (Patient pat in patients)
@@ -21,13 +22,13 @@ namespace SimSharp.Samples
                 pat.arrivalTime = env.Now;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID().ToString(), "---", "arrived");
                 //yield return env.TimeoutUniform(TimeSpan.FromSeconds(360), TimeSpan.FromSeconds(1000));//timestop in seconds till Triage
-                yield return env.Process(Triage(env, pat));
+                yield return env.Process(Triage(env, pat, triageWagon));
 
 
 
             }
         }
-        static IEnumerable<Event> Triage(Environment env, Patient pat)
+        static IEnumerable<Event> Triage(Environment env, Patient pat, PreemptiveResource triageWagon)
         {
             //patients arrive at the triage
             eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID().ToString(), "---", "at triage");
@@ -35,7 +36,8 @@ namespace SimSharp.Samples
 
             //timestop for the duration of the triage process
             yield return env.Timeout(TimeSpan.FromSeconds(30));
-
+            //using resource:
+            //Console.WriteLine(priority.getInstance().getPriority(pat.getTimeToLive()));
             //getTimeToLive() calculation
             var support = env.Now.Subtract(pat.arrivalTime);//Timespan between now and arrival
             var TTL = pat.getTimeToLive().Subtract(support);
@@ -45,7 +47,7 @@ namespace SimSharp.Samples
             pat.triagePatient(pat.getTimeToLive());
 
             //patient finaly printed to log with triage number
-            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID().ToString(), pat.getTriageNr().ToString(), "get number");
+            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID().ToString(), pat.getTriageNr().ToString(), "got number");
 
         }
 
