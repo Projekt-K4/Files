@@ -65,9 +65,9 @@ namespace K4_Projekt
             this.Patient5 = new System.Windows.Forms.PictureBox();
             this.Patient3 = new System.Windows.Forms.PictureBox();
             this.Patient2 = new System.Windows.Forms.PictureBox();
+            this.Patient1 = new System.Windows.Forms.PictureBox();
             this.Triageplatz = new System.Windows.Forms.PictureBox();
             this.AUVA_LOGO = new System.Windows.Forms.PictureBox();
-            this.Patient1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.p_t6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_lv6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_sv6)).BeginInit();
@@ -97,9 +97,9 @@ namespace K4_Projekt
             ((System.ComponentModel.ISupportInitialize)(this.Patient5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Patient3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Patient2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Patient1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Triageplatz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AUVA_LOGO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient1)).BeginInit();
             this.SuspendLayout();
             // 
             // Triageplatzbeschriftung
@@ -213,7 +213,7 @@ namespace K4_Projekt
             this.p_t6.TabStop = false;
             this.p_t6.Visible = false;
             // 
-            // p_lv6
+            // p_lv6test
             // 
             this.p_lv6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.p_lv6.Image = global::K4_Projekt.Properties.Resources.patient_gruen_queue;
@@ -581,6 +581,20 @@ namespace K4_Projekt
             this.Patient2.TabStop = false;
             this.Patient2.Visible = false;
             // 
+            // Patient1
+            // 
+            this.Patient1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Patient1.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.Patient1.InitialImage = null;
+            this.Patient1.Location = new System.Drawing.Point(201, 50);
+            this.Patient1.Name = "Patient1";
+            this.Patient1.Size = new System.Drawing.Size(50, 80);
+            this.Patient1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Patient1.TabIndex = 15;
+            this.Patient1.TabStop = false;
+            this.Patient1.Visible = false;
+            this.Patient1.Click += new System.EventHandler(this.Patient_Click);
+            // 
             // Triageplatz
             // 
             this.Triageplatz.AccessibleName = "";
@@ -610,26 +624,12 @@ namespace K4_Projekt
             this.AUVA_LOGO.TabStop = false;
             this.AUVA_LOGO.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // Patient1
-            // 
-            this.Patient1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Patient1.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.Patient1.InitialImage = null;
-            this.Patient1.Location = new System.Drawing.Point(201, 50);
-            this.Patient1.Name = "Patient1";
-            this.Patient1.Size = new System.Drawing.Size(50, 80);
-            this.Patient1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Patient1.TabIndex = 45;
-            this.Patient1.TabStop = false;
-            this.Patient1.Visible = false;
-            // 
             // UKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1356, 833);
-            this.Controls.Add(this.Patient1);
             this.Controls.Add(this.p_t6);
             this.Controls.Add(this.p_lv6);
             this.Controls.Add(this.p_sv6);
@@ -659,6 +659,7 @@ namespace K4_Projekt
             this.Controls.Add(this.Patient5);
             this.Controls.Add(this.Patient3);
             this.Controls.Add(this.Patient2);
+            this.Controls.Add(this.Patient1);
             this.Controls.Add(this.class4);
             this.Controls.Add(this.class3);
             this.Controls.Add(this.class2);
@@ -703,9 +704,9 @@ namespace K4_Projekt
             ((System.ComponentModel.ISupportInitialize)(this.Patient5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Patient3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Patient2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Patient1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Triageplatz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AUVA_LOGO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -724,6 +725,7 @@ namespace K4_Projekt
         private Label class2;
         private Label class3;
         private Label class4;
+        private PictureBox Patient1;
         private PictureBox Patient2;
         private PictureBox Patient3;
         private PictureBox Patient5;
@@ -753,7 +755,6 @@ namespace K4_Projekt
         private PictureBox p_sv6;
         private PictureBox p_lv6;
         private PictureBox p_t6;
-        private PictureBox Patient1;
     }
 }
 
