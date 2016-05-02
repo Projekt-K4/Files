@@ -213,7 +213,7 @@ namespace K4_Projekt
             this.p_t6.TabStop = false;
             this.p_t6.Visible = false;
             // 
-            // p_lv6test
+            // p_lv6
             // 
             this.p_lv6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.p_lv6.Image = global::K4_Projekt.Properties.Resources.patient_gruen_queue;
