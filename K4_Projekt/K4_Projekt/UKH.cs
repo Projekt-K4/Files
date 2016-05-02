@@ -45,9 +45,11 @@ namespace K4_Projekt
             int c3 = 0;
             int c4 = 0;
 
+            Random random = new Random();
+            
             while (i != 0)
             {
-                 int triage_number = triage_numb();
+                int triage_number = random.Next(1, 4);
 
                 if (triage_number == 1)
                 {
@@ -70,9 +72,9 @@ namespace K4_Projekt
                     visualize_patient_triage(4, c4);
                 }
 
-                class1.Text = ("Klasse 1 \nSchwerverletzte: " + c1.ToString());
+                class1.Text = ("Klasse 1\nLeichtverletzte: " + c1.ToString());
 
-                class2.Text = ("Klasse 2\nLeichtverletzte: " + c2.ToString());
+                class2.Text = ("Klasse 2\nSchwerverletzte: " + c2.ToString());
 
                 class3.Text = ("Klasse 3\nHoffnungslose: " + c3.ToString());
 
@@ -88,12 +90,6 @@ namespace K4_Projekt
 
 
 
-        private int triage_numb()
-        {
-            Random random = new Random();
-            int random_number = random.Next(1, 4);
-            return random_number;
-        }
 
         private void visualize_patient_queue(int patient_number)
         {
