@@ -88,9 +88,6 @@ namespace K4_Projekt
             }
         }
 
-
-
-
         private void visualize_patient_queue(int patient_number)
         {
             if (patient_number == 0)
@@ -351,54 +348,9 @@ namespace K4_Projekt
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void operate()
         {
-
-        }
-
-        private void Triage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UKH_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void class1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Patient_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click_1(object sender, EventArgs e)
-        {
-
+           
         }
     }
     
