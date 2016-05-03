@@ -179,13 +179,13 @@ class Program
     {
         static void Main()
         {
-            Patient Patient1 = new Patient();
+            /*Patient Patient1 = new Patient();
 
             PatientGenerator catastrophe = new PatientGenerator(10);
 
             PatientGenerator.getNextPatient();
             PatientGenerator.getNextPatient();
-            PatientGenerator.getNextPatient();
+            PatientGenerator.getNextPatient();*/
         }
     }
 
