@@ -21,19 +21,8 @@ namespace K4_Projekt
 
             Application.Run(u);
 
-            
-
-
-
         }
 
-        static void Wait(int ms)
-        {
-            DateTime start = DateTime.Now;
-            while ((DateTime.Now - start).TotalMilliseconds < ms)
-                Application.DoEvents();
-
-        }
     }
 
     

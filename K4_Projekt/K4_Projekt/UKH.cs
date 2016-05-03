@@ -353,22 +353,26 @@ namespace K4_Projekt
         }
 
 
+        //OP - Functions
+
+        //OP background
+
         //Event Code 4
-        public void operate(int OProom)
+        public void operate(int OPRoom)
         {
-            if (OProom == 1)
+            if (OPRoom == 1)
             {
                 OP1.BackColor = Color.Red;
             }
-            else if (OProom == 2)
+            else if (OPRoom == 2)
             {
                 OP2.BackColor = Color.Red;
             }
-            else if (OProom == 3)
+            else if (OPRoom == 3)
             {
                 OP3.BackColor = Color.Red;
             }
-            else if (OProom == 4)
+            else if (OPRoom == 4)
             {
                 OP4.BackColor = Color.Red;
             }
@@ -376,24 +380,24 @@ namespace K4_Projekt
 
 
         //Event Code 5
-        public void diedInOP(int OProom)
+        public void diedInOP(int OPRoom)
         {
-            if (OProom == 1)
+            if (OPRoom == 1)
             {
                 OP1.BackColor = Color.Green;
                 dead++;
             }
-            else if (OProom == 2)
+            else if (OPRoom == 2)
             {
                 OP2.BackColor = Color.Green;
                 dead++;
             }
-            else if (OProom == 3)
+            else if (OPRoom == 3)
             {
                 OP3.BackColor = Color.Green;
                 dead++;
             }
-            else if (OProom == 4)
+            else if (OPRoom == 4)
             {
                 OP4.BackColor = Color.Green;
                 dead++;
@@ -401,24 +405,24 @@ namespace K4_Projekt
         }
 
         //Event Code 6
-        private void aliveAfterOP(int OProom)
+        private void aliveAfterOP(int OPRoom)
         {
-            if (OProom == 1)
+            if (OPRoom == 1)
             {
                 OP1.BackColor = Color.Green;
                 station++;
             }
-            else if (OProom == 2)
+            else if (OPRoom == 2)
             {
                 OP2.BackColor = Color.Green;
                 station++;
             }
-            else if (OProom == 3)
+            else if (OPRoom == 3)
             {
                 OP3.BackColor = Color.Green;
                 station++;
             }
-            else if (OProom == 4)
+            else if (OPRoom == 4)
             {
                 OP4.BackColor = Color.Green;
                 station++;
@@ -426,7 +430,28 @@ namespace K4_Projekt
         }
 
 
+        //OP staff
 
+        //surgeon
+        public void staffOPC (int OPRoom)
+        {
+            if (OPRoom == 1)
+            {
+                OPOPC1Label.BackColor = Color.Green;
+            }
+            else if (OPRoom == 2)
+            {
+                OPOPC2Label.BackColor = Color.Green;
+            }
+            else if (OPRoom == 3)
+            {
+                OPOPC3Label.BackColor = Color.Green;
+            }
+            else if (OPRoom == 4)
+            {
+                OPOPC4Label.BackColor = Color.Green;
+            }
+        }
 
 
     }
