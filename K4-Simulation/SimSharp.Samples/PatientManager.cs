@@ -30,6 +30,12 @@ namespace SimSharp.Samples
             patientsExists = true;
             return this.patients;
         }
+        public List<Patient> createPatients(List<Patient>p)//fills the list of patients
+        {
+            this.patients = p;
+            patientsExists = true;
+            return this.patients;
+        }
         public List<Patient> getPatients(int amount=1,bool priority = true)//returns an amount of patients out of the list;amount has to be greater than 0
         {
             if(!patientsExists)
