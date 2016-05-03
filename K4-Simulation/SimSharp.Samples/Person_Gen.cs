@@ -135,7 +135,7 @@ namespace SimSharp.Samples
         }
         public String getTimeToLiveString()
         {
-            return TTL.ToShortTimeString();
+            return TTL.ToLongTimeString();
         }
         public void setTimeToLive(DateTime _TTL)
         {
