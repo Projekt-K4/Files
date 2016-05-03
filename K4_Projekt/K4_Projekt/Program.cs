@@ -16,14 +16,27 @@ namespace K4_Projekt
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             UKH u = new UKH();
-
             int patient = u.write_Queue();
-
             u.triage(patient);
 
             Application.Run(u);
+
+            
+
+
+
+        }
+
+        static void Wait(int ms)
+        {
+            DateTime start = DateTime.Now;
+            while ((DateTime.Now - start).TotalMilliseconds < ms)
+                Application.DoEvents();
+
         }
     }
+
+    
 
     class stat_file
     {

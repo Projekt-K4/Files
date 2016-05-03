@@ -12,6 +12,10 @@ namespace K4_Projekt
 {
     public partial class UKH : Form
     {
+        static int dead = 0;
+        static int station = 0;
+       
+
         public UKH()
         {
             InitializeComponent();
@@ -46,7 +50,7 @@ namespace K4_Projekt
             int c4 = 0;
 
             Random random = new Random();
-            
+
             while (i != 0)
             {
                 int triage_number = random.Next(1, 4);
@@ -226,7 +230,7 @@ namespace K4_Projekt
                     p_sv3.Visible = true;
                     p_sv4.Visible = true;
                 }
-                else if (patient_number== 5)
+                else if (patient_number == 5)
                 {
                     p_sv1.Visible = true;
                     p_sv2.Visible = true;
@@ -348,10 +352,83 @@ namespace K4_Projekt
             }
         }
 
-        private void operate()
+
+        //Event Code 4
+        public void operate(int OProom)
         {
-           
+            if (OProom == 1)
+            {
+                OP1.BackColor = Color.Red;
+            }
+            else if (OProom == 2)
+            {
+                OP2.BackColor = Color.Red;
+            }
+            else if (OProom == 3)
+            {
+                OP3.BackColor = Color.Red;
+            }
+            else if (OProom == 4)
+            {
+                OP4.BackColor = Color.Red;
+            }
         }
+
+
+        //Event Code 5
+        public void diedInOP(int OProom)
+        {
+            if (OProom == 1)
+            {
+                OP1.BackColor = Color.Green;
+                dead++;
+            }
+            else if (OProom == 2)
+            {
+                OP2.BackColor = Color.Green;
+                dead++;
+            }
+            else if (OProom == 3)
+            {
+                OP3.BackColor = Color.Green;
+                dead++;
+            }
+            else if (OProom == 4)
+            {
+                OP4.BackColor = Color.Green;
+                dead++;
+            }
+        }
+
+        //Event Code 6
+        private void aliveAfterOP(int OProom)
+        {
+            if (OProom == 1)
+            {
+                OP1.BackColor = Color.Green;
+                station++;
+            }
+            else if (OProom == 2)
+            {
+                OP2.BackColor = Color.Green;
+                station++;
+            }
+            else if (OProom == 3)
+            {
+                OP3.BackColor = Color.Green;
+                station++;
+            }
+            else if (OProom == 4)
+            {
+                OP4.BackColor = Color.Green;
+                station++;
+            }
+        }
+
+
+
+
+
     }
     
 }
