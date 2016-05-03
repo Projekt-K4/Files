@@ -1,18 +1,19 @@
-Event	Bedeutung			Text (ausgegeben in Visualisierung)
+Event	Bedeutung				Text (ausgegeben in Visualisierung)
 ______________________________________________________________________________
 
-1 	angekommen			Patient ist im Krankenhaus angekommen
-2	bei Triage			Patient ist an der Reihe (Triageplatz).
-3	Triagenummer			Die Triagenummer wurde vergeben.
-4[.]	wird operiert [in OP #]		Patient wird in OP # operiert.		--> bedeutet: OP besetzt
-5[.]	in OP # gestorben		Patient ist in OP verstorben.		--> bedeutet: OP frei, Patient in K�hlraum
-6[.]	von OP # auf Bettenstation	Patient wurde operiert und kommt auf Bettenstation.		--> bedeutet: OP frei, Patient auf Bettenstation
-7[.]	Chirurg in OP # eingetroffen	Chirurg in OP # eingetroffen und bereit f�r OP	
-8[.]	...				  in OP # eingetroffen und bereit f�r OP
-.
-.
-.
+1 	angekommen				Patient ist im Krankenhaus angekommen
+2	bei Triage				Patient ist an der Reihe (Triageplatz).
+3	Triagenummer				Die Triagenummer wurde vergeben.
+4[.]	wird operiert [in OP #]			Patient wird in OP # operiert.		--> bedeutet: OP besetzt
+5[.]	in OP # gestorben			Patient ist in OP verstorben.		--> bedeutet: OP frei, Patient in Kühlraum
+6[.]	von OP # auf Bettenstation		Patient wurde operiert und kommt auf Bettenstation.		--> bedeutet: OP frei, Patient auf Bettenstation
+7[.]	Chirurg in OP # eingetroffen		Chirurg in OP # eingetroffen und bereit für OP	
+8[.]	OP-Schwester in OP # eingetroffen	OP-Schwester  in OP # eingetroffen und bereit für OP
+9[.]	OP-Beihilfe in OP # eingetroffen	OP-Beihilfe  in OP # eingetroffen und bereit für OP
+10[.]	Anästhesist in OP # eingetroffen	Anästhesist in OP # eingetroffen und bereit für OP
+11[.]	Anästhesie-Schwester in OP # eingetroffen	Anästhesie-Schweste in OP # eingetroffen und bereit für OP
+12[.]	RTA in OP # eingetroffen		RTA in OP # eingetroffen und bereit für OP
 	
 
 Anm.: [.] -> Zahl zwischen 1-4 (4 OPs)
-(zu 4: in [] OP-Nummer -> dann zB 41 eingelesen f�r OP1)
+(zu 4: in [] OP-Nummer -> dann zB 41 eingelesen für OP1)
