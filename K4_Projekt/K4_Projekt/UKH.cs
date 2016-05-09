@@ -360,21 +360,21 @@ namespace K4_Projekt
         //Event Code 4
         public void operate(int OPRoom)
         {
-            if (OPRoom == 1)
+            switch (OPRoom)
             {
-                OP1.BackColor = Color.Red;
-            }
-            else if (OPRoom == 2)
-            {
-                OP2.BackColor = Color.Red;
-            }
-            else if (OPRoom == 3)
-            {
-                OP3.BackColor = Color.Red;
-            }
-            else if (OPRoom == 4)
-            {
-                OP4.BackColor = Color.Red;
+                case 1:
+                    OP1.BackColor = Color.Red;
+                    break;
+                case 2:
+                    OP2.BackColor = Color.Red;
+                    break;
+                case 3:
+                    OP3.BackColor = Color.Red;
+                    break;
+                case 4:
+                    OP4.BackColor = Color.Red;
+                    break;
+                default: break;
             }
         }
 
@@ -382,74 +382,73 @@ namespace K4_Projekt
         //Event Code 5
         public void diedInOP(int OPRoom)
         {
-            if (OPRoom == 1)
+            switch (OPRoom)
             {
-                OP1.BackColor = Color.Green;
-                dead++;
-            }
-            else if (OPRoom == 2)
-            {
-                OP2.BackColor = Color.Green;
-                dead++;
-            }
-            else if (OPRoom == 3)
-            {
-                OP3.BackColor = Color.Green;
-                dead++;
-            }
-            else if (OPRoom == 4)
-            {
-                OP4.BackColor = Color.Green;
-                dead++;
+                case 1:
+                    OP1.BackColor = Color.Green;
+                    dead++;
+                    break;
+                case 2:
+                    OP2.BackColor = Color.Green;
+                    dead++;
+                    break;
+                case 3:
+                    OP3.BackColor = Color.Green;
+                    dead++;
+                    break;
+                case 4:
+                    OP4.BackColor = Color.Green;
+                    dead++;
+                    break;
+                default: break;
             }
         }
 
         //Event Code 6
         private void aliveAfterOP(int OPRoom)
         {
-            if (OPRoom == 1)
+            switch (OPRoom)
             {
-                OP1.BackColor = Color.Green;
-                station++;
-            }
-            else if (OPRoom == 2)
-            {
-                OP2.BackColor = Color.Green;
-                station++;
-            }
-            else if (OPRoom == 3)
-            {
-                OP3.BackColor = Color.Green;
-                station++;
-            }
-            else if (OPRoom == 4)
-            {
-                OP4.BackColor = Color.Green;
-                station++;
+                case 1:
+                    OP1.BackColor = Color.Green;
+                    station++;
+                    break;
+                case 2:
+                    OP2.BackColor = Color.Green;
+                    station++;
+                    break;
+                case 3:
+                    OP3.BackColor = Color.Green;
+                    station++;
+                    break;
+                case 4:
+                    OP4.BackColor = Color.Green;
+                    station++;
+                    break;
+                default: break;
             }
         }
-
 
         //OP staff
 
         //surgeon
         public void staffOPC (int OPRoom)
         {
-            if (OPRoom == 1)
+            switch (OPRoom)
             {
-                OPOPC1Label.BackColor = Color.Green;
-            }
-            else if (OPRoom == 2)
-            {
-                OPOPC2Label.BackColor = Color.Green;
-            }
-            else if (OPRoom == 3)
-            {
-                OPOPC3Label.BackColor = Color.Green;
-            }
-            else if (OPRoom == 4)
-            {
-                OPOPC4Label.BackColor = Color.Green;
+                case 1:
+                    OPOPC1Label.BackColor = Color.Green;
+                    break;
+                case 2:
+                    OPOPC2Label.BackColor = Color.Green;
+                    break;
+                case 3:
+                    OPOPC3Label.BackColor = Color.Green;
+                    break;
+                case 4:
+                    OPOPC4Label.BackColor = Color.Green;
+                    break;
+                default: break;
             }
         }
 
