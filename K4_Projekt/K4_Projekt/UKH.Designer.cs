@@ -142,7 +142,6 @@ namespace K4_Projekt
             ((System.ComponentModel.ISupportInitialize)(this.OP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OP4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OP3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PatientTriage)).BeginInit();
             this.SuspendLayout();
             // 
             // Triageplatzbeschriftung
