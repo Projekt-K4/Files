@@ -8,11 +8,12 @@ ______________________________________________________________________________
 5[.]	in OP # gestorben			Patient ist in OP verstorben.		--> bedeutet: OP frei, Patient in Kühlraum
 6[.]	von OP # auf Bettenstation		Patient wurde operiert und kommt auf Bettenstation.		--> bedeutet: OP frei, Patient auf Bettenstation
 7[.]	Chirurg in OP # eingetroffen		Chirurg in OP # eingetroffen und bereit für OP	
-8[.]	OP-Schwester in OP # eingetroffen	OP-Schwester  in OP # eingetroffen und bereit für OP
-9[.]	OP-Beihilfe in OP # eingetroffen	OP-Beihilfe  in OP # eingetroffen und bereit für OP
-10[.]	Anästhesist in OP # eingetroffen	Anästhesist in OP # eingetroffen und bereit für OP
-11[.]	Anästhesie-Schwester in OP # eingetroffen	Anästhesie-Schweste in OP # eingetroffen und bereit für OP
-12[.]	RTA in OP # eingetroffen		RTA in OP # eingetroffen und bereit für OP
+8[.]	OP-Schwester1 in OP # eingetroffen	OP-Schwester1  in OP # eingetroffen und bereit für OP
+9[.]	OP-Schwester2 in OP # eingetroffen	OP-Schwester2  in OP # eingetroffen und bereit für OP
+10[.]	OP-Beihilfe in OP # eingetroffen	OP-Beihilfe  in OP # eingetroffen und bereit für OP
+11[.]	Anästhesist in OP # eingetroffen	Anästhesist in OP # eingetroffen und bereit für OP
+12[.]	Anästhesie-Schwester in OP # eingetroffen	Anästhesie-Schweste in OP # eingetroffen und bereit für OP
+13[.]	RTA in OP # eingetroffen		RTA in OP # eingetroffen und bereit für OP
 	
 
 Anm.: [.] -> Zahl zwischen 1-4 (4 OPs)
