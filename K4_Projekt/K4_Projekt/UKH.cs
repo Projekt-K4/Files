@@ -14,6 +14,8 @@ namespace K4_Projekt
     {
         static int dead = 0;
         static int station = 0;
+        //fill this Queue please!!
+        static int QueueOPRoom = 0;
        
 
         public UKH()
@@ -364,15 +366,19 @@ namespace K4_Projekt
             {
                 case 1:
                     OP1.BackColor = Color.Red;
+                    QueueOPRoom--;
                     break;
                 case 2:
                     OP2.BackColor = Color.Red;
+                    QueueOPRoom--;
                     break;
                 case 3:
                     OP3.BackColor = Color.Red;
+                    QueueOPRoom--;
                     break;
                 case 4:
                     OP4.BackColor = Color.Red;
+                    QueueOPRoom--;
                     break;
                 default: break;
             }
@@ -430,7 +436,7 @@ namespace K4_Projekt
         }
 
         //OP staff
-
+        //Event Code 7
         //surgeon
         public void staffOPC (int OPRoom)
         {
@@ -450,29 +456,143 @@ namespace K4_Projekt
                     break;
                 default: break;
             }
+
+            //check_staff(OPRoom);
+            //Checks if needed staff has arrived
+            //useless because we get Code 4 if somebody gets operated
         }
 
-        //op schwester
-        public void staffOPS(int OPRoom)
+        //op schwester1
+        //event code8
+        public void staffOPS1(int OPRoom)
         {
             switch (OPRoom)
             {
                 case 1:
-                    OPOPC1Label.BackColor = Color.Green;
+                    OPOPS11Label.BackColor = Color.Green;
                     break;
                 case 2:
-                    OPOPC2Label.BackColor = Color.Green;
+                    OPOPS21Label.BackColor = Color.Green;
                     break;
                 case 3:
-                    OPOPC3Label.BackColor = Color.Green;
+                    OPOPS31Label.BackColor = Color.Green;
                     break;
                 case 4:
-                    OPOPC4Label.BackColor = Color.Green;
+                    OPOPS41Label.BackColor = Color.Green;
                     break;
                 default: break;
             }
         }
 
+        //OPS2
+        //Event Code 9
+        public void staffOPS2(int OPRoom)
+        {
+            switch (OPRoom)
+            {
+                case 1:
+                    OPOPS12Label.BackColor = Color.Green;
+                    break;
+                case 2:
+                    OPOPS22Label.BackColor = Color.Green;
+                    break;
+                case 3:
+                    OPOPS32Label.BackColor = Color.Green;
+                    break;
+                case 4:
+                    OPOPS42Label.BackColor = Color.Green;
+                    break;
+                default: break;
+            }
+        }
+
+        //OPB
+        //Event Code 10
+        public void staffOPB(int OPRoom)
+        {
+            switch (OPRoom)
+            {
+                case 1:
+                    OPOPB1Label.BackColor = Color.Green;
+                    break;
+                case 2:
+                    OPOPB2Label.BackColor = Color.Green;
+                    break;
+                case 3:
+                    OPOPB3Label.BackColor = Color.Green;
+                    break;
+                case 4:
+                    OPOPB4Label.BackColor = Color.Green;
+                    break;
+                default: break;
+            }
+        }
+
+        //Anä
+        //Event Code 11
+        public void staffAnä(int OPRoom)
+        {
+            switch (OPRoom)
+            {
+                case 1:
+                    OPAnä1Label.BackColor = Color.Green;
+                    break;
+                case 2:
+                    OPAnä2Label.BackColor = Color.Green;
+                    break;
+                case 3:
+                    OPAnä3Label.BackColor = Color.Green;
+                    break;
+                case 4:
+                    OPAnä4Label.BackColor = Color.Green;
+                    break;
+                default: break;
+            }
+        }
+
+        //AnäS
+        //Event Code 12
+        public void staffAnäS(int OPRoom)
+        {
+            switch (OPRoom)
+            {
+                case 1:
+                    OPAnäS1Label.BackColor = Color.Green;
+                    break;
+                case 2:
+                    OPAnäS2Label.BackColor = Color.Green;
+                    break;
+                case 3:
+                    OPAnäS3Label.BackColor = Color.Green;
+                    break;
+                case 4:
+                    OPAnäS4Label.BackColor = Color.Green;
+                    break;
+                default: break;
+            }
+        }
+
+        //AnäS
+        //Event Code 12
+        public void staffRTA(int OPRoom)
+        {
+            switch (OPRoom)
+            {
+                case 1:
+                    OPRTA1Label.BackColor = Color.Green;
+                    break;
+                case 2:
+                    OPRTA2Label.BackColor = Color.Green;
+                    break;
+                case 3:
+                    OPRTA3Label.BackColor = Color.Green;
+                    break;
+                case 4:
+                    OPRTA4Label.BackColor = Color.Green;
+                    break;
+                default: break;
+            }
+        }
 
     }
     
