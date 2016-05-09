@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 
 namespace K4_Projekt
 {
@@ -15,18 +16,18 @@ namespace K4_Projekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             UKH u = new UKH();
-
-            int patient = u.write_Queue();
-
-            eventLog e = new eventLog();
-            e.fromFileToList("", "/t");
-
-            u.triage(patient);
+            
 
             Application.Run(u);
+
+            u.read_puffer();
+ 
         }
     }
+
+
 
     class stat_file
     {
