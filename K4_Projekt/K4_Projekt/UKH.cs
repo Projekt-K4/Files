@@ -452,6 +452,27 @@ namespace K4_Projekt
             }
         }
 
+        //op schwester
+        public void staffOPS(int OPRoom)
+        {
+            switch (OPRoom)
+            {
+                case 1:
+                    OPOPC1Label.BackColor = Color.Green;
+                    break;
+                case 2:
+                    OPOPC2Label.BackColor = Color.Green;
+                    break;
+                case 3:
+                    OPOPC3Label.BackColor = Color.Green;
+                    break;
+                case 4:
+                    OPOPC4Label.BackColor = Color.Green;
+                    break;
+                default: break;
+            }
+        }
+
 
     }
     

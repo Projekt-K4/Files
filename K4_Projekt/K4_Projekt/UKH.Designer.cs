@@ -73,12 +73,12 @@ namespace K4_Projekt
             this.OPOPC1Label = new System.Windows.Forms.Label();
             this.OPB1Label = new System.Windows.Forms.Label();
             this.OPAnä1Label = new System.Windows.Forms.Label();
-            this.OPOPS1label = new System.Windows.Forms.Label();
+            this.OPOPS11label = new System.Windows.Forms.Label();
             this.OPRTA1Label = new System.Windows.Forms.Label();
             this.OPAnäS1Label = new System.Windows.Forms.Label();
             this.OPAnäSLabel = new System.Windows.Forms.Label();
             this.OPRTA2Label = new System.Windows.Forms.Label();
-            this.OPOPS2Label = new System.Windows.Forms.Label();
+            this.OPOPS21Label = new System.Windows.Forms.Label();
             this.OPAnäLabel = new System.Windows.Forms.Label();
             this.OPOPB2Label = new System.Windows.Forms.Label();
             this.OPOPC2Label = new System.Windows.Forms.Label();
@@ -86,7 +86,7 @@ namespace K4_Projekt
             this.OP2 = new System.Windows.Forms.PictureBox();
             this.OPAnäS4Label = new System.Windows.Forms.Label();
             this.OPRTA4Label = new System.Windows.Forms.Label();
-            this.OPOPS4Label = new System.Windows.Forms.Label();
+            this.OPOPS41Label = new System.Windows.Forms.Label();
             this.OPAnä4Label = new System.Windows.Forms.Label();
             this.OPOPB4Label = new System.Windows.Forms.Label();
             this.OPOPC4Label = new System.Windows.Forms.Label();
@@ -94,12 +94,16 @@ namespace K4_Projekt
             this.OP4 = new System.Windows.Forms.PictureBox();
             this.OPAnäS3Label = new System.Windows.Forms.Label();
             this.OPRTA3Label = new System.Windows.Forms.Label();
-            this.OPOPS3Label = new System.Windows.Forms.Label();
+            this.OPOPS31Label = new System.Windows.Forms.Label();
             this.OPAnä3Label = new System.Windows.Forms.Label();
             this.OPOPB3Label = new System.Windows.Forms.Label();
             this.OPOPC3Label = new System.Windows.Forms.Label();
             this.OP3Label = new System.Windows.Forms.Label();
             this.OP3 = new System.Windows.Forms.PictureBox();
+            this.OPOPS12Label = new System.Windows.Forms.Label();
+            this.OPOPS42label = new System.Windows.Forms.Label();
+            this.OPOPS22Label = new System.Windows.Forms.Label();
+            this.OPOPS32Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.p_t6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_lv6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_sv6)).BeginInit();
@@ -718,7 +722,7 @@ namespace K4_Projekt
             this.OPB1Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPB1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPB1Label.ForeColor = System.Drawing.Color.White;
-            this.OPB1Label.Location = new System.Drawing.Point(258, 373);
+            this.OPB1Label.Location = new System.Drawing.Point(221, 373);
             this.OPB1Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPB1Label.Name = "OPB1Label";
             this.OPB1Label.Size = new System.Drawing.Size(39, 29);
@@ -731,7 +735,7 @@ namespace K4_Projekt
             this.OPAnä1Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnä1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnä1Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä1Label.Location = new System.Drawing.Point(222, 373);
+            this.OPAnä1Label.Location = new System.Drawing.Point(183, 373);
             this.OPAnä1Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPAnä1Label.Name = "OPAnä1Label";
             this.OPAnä1Label.Size = new System.Drawing.Size(39, 29);
@@ -739,25 +743,25 @@ namespace K4_Projekt
             this.OPAnä1Label.Text = "Anä";
             this.OPAnä1Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // OPOPS1label
+            // OPOPS11label
             // 
-            this.OPOPS1label.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.OPOPS1label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS1label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS1label.Location = new System.Drawing.Point(293, 373);
-            this.OPOPS1label.MaximumSize = new System.Drawing.Size(100, 29);
-            this.OPOPS1label.Name = "OPOPS1label";
-            this.OPOPS1label.Size = new System.Drawing.Size(39, 29);
-            this.OPOPS1label.TabIndex = 55;
-            this.OPOPS1label.Text = "OPS";
-            this.OPOPS1label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OPOPS11label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OPOPS11label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.OPOPS11label.ForeColor = System.Drawing.Color.White;
+            this.OPOPS11label.Location = new System.Drawing.Point(293, 373);
+            this.OPOPS11label.MaximumSize = new System.Drawing.Size(100, 29);
+            this.OPOPS11label.Name = "OPOPS11label";
+            this.OPOPS11label.Size = new System.Drawing.Size(39, 29);
+            this.OPOPS11label.TabIndex = 55;
+            this.OPOPS11label.Text = "OPS";
+            this.OPOPS11label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // OPRTA1Label
             // 
             this.OPRTA1Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPRTA1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPRTA1Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA1Label.Location = new System.Drawing.Point(145, 373);
+            this.OPRTA1Label.Location = new System.Drawing.Point(115, 373);
             this.OPRTA1Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPRTA1Label.Name = "OPRTA1Label";
             this.OPRTA1Label.Size = new System.Drawing.Size(39, 29);
@@ -770,7 +774,7 @@ namespace K4_Projekt
             this.OPAnäS1Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnäS1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnäS1Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS1Label.Location = new System.Drawing.Point(184, 373);
+            this.OPAnäS1Label.Location = new System.Drawing.Point(144, 373);
             this.OPAnäS1Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPAnäS1Label.Name = "OPAnäS1Label";
             this.OPAnäS1Label.Size = new System.Drawing.Size(39, 29);
@@ -783,7 +787,7 @@ namespace K4_Projekt
             this.OPAnäSLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnäSLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnäSLabel.ForeColor = System.Drawing.Color.White;
-            this.OPAnäSLabel.Location = new System.Drawing.Point(542, 373);
+            this.OPAnäSLabel.Location = new System.Drawing.Point(502, 373);
             this.OPAnäSLabel.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPAnäSLabel.Name = "OPAnäSLabel";
             this.OPAnäSLabel.Size = new System.Drawing.Size(39, 29);
@@ -796,7 +800,7 @@ namespace K4_Projekt
             this.OPRTA2Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPRTA2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPRTA2Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA2Label.Location = new System.Drawing.Point(503, 373);
+            this.OPRTA2Label.Location = new System.Drawing.Point(472, 373);
             this.OPRTA2Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPRTA2Label.Name = "OPRTA2Label";
             this.OPRTA2Label.Size = new System.Drawing.Size(39, 29);
@@ -804,25 +808,25 @@ namespace K4_Projekt
             this.OPRTA2Label.Text = "RTA";
             this.OPRTA2Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // OPOPS2Label
+            // OPOPS21Label
             // 
-            this.OPOPS2Label.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.OPOPS2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS2Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS2Label.Location = new System.Drawing.Point(651, 373);
-            this.OPOPS2Label.MaximumSize = new System.Drawing.Size(100, 29);
-            this.OPOPS2Label.Name = "OPOPS2Label";
-            this.OPOPS2Label.Size = new System.Drawing.Size(39, 29);
-            this.OPOPS2Label.TabIndex = 63;
-            this.OPOPS2Label.Text = "OPS";
-            this.OPOPS2Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OPOPS21Label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OPOPS21Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.OPOPS21Label.ForeColor = System.Drawing.Color.White;
+            this.OPOPS21Label.Location = new System.Drawing.Point(650, 373);
+            this.OPOPS21Label.MaximumSize = new System.Drawing.Size(100, 29);
+            this.OPOPS21Label.Name = "OPOPS21Label";
+            this.OPOPS21Label.Size = new System.Drawing.Size(39, 29);
+            this.OPOPS21Label.TabIndex = 63;
+            this.OPOPS21Label.Text = "OPS";
+            this.OPOPS21Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // OPAnäLabel
             // 
             this.OPAnäLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnäLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnäLabel.ForeColor = System.Drawing.Color.White;
-            this.OPAnäLabel.Location = new System.Drawing.Point(580, 373);
+            this.OPAnäLabel.Location = new System.Drawing.Point(541, 373);
             this.OPAnäLabel.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPAnäLabel.Name = "OPAnäLabel";
             this.OPAnäLabel.Size = new System.Drawing.Size(39, 29);
@@ -835,7 +839,7 @@ namespace K4_Projekt
             this.OPOPB2Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPB2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPB2Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB2Label.Location = new System.Drawing.Point(616, 373);
+            this.OPOPB2Label.Location = new System.Drawing.Point(579, 373);
             this.OPOPB2Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPOPB2Label.Name = "OPOPB2Label";
             this.OPOPB2Label.Size = new System.Drawing.Size(39, 29);
@@ -885,7 +889,7 @@ namespace K4_Projekt
             this.OPAnäS4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnäS4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnäS4Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS4Label.Location = new System.Drawing.Point(541, 512);
+            this.OPAnäS4Label.Location = new System.Drawing.Point(502, 512);
             this.OPAnäS4Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPAnäS4Label.Name = "OPAnäS4Label";
             this.OPAnäS4Label.Size = new System.Drawing.Size(39, 29);
@@ -898,7 +902,7 @@ namespace K4_Projekt
             this.OPRTA4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPRTA4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPRTA4Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA4Label.Location = new System.Drawing.Point(502, 512);
+            this.OPRTA4Label.Location = new System.Drawing.Point(472, 512);
             this.OPRTA4Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPRTA4Label.Name = "OPRTA4Label";
             this.OPRTA4Label.Size = new System.Drawing.Size(39, 29);
@@ -906,25 +910,25 @@ namespace K4_Projekt
             this.OPRTA4Label.Text = "RTA";
             this.OPRTA4Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // OPOPS4Label
+            // OPOPS41Label
             // 
-            this.OPOPS4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.OPOPS4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS4Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS4Label.Location = new System.Drawing.Point(650, 512);
-            this.OPOPS4Label.MaximumSize = new System.Drawing.Size(100, 29);
-            this.OPOPS4Label.Name = "OPOPS4Label";
-            this.OPOPS4Label.Size = new System.Drawing.Size(39, 29);
-            this.OPOPS4Label.TabIndex = 79;
-            this.OPOPS4Label.Text = "OPS";
-            this.OPOPS4Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OPOPS41Label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OPOPS41Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.OPOPS41Label.ForeColor = System.Drawing.Color.White;
+            this.OPOPS41Label.Location = new System.Drawing.Point(650, 512);
+            this.OPOPS41Label.MaximumSize = new System.Drawing.Size(100, 29);
+            this.OPOPS41Label.Name = "OPOPS41Label";
+            this.OPOPS41Label.Size = new System.Drawing.Size(39, 29);
+            this.OPOPS41Label.TabIndex = 79;
+            this.OPOPS41Label.Text = "OPS";
+            this.OPOPS41Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // OPAnä4Label
             // 
             this.OPAnä4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnä4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnä4Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä4Label.Location = new System.Drawing.Point(579, 512);
+            this.OPAnä4Label.Location = new System.Drawing.Point(541, 512);
             this.OPAnä4Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPAnä4Label.Name = "OPAnä4Label";
             this.OPAnä4Label.Size = new System.Drawing.Size(39, 29);
@@ -937,7 +941,7 @@ namespace K4_Projekt
             this.OPOPB4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPB4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPB4Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB4Label.Location = new System.Drawing.Point(615, 512);
+            this.OPOPB4Label.Location = new System.Drawing.Point(579, 512);
             this.OPOPB4Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPOPB4Label.Name = "OPOPB4Label";
             this.OPOPB4Label.Size = new System.Drawing.Size(39, 29);
@@ -987,7 +991,7 @@ namespace K4_Projekt
             this.OPAnäS3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnäS3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnäS3Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS3Label.Location = new System.Drawing.Point(183, 512);
+            this.OPAnäS3Label.Location = new System.Drawing.Point(144, 512);
             this.OPAnäS3Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPAnäS3Label.Name = "OPAnäS3Label";
             this.OPAnäS3Label.Size = new System.Drawing.Size(39, 29);
@@ -1000,7 +1004,7 @@ namespace K4_Projekt
             this.OPRTA3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPRTA3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPRTA3Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA3Label.Location = new System.Drawing.Point(144, 512);
+            this.OPRTA3Label.Location = new System.Drawing.Point(115, 512);
             this.OPRTA3Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPRTA3Label.Name = "OPRTA3Label";
             this.OPRTA3Label.Size = new System.Drawing.Size(39, 29);
@@ -1008,25 +1012,25 @@ namespace K4_Projekt
             this.OPRTA3Label.Text = "RTA";
             this.OPRTA3Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // OPOPS3Label
+            // OPOPS31Label
             // 
-            this.OPOPS3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.OPOPS3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS3Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS3Label.Location = new System.Drawing.Point(292, 512);
-            this.OPOPS3Label.MaximumSize = new System.Drawing.Size(100, 29);
-            this.OPOPS3Label.Name = "OPOPS3Label";
-            this.OPOPS3Label.Size = new System.Drawing.Size(39, 29);
-            this.OPOPS3Label.TabIndex = 71;
-            this.OPOPS3Label.Text = "OPS";
-            this.OPOPS3Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OPOPS31Label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OPOPS31Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.OPOPS31Label.ForeColor = System.Drawing.Color.White;
+            this.OPOPS31Label.Location = new System.Drawing.Point(292, 512);
+            this.OPOPS31Label.MaximumSize = new System.Drawing.Size(100, 29);
+            this.OPOPS31Label.Name = "OPOPS31Label";
+            this.OPOPS31Label.Size = new System.Drawing.Size(39, 29);
+            this.OPOPS31Label.TabIndex = 71;
+            this.OPOPS31Label.Text = "OPS";
+            this.OPOPS31Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // OPAnä3Label
             // 
             this.OPAnä3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnä3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnä3Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä3Label.Location = new System.Drawing.Point(221, 512);
+            this.OPAnä3Label.Location = new System.Drawing.Point(183, 512);
             this.OPAnä3Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPAnä3Label.Name = "OPAnä3Label";
             this.OPAnä3Label.Size = new System.Drawing.Size(39, 29);
@@ -1039,7 +1043,7 @@ namespace K4_Projekt
             this.OPOPB3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPB3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPB3Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB3Label.Location = new System.Drawing.Point(257, 512);
+            this.OPOPB3Label.Location = new System.Drawing.Point(221, 512);
             this.OPOPB3Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPOPB3Label.Name = "OPOPB3Label";
             this.OPOPB3Label.Size = new System.Drawing.Size(39, 29);
@@ -1084,6 +1088,58 @@ namespace K4_Projekt
             this.OP3.TabIndex = 66;
             this.OP3.TabStop = false;
             // 
+            // OPOPS12Label
+            // 
+            this.OPOPS12Label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OPOPS12Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.OPOPS12Label.ForeColor = System.Drawing.Color.White;
+            this.OPOPS12Label.Location = new System.Drawing.Point(257, 373);
+            this.OPOPS12Label.MaximumSize = new System.Drawing.Size(100, 29);
+            this.OPOPS12Label.Name = "OPOPS12Label";
+            this.OPOPS12Label.Size = new System.Drawing.Size(39, 29);
+            this.OPOPS12Label.TabIndex = 82;
+            this.OPOPS12Label.Text = "OPS";
+            this.OPOPS12Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // OPOPS42label
+            // 
+            this.OPOPS42label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OPOPS42label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.OPOPS42label.ForeColor = System.Drawing.Color.White;
+            this.OPOPS42label.Location = new System.Drawing.Point(615, 512);
+            this.OPOPS42label.MaximumSize = new System.Drawing.Size(100, 29);
+            this.OPOPS42label.Name = "OPOPS42label";
+            this.OPOPS42label.Size = new System.Drawing.Size(39, 29);
+            this.OPOPS42label.TabIndex = 83;
+            this.OPOPS42label.Text = "OPS";
+            this.OPOPS42label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // OPOPS22Label
+            // 
+            this.OPOPS22Label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OPOPS22Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.OPOPS22Label.ForeColor = System.Drawing.Color.White;
+            this.OPOPS22Label.Location = new System.Drawing.Point(615, 373);
+            this.OPOPS22Label.MaximumSize = new System.Drawing.Size(100, 29);
+            this.OPOPS22Label.Name = "OPOPS22Label";
+            this.OPOPS22Label.Size = new System.Drawing.Size(39, 29);
+            this.OPOPS22Label.TabIndex = 84;
+            this.OPOPS22Label.Text = "OPS";
+            this.OPOPS22Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // OPOPS32Label
+            // 
+            this.OPOPS32Label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OPOPS32Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.OPOPS32Label.ForeColor = System.Drawing.Color.White;
+            this.OPOPS32Label.Location = new System.Drawing.Point(257, 512);
+            this.OPOPS32Label.MaximumSize = new System.Drawing.Size(100, 29);
+            this.OPOPS32Label.Name = "OPOPS32Label";
+            this.OPOPS32Label.Size = new System.Drawing.Size(39, 29);
+            this.OPOPS32Label.TabIndex = 85;
+            this.OPOPS32Label.Text = "OPS";
+            this.OPOPS32Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // UKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1091,9 +1147,13 @@ namespace K4_Projekt
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(984, 584);
+            this.Controls.Add(this.OPOPS32Label);
+            this.Controls.Add(this.OPOPS22Label);
+            this.Controls.Add(this.OPOPS42label);
+            this.Controls.Add(this.OPOPS12Label);
             this.Controls.Add(this.OPAnäS4Label);
             this.Controls.Add(this.OPRTA4Label);
-            this.Controls.Add(this.OPOPS4Label);
+            this.Controls.Add(this.OPOPS41Label);
             this.Controls.Add(this.OPAnä4Label);
             this.Controls.Add(this.OPOPB4Label);
             this.Controls.Add(this.OPOPC4Label);
@@ -1101,7 +1161,7 @@ namespace K4_Projekt
             this.Controls.Add(this.OP4);
             this.Controls.Add(this.OPAnäS3Label);
             this.Controls.Add(this.OPRTA3Label);
-            this.Controls.Add(this.OPOPS3Label);
+            this.Controls.Add(this.OPOPS31Label);
             this.Controls.Add(this.OPAnä3Label);
             this.Controls.Add(this.OPOPB3Label);
             this.Controls.Add(this.OPOPC3Label);
@@ -1109,7 +1169,7 @@ namespace K4_Projekt
             this.Controls.Add(this.OP3);
             this.Controls.Add(this.OPAnäSLabel);
             this.Controls.Add(this.OPRTA2Label);
-            this.Controls.Add(this.OPOPS2Label);
+            this.Controls.Add(this.OPOPS21Label);
             this.Controls.Add(this.OPAnäLabel);
             this.Controls.Add(this.OPOPB2Label);
             this.Controls.Add(this.OPOPC2Label);
@@ -1117,7 +1177,7 @@ namespace K4_Projekt
             this.Controls.Add(this.OP2);
             this.Controls.Add(this.OPAnäS1Label);
             this.Controls.Add(this.OPRTA1Label);
-            this.Controls.Add(this.OPOPS1label);
+            this.Controls.Add(this.OPOPS11label);
             this.Controls.Add(this.OPAnä1Label);
             this.Controls.Add(this.OPB1Label);
             this.Controls.Add(this.OPOPC1Label);
@@ -1257,12 +1317,12 @@ namespace K4_Projekt
         private Label OPOPC1Label;
         private Label OPB1Label;
         private Label OPAnä1Label;
-        private Label OPOPS1label;
+        private Label OPOPS11label;
         private Label OPRTA1Label;
         private Label OPAnäS1Label;
         private Label OPAnäSLabel;
         private Label OPRTA2Label;
-        private Label OPOPS2Label;
+        private Label OPOPS21Label;
         private Label OPAnäLabel;
         private Label OPOPB2Label;
         private Label OPOPC2Label;
@@ -1270,7 +1330,7 @@ namespace K4_Projekt
         private PictureBox OP2;
         private Label OPAnäS4Label;
         private Label OPRTA4Label;
-        private Label OPOPS4Label;
+        private Label OPOPS41Label;
         private Label OPAnä4Label;
         private Label OPOPB4Label;
         private Label OPOPC4Label;
@@ -1278,12 +1338,16 @@ namespace K4_Projekt
         private PictureBox OP4;
         private Label OPAnäS3Label;
         private Label OPRTA3Label;
-        private Label OPOPS3Label;
+        private Label OPOPS31Label;
         private Label OPAnä3Label;
         private Label OPOPB3Label;
         private Label OPOPC3Label;
         private Label OP3Label;
         private PictureBox OP3;
+        private Label OPOPS12Label;
+        private Label OPOPS42label;
+        private Label OPOPS22Label;
+        private Label OPOPS32Label;
     }
 }
 
