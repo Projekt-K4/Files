@@ -19,6 +19,7 @@ namespace K4_Projekt
         private static int SV=0;
         private static int H=0;
         private static int T=0;
+        private static string eventLogText = "";
 
         public UKH()
         {
@@ -38,10 +39,14 @@ namespace K4_Projekt
         public triage_number_delegate my_triage_number_delegate;
         public delegate void triage_number_lv_delegate();
         public delegate void number_waiting_delegate();
-        public delegate void number_triage_class1_delegate();
+        public delegate void number_triage_class_delegate(int i);
+        public number_triage_class_delegate my_number_triage_class_delegate;
         public delegate void number_triage_class2_delegate();
         public delegate void number_triage_class3_delegate();
         public delegate void number_triage_class4_delegate();
+        public delegate void add_eventLog_text_delegate(int i);
+        public add_eventLog_text_delegate my_add_eventLog_text_delegate;
+
 
         public void read_puffer()
         {
@@ -55,34 +60,41 @@ namespace K4_Projekt
                 if (PatientTriage.Visible == true)
                 {
                     Invoke(new triage_delegate(triage));
+                    Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
                 }
-      
                 if (i==1)
                 {
                     Invoke(new patient_waiting_delegate(patient_waiting));
+                    Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                 }
                 else if (i==2)
                 {
                     PatientTriage.Invoke(new triage_delegate(triage));
+                    Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                 }
                 else if (s.StartsWith("3"))
                 {
                     int j = i - 30;
                     Invoke(my_triage_number_delegate, new Object[] { j });
+                    Invoke(my_add_eventLog_text_delegate, new Object[] { i});
                 }
                 else if (s.StartsWith("4"))
                 {
                     int j = i - 40;
                     MessageBox.Show("OP");
+                    Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                 }
                 else if (s.StartsWith("5"))
                 {
                     int j = i - 50;
                     MessageBox.Show("Bettenstation");
+                    Invoke(my_add_eventLog_text_delegate, new Object[] {5 });
                 }
                 else if (s.Equals("6"))
                 {
+                    int j = i - 60;
                     MessageBox.Show("Kirche");
+                    Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
                 }
                 else
                 {
@@ -136,6 +148,32 @@ namespace K4_Projekt
             Invoke(new number_waiting_delegate(number_waiting));
         }
 
+        private void add_eventLog_text(int i)
+        {
+            string s = i.ToString();
+            if (i == 0)
+            {
+                EventLogFeld.Text = "???.\n" + eventLogText;
+            }else if (i == 1)
+            {
+                EventLogFeld.Text = "Patient wartet vor Triage.\n" + eventLogText;
+            }
+            else if (i == 2)
+            {
+                EventLogFeld.Text = "Patient wird triagiert.\n" + eventLogText;
+            }
+            else if (s.StartsWith("3"))
+            {
+                int j = i - 30;
+                EventLogFeld.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
+            }
+            else if (s.StartsWith("4"))
+            {
+                int j = i - 40;
+                EventLogFeld.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
+            }
+        }
+
         private void number_waiting()
         {
             if (PW == 1)
@@ -152,24 +190,28 @@ namespace K4_Projekt
             }
         }
 
-        private void number_triage_class1()
+        private void number_triage_class(int i)
         {
-            class1.Text = "Klasse 1\nLeichtverletzte: " +LV;
-        }
-
-        private void number_triage_class2()
-        {
-            class2.Text = "Klasse 2\nSchwerverletzte: " + SV;
-        }
-
-        private void number_triage_class3()
-        {
-            class3.Text = "Klasse 3\nHoffnungslose: " + H;
-        }
-
-        private void number_triage_class4()
-        {
-            class4.Text = "Klasse 4\nTote: " + T;
+            if (i == 1)
+            {
+                class1.Text = "Klasse 1\nLeichtverletzte: " + LV;
+            }
+            else if (i == 2)
+            {
+                class2.Text = "Klasse 2\nSchwerverletzte: " + SV;
+            }
+            else if (i == 3)
+            {
+                class3.Text = "Klasse 3\nHoffnungslose: " + H;
+            }
+            else if (i == 4)
+            {
+                class4.Text = "Klasse 4\nTote: " + T;
+            }
+            else
+            {
+                throw new Exception("Error in triage class text!");
+            }
         }
 
         private void triage()
@@ -226,27 +268,25 @@ namespace K4_Projekt
             if (i == 1)
             {
                 triage_number_lv();
-                Invoke(new number_triage_class1_delegate(number_triage_class1));
             }
             else if (i == 2)
             {
                 triage_number_sv();
-                Invoke(new number_triage_class1_delegate(number_triage_class2));
             }
             else if (i == 3)
             {
                 triage_number_h();
-                Invoke(new number_triage_class1_delegate(number_triage_class3));
             }
             else if (i == 4)
             {
                 triage_number_t();
-                Invoke(new number_triage_class1_delegate(number_triage_class4));
             }
             else
             {
                 throw new Exception("Triagenumber doesn'T exist!");
             }
+
+            Invoke(my_number_triage_class_delegate, new Object[] { i });
 
         }
 
@@ -417,83 +457,7 @@ namespace K4_Projekt
                 throw new Exception("Error at the T triage!");
             }
         }
-
-
-        /*
-        private int create_Queue()
-        {
-            Dictionary<string, string> test = stat_file.file_to_dictionary("test.csv");
-            int i = 0;
-            foreach (KeyValuePair<string, string> pair in test)
-            {
-                i += Int32.Parse(pair.Value);
-                //Console.WriteLine(pair.Key + "\t" + pair.Value);
-            }
-            return i;
-        }
-        
-        public int write_Queue()
-        {
-            int queue_length = create_Queue();
-            Queue.Text = ("Wartende Patienten: " + queue_length.ToString());
-            visualize_patient_queue(queue_length);
-            return queue_length;
-        }
-
-        public void triage(int i)
-        {
-            int c1 = 0;
-            int c2 = 0;
-            int c3 = 0;
-            int c4 = 0;
-
-            Random random = new Random();
-            
-            while (i != 0)
-            {
-                int triage_number = random.Next(1, 4);
-
-                if (triage_number == 1)
-                {
-                    ++c1;
-                    visualize_patient_triage(1, c1);
-                }
-                else if (triage_number == 2)
-                {
-                    ++c2;
-                    visualize_patient_triage(2, c2);
-                }
-                else if (triage_number == 3)
-                {
-                    ++c3;
-                    visualize_patient_triage(3, c3);
-                }
-                else if (triage_number == 4)
-                {
-                    ++c4;
-                    visualize_patient_triage(4, c4);
-                }
-
-                class1.Text = ("Klasse 1\nLeichtverletzte: " + c1.ToString());
-
-                class2.Text = ("Klasse 2\nSchwerverletzte: " + c2.ToString());
-
-                class3.Text = ("Klasse 3\nHoffnungslose: " + c3.ToString());
-
-                class4.Text = ("Klasse 4\nTote: " + c4.ToString());
-
-                --i;
-
-                Queue.Text = ("Wartende Patienten: " + i.ToString());
-
-
-            }
-        }
-
-    */
-
-
-
+/*
         private void visualize_patient_triage(int triage_class, int patient_number)
         {
             if (triage_class == 1)
@@ -700,7 +664,7 @@ namespace K4_Projekt
                     p_t6.Visible = true;
                 }
             }
-        }
+        }*/
 
      
     }

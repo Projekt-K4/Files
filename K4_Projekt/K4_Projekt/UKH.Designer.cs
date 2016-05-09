@@ -69,6 +69,7 @@ namespace K4_Projekt
             this.Triageplatz = new System.Windows.Forms.PictureBox();
             this.AUVA_LOGO = new System.Windows.Forms.PictureBox();
             this.PatientTriage = new System.Windows.Forms.PictureBox();
+            this.EventLogFeld = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.p_t6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_lv6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_sv6)).BeginInit();
@@ -632,12 +633,23 @@ namespace K4_Projekt
             this.PatientTriage.TabStop = false;
             this.PatientTriage.Visible = false;
             // 
+            // EventLogFeld
+            // 
+            this.EventLogFeld.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EventLogFeld.Location = new System.Drawing.Point(0, 645);
+            this.EventLogFeld.Multiline = true;
+            this.EventLogFeld.Name = "EventLogFeld";
+            this.EventLogFeld.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.EventLogFeld.Size = new System.Drawing.Size(531, 185);
+            this.EventLogFeld.TabIndex = 46;
+            // 
             // UKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1356, 833);
+            this.Controls.Add(this.EventLogFeld);
             this.Controls.Add(this.PatientTriage);
             this.Controls.Add(this.p_t6);
             this.Controls.Add(this.p_lv6);
@@ -766,6 +778,7 @@ namespace K4_Projekt
         private PictureBox p_lv6;
         private PictureBox p_t6;
         private PictureBox PatientTriage;
+        private TextBox EventLogFeld;
     }
 }
 
