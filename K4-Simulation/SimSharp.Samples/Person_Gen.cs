@@ -25,7 +25,7 @@ namespace SimSharp.Samples
         public PatientGenerator(int number_of_causualities)
         {
             generate_causualities(number_of_causualities);
-            Console.WriteLine(number_of_causualities + "involved in catastrophe");
+            Console.WriteLine(number_of_causualities + " involved in catastrophe");
         }
         private void generate_causualities(int number_of_Patients)
         {
@@ -124,9 +124,9 @@ namespace SimSharp.Samples
             //Console.WriteLine("Patient with life expectancy:" + TTL + "created");
         }
 
-        public int getKID()
+        public String getKID()
         {
-            return KID;
+            return "4 KH 12 "+KID;
         }
 
         public DateTime getTimeToLive()
@@ -135,7 +135,7 @@ namespace SimSharp.Samples
         }
         public String getTimeToLiveString()
         {
-            return TTL.ToShortTimeString();
+            return TTL.ToLongTimeString();
         }
         public void setTimeToLive(DateTime _TTL)
         {
@@ -179,13 +179,13 @@ class Program
     {
         static void Main()
         {
-            /*Patient Patient1 = new Patient();
+           // Patient Patient1 = new Patient();
 
-            PatientGenerator catastrophe = new PatientGenerator(10);
+            //PatientGenerator catastrophe = new PatientGenerator(10);
 
-            PatientGenerator.getNextPatient();
-            PatientGenerator.getNextPatient();
-            PatientGenerator.getNextPatient();*/
+            //PatientGenerator.getNextPatient();
+            //PatientGenerator.getNextPatient();
+            //PatientGenerator.getNextPatient();
         }
     }
 
