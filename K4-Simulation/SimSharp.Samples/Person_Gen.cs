@@ -216,7 +216,7 @@ class Program
     {
         static void Main()
         {
-            Patient Patient1 = new Patient(100);
+            //Patient Patient1 = new Patient(100);
 
             //PatientGenerator catastrophe = new PatientGenerator(10);
 
