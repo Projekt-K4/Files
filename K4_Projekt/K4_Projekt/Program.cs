@@ -18,7 +18,7 @@ namespace K4_Projekt
             UKH u = new UKH();
             int patient = u.write_Queue();
             u.triage(patient);
-
+            u.staffOPC(1);
             Application.Run(u);
 
         }

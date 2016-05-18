@@ -443,16 +443,16 @@ namespace K4_Projekt
             switch (OPRoom)
             {
                 case 1:
-                    OPOPC1Label.BackColor = Color.Green;
+                    OPOPC1Label.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPOPC2Label.BackColor = Color.Green;
+                    OPOPC2Label.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPOPC3Label.BackColor = Color.Green;
+                    OPOPC3Label.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPOPC4Label.BackColor = Color.Green;
+                    OPOPC4Label.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -469,16 +469,16 @@ namespace K4_Projekt
             switch (OPRoom)
             {
                 case 1:
-                    OPOPS11Label.BackColor = Color.Green;
+                    OPOPS11Label.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPOPS21Label.BackColor = Color.Green;
+                    OPOPS21Label.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPOPS31Label.BackColor = Color.Green;
+                    OPOPS31Label.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPOPS41Label.BackColor = Color.Green;
+                    OPOPS41Label.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -491,16 +491,16 @@ namespace K4_Projekt
             switch (OPRoom)
             {
                 case 1:
-                    OPOPS12Label.BackColor = Color.Green;
+                    OPOPS12Label.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPOPS22Label.BackColor = Color.Green;
+                    OPOPS22Label.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPOPS32Label.BackColor = Color.Green;
+                    OPOPS32Label.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPOPS42Label.BackColor = Color.Green;
+                    OPOPS42Label.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -513,16 +513,16 @@ namespace K4_Projekt
             switch (OPRoom)
             {
                 case 1:
-                    OPOPB1Label.BackColor = Color.Green;
+                    OPOPB1Label.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPOPB2Label.BackColor = Color.Green;
+                    OPOPB2Label.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPOPB3Label.BackColor = Color.Green;
+                    OPOPB3Label.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPOPB4Label.BackColor = Color.Green;
+                    OPOPB4Label.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -535,16 +535,16 @@ namespace K4_Projekt
             switch (OPRoom)
             {
                 case 1:
-                    OPAnä1Label.BackColor = Color.Green;
+                    OPAnä1Label.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPAnä2Label.BackColor = Color.Green;
+                    OPAnä2Label.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPAnä3Label.BackColor = Color.Green;
+                    OPAnä3Label.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPAnä4Label.BackColor = Color.Green;
+                    OPAnä4Label.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -557,16 +557,16 @@ namespace K4_Projekt
             switch (OPRoom)
             {
                 case 1:
-                    OPAnäS1Label.BackColor = Color.Green;
+                    OPAnäS1Label.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPAnäS2Label.BackColor = Color.Green;
+                    OPAnäS2Label.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPAnäS3Label.BackColor = Color.Green;
+                    OPAnäS3Label.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPAnäS4Label.BackColor = Color.Green;
+                    OPAnäS4Label.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -579,16 +579,16 @@ namespace K4_Projekt
             switch (OPRoom)
             {
                 case 1:
-                    OPRTA1Label.BackColor = Color.Green;
+                    OPRTA1Label.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPRTA2Label.BackColor = Color.Green;
+                    OPRTA2Label.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPRTA3Label.BackColor = Color.Green;
+                    OPRTA3Label.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPRTA4Label.BackColor = Color.Green;
+                    OPRTA4Label.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
