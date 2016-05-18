@@ -49,9 +49,9 @@ namespace SimSharp.Samples
 
         /*          Private         */
         //Produces given number of Patients and appends them to patientList
-        private void generateCausualities(int numberOfPatients)
+        private void generateCausualities(int _numberOfPatients)
         {
-            for (int i = 0; i < numberOfPatients; i++)
+            for (int i = 0; i < _numberOfPatients; i++)
             {
                 addPatient();
             }
@@ -68,20 +68,28 @@ namespace SimSharp.Samples
         public bool addPatient()
         {
             double x = randGen.NextDouble();            // determins the Patients state
-            double sumDist = distribution.Sum();        
+            double sumDist = distribution.Sum();
 
-            if      (x <= distribution[0]/sumDist)
+            if (x <= distribution[0] / sumDist)
+            {
+                Console.WriteLine("dead Patient created");
                 patientList.Add(new Patient(TTLGlobal.TTL_DEAD));
-
-            else if (x <= (distribution[0] + distribution[1])/sumDist)
+            }
+            else if (x <= (distribution[0] + distribution[1]) / sumDist)
+            {
+                Console.WriteLine("hopeless Patient created");
                 patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_DEAD + 1, TTLGlobal.TTL_HOPELESS))); // Creates hopeless patient as distributed
-
-            else if (x <= (distribution[0] + distribution[1] + distribution[2])/sumDist)
+            }
+            else if (x <= (distribution[0] + distribution[1] + distribution[2]) / sumDist)
+            {
+                Console.WriteLine("severly injured Patient created");
                 patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_HOPELESS + 1, TTLGlobal.TTL_SEVERELY_INJURED)));
-
+            }
             else if (x <= distribution.Sum())
+            {
+                Console.WriteLine("slightly injured Patient created");
                 patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_SEVERELY_INJURED + 1, TTLGlobal.TTL_SLIGHTLY_INJURED)));
-
+            }
             else
                 Console.WriteLine("Something went wrong!");
          
@@ -153,10 +161,11 @@ namespace SimSharp.Samples
         
        
         //When creating the patient, TTL will be set to the current time + the given seconds
-        public Patient(double seconds) //Overloaded Constructor
+        public Patient(double seconds) 
         {
             DateTime thisDay = DateTime.Now.AddSeconds(seconds);
             setTimeToLive(new DateTime(thisDay.Year, thisDay.Month, thisDay.Day, thisDay.Hour, thisDay.Minute, thisDay.Second));
+            Console.WriteLine("TTL: " + thisDay.ToString());
             //Console.WriteLine("Patient with life expectancy:" + TTL + "created");
             //thisDay.AddSeconds(150);
         }

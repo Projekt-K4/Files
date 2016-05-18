@@ -40,22 +40,22 @@ namespace SimSharp.Samples
         {
             if(!patientsExists)
             {
-                SystemRandom random = new SystemRandom();
+                //SystemRandom random = new SystemRandom(); Ist überflüssig, es existiert bereits ein SystemRandom
                 this.patients = createPatients(random.Next(5, 50));//if not defined, 5-50 patients get generated before using them
             }
             List<Patient> sublist = null;
             if (patients.Count>0)
             {
-            if (amount>patients.Count)
-            {
-                amount = patients.Count;//sublist will get every remaining patient
-            }
-            sublist = patients.GetRange(0, amount);
-            patients.RemoveRange(0, amount);
-            if (priority)
-            {
-                priorize(sublist);
-            }
+                if (amount>patients.Count)
+                {
+                    amount = patients.Count;//sublist will get every remaining patient
+                }
+                sublist = patients.GetRange(0, amount);
+                patients.RemoveRange(0, amount);
+                if (priority)
+                {
+                    priorize(sublist);
+                }
             }
             return sublist;
         }
