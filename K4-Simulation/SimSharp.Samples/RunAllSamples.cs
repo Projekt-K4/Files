@@ -26,7 +26,7 @@ namespace SimSharp.Samples
             eventLog.getLog();//for initalizing and creating file
             patientManager.getInstance();//initializing PatientManager
 
-            new K4().RunSimulation(10);//Amount of Patients as Parameter
+            new K4().RunSimulation(20);//Amount of Patients as Parameter
             eventLog.getLog().writeToFile("C:/Users/Andreas/Desktop/log.csv");
             eventLog.getLog().fromFileToConsole("C:/Users/Andreas/Desktop/log.csv", "\t");
             Console.WriteLine();
