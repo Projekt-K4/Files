@@ -24,7 +24,7 @@ namespace SimSharp.Samples
 
             //Simulation
             eventLog.getLog();//for initalizing and creating file
-            //patientManager.getInstance(); //initializing PatientManager //Überflüssig, da PatientGenerator in RunSimulation erneut erstellt wird
+            patientManager.getInstance(); //initializing PatientManager 
 
             new K4().RunSimulation(10);//Amount of Patients as Parameter
             eventLog.getLog().writeToFile("C:/Users/Aich/Desktop/log.csv");
