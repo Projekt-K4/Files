@@ -73,6 +73,16 @@ namespace K4_Projekt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AUVA1 {
+            get {
+                object obj = ResourceManager.GetObject("AUVA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap patient {
             get {
                 object obj = ResourceManager.GetObject("patient", resourceCulture);
