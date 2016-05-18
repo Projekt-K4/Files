@@ -19,18 +19,23 @@ namespace K4_Projekt
         private static int SV=0;
         private static int H=0;
         private static int T=0;
-        private static string eventLogText = "";
+        /*
+        private static int dead = 0;
+        private static int station = 0;
+        private static int QueueOPRoom = 0;
 
+        private static string eventLogText = "";
+        */
         public UKH()
         {
             InitializeComponent();
-
         }
 
         public void UKH_Load(object sender, EventArgs e)
         {
             var t = new Thread(new ThreadStart(read_puffer));
             t.Start();
+
         }
 
         public delegate void patient_waiting_delegate();
@@ -44,8 +49,8 @@ namespace K4_Projekt
         public delegate void number_triage_class2_delegate();
         public delegate void number_triage_class3_delegate();
         public delegate void number_triage_class4_delegate();
-        public delegate void add_eventLog_text_delegate(int i);
-        public add_eventLog_text_delegate my_add_eventLog_text_delegate;
+        //public delegate void add_eventLog_text_delegate(int i);
+        //public add_eventLog_text_delegate my_add_eventLog_text_delegate;
 
 
         public void read_puffer()
@@ -60,41 +65,41 @@ namespace K4_Projekt
                 if (PatientTriage.Visible == true)
                 {
                     Invoke(new triage_delegate(triage));
-                    Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
                 }
                 if (i==1)
                 {
                     Invoke(new patient_waiting_delegate(patient_waiting));
-                    Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                 }
                 else if (i==2)
                 {
                     PatientTriage.Invoke(new triage_delegate(triage));
-                    Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                 }
                 else if (s.StartsWith("3"))
                 {
                     int j = i - 30;
                     Invoke(my_triage_number_delegate, new Object[] { j });
-                    Invoke(my_add_eventLog_text_delegate, new Object[] { i});
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i});
                 }
                 else if (s.StartsWith("4"))
                 {
                     int j = i - 40;
                     MessageBox.Show("OP");
-                    Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                 }
                 else if (s.StartsWith("5"))
                 {
                     int j = i - 50;
                     MessageBox.Show("Bettenstation");
-                    Invoke(my_add_eventLog_text_delegate, new Object[] {5 });
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] {5 });
                 }
                 else if (s.Equals("6"))
                 {
                     int j = i - 60;
                     MessageBox.Show("Kirche");
-                    Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
                 }
                 else
                 {
@@ -147,7 +152,7 @@ namespace K4_Projekt
 
             Invoke(new number_waiting_delegate(number_waiting));
         }
-
+        /*
         private void add_eventLog_text(int i)
         {
             string s = i.ToString();
@@ -173,7 +178,7 @@ namespace K4_Projekt
                 EventLogFeld.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
             }
         }
-
+        */
         private void number_waiting()
         {
             if (PW == 1)
@@ -457,7 +462,248 @@ namespace K4_Projekt
                 throw new Exception("Error at the T triage!");
             }
         }
-     
+
+   
+        /*
+//OP - Functions
+
+//OP background
+
+//Event Code 4
+public void operate(int OPRoom)
+{
+switch (OPRoom)
+{
+case 1:
+  OP1.BackColor = Color.Red;
+  QueueOPRoom--;
+  break;
+case 2:
+  OP2.BackColor = Color.Red;
+  QueueOPRoom--;
+  break;
+case 3:
+  OP3.BackColor = Color.Red;
+  QueueOPRoom--;
+  break;
+case 4:
+  OP4.BackColor = Color.Red;
+  QueueOPRoom--;
+  break;
+default: break;
+}
+}
+
+
+//Event Code 5
+public void diedInOP(int OPRoom)
+{
+switch (OPRoom)
+{
+case 1:
+  OP1.BackColor = Color.Green;
+  dead++;
+  break;
+case 2:
+  OP2.BackColor = Color.Green;
+  dead++;
+  break;
+case 3:
+  OP3.BackColor = Color.Green;
+  dead++;
+  break;
+case 4:
+  OP4.BackColor = Color.Green;
+  dead++;
+  break;
+default: break;
+}
+}
+
+//Event Code 6
+private void aliveAfterOP(int OPRoom)
+{
+switch (OPRoom)
+{
+case 1:
+  OP1.BackColor = Color.Green;
+  station++;
+  break;
+case 2:
+  OP2.BackColor = Color.Green;
+  station++;
+  break;
+case 3:
+  OP3.BackColor = Color.Green;
+  station++;
+  break;
+case 4:
+  OP4.BackColor = Color.Green;
+  station++;
+  break;
+default: break;
+}
+}
+
+//OP staff
+//Event Code 7
+//surgeon
+public void staffOPC(int OPRoom)
+{
+switch (OPRoom)
+{
+case 1:
+  OPOPC1Label.BackColor = Color.Green;
+  break;
+case 2:
+  OPOPC2Label.BackColor = Color.Green;
+  break;
+case 3:
+  OPOPC3Label.BackColor = Color.Green;
+  break;
+case 4:
+  OPOPC4Label.BackColor = Color.Green;
+  break;
+default: break;
+}
+
+//check_staff(OPRoom);
+//Checks if needed staff has arrived
+//useless because we get Code 4 if somebody gets operated
+}
+
+//op schwester1
+//event code8
+public void staffOPS1(int OPRoom)
+{
+switch (OPRoom)
+{
+case 1:
+  OPOPS11Label.BackColor = Color.Green;
+  break;
+case 2:
+  OPOPS21Label.BackColor = Color.Green;
+  break;
+case 3:
+  OPOPS31Label.BackColor = Color.Green;
+  break;
+case 4:
+  OPOPS41Label.BackColor = Color.Green;
+  break;
+default: break;
+}
+}
+
+//OPS2
+//Event Code 9
+public void staffOPS2(int OPRoom)
+{
+switch (OPRoom)
+{
+case 1:
+  OPOPS12Label.BackColor = Color.Green;
+  break;
+case 2:
+  OPOPS22Label.BackColor = Color.Green;
+  break;
+case 3:
+  OPOPS32Label.BackColor = Color.Green;
+  break;
+case 4:
+  OPOPS42Label.BackColor = Color.Green;
+  break;
+default: break;
+}
+}
+
+//OPB
+//Event Code 10
+public void staffOPB(int OPRoom)
+{
+switch (OPRoom)
+{
+case 1:
+  OPOPB1Label.BackColor = Color.Green;
+  break;
+case 2:
+  OPOPB2Label.BackColor = Color.Green;
+  break;
+case 3:
+  OPOPB3Label.BackColor = Color.Green;
+  break;
+case 4:
+  OPOPB4Label.BackColor = Color.Green;
+  break;
+default: break;
+}
+}
+
+//Anä
+//Event Code 11
+public void staffAnä(int OPRoom)
+{
+switch (OPRoom)
+{
+case 1:
+  OPAnä1Label.BackColor = Color.Green;
+  break;
+case 2:
+  OPAnä2Label.BackColor = Color.Green;
+  break;
+case 3:
+  OPAnä3Label.BackColor = Color.Green;
+  break;
+case 4:
+  OPAnä4Label.BackColor = Color.Green;
+  break;
+default: break;
+}
+}
+
+//AnäS
+//Event Code 12
+public void staffAnäS(int OPRoom)
+{
+switch (OPRoom)
+{
+case 1:
+  OPAnäS1Label.BackColor = Color.Green;
+  break;
+case 2:
+  OPAnäS2Label.BackColor = Color.Green;
+  break;
+case 3:
+  OPAnäS3Label.BackColor = Color.Green;
+  break;
+case 4:
+  OPAnäS4Label.BackColor = Color.Green;
+  break;
+default: break;
+}
+}
+
+//AnäS
+//Event Code 12
+public void staffRTA(int OPRoom)
+{
+switch (OPRoom)
+{
+case 1:
+  OPRTA1Label.BackColor = Color.Green;
+  break;
+case 2:
+  OPRTA2Label.BackColor = Color.Green;
+  break;
+case 3:
+  OPRTA3Label.BackColor = Color.Green;
+  break;
+case 4:
+  OPRTA4Label.BackColor = Color.Green;
+  break;
+default: break;
+}
+}
+*/
     }
     
 }

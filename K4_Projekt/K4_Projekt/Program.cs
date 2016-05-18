@@ -18,7 +18,6 @@ namespace K4_Projekt
             Application.SetCompatibleTextRenderingDefault(false);
 
             UKH u = new UKH();
-            
 
             Application.Run(u);
 
