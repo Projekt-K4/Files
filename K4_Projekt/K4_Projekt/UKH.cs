@@ -572,8 +572,8 @@ namespace K4_Projekt
             }
         }
 
-        //AnäS
-        //Event Code 12
+        //RTA
+        //Event Code 13
         public void staffRTA(int OPRoom)
         {
             switch (OPRoom)
