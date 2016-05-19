@@ -72,22 +72,22 @@ namespace SimSharp.Samples
 
             if (x <= distribution[0] / sumDist)
             {
-                Console.WriteLine("dead Patient created");
+                //Console.WriteLine("dead Patient created");
                 patientList.Add(new Patient(TTLGlobal.TTL_DEAD));
             }
             else if (x <= (distribution[0] + distribution[1]) / sumDist)
             {
-                Console.WriteLine("hopeless Patient created");
+                //Console.WriteLine("hopeless Patient created");
                 patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_DEAD + 1, TTLGlobal.TTL_HOPELESS))); // Creates hopeless patient as distributed
             }
             else if (x <= (distribution[0] + distribution[1] + distribution[2]) / sumDist)
             {
-                Console.WriteLine("severly injured Patient created");
+                //Console.WriteLine("severly injured Patient created");
                 patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_HOPELESS + 1, TTLGlobal.TTL_SEVERELY_INJURED)));
             }
             else if (x <= distribution.Sum())
             {
-                Console.WriteLine("slightly injured Patient created");
+                //Console.WriteLine("slightly injured Patient created");
                 patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_SEVERELY_INJURED + 1, TTLGlobal.TTL_SLIGHTLY_INJURED)));
             }
             else
@@ -204,7 +204,9 @@ namespace SimSharp.Samples
         // TTL in seconds
         {
             
-            int TTLInSec =TTL.Hour*3600 + TTL.Minute*60 + TTL.Second;
+            TimeSpan timeDifference = TTL.Subtract(DateTime.Now);
+            double TTLInSec = timeDifference.TotalSeconds;
+            Console.WriteLine("calculated time to Live" + TTLInSec + "| given TTL:" + TTL + "| given TTL:" +TTL.Second); //for debuging purposes
             if (TTLInSec <= TTLGlobal.TTL_DEAD) triageNr = 4; //dead
             else if (TTLInSec > TTLGlobal.TTL_DEAD && TTLInSec <= TTLGlobal.TTL_HOPELESS) triageNr = 3; //TTL <= 60min -> hopeless
             else if (TTLInSec > TTLGlobal.TTL_HOPELESS && TTLInSec <= TTLGlobal.TTL_SEVERELY_INJURED) triageNr = 2; //TTL > 15min and <= 10h -> serverely injured
