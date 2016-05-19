@@ -21,7 +21,7 @@ namespace SimSharp.Samples
             while(patientManager.getInstance().stillPatientsLeft())
             {
                 yield return env.TimeoutUniform(TimeSpan.FromSeconds(0), TimeSpan.FromSeconds(600));//timestop in seconds till new Group arrives
-                arriving = patientManager.getInstance().getRandomPatients(1, 7, true);
+                arriving = patientManager.getInstance().getRandomPatients(1, 7, true); //picks group of patients, from patientList to arrive at hospital
                 
                 //each patient finds his way to the triage
                 foreach (Patient pat in arriving)
