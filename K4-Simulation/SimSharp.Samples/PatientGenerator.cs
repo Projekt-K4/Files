@@ -40,16 +40,16 @@ namespace SimSharp.Samples
             Console.WriteLine("Catastrophe engages\n");
 
         }
-        //Creates PatientGenerator with given given number of causualities
-        public PatientGenerator(int _numberOfCausualities)
+        //Creates PatientGenerator with given number of casualties
+        public PatientGenerator(int _numberOfCasualties)
         {
-            generateCausualities(_numberOfCausualities);
-            Console.WriteLine(_numberOfCausualities + " involved in catastrophe\n");
+            generateCasualties(_numberOfCasualties);
+            Console.WriteLine(_numberOfCasualties + " involved in catastrophe\n");
         }
 
         /*          Private         */
         //Produces given number of Patients and appends them to patientList
-        private void generateCausualities(int _numberOfPatients)
+        private void generateCasualties(int _numberOfPatients)
         {
             for (int i = 0; i < _numberOfPatients; i++)
             {
@@ -61,27 +61,23 @@ namespace SimSharp.Samples
         //Adds a new Patient to the List according to the given distribution
         public bool addPatient()
         {
-            double x = randGen.NextDouble();            // determins the Patients state
+            double x = randGen.NextDouble(); // determins the Patients state
             double sumDist = distribution.Sum();
 
             if (x <= distribution[0] / sumDist)
             {
-                //Console.WriteLine("dead Patient created");
                 patientList.Add(new Patient(TTLGlobal.TTL_DEAD));
             }
             else if (x <= (distribution[0] + distribution[1]) / sumDist)
             {
-                //Console.WriteLine("hopeless Patient created");
                 patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_DEAD + 1, TTLGlobal.TTL_HOPELESS))); // Creates hopeless patient as distributed
             }
             else if (x <= (distribution[0] + distribution[1] + distribution[2]) / sumDist)
             {
-                //Console.WriteLine("severly injured Patient created");
                 patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_HOPELESS + 1, TTLGlobal.TTL_SEVERELY_INJURED)));
             }
             else if (x <= distribution.Sum())
             {
-                //Console.WriteLine("slightly injured Patient created");
                 patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_SEVERELY_INJURED + 1, TTLGlobal.TTL_SLIGHTLY_INJURED)));
             }
             else

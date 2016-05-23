@@ -51,7 +51,7 @@ namespace SimSharp.Samples
             pat.triagePatient(pat.getTimeToLive());
        
             //patient finally printed to log with triage number
-            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "3");
+            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "3"+ pat.getTriageNr().ToString());
             if (pat.getTriageNr()==1)
             {
 
