@@ -14,18 +14,18 @@ namespace K4_Projekt
     public partial class UKH : Form
     {
 
-        private static int PW=0;
-        private static int LV=0;
-        private static int SV=0;
-        private static int H=0;
-        private static int T=0;
-        /*
+        private static int PW = 0;
+        private static int LV = 0;
+        private static int SV = 0;
+        private static int H = 0;
+        private static int T = 0;
+
         private static int dead = 0;
         private static int station = 0;
         private static int QueueOPRoom = 0;
 
         private static string eventLogText = "";
-        */
+
         public UKH()
         {
             InitializeComponent();
@@ -67,12 +67,12 @@ namespace K4_Projekt
                     Invoke(new triage_delegate(triage));
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
                 }
-                if (i==1)
+                if (i == 1)
                 {
                     Invoke(new patient_waiting_delegate(patient_waiting));
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                 }
-                else if (i==2)
+                else if (i == 2)
                 {
                     PatientTriage.Invoke(new triage_delegate(triage));
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
@@ -108,7 +108,7 @@ namespace K4_Projekt
                 eventLog.puffer.RemoveAt(0);
             }
         }
-       
+
         private void patient_waiting()
         {
             if (Patient1.Visible == false)
@@ -152,14 +152,15 @@ namespace K4_Projekt
 
             Invoke(new number_waiting_delegate(number_waiting));
         }
-        /*
+
         private void add_eventLog_text(int i)
         {
             string s = i.ToString();
             if (i == 0)
             {
                 EventLogFeld.Text = "???.\n" + eventLogText;
-            }else if (i == 1)
+            }
+            else if (i == 1)
             {
                 EventLogFeld.Text = "Patient wartet vor Triage.\n" + eventLogText;
             }
@@ -178,14 +179,14 @@ namespace K4_Projekt
                 EventLogFeld.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
             }
         }
-        */
+
         private void number_waiting()
         {
             if (PW == 1)
             {
                 Queue.Text = PW + " Patient wartet";
             }
-            else if (PW ==0 || PW>1)
+            else if (PW == 0 || PW > 1)
             {
                 Queue.Text = PW + " Patienten warten";
             }
@@ -463,92 +464,92 @@ namespace K4_Projekt
             }
         }
 
-   
-        /*
-//OP - Functions
-
-//OP background
-
-//Event Code 4
-public void operate(int OPRoom)
-{
-switch (OPRoom)
-{
-case 1:
-  OP1.BackColor = Color.Red;
-  QueueOPRoom--;
-  break;
-case 2:
-  OP2.BackColor = Color.Red;
-  QueueOPRoom--;
-  break;
-case 3:
-  OP3.BackColor = Color.Red;
-  QueueOPRoom--;
-  break;
-case 4:
-  OP4.BackColor = Color.Red;
-  QueueOPRoom--;
-  break;
-default: break;
-}
-}
 
 
-//Event Code 5
-public void diedInOP(int OPRoom)
-{
-switch (OPRoom)
-{
-case 1:
-  OP1.BackColor = Color.Green;
-  dead++;
-  break;
-case 2:
-  OP2.BackColor = Color.Green;
-  dead++;
-  break;
-case 3:
-  OP3.BackColor = Color.Green;
-  dead++;
-  break;
-case 4:
-  OP4.BackColor = Color.Green;
-  dead++;
-  break;
-default: break;
-}
-}
+        //OP - Functions
 
-//Event Code 6
-private void aliveAfterOP(int OPRoom)
-{
-switch (OPRoom)
-{
-case 1:
-  OP1.BackColor = Color.Green;
-  station++;
-  break;
-case 2:
-  OP2.BackColor = Color.Green;
-  station++;
-  break;
-case 3:
-  OP3.BackColor = Color.Green;
-  station++;
-  break;
-case 4:
-  OP4.BackColor = Color.Green;
-  station++;
-  break;
-default: break;
-}
-}
+        //OP background
+
+        //Event Code 4
+        public void operate(int OPRoom)
+        {
+            switch (OPRoom)
+            {
+                case 1:
+                    OP1.BackColor = Color.Red;
+                    QueueOPRoom--;
+                    break;
+                case 2:
+                    OP2.BackColor = Color.Red;
+                    QueueOPRoom--;
+                    break;
+                case 3:
+                    OP3.BackColor = Color.Red;
+                    QueueOPRoom--;
+                    break;
+                case 4:
+                    OP4.BackColor = Color.Red;
+                    QueueOPRoom--;
+                    break;
+                default: break;
+            }
+        }
+
+
+        //Event Code 5
+        public void diedInOP(int OPRoom)
+        {
+            switch (OPRoom)
+            {
+                case 1:
+                    OP1.BackColor = Color.Green;
+                    dead++;
+                    break;
+                case 2:
+                    OP2.BackColor = Color.Green;
+                    dead++;
+                    break;
+                case 3:
+                    OP3.BackColor = Color.Green;
+                    dead++;
+                    break;
+                case 4:
+                    OP4.BackColor = Color.Green;
+                    dead++;
+                    break;
+                default: break;
+            }
+        }
+
+        //Event Code 6
+        private void aliveAfterOP(int OPRoom)
+        {
+            switch (OPRoom)
+            {
+                case 1:
+                    OP1.BackColor = Color.Green;
+                    station++;
+                    break;
+                case 2:
+                    OP2.BackColor = Color.Green;
+                    station++;
+                    break;
+                case 3:
+                    OP3.BackColor = Color.Green;
+                    station++;
+                    break;
+                case 4:
+                    OP4.BackColor = Color.Green;
+                    station++;
+                    break;
+                default: break;
+            }
+        }
 
         //OP staff
         //Event Code 7
         //surgeon
-        public void staffOPC (int OPRoom)
+        public void staffOPC(int OPRoom)
         {
             switch (OPRoom)
             {
@@ -567,10 +568,10 @@ default: break;
                 default: break;
             }
 
-//check_staff(OPRoom);
-//Checks if needed staff has arrived
-//useless because we get Code 4 if somebody gets operated
-}
+            //check_staff(OPRoom);
+            //Checks if needed staff has arrived
+            //useless because we get Code 4 if somebody gets operated
+        }
 
         //op schwester1
         //event code8
@@ -703,7 +704,6 @@ default: break;
                 default: break;
             }
         }
-
     }
     
 }
