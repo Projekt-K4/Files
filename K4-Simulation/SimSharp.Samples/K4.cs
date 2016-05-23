@@ -14,28 +14,35 @@ namespace SimSharp.Samples
 
         static IEnumerable<Event> Steuerprozess(Environment env, List<Patient> patients)//Simulator start, Timer starts!
         {
-
-            //each patient arrives at the hospital after a random timestop
-            foreach (Patient pat in patients)
+            //PatientManager receives Patient list:
+            patientManager.getInstance().createPatients(patients);
+            //PatientManager sends Patients from Apocalyps
+            List<Patient> arriving = null;
+            while(patientManager.getInstance().stillPatientsLeft())
             {
-                pat.arrivalTime = env.Now;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID().ToString(), "---", "arrived");
-                //yield return env.TimeoutUniform(TimeSpan.FromSeconds(360), TimeSpan.FromSeconds(1000));//timestop in seconds till Triage
-                yield return env.Process(Triage(env, pat));
-
-
-
+                yield return env.TimeoutUniform(TimeSpan.FromSeconds(0), TimeSpan.FromSeconds(600));//timestop in seconds till new Group arrives
+                arriving = patientManager.getInstance().getRandomPatients(1, 7, true);
+                
+                //each patient finds his way to the triage
+                foreach (Patient pat in arriving)
+                {
+                    pat.arrivalTime = env.Now;
+                    eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), "---", "arrived");
+                    yield return env.Process(Triage(env, pat));
+                }
             }
+          
         }
         static IEnumerable<Event> Triage(Environment env, Patient pat)
         {
             //patients arrive at the triage
-            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID().ToString(), "---", "at triage");
+            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), "---", "at triage");
 
 
             //timestop for the duration of the triage process
-            yield return env.Timeout(TimeSpan.FromSeconds(30));
-
+            yield return env.Timeout(TimeSpan.FromSeconds(15));//15->30 Seconds->I don`t know why
+            //using resource:
+            //Console.WriteLine(priority.getInstance().getPriority(pat.getTimeToLive()));
             //getTimeToLive() calculation
             var support = env.Now.Subtract(pat.arrivalTime);//Timespan between now and arrival
             var TTL = pat.getTimeToLive().Subtract(support);
@@ -45,7 +52,7 @@ namespace SimSharp.Samples
             pat.triagePatient(pat.getTimeToLive());
 
             //patient finaly printed to log with triage number
-            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID().ToString(), pat.getTriageNr().ToString(), "get number");
+            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "got number");
 
         }
 
@@ -54,20 +61,13 @@ namespace SimSharp.Samples
 
         public void RunSimulation(int amount)
         {
-            var env = new Environment(randomSeed: 41, defaultStep: TimeSpan.FromMinutes(1));
-
-            //Patients start to live
-            /*List<Patient> patients = new List<Patient>();
-            Random rand = new Random(41);*/
+            //creating Environment of Simulation
+            var env = new Environment(randomSeed: 41);
+            
+            //creating Patients
             PatientGenerator patientGen = new PatientGenerator(amount);//Patients get generated
 
-
-            //Patients gets generated
-            /* for (int i = 1; i <= 50; ++i)
-             {
-                 int j = rand.Next(0, 10000);
-                 patients.Add(new Patient("Patient_" + i, new DateTime(), new DateTime(1970, 1, 1).AddSeconds(j), env.Now));
-             }*/
+            //pushing the patients to the Simulationprocess
             env.Process(Steuerprozess(env, patientGen.getPatientList()));//Simulation starts with generated Patientlist
             env.RunD();
            

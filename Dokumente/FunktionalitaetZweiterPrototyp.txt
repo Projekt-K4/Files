@@ -1,0 +1,15 @@
+Funktionalität des zweiten Prototypen:
+
+Leichtverletzte werden in diesem Prototyp ignoriert (sollen später einmal in Warteraum o.Ä.).
+Schwerverletzte kommen nach der Triage in den OP bzw. warten auf diesen. 
+Danach kommen die operierten Patienten auf die Bettenstation oder in den Kühlraum.
+
+Der Simulator wird um folgende Ressourcen erweitert: OP (4x), Kühlraum und Bettenstation (Kirche, falls es sich ausgeht). 
+OP und Besttenstation sind Ressourcen (und gleichzeitig Prozesse), die Personalressourcen requesten.
+Die benötigten Personalressourcen sind dementsprechend implementiert.
+
+Die Katastrophennummer ist adaptiert (siehe Patientenleittasche) - nicht mehr nur fortlaufende Nummer wie in Prototyp 1.
+Realistische Verteilung der TTL der Patienten!
+
+Bei jeder Station/Aktivität wird die entsprechende Information (Event) in den EventLogger geschrieben!
+(zB Patient kommt in OP/wird operiert, OP wird frei (für Status!),...
