@@ -58,12 +58,6 @@ namespace SimSharp.Samples
         }
         /*          Public          */
 
-        /*public TimeSpan get_random_time()
-        {
-            TimeSpan random_time = new TimeSpan(globalTime.Next(0,12));
-            return random_time;
-        }*/
-
         //Adds a new Patient to the List according to the given distribution
         public bool addPatient()
         {
@@ -154,20 +148,20 @@ namespace SimSharp.Samples
     class Patient
     {
 
-        private string KID = "4 KH 12 " + PatientGenerator.get_new_id();
+        private string KID = "undefined";
         public DateTime arrivalTime;
         private DateTime TTL = new DateTime(); //Is the time the Patient has left to live
         private int triageNr;
 
-
+        public void setKID()
+        {
+            KID="4 KH 12 " + PatientGenerator.get_new_id();
+        }
         //When creating the patient, TTL will be set to the current time + the given seconds
         public Patient(double seconds)
         {
             DateTime thisDay = DateTime.Now.AddSeconds(seconds);
             setTimeToLive(new DateTime(thisDay.Year, thisDay.Month, thisDay.Day, thisDay.Hour, thisDay.Minute, thisDay.Second));
-            Console.WriteLine("TTL: " + thisDay.ToString());
-            //Console.WriteLine("Patient with life expectancy:" + TTL + "created");
-            //thisDay.AddSeconds(150);
         }
 
         public String getKID()
@@ -217,23 +211,6 @@ namespace SimSharp.Samples
         public void withdrawTTL(TimeSpan subtrahend)
         {
             TTL -= subtrahend;
-        }
-    }
-
-
-
-
-    class Program
-    {
-        static void Main()
-        {
-            //Patient Patient1 = new Patient(100);
-
-            //PatientGenerator catastrophe = new PatientGenerator(10);
-
-            //PatientGenerator.getNextPatient();
-            //PatientGenerator.getNextPatient();
-            //PatientGenerator.getNextPatient();
         }
     }
 
