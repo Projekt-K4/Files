@@ -704,6 +704,11 @@ namespace K4_Projekt
                 default: break;
             }
         }
+
+        private void OPRTA1Label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
