@@ -20,7 +20,6 @@ namespace K4_Projekt
         private static int H = 0;
         private static int T = 0;
 
-        private static int dead = 0;
         private static int station = 0;
         private static int QueueOPRoom = 0;
 
@@ -48,6 +47,7 @@ namespace K4_Projekt
         public operate_delegate my_operate_delegate;
         //public delegate void add_eventLog_text_delegate(int i);
         //public add_eventLog_text_delegate my_add_eventLog_text_delegate;
+       
 
 
         public void read_puffer()
@@ -122,10 +122,23 @@ namespace K4_Projekt
                     MessageBox.Show("Bettenstation");
                     //Invoke(my_add_eventLog_text_delegate, new Object[] {5 });
                 }
-                else if (s.Equals("6"))
+                else if (s.StartsWith("6"))
                 {
                     int j = i - 60;
-                    MessageBox.Show("Kirche");
+
+                    //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
+                    aliveAfterOP(j);
+                    //MessageBox.Show("Kirche");
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
+                }
+                else if (s.StartsWith("7"))
+                {
+                    int j = i - 700;
+                    string[] temp = s.Split(';');
+                    int staff = Int32.Parse(temp[1]);
+                    int OP= Int32.Parse(temp[2]);
+                    //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
+                    get_personalOP(staff, OP);
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
                 }
                 else
@@ -331,7 +344,7 @@ namespace K4_Projekt
             }
             else
             {
-                throw new Exception("Triagenumber doesn'T exist!");
+                throw new Exception("Triagenumber doesn't exist!");
             }
             number_triage_class(i);
 
@@ -544,19 +557,19 @@ namespace K4_Projekt
             {
                 case 1:
                     OP1.BackColor = Color.Green;
-                    dead++;
+                    T++;
                     break;
                 case 2:
                     OP2.BackColor = Color.Green;
-                    dead++;
+                    T++;
                     break;
                 case 3:
                     OP3.BackColor = Color.Green;
-                    dead++;
+                    T++;
                     break;
                 case 4:
                     OP4.BackColor = Color.Green;
-                    dead++;
+                    T++;
                     break;
                 default: break;
             }
@@ -565,30 +578,83 @@ namespace K4_Projekt
         //Event Code 6
         private void aliveAfterOP(int OPRoom)
         {
+           
             switch (OPRoom)
             {
                 case 1:
                     OP1.BackColor = Color.Green;
                     station++;
+                    if (pictureBoxBS1.InvokeRequired)
+                    {
+                        Invoke (new Bettenstation_delegate(Bettenstation));
+                       // Bettenstation_delegate d = new Bettenstation_delegate(Bettenstation);
+                        //this.Invoke(d);
+                    }
+                    else
+                    {
+                        Bettenstation();
+                    }
+                    //Bettenstation();
                     break;
                 case 2:
                     OP2.BackColor = Color.Green;
                     station++;
+                    if (pictureBoxBS2.InvokeRequired)
+                    {
+                        Invoke(new Bettenstation_delegate(Bettenstation));
+                    }
+                    else
+                    {
+                        Bettenstation();
+                    }
                     break;
                 case 3:
                     OP3.BackColor = Color.Green;
                     station++;
+                    if (pictureBoxBS3.InvokeRequired)
+                    {
+                        Invoke(new Bettenstation_delegate(Bettenstation));
+                    }
+                    else
+                    {
+                        Bettenstation();
+                    }
                     break;
                 case 4:
                     OP4.BackColor = Color.Green;
                     station++;
+                    if (pictureBoxBS4.InvokeRequired)
+                    {
+                        Invoke(new Bettenstation_delegate(Bettenstation));
+                    }
+                    else
+                    {
+                        Bettenstation();
+                    }
                     break;
                 default: break;
             }
         }
 
-        //OP staff
-        //Event Code 7
+        //event code 7 XX
+        //get personal
+        public void get_personalOP(int personalCode, int OP)
+        {
+            switch (personalCode)
+            {
+                case 1: staffOPC(OP); break;
+                case 2: staffOPS1(OP); break;
+                case 3: staffOPS2(OP); break;
+                case 4: staffOPB(OP); break;
+                case 5: staffAnä(OP); break;
+                case 6: staffAnäS(OP); break;
+                case 7: staffRTA(OP); break;
+                default: break;
+            }
+        }
+
+        //OP staff 
+        //Event Code 7 1 X
         //surgeon
         public void staffOPC(int OPRoom)
         {
@@ -615,7 +681,7 @@ namespace K4_Projekt
         }
 
         //op schwester1
-        //event code8
+        //event code 7 2 X
         public void staffOPS1(int OPRoom)
         {
             switch (OPRoom)
@@ -637,7 +703,7 @@ namespace K4_Projekt
         }
 
         //OPS2
-        //Event Code 9
+        //Event Code 73X
         public void staffOPS2(int OPRoom)
         {
             switch (OPRoom)
@@ -659,7 +725,7 @@ namespace K4_Projekt
         }
 
         //OPB
-        //Event Code 10
+        //Event Code 74X
         public void staffOPB(int OPRoom)
         {
             switch (OPRoom)
@@ -681,7 +747,7 @@ namespace K4_Projekt
         }
 
         //Anä
-        //Event Code 11
+        //Event Code 75X
         public void staffAnä(int OPRoom)
         {
             switch (OPRoom)
@@ -703,7 +769,7 @@ namespace K4_Projekt
         }
 
         //AnäS
-        //Event Code 12
+        //Event Code 76X
         public void staffAnäS(int OPRoom)
         {
             switch (OPRoom)
@@ -724,8 +790,8 @@ namespace K4_Projekt
             }
         }
 
-        //AnäS
-        //Event Code 12
+        //RTA
+        //Event Code 77X
         public void staffRTA(int OPRoom)
         {
             switch (OPRoom)
@@ -743,6 +809,42 @@ namespace K4_Projekt
                     OPRTA4Label.BackColor = Color.LimeGreen;
                     break;
                 default: break;
+            }
+        }
+
+        //to delete
+        private void OPRTA1Label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //
+        private void Bettenstation()
+        {
+           
+            switch (station)
+            {
+                case 0: break; //just to be safe
+                case 1:
+                    pictureBoxBS1.Visible = true;
+                    break;
+                case 2:
+                    pictureBoxBS2.Visible = true;
+                    break;
+                case 3:
+                    pictureBoxBS3.Visible = true;
+                    break;
+                case 4:
+                    pictureBoxBS4.Visible = true;
+                    break;
+                case 5:
+                    pictureBoxBS5.Visible = true;
+                    break;
+                case 6:
+                    pictureBoxBS6.Visible = true;
+                    break;
+                default: break;
+
             }
         }
     }
