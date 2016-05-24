@@ -45,9 +45,10 @@ namespace K4_Projekt
         public number_triage_class_delegate my_number_triage_class_delegate;
         public delegate void operate_delegate(int i);
         public operate_delegate my_operate_delegate;
+        public delegate void Bettenstation_delegate();
         //public delegate void add_eventLog_text_delegate(int i);
         //public add_eventLog_text_delegate my_add_eventLog_text_delegate;
-       
+
 
 
         public void read_puffer()
