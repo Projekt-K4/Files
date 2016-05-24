@@ -16,12 +16,7 @@ namespace K4_Projekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            UKH u = new UKH();
-
-            Application.Run(u);
-
-            u.read_puffer();
+            Application.Run(new UKH());
  
         }
     }
