@@ -1,4 +1,5 @@
 ﻿
+using SimSharp.Core.Resources.StoreObjects;
 using System;
 using System.Collections.Generic;
 
@@ -8,12 +9,19 @@ namespace SimSharp.Samples
     public class K4
     {
 
-        static Resource Op = null;
+        //static Resource Op = null;
         static Resource OPWaiting = null;
+        static Store OPStore = null;
         static IEnumerable<Event> Steuerprozess(Environment env)//Simulator start, Timer starts!
         {
             //Resources:
-            Op = new Resource(env, 4);
+            //Op = new Resource(env, 4);
+            OPStore = new Store(env, 4);
+            for(int i=1;i<=4;i++)
+            {
+                OP op = new OP(i.ToString());
+                OPStore.Put(op);
+            }
             OPWaiting = new Resource(env,50);//where do they wait? How many can wait for OP?
             while (patientManager.getInstance().stillPatientsLeft())
             {
@@ -37,7 +45,7 @@ namespace SimSharp.Samples
             eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), "---", "2");
 
             //timestop for the duration of the triage process
-            yield return env.Timeout(TimeSpan.FromSeconds(15));//15->30 Seconds->I don`t know why
+            yield return env.Timeout(TimeSpan.FromSeconds(30));
 
             //TTL Calculation
             var support = env.Now.Subtract(pat.arrivalTime);//Timespan between now and arrival
@@ -54,14 +62,14 @@ namespace SimSharp.Samples
             eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "3"+ pat.getTriageNr().ToString());
             if (pat.getTriageNr()==1)
             {
-
-                yield return env.Timeout(TimeSpan.FromSeconds(0));
+                
+                yield return env.Timeout(TimeSpan.FromSeconds(0));//Placeholder
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "9");
             }
             else if(pat.getTriageNr()==2)
             {
                 
-                env.Process(OP_waiting(env, pat,Op,OPWaiting));
+                env.Process(OP_waiting(env, pat,OPStore,OPWaiting));
             }
             else if(pat.getTriageNr()==3)
             {
@@ -76,23 +84,23 @@ namespace SimSharp.Samples
             
 
         }
-        static IEnumerable<Event> OP_waiting(Environment env, Patient pat, Resource Op,Resource Waiting)
+        static IEnumerable<Event> OP_waiting(Environment env, Patient pat, Store Ops,Resource Waiting)
         {
             //wating resource
             using (var reqW = Waiting.Request())
             {
-                //patients arrive at the triage
+                //patients arrive at the waitingRoom
                 yield return reqW;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "12");
 
                 //OP Resources:
-                using (var reqOP = Op.Request())
-                {
-                    yield return reqOP;
-                    eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + "numberOfOP");
+                var obj = Ops.Get();
+                
+                    yield return obj;
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + obj.Value);
                     yield return env.TimeoutUniform(TimeSpan.FromSeconds(1200), TimeSpan.FromSeconds(7200));
-                    eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "6" + "numberOfOP");
-                }
+                    eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "6" + obj.Value);
+                Ops.Put(new OP(obj.Value.ToString()));
             }
 
         }
