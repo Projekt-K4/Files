@@ -21,7 +21,7 @@ namespace K4_Projekt
 
             Application.Run(u);
 
-            u.read_puffer();
+            //u.read_puffer();
  
         }
     }
