@@ -54,17 +54,18 @@ namespace K4_Projekt
         public void read_puffer()
         {
             eventLog.getLog().fromFileToList("file.csv");
-            while (eventLog.puffer.Count > 0)
+            foreach(var e in eventLog.eventList )
+            //while (eventLog.eventList.Count > 0)
             {
                 my_triage_number_delegate = new triage_number_delegate(triage_number);
-                int i = Int32.Parse(eventLog.puffer.ElementAt(0));
+                int i = Int32.Parse(e);
                 string s = i.ToString();
                 Thread.Sleep(1000);
                 if (PatientTriage.Visible == true)
                 {
                     if (InvokeRequired)
                     {
-                        Invoke(new triage_delegate(triage));
+                    Invoke(new triage_delegate(triage));
                     }else
                     {
                         triage();
@@ -75,7 +76,7 @@ namespace K4_Projekt
                 {
                     if (InvokeRequired)
                     {
-                        Invoke(new patient_waiting_delegate(patient_waiting));
+                    Invoke(new patient_waiting_delegate(patient_waiting));
                     }else
                     {
                         patient_waiting();
@@ -86,7 +87,7 @@ namespace K4_Projekt
                 {
                     if (InvokeRequired)
                     {
-                        PatientTriage.Invoke(new triage_delegate(triage));
+                    PatientTriage.Invoke(new triage_delegate(triage));
                     }else
                     {
                         triage();
@@ -98,7 +99,7 @@ namespace K4_Projekt
                     int j = i - 30;
                     if (InvokeRequired)
                     {
-                        Invoke(my_triage_number_delegate, new Object[] { j });
+                    Invoke(my_triage_number_delegate, new Object[] { j });
                     }else
                     {
                         triage_number(j);
@@ -146,8 +147,9 @@ namespace K4_Projekt
                 {
                     throw new Exception("Event doesn't exist!");
                 }
-                eventLog.puffer.RemoveAt(0);
+               // eventLog.puffer.RemoveAt(0);
             }
+            MessageBox.Show("Ich habe fertig!");
         }
 
         private void patient_waiting()
@@ -316,7 +318,7 @@ namespace K4_Projekt
             /*
             if (InvokeRequired)
             {
-                Invoke(new number_waiting_delegate(number_waiting));
+            Invoke(new number_waiting_delegate(number_waiting));
             }else
             {
                 number_waiting();
