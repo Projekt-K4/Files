@@ -35,20 +35,18 @@ namespace K4_Projekt
         {
             var t = new Thread(new ThreadStart(read_puffer));
             t.Start();
-
         }
 
         public delegate void patient_waiting_delegate();
         public delegate void triage_delegate();
         public delegate void triage_number_delegate(int i);
         public triage_number_delegate my_triage_number_delegate;
-        public delegate void triage_number_lv_delegate();
         public delegate void number_waiting_delegate();
         public delegate void number_triage_class_delegate(int i);
         public number_triage_class_delegate my_number_triage_class_delegate;
-        public delegate void number_triage_class2_delegate();
-        public delegate void number_triage_class3_delegate();
-        public delegate void number_triage_class4_delegate();
+        public delegate void operate_delegate(int i);
+        public operate_delegate my_operate_delegate;
+        public delegate void Bettenstation_delegate();
         //public delegate void add_eventLog_text_delegate(int i);
         //public add_eventLog_text_delegate my_add_eventLog_text_delegate;
 
@@ -65,29 +63,59 @@ namespace K4_Projekt
                 Thread.Sleep(1000);
                 if (PatientTriage.Visible == true)
                 {
+                    if (InvokeRequired)
+                    {
                     Invoke(new triage_delegate(triage));
+                    }else
+                    {
+                        triage();
+                    }
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
                 }
                 if (i == 1)
                 {
+                    if (InvokeRequired)
+                    {
                     Invoke(new patient_waiting_delegate(patient_waiting));
+                    }else
+                    {
+                        patient_waiting();
+                    }
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                 }
                 else if (i == 2)
                 {
+                    if (InvokeRequired)
+                    {
                     PatientTriage.Invoke(new triage_delegate(triage));
+                    }else
+                    {
+                        triage();
+                    }
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                 }
                 else if (s.StartsWith("3"))
                 {
                     int j = i - 30;
+                    if (InvokeRequired)
+                    {
                     Invoke(my_triage_number_delegate, new Object[] { j });
+                    }else
+                    {
+                        triage_number(j);
+                    }
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { i});
                 }
                 else if (s.StartsWith("4"))
                 {
                     int j = i - 40;
-                    MessageBox.Show("OP");
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_operate_delegate, new Object[] { j });
+                    }else
+                    {
+                        operate(j);
+                    }
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                 }
                 else if (s.StartsWith("5"))
@@ -151,8 +179,16 @@ namespace K4_Projekt
             {
                 throw new Exception("Error in patient waiting queue!");
             }
+            /*
+            if (InvokeRequired)
+            {
+                Invoke(new number_waiting_delegate(number_waiting));
+            }else
+            {
+                number_waiting();
+            }*/
+            number_waiting();
 
-            Invoke(new number_waiting_delegate(number_waiting));
         }
 
         private void add_eventLog_text(int i)
@@ -266,9 +302,16 @@ namespace K4_Projekt
             {
                 PatientTriage.Visible = false;
             }
-
+            /*
+            if (InvokeRequired)
+            {
             Invoke(new number_waiting_delegate(number_waiting));
-
+            }else
+            {
+                number_waiting();
+            }
+            */
+            number_waiting();
         }
 
         private void triage_number(int i)
@@ -294,8 +337,6 @@ namespace K4_Projekt
                 throw new Exception("Triagenumber doesn'T exist!");
             }
             number_triage_class(i);
-            //Invoke(my_number_triage_class_delegate, new Object[] { i });
-            //Invoke(my_number_triage_class_delegate, new Object[] { i });
 
         }
 
