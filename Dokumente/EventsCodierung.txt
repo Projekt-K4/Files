@@ -7,8 +7,8 @@ ______________________________________________________________________________
 4[.]	wird operiert [in OP #]		Patient wird in OP # operiert.		--> bedeutet: OP besetzt
 5[.]	in OP # gestorben		Patient ist in OP verstorben.		--> bedeutet: OP frei, Patient in Kühlraum
 6[.]	von OP # auf Bettenstation	Patient wurde operiert und kommt auf Bettenstation.		--> bedeutet: OP frei, Patient auf Bettenstation
-7[.]	Chirurg in OP # eingetroffen	Chirurg in OP # eingetroffen und bereit für OP	
-8[.]	...				  in OP # eingetroffen und bereit für OP
+7[.][.]	Personal in OP # eingetroffen	... in OP # eingetroffen und bereit für OP	(7: Personal eingetroffen, zweite Zahl: welche Art von Personal (zB 1 = Chirurg), dritte Zahl: OPNummer)
+	
 9	leichtverletzter Patient wartet	(wird daweil "auf die Straße" geschickt)
 10	Patient ist ein hoffnungsloser Fall und kommt in Kirche
 11	Patient ist tot und kommt in KK
