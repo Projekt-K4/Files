@@ -56,10 +56,11 @@ namespace K4_Projekt
         public void read_puffer()
         {
             eventLog.getLog().fromFileToList("file.csv");
-            while (eventLog.puffer.Count > 0)
+            foreach(var e in eventLog.eventList )
+            //while (eventLog.eventList.Count > 0)
             {
                 my_triage_number_delegate = new triage_number_delegate(triage_number);
-                int i = Int32.Parse(eventLog.puffer.ElementAt(0));
+                int i = Int32.Parse(e);
                 string s = i.ToString();
                 Thread.Sleep(1000);
                 if (PatientTriage.Visible == true)
@@ -105,8 +106,9 @@ namespace K4_Projekt
                 {
                     throw new Exception("Event doesn't exist!");
                 }
-                eventLog.puffer.RemoveAt(0);
+               // eventLog.puffer.RemoveAt(0);
             }
+            MessageBox.Show("Ich habe fertig!");
         }
 
         private void patient_waiting()
@@ -291,8 +293,9 @@ namespace K4_Projekt
             {
                 throw new Exception("Triagenumber doesn'T exist!");
             }
-
-            Invoke(my_number_triage_class_delegate, new Object[] { i });
+            number_triage_class(i);
+            //Invoke(my_number_triage_class_delegate, new Object[] { i });
+            //Invoke(my_number_triage_class_delegate, new Object[] { i });
 
         }
 

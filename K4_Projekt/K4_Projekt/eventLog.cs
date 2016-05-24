@@ -14,6 +14,12 @@ namespace K4_Projekt
         private static eventLog log = null;
         private static bool logFile = true;
         public static List<String> puffer;
+        public static List<String> timeStampList;
+        public static List<String> TTLList;
+        public static List<String> KIDList;
+        public static List<String> triageNumberList;
+        public static List<String> eventList;
+        
 
         public static eventLog getLog()
         {
@@ -21,6 +27,12 @@ namespace K4_Projekt
             if (log == null)
             {
                 puffer = new List<String>();
+                timeStampList = new List<String>();
+                TTLList = new List<String>();
+                KIDList = new List<String>();
+                triageNumberList = new List<String>();
+                eventList = new List<String>();
+
                 log = new eventLog();
             }
             return log;
@@ -38,6 +50,7 @@ namespace K4_Projekt
                 {
                     if (support.Length != 0)//checking if file is not empty, only for important for the first iteration
                     {
+                        splitLine(support, ';');
                         puffer.Add(support);
                     }
                     else
@@ -93,5 +106,20 @@ namespace K4_Projekt
 
         }
 
+        private void splitLine(string line, char delimiter)
+        {
+            string[] coloumns = line.Split(';');
+            string sysTime = coloumns[0];
+            string TTL = coloumns[1];
+            string KID = coloumns[2];
+            string triageNumber = coloumns[3];
+            string eventNumber = coloumns[4];
+
+            timeStampList.Add(sysTime);
+            TTLList.Add(TTL);
+            KIDList.Add(KID);
+            triageNumberList.Add(triageNumber);
+            eventList.Add(eventNumber);
+        }
     }
 }
