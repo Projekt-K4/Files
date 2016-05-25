@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Collections;
 
 namespace K4_Projekt
 {
@@ -23,7 +25,9 @@ namespace K4_Projekt
         private static int station = 0;
         private static int QueueOPRoom = 0;
 
-        private static string eventLogText = "";
+        private static string patient_KID;
+
+        private int faster= 100;
 
         public UKH()
         {
@@ -32,8 +36,9 @@ namespace K4_Projekt
 
         public void UKH_Load(object sender, EventArgs e)
         {
-            var t = new Thread(new ThreadStart(read_puffer));
-            t.Start();
+                var t = new Thread(new ThreadStart(read_puffer));
+                t.Start();
+            
         }
 
         public delegate void patient_waiting_delegate();
@@ -46,30 +51,43 @@ namespace K4_Projekt
         public delegate void operate_delegate(int i);
         public operate_delegate my_operate_delegate;
         public delegate void Bettenstation_delegate();
-        //public delegate void add_eventLog_text_delegate(int i);
-        //public add_eventLog_text_delegate my_add_eventLog_text_delegate;
+        public delegate void add_eventLog_text_delegate(int i);
+        public add_eventLog_text_delegate my_add_eventLog_text_delegate;
 
 
 
         public void read_puffer()
         {
-            eventLog.getLog().fromFileToList("file.csv");
-            while (eventLog.puffer.Count > 0)
+            eventLog.getLog().fromFileToList("file.csv"); 
+            DateTime now = DateTime.ParseExact("00:08:40", "hh:mm:ss", new CultureInfo("de-DE"));
+            for (int e = 0; e < eventLog.puffer.Count; ++e)
+            //while (eventLog.eventList.Count > 0)
             {
                 my_triage_number_delegate = new triage_number_delegate(triage_number);
-                int i = Int32.Parse(eventLog.puffer.ElementAt(0));
+                int i = Int32.Parse(eventLog.eventList.ElementAt(e));
                 string s = i.ToString();
-                Thread.Sleep(1000);
+                DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
+                TimeSpan difference = time - now;
+                int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
+                Thread.Sleep(duration/faster);
                 if (PatientTriage.Visible == true)
                 {
                     if (InvokeRequired)
                     {
-                        Invoke(new triage_delegate(triage));
-                    }else
+                    Invoke(new triage_delegate(triage));
+                    } else
                     {
                         triage();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }*/
                 }
                 if (i == 1)
                 {
@@ -80,57 +98,194 @@ namespace K4_Projekt
                     {
                         patient_waiting();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
                 }
                 else if (i == 2)
                 {
                     if (InvokeRequired)
                     {
-                        PatientTriage.Invoke(new triage_delegate(triage));
+                    PatientTriage.Invoke(new triage_delegate(triage));
                     }else
                     {
                         triage();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
                 }
                 else if (s.StartsWith("3"))
                 {
                     int j = i - 30;
                     if (InvokeRequired)
                     {
-                        Invoke(my_triage_number_delegate, new Object[] { j });
+                    Invoke(my_triage_number_delegate, new Object[] { j });
                     }else
                     {
                         triage_number(j);
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i});
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }*/
                 }
                 else if (s.StartsWith("4"))
                 {
                     int j = i - 40;
+                    //MessageBox.Show("4");
+                    /*
                     if (InvokeRequired)
                     {
                         Invoke(my_operate_delegate, new Object[] { j });
                     }else
                     {
                         operate(j);
+                    }*/
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }*/
                 }
                 else if (s.StartsWith("5"))
                 {
                     int j = i - 50;
-                    MessageBox.Show("Bettenstation");
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] {5 });
+                    //MessageBox.Show("5");
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
                 }
                 else if (s.StartsWith("6"))
                 {
                     int j = i - 60;
-
-                    //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
-                    aliveAfterOP(j);
-                    //MessageBox.Show("Kirche");
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
+                   // MessageBox.Show("6");
+                   /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
+                }
+                else if (s.StartsWith("7"))
+                {
+                    int j = i - 70;
+                    //MessageBox.Show("7");
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
+                }
+                else if (s.StartsWith("8"))
+                {
+                    int j = i - 80;
+                    //MessageBox.Show("8");
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
+                }
+                else if (i==9)
+                {
+                    //MessageBox.Show("9");
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
+                }
+                else if (i == 10)
+                {
+                 //   MessageBox.Show("10");
+                 /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
+                }
+                else if (i == 11)
+                {
+                 //   MessageBox.Show("11");
+                 /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
+                }
+                else if (s.StartsWith("12"))
+                {
+                    int j = i - 120;
+                   // MessageBox.Show("12");
+                   /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }*/
                 }
                 else if (s.StartsWith("7"))
                 {
@@ -146,8 +301,10 @@ namespace K4_Projekt
                 {
                     throw new Exception("Event doesn't exist!");
                 }
-                eventLog.puffer.RemoveAt(0);
+                // eventLog.puffer.RemoveAt(0);
+                now = time;
             }
+            MessageBox.Show("Ich habe fertig!");
         }
 
         private void patient_waiting()
@@ -205,27 +362,23 @@ namespace K4_Projekt
         private void add_eventLog_text(int i)
         {
             string s = i.ToString();
-            if (i == 0)
+            if (i == 1)
             {
-                EventLogFeld.Text = "???.\n" + eventLogText;
-            }
-            else if (i == 1)
-            {
-                EventLogFeld.Text = "Patient wartet vor Triage.\n" + eventLogText;
+               // textBox_eventLog..Insert(0,eventLog.triageNumberList.ElementAt(i)+ " Patient wartet vor Triage" );
             }
             else if (i == 2)
             {
-                EventLogFeld.Text = "Patient wird triagiert.\n" + eventLogText;
+              //  listBox_eventLog.Items.Add("Patient wird triagiert.\n" + eventLogText);
             }
             else if (s.StartsWith("3"))
             {
                 int j = i - 30;
-                EventLogFeld.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
+              //  listBox_eventLog.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
             }
             else if (s.StartsWith("4"))
             {
                 int j = i - 40;
-                EventLogFeld.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
+               // listBox_eventLog.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
             }
         }
 
@@ -316,7 +469,7 @@ namespace K4_Projekt
             /*
             if (InvokeRequired)
             {
-                Invoke(new number_waiting_delegate(number_waiting));
+            Invoke(new number_waiting_delegate(number_waiting));
             }else
             {
                 number_waiting();
@@ -518,6 +671,8 @@ namespace K4_Projekt
                 throw new Exception("Error at the T triage!");
             }
         }
+
+
 
 
 
@@ -811,6 +966,26 @@ namespace K4_Projekt
                     break;
                 default: break;
             }
+        }
+
+        private void class2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void class1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void class3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void class4_Click(object sender, EventArgs e)
+        {
+
         }
 
         //to delete
