@@ -37,6 +37,7 @@ ______________________________________________________________________________
 	2. In Kirche gestorben
 	
 12	Patient wartet auf OP
+	// + wo er her kommt
 	
 
 Anm.: [.] -> Zahl zwischen 1-4 (4 OPs)
