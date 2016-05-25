@@ -27,7 +27,7 @@ namespace SimSharp.Samples
             {
                 //timestop in seconds until new patient arrives
                 yield return env.TimeoutUniform(TimeSpan.FromSeconds(0), TimeSpan.FromSeconds(3600));
-
+                
                 //each patient finds his way to the triage
                 Patient pat = null;
                 while((pat=patientManager.getInstance(env).getPatient())!=null)
@@ -57,7 +57,7 @@ namespace SimSharp.Samples
 
             //Patient gets new TTL
             pat.triagePatient(pat.getTimeToLive());
-       
+
             //patient finally printed to log with triage number
             eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "3"+ pat.getTriageNr().ToString());
             if (pat.getTriageNr()==1)
@@ -95,7 +95,7 @@ namespace SimSharp.Samples
 
                 //OP Resources:
                 var obj = Ops.Get();
-                
+
                     yield return obj;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + obj.Value);
                     yield return env.TimeoutUniform(TimeSpan.FromSeconds(1200), TimeSpan.FromSeconds(7200));
@@ -120,8 +120,8 @@ namespace SimSharp.Samples
             //Simulation starts
             env.Process(Steuerprozess(env));
             env.RunD();
-            
            
+
 
 
 
