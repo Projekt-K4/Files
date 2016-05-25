@@ -118,35 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="patient_schwarz" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\patient_schwarz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="patient_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\patient_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="patient_gruen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\patient_gruen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="patient_blau" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\patient_blau.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="patient_gruen_queue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\patient_gruen_queue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="patient_rot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\patient_rot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="patient_schwarz_queue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\patient_schwarz_queue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AUVA.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\AUVA.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="patient" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\patient.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="patient_gruen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\patient_gruen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="patient_queue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\patient_queue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="patient_rot_queue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\patient_rot_queue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="patient_blau" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\patient_blau.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="patient_schwarz_queue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\patient_schwarz_queue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="patient_rot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\patient_rot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="patient_blau_queue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\patient_blau_queue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,7 +145,19 @@
   <data name="patient_queue1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\patient_queue1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="patient_rot_queue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\patient_rot_queue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="patient_queue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\patient_queue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="patient_schwarz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\patient_schwarz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="patient" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\patient.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="patient_gruen_queue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\patient_gruen_queue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AUVA1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AUVA.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
