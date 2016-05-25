@@ -31,7 +31,6 @@ namespace SimSharp.Samples
                 OPStore.Put(op);
             }
 
-
             while (patientManager.getInstance().stillPatientsLeft())
             {
                 //timestop in seconds until new patient arrives
@@ -105,10 +104,10 @@ namespace SimSharp.Samples
                 //OP Resources:
                 var obj = Ops.Get();
                 
-                    yield return obj;
+                yield return obj;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + obj.Value);
-                    yield return env.TimeoutUniform(TimeSpan.FromSeconds(1200), TimeSpan.FromSeconds(7200));
-                env.Process(WardProcess(env, pat, Mortuary, new OP(obj.Value.ToString())));
+                yield return env.TimeoutUniform(TimeSpan.FromSeconds(1200), TimeSpan.FromSeconds(7200));
+                env.Process(WardProcess(env, pat, Mortuary, obj.Value.ToString()));
                 Ops.Put(new OP(obj.Value.ToString()));
             }
 
@@ -127,14 +126,14 @@ namespace SimSharp.Samples
 
         }
 
-        static IEnumerable<Event> WardProcess(Environment env, Patient pat, Resource ward, OP op)
+        static IEnumerable<Event> WardProcess(Environment env, Patient pat, Resource ward, String comeFrom)
         {
             //wating resource
             using (var reqM = ward.Request())
             {
                 //dead patient brought into mortuary
                 yield return reqM;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "6" + op);
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "6" + comeFrom);
             }
 
         }
