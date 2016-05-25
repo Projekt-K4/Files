@@ -23,14 +23,14 @@ namespace SimSharp.Samples
                 OPStore.Put(op);
             }
             OPWaiting = new Resource(env,50);//where do they wait? How many can wait for OP?
-            while (patientManager.getInstance(env).stillPatientsLeft())
+            while (patientManager.getInstance().stillPatientsLeft())
             {
                 //timestop in seconds until new patient arrives
                 yield return env.TimeoutUniform(TimeSpan.FromSeconds(0), TimeSpan.FromSeconds(3600));
 
                 //each patient finds his way to the triage
                 Patient pat = null;
-                while((pat=patientManager.getInstance(env).getPatient())!=null)
+                while((pat=patientManager.getInstance().getPatient(env))!=null)
                 {
                     pat.arrivalTime = env.Now;
                     eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), "---", "1");
@@ -109,13 +109,13 @@ namespace SimSharp.Samples
         public void RunSimulation(int amount,int seed)
         {
             //creating Environment of Simulation
-            var env = new Environment(seed);
+            var env = new Environment(seed);//is responsible for every randomNumber in the simulation
             env.Reset(seed);
             
             //creating Patients
             PatientGenerator patientGen = new PatientGenerator(amount,env);//Patients get generated
             //PatientManager receives Patient list:
-            patientManager.getInstance(env).createPatients(patientGen.getPatientList());//outside of process!!!!!!!     
+            patientManager.getInstance().createPatients(patientGen.getPatientList());//outside of process!!!!!!!     
 
             //Simulation starts
             env.Process(Steuerprozess(env));
