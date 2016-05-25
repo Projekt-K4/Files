@@ -7,26 +7,28 @@ namespace SimSharp.Samples
 {
     class patientManager
     {
-        private SystemRandom random = new SystemRandom();
+        private static Environment env = null;
         private static patientManager instance = null;
         private static bool patientsExists=false;
         public bool stillPatientsLeft()//Check if there are still patients in the List
         {
             return (patientsExists && (patients.Count > 0));
         }
-        public static patientManager getInstance()//returns an instance of the patientManager
+        public static patientManager getInstance(Environment _env)//returns an instance of the patientManager
         {
 
             if (instance == null)
             {
+                env = _env;
                 instance = new patientManager();
             }
             return instance;
         }
+        
         private List<Patient> patients;//contains the remaining patients
         public List<Patient> createPatients(int amount)//fills the list of patients
         {
-            this.patients = new PatientGenerator(amount).getPatientList();
+            this.patients = new PatientGenerator(amount,env).getPatientList();
             patientsExists = true;
             return this.patients;
         }
@@ -40,8 +42,8 @@ namespace SimSharp.Samples
         {
             if(!patientsExists)
             {
-                SystemRandom random = new SystemRandom();
-                this.patients = createPatients(random.Next(5, 50));//if not defined, 5-50 patients get generated before using them
+                
+                this.patients = createPatients((int)env.RandUniform(5, 50));//if not defined, 5-50 patients get generated before using them
             }
             List<Patient> sublist = null;
             if (patients.Count>0)
@@ -64,8 +66,8 @@ namespace SimSharp.Samples
             Patient p = null;
             if (!patientsExists)
             {
-                SystemRandom random = new SystemRandom();
-                this.patients = createPatients(random.Next(5, 50));//if not defined, 5-50 patients get generated before using them
+                
+                this.patients = createPatients((int)env.RandUniform(5, 50));//if not defined, 5-50 patients get generated before using them
             }
             if (patients.Count > 0)
             {
@@ -76,7 +78,7 @@ namespace SimSharp.Samples
         }
         public List<Patient> getRandomPatients(int min,int max, bool priority=true)//returns a random amount of patients out of the list
         {
-            return getPatients(random.Next(min, max), priority);
+            return getPatients((int)env.RandUniform(min, max), priority);
         }
         public List<Patient> getAllPatients(bool priority = true)//returns all patients out of the list
         {
