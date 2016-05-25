@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -25,7 +26,7 @@ namespace K4_Projekt
 
         private static string patient_KID;
 
-        private int faster= 100;
+        private int faster = 100;
 
         public UKH()
         {
@@ -34,9 +35,9 @@ namespace K4_Projekt
 
         public void UKH_Load(object sender, EventArgs e)
         {
-                var t = new Thread(new ThreadStart(read_puffer));
-                t.Start();
-            
+            var t = new Thread(new ThreadStart(read_puffer));
+            t.Start();
+
         }
 
         public delegate void patient_waiting_delegate();
@@ -56,7 +57,7 @@ namespace K4_Projekt
 
         public void read_puffer()
         {
-            eventLog.getLog().fromFileToList("file.csv"); 
+            eventLog.getLog().fromFileToList("file.csv");
             DateTime now = DateTime.ParseExact("00:08:40", "hh:mm:ss", new CultureInfo("de-DE"));
             for (int e = 0; e < eventLog.puffer.Count; ++e)
             //while (eventLog.eventList.Count > 0)
@@ -67,13 +68,14 @@ namespace K4_Projekt
                 DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
                 TimeSpan difference = time - now;
                 int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
-                Thread.Sleep(duration/faster);
+                Thread.Sleep(duration / faster);
                 if (PatientTriage.Visible == true)
                 {
                     if (InvokeRequired)
                     {
-                    Invoke(new triage_delegate(triage));
-                    } else
+                        Invoke(new triage_delegate(triage));
+                    }
+                    else
                     {
                         triage();
                     }
@@ -92,7 +94,8 @@ namespace K4_Projekt
                     if (InvokeRequired)
                     {
                         Invoke(new patient_waiting_delegate(patient_waiting));
-                    }else
+                    }
+                    else
                     {
                         patient_waiting();
                     }
@@ -111,8 +114,9 @@ namespace K4_Projekt
                 {
                     if (InvokeRequired)
                     {
-                    PatientTriage.Invoke(new triage_delegate(triage));
-                    }else
+                        PatientTriage.Invoke(new triage_delegate(triage));
+                    }
+                    else
                     {
                         triage();
                     }
@@ -132,8 +136,9 @@ namespace K4_Projekt
                     int j = i - 30;
                     if (InvokeRequired)
                     {
-                    Invoke(my_triage_number_delegate, new Object[] { j });
-                    }else
+                        Invoke(my_triage_number_delegate, new Object[] { j });
+                    }
+                    else
                     {
                         triage_number(j);
                     }
@@ -187,17 +192,17 @@ namespace K4_Projekt
                 else if (s.StartsWith("6"))
                 {
                     int j = i - 60;
-                   // MessageBox.Show("6");
-                   /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }
-                    */
+                    // MessageBox.Show("6");
+                    /*
+                     if (InvokeRequired)
+                     {
+                         Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                     }
+                     else
+                     {
+                         add_eventLog_text(i);
+                     }
+                     */
                 }
                 else if (s.StartsWith("7"))
                 {
@@ -229,7 +234,7 @@ namespace K4_Projekt
                     }
                     */
                 }
-                else if (i==9)
+                else if (i == 9)
                 {
                     //MessageBox.Show("9");
                     /*
@@ -245,52 +250,52 @@ namespace K4_Projekt
                 }
                 else if (i == 10)
                 {
-                 //   MessageBox.Show("10");
-                 /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }
-                    */
+                    //   MessageBox.Show("10");
+                    /*
+                       if (InvokeRequired)
+                       {
+                           Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                       }
+                       else
+                       {
+                           add_eventLog_text(i);
+                       }
+                       */
                 }
                 else if (i == 11)
                 {
-                 //   MessageBox.Show("11");
-                 /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }
-                    */
+                    //   MessageBox.Show("11");
+                    /*
+                       if (InvokeRequired)
+                       {
+                           Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                       }
+                       else
+                       {
+                           add_eventLog_text(i);
+                       }
+                       */
                 }
                 else if (s.StartsWith("12"))
                 {
                     int j = i - 120;
-                   // MessageBox.Show("12");
-                   /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }*/
+                    // MessageBox.Show("12");
+                    /*
+                     if (InvokeRequired)
+                     {
+                         Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                     }
+                     else
+                     {
+                         add_eventLog_text(i);
+                     }*/
                 }
                 else if (s.StartsWith("7"))
                 {
                     int j = i - 700;
                     string[] temp = s.Split(';');
                     int staff = Int32.Parse(temp[1]);
-                    int OP= Int32.Parse(temp[2]);
+                    int OP = Int32.Parse(temp[2]);
                     //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
                     get_personalOP(staff, OP);
 
@@ -304,7 +309,7 @@ namespace K4_Projekt
                     int j = i - 700;
                     string[] temp = s.Split(';');
                     int staff = Int32.Parse(temp[1]);
-                    int OP= Int32.Parse(temp[2]);
+                    int OP = Int32.Parse(temp[2]);
                     //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
                     get_personalOP(staff, OP);
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
@@ -376,21 +381,21 @@ namespace K4_Projekt
             string s = i.ToString();
             if (i == 1)
             {
-               // textBox_eventLog..Insert(0,eventLog.triageNumberList.ElementAt(i)+ " Patient wartet vor Triage" );
+                // textBox_eventLog..Insert(0,eventLog.triageNumberList.ElementAt(i)+ " Patient wartet vor Triage" );
             }
             else if (i == 2)
             {
-              //  listBox_eventLog.Items.Add("Patient wird triagiert.\n" + eventLogText);
+                //  listBox_eventLog.Items.Add("Patient wird triagiert.\n" + eventLogText);
             }
             else if (s.StartsWith("3"))
             {
                 int j = i - 30;
-              //  listBox_eventLog.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
+                //  listBox_eventLog.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
             }
             else if (s.StartsWith("4"))
             {
                 int j = i - 40;
-               // listBox_eventLog.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
+                // listBox_eventLog.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
             }
         }
 
@@ -746,7 +751,7 @@ namespace K4_Projekt
         //Event Code 6
         private void aliveAfterOP(int OPRoom)
         {
-           
+
             switch (OPRoom)
             {
                 case 1:
@@ -754,8 +759,8 @@ namespace K4_Projekt
                     station++;
                     if (pictureBoxBS1.InvokeRequired)
                     {
-                        Invoke (new Bettenstation_delegate(Bettenstation));
-                       // Bettenstation_delegate d = new Bettenstation_delegate(Bettenstation);
+                        Invoke(new Bettenstation_delegate(Bettenstation));
+                        // Bettenstation_delegate d = new Bettenstation_delegate(Bettenstation);
                         //this.Invoke(d);
                     }
                     else
@@ -1009,7 +1014,7 @@ namespace K4_Projekt
         //
         private void Bettenstation()
         {
-           
+
             switch (station)
             {
                 case 0: break; //just to be safe
@@ -1036,41 +1041,5 @@ namespace K4_Projekt
             }
         }
 
-        //to delete
-        private void OPRTA1Label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //
-        private void Bettenstation()
-        {
-           
-            switch (station)
-            {
-                case 0: break; //just to be safe
-                case 1:
-                    pictureBoxBS1.Visible = true;
-                    break;
-                case 2:
-                    pictureBoxBS2.Visible = true;
-                    break;
-                case 3:
-                    pictureBoxBS3.Visible = true;
-                    break;
-                case 4:
-                    pictureBoxBS4.Visible = true;
-                    break;
-                case 5:
-                    pictureBoxBS5.Visible = true;
-                    break;
-                case 6:
-                    pictureBoxBS6.Visible = true;
-                    break;
-                default: break;
-
-            }
-        }
     }
-    
 }
