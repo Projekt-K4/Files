@@ -11,18 +11,27 @@ namespace SimSharp.Samples
 
         //static Resource Op = null;
         static Resource OPWaiting = null;
+        static Resource Mortuary = null;
+        static Resource Ward = null;
+
         static Store OPStore = null;
-        static IEnumerable<Event> Steuerprozess(Environment env)//Simulator start, Timer starts!
+        
+        static IEnumerable<Event> Steuerprozess(Environment env)    //Simulator start, Timer starts!
         {
             //Resources:
-            //Op = new Resource(env, 4);
+
+            OPWaiting = new Resource(env, 50);   //where do they wait? How many can wait for OP?
+            Mortuary = new Resource(env, 50);
+            Ward = new Resource(env, 150);
             OPStore = new Store(env, 4);
-            for(int i=1;i<=4;i++)
+
+            for (int i=1; i<=4; i++)
             {
                 OP op = new OP(i.ToString());
                 OPStore.Put(op);
             }
-            OPWaiting = new Resource(env,50);//where do they wait? How many can wait for OP?
+
+
             while (patientManager.getInstance().stillPatientsLeft())
             {
                 //timestop in seconds until new patient arrives
@@ -69,7 +78,7 @@ namespace SimSharp.Samples
             else if(pat.getTriageNr()==2)
             {
                 
-                env.Process(OP_waiting(env, pat,OPStore,OPWaiting));
+                env.Process(OP_waiting(env, pat, OPStore, OPWaiting));
             }
             else if(pat.getTriageNr()==3)
             {
@@ -78,13 +87,13 @@ namespace SimSharp.Samples
             }
             else
             {
-                yield return env.Timeout(TimeSpan.FromSeconds(0));
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "11");
+                env.Process(MortuaryProcess(env, pat, Mortuary));
+            }
+            
             }
             
 
-        }
-        static IEnumerable<Event> OP_waiting(Environment env, Patient pat, Store Ops,Resource Waiting)
+        static IEnumerable<Event> OP_waiting(Environment env, Patient pat, Store Ops, Resource Waiting)
         {
             //wating resource
             using (var reqW = Waiting.Request())
@@ -96,11 +105,36 @@ namespace SimSharp.Samples
                 //OP Resources:
                 var obj = Ops.Get();
                 
-                    yield return obj;
+                yield return obj;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + obj.Value);
-                    yield return env.TimeoutUniform(TimeSpan.FromSeconds(1200), TimeSpan.FromSeconds(7200));
-                    eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "6" + obj.Value);
+                yield return env.TimeoutUniform(TimeSpan.FromSeconds(1200), TimeSpan.FromSeconds(7200));
+                env.Process(WardProcess(env, pat, Mortuary, new OP(obj.Value.ToString())));
                 Ops.Put(new OP(obj.Value.ToString()));
+            }
+
+        }
+
+
+        static IEnumerable<Event> MortuaryProcess (Environment env, Patient pat, Resource Mortuary) //also pass code to know WHERE the patient died (to write in Log - Visualization wants that)
+        {
+            //wating resource
+            using (var reqM = Mortuary.Request())
+            {
+                //dead patient brought into mortuary
+                yield return reqM;
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "11");
+            }
+
+        }
+
+        static IEnumerable<Event> WardProcess(Environment env, Patient pat, Resource ward, OP op)
+        {
+            //wating resource
+            using (var reqM = ward.Request())
+            {
+                //dead patient brought into mortuary
+                yield return reqM;
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "6" + op);
             }
 
         }
