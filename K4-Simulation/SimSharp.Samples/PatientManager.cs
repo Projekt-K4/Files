@@ -7,26 +7,24 @@ namespace SimSharp.Samples
 {
     class patientManager
     {
-        private static Environment env = null;
         private static patientManager instance = null;
         private static bool patientsExists=false;
         public bool stillPatientsLeft()//Check if there are still patients in the List
         {
             return (patientsExists && (patients.Count > 0));
         }
-        public static patientManager getInstance(Environment _env)//returns an instance of the patientManager
+        public static patientManager getInstance()//returns an instance of the patientManager
         {
 
             if (instance == null)
             {
-                env = _env;
                 instance = new patientManager();
             }
             return instance;
         }
         
         private List<Patient> patients;//contains the remaining patients
-        public List<Patient> createPatients(int amount)//fills the list of patients
+        public List<Patient> createPatients(int amount, Environment env)//fills the list of patients
         {
             this.patients = new PatientGenerator(amount,env).getPatientList();
             patientsExists = true;
@@ -38,12 +36,12 @@ namespace SimSharp.Samples
             patientsExists = true;
             return this.patients;
         }
-        public List<Patient> getPatients(int amount=1,bool priority = true)//returns an amount of patients out of the list;amount has to be greater than 0
+        public List<Patient> getPatients(Environment env,int amount=1,bool priority = true)//returns an amount of patients out of the list;amount has to be greater than 0
         {
             if(!patientsExists)
             {
                 
-                this.patients = createPatients((int)env.RandUniform(5, 50));//if not defined, 5-50 patients get generated before using them
+                this.patients = createPatients((int)env.RandUniform(5, 50),env);//if not defined, 5-50 patients get generated before using them
             }
             List<Patient> sublist = null;
             if (patients.Count>0)
@@ -61,13 +59,13 @@ namespace SimSharp.Samples
             }
             return sublist;
         }
-        public Patient getPatient()//returns an amount of patients out of the list;amount has to be greater than 0
+        public Patient getPatient(Environment env)//returns an amount of patients out of the list;amount has to be greater than 0
         {
             Patient p = null;
             if (!patientsExists)
             {
                 
-                this.patients = createPatients((int)env.RandUniform(5, 50));//if not defined, 5-50 patients get generated before using them
+                this.patients = createPatients((int)env.RandUniform(5, 50),env);//if not defined, 5-50 patients get generated before using them
             }
             if (patients.Count > 0)
             {
@@ -76,13 +74,13 @@ namespace SimSharp.Samples
             }
             return p;
         }
-        public List<Patient> getRandomPatients(int min,int max, bool priority=true)//returns a random amount of patients out of the list
+        public List<Patient> getRandomPatients(Environment env,int min,int max, bool priority=true)//returns a random amount of patients out of the list
         {
-            return getPatients((int)env.RandUniform(min, max), priority);
+            return getPatients(env,(int)env.RandUniform(min, max), priority);
         }
-        public List<Patient> getAllPatients(bool priority = true)//returns all patients out of the list
+        public List<Patient> getAllPatients(Environment env,bool priority = true)//returns all patients out of the list
         {
-            return getPatients(patients.Count, priority);
+            return getPatients(env,patients.Count, priority);
         }
         private static int compareTTL(Patient x, Patient y)//needed for comparing
         {
