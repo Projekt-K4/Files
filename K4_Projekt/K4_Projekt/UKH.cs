@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
-using System.Collections;
 
 namespace K4_Projekt
 {
@@ -286,6 +284,20 @@ namespace K4_Projekt
                     {
                         add_eventLog_text(i);
                     }*/
+                }
+                else if (s.StartsWith("7"))
+                {
+                    int j = i - 700;
+                    string[] temp = s.Split(';');
+                    int staff = Int32.Parse(temp[1]);
+                    int OP= Int32.Parse(temp[2]);
+                    //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
+                    get_personalOP(staff, OP);
+
+                    //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
+                    aliveAfterOP(j);
+                    //MessageBox.Show("Kirche");
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
                 }
                 else if (s.StartsWith("7"))
                 {
@@ -986,6 +998,42 @@ namespace K4_Projekt
         private void class4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //to delete
+        private void OPRTA1Label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //
+        private void Bettenstation()
+        {
+           
+            switch (station)
+            {
+                case 0: break; //just to be safe
+                case 1:
+                    pictureBoxBS1.Visible = true;
+                    break;
+                case 2:
+                    pictureBoxBS2.Visible = true;
+                    break;
+                case 3:
+                    pictureBoxBS3.Visible = true;
+                    break;
+                case 4:
+                    pictureBoxBS4.Visible = true;
+                    break;
+                case 5:
+                    pictureBoxBS5.Visible = true;
+                    break;
+                case 6:
+                    pictureBoxBS6.Visible = true;
+                    break;
+                default: break;
+
+            }
         }
 
         //to delete

@@ -644,8 +644,8 @@ namespace K4_Projekt
             this.Patient3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Patient3.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.Patient3.InitialImage = null;
-            this.Patient3.Location = new System.Drawing.Point(404, 100);
-            this.Patient3.Margin = new System.Windows.Forms.Padding(4);
+            this.Patient3.Location = new System.Drawing.Point(128, 20);
+            this.Patient3.Margin = new System.Windows.Forms.Padding(2);
             this.Patient3.Name = "Patient3";
             this.Patient3.Size = new System.Drawing.Size(25, 42);
             this.Patient3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -958,7 +958,7 @@ namespace K4_Projekt
             this.OPOPS41Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPS41Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPS41Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS41Label.Location = new System.Drawing.Point(678, 802);
+            this.OPOPS41Label.Location = new System.Drawing.Point(555, 466);
             this.OPOPS41Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPOPS41Label.Name = "OPOPS41Label";
             this.OPOPS41Label.Size = new System.Drawing.Size(39, 29);
@@ -984,7 +984,7 @@ namespace K4_Projekt
             this.OPOPB4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPB4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPB4Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB4Label.Location = new System.Drawing.Point(607, 802);
+            this.OPOPB4Label.Location = new System.Drawing.Point(484, 466);
             this.OPOPB4Label.MaximumSize = new System.Drawing.Size(100, 29);
             this.OPOPB4Label.Name = "OPOPB4Label";
             this.OPOPB4Label.Size = new System.Drawing.Size(39, 29);
@@ -1343,6 +1343,102 @@ namespace K4_Projekt
             this.OPOPS42Label.TabIndex = 83;
             this.OPOPS42Label.Text = "OPS";
             this.OPOPS42Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // OP1
+            // 
+            this.OP1.AccessibleName = "";
+            this.OP1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OP1.BackColor = System.Drawing.Color.Green;
+            this.OP1.Location = new System.Drawing.Point(19, 245);
+            this.OP1.Name = "OP1";
+            this.OP1.Size = new System.Drawing.Size(256, 111);
+            this.OP1.TabIndex = 86;
+            this.OP1.TabStop = false;
+            // 
+            // pictureBoxBettenstation
+            // 
+            this.pictureBoxBettenstation.AccessibleName = "";
+            this.pictureBoxBettenstation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxBettenstation.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxBettenstation.Location = new System.Drawing.Point(212, 538);
+            this.pictureBoxBettenstation.Name = "pictureBoxBettenstation";
+            this.pictureBoxBettenstation.Size = new System.Drawing.Size(211, 99);
+            this.pictureBoxBettenstation.TabIndex = 122;
+            this.pictureBoxBettenstation.TabStop = false;
+            // 
+            // pictureBoxBS6
+            // 
+            this.pictureBoxBS6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxBS6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxBS6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
+            this.pictureBoxBS6.InitialImage = null;
+            this.pictureBoxBS6.Location = new System.Drawing.Point(379, 566);
+            this.pictureBoxBS6.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxBS6.Name = "pictureBoxBS6";
+            this.pictureBoxBS6.Size = new System.Drawing.Size(25, 42);
+            this.pictureBoxBS6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBS6.TabIndex = 128;
+            this.pictureBoxBS6.TabStop = false;
+            this.pictureBoxBS6.Visible = false;
+            // 
+            // pictureBoxBS4
+            // 
+            this.pictureBoxBS4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxBS4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxBS4.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxBS4.InitialImage = null;
+            this.pictureBoxBS4.Location = new System.Drawing.Point(323, 566);
+            this.pictureBoxBS4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxBS4.Name = "pictureBoxBS4";
+            this.pictureBoxBS4.Size = new System.Drawing.Size(25, 42);
+            this.pictureBoxBS4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBS4.TabIndex = 127;
+            this.pictureBoxBS4.TabStop = false;
+            this.pictureBoxBS4.Visible = false;
+            // 
+            // pictureBoxBS5
+            // 
+            this.pictureBoxBS5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxBS5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxBS5.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxBS5.InitialImage = null;
+            this.pictureBoxBS5.Location = new System.Drawing.Point(351, 566);
+            this.pictureBoxBS5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxBS5.Name = "pictureBoxBS5";
+            this.pictureBoxBS5.Size = new System.Drawing.Size(25, 42);
+            this.pictureBoxBS5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBS5.TabIndex = 126;
+            this.pictureBoxBS5.TabStop = false;
+            this.pictureBoxBS5.Visible = false;
+            // 
+            // pictureBoxBS3
+            // 
+            this.pictureBoxBS3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxBS3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxBS3.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxBS3.InitialImage = null;
+            this.pictureBoxBS3.Location = new System.Drawing.Point(295, 566);
+            this.pictureBoxBS3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxBS3.Name = "pictureBoxBS3";
+            this.pictureBoxBS3.Size = new System.Drawing.Size(25, 42);
+            this.pictureBoxBS3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBS3.TabIndex = 125;
+            this.pictureBoxBS3.TabStop = false;
+            this.pictureBoxBS3.Visible = false;
+            // 
+            // pictureBoxBS2
+            // 
+            this.pictureBoxBS2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxBS2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxBS2.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxBS2.InitialImage = null;
+            this.pictureBoxBS2.Location = new System.Drawing.Point(267, 566);
+            this.pictureBoxBS2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxBS2.Name = "pictureBoxBS2";
+            this.pictureBoxBS2.Size = new System.Drawing.Size(25, 42);
+            this.pictureBoxBS2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBS2.TabIndex = 124;
+            this.pictureBoxBS2.TabStop = false;
+            this.pictureBoxBS2.Visible = false;
             // 
             // pictureBoxBS1
             // 
@@ -1356,6 +1452,18 @@ namespace K4_Projekt
             this.OPOPS22Label.TabIndex = 84;
             this.OPOPS22Label.Text = "OPS";
             this.OPOPS22Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureBoxBS1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxBS1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxBS1.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxBS1.InitialImage = null;
+            this.pictureBoxBS1.Location = new System.Drawing.Point(239, 566);
+            this.pictureBoxBS1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxBS1.Name = "pictureBoxBS1";
+            this.pictureBoxBS1.Size = new System.Drawing.Size(25, 42);
+            this.pictureBoxBS1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBS1.TabIndex = 123;
+            this.pictureBoxBS1.TabStop = false;
+            this.pictureBoxBS1.Visible = false;
             // 
             // labelBS
             // 
@@ -1369,6 +1477,16 @@ namespace K4_Projekt
             this.OPOPS32Label.TabIndex = 85;
             this.OPOPS32Label.Text = "OPS";
             this.OPOPS32Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelBS.AccessibleName = "";
+            this.labelBS.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelBS.AutoSize = true;
+            this.labelBS.BackColor = System.Drawing.Color.Transparent;
+            this.labelBS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelBS.Location = new System.Drawing.Point(209, 522);
+            this.labelBS.Name = "labelBS";
+            this.labelBS.Size = new System.Drawing.Size(69, 13);
+            this.labelBS.TabIndex = 129;
+            this.labelBS.Text = "Bettenstation";
             // 
             // textBox_eventLog
             // 
@@ -1387,8 +1505,15 @@ namespace K4_Projekt
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(2712, 1766);
-            this.Controls.Add(this.textBox_eventLog);
+            this.ClientSize = new System.Drawing.Size(1016, 667);
+            this.Controls.Add(this.labelBS);
+            this.Controls.Add(this.pictureBoxBS6);
+            this.Controls.Add(this.pictureBoxBS4);
+            this.Controls.Add(this.pictureBoxBS5);
+            this.Controls.Add(this.pictureBoxBS3);
+            this.Controls.Add(this.pictureBoxBS2);
+            this.Controls.Add(this.pictureBoxBS1);
+            this.Controls.Add(this.pictureBoxBettenstation);
             this.Controls.Add(this.OPOPS32Label);
             this.Controls.Add(this.OPOPS22Label);
             this.Controls.Add(this.OPOPS42Label);
@@ -1587,12 +1712,30 @@ namespace K4_Projekt
         private Label OPOPC3Label;
         private Label OP3Label;
         private PictureBox OP3;
-        private Label OPOPS12Label;
-        private Label OPOPS42Label;
-        private Label OPOPS22Label;
-        private Label OPOPS32Label;
-        private PictureBox PatientTriage;
-        private TextBox textBox_eventLog;
+        private Label OPAnäS2Label;
+        private Label OPRTA2Label;
+        private Label OPOPS21Label;
+        private Label OPAnä2Label;
+        private Label OPOPB2Label;
+        private Label OPOPC2Label;
+        private Label OP2Label;
+        private PictureBox OP2;
+        private Label OPAnäS1Label;
+        private Label OPRTA1Label;
+        private Label OPOPS11Label;
+        private Label OPAnä1Label;
+        private Label OPOPB1Label;
+        private Label OPOPC1Label;
+        private Label OP1Label;
+        private PictureBox OP1;
+        private PictureBox pictureBoxBettenstation;
+        private PictureBox pictureBoxBS6;
+        private PictureBox pictureBoxBS4;
+        private PictureBox pictureBoxBS5;
+        private PictureBox pictureBoxBS3;
+        private PictureBox pictureBoxBS2;
+        private PictureBox pictureBoxBS1;
+        private Label labelBS;
     }
 }
 
