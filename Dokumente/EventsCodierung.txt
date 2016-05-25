@@ -26,8 +26,10 @@ ______________________________________________________________________________
 9	leichtverletzter Patient wartet	(wird daweil "auf die Straße" geschickt)
 10[.]	Patient ist ein hoffnungsloser Fall und kommt in Kirche
 	(In Triage selbst wird auch in Hoffnungslos eingestuft)
-	1: Von OP aus klassifiziert
-	2: In Bettenstation Klassifiziert
+	1: In Bettenstation Klassifiziert
+	2: Von OP aus klassifiziert - möglich?? müsste dann auch OP mitgegeben werden.
+	   Oder zuerst auf Bettenstation, wenn lebend und dann erst überprüft
+
 	
 11[.]	Patient ist tot und kommt in KK
 	(In Triage selbst wird auch auf tot überprüft & in OP gestorben ist auch vorhanden, siehe 5)
