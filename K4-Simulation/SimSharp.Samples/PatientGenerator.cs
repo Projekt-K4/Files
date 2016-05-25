@@ -22,7 +22,6 @@ namespace SimSharp.Samples
         //public SystemRandom globalTime = new SystemRandom();
         private static List<Patient> patientList = new List<Patient>(); //List of all Patients
         private static int position = -1;                               //position in List for Iterator
-        private Environment env = null;                          //source for all randomness happening
 
         //Distribution Array
         //does not need to be given in percentages.Could also be set as:
@@ -50,27 +49,26 @@ namespace SimSharp.Samples
             //randGen = new SystemRandom();
             randGen = new Random();
         }*/
-        public PatientGenerator(int _numberOfCasualties, Environment _env)
+        public PatientGenerator(int _numberOfCasualties, Environment env)
         {
-            generateCasualties(_numberOfCasualties);
+            generateCasualties(_numberOfCasualties, env);
             Console.WriteLine(_numberOfCasualties + " involved in catastrophe\n");
             //globalTime = new SystemRandom(seed);
-            env = _env;
     }
 
         /*          Private         */
         //Produces given number of Patients and appends them to patientList
-        private void generateCasualties(int _numberOfPatients)
+        private void generateCasualties(int _numberOfPatients, Environment env)
         {
             for (int i = 0; i < _numberOfPatients; i++)
             {
-                addPatient();
+                addPatient(env);
             }
         }
         /*          Public          */
 
         //Adds a new Patient to the List according to the given distribution
-        public bool addPatient()
+        public bool addPatient(Environment env)
         {
             double x = env.RandUniform(0,1); // determins the Patients state
             double sumDist = distribution.Sum();
