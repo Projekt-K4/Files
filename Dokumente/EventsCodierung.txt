@@ -24,9 +24,17 @@ ______________________________________________________________________________
 		4: OP 4
 	
 9	leichtverletzter Patient wartet	(wird daweil "auf die Straße" geschickt)
-10	Patient ist ein hoffnungsloser Fall und kommt in Kirche
-11	Patient ist tot und kommt in KK
-12[.]	Patient wartet auf OP
+10[.]	Patient ist ein hoffnungsloser Fall und kommt in Kirche
+	(In Triage selbst wird auch in Hoffnungslos eingestuft)
+	1: Von OP aus klassifiziert
+	2: In Bettenstation Klassifiziert
+	
+11[.]	Patient ist tot und kommt in KK
+	(In Triage selbst wird auch auf tot überprüft & in OP gestorben ist auch vorhanden, siehe 5)
+	1. In Bettenstation gestorben
+	2. In Kirche gestorben
+	
+12	Patient wartet auf OP
 	
 
 Anm.: [.] -> Zahl zwischen 1-4 (4 OPs)
