@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -23,7 +24,9 @@ namespace K4_Projekt
         private static int station = 0;
         private static int QueueOPRoom = 0;
 
-        private static string eventLogText = "";
+        private static string patient_KID;
+
+        private int faster = 100;
 
         public UKH()
         {
@@ -34,6 +37,7 @@ namespace K4_Projekt
         {
             var t = new Thread(new ThreadStart(read_puffer));
             t.Start();
+
         }
 
         public delegate void patient_waiting_delegate();
@@ -46,87 +50,254 @@ namespace K4_Projekt
         public delegate void operate_delegate(int i);
         public operate_delegate my_operate_delegate;
         public delegate void Bettenstation_delegate();
-        //public delegate void add_eventLog_text_delegate(int i);
-        //public add_eventLog_text_delegate my_add_eventLog_text_delegate;
+        public delegate void add_eventLog_text_delegate(int i);
+        public add_eventLog_text_delegate my_add_eventLog_text_delegate;
 
 
 
         public void read_puffer()
         {
             eventLog.getLog().fromFileToList("file.csv");
-            foreach(var e in eventLog.eventList )
+            DateTime now = DateTime.ParseExact("00:08:40", "hh:mm:ss", new CultureInfo("de-DE"));
+            for (int e = 0; e < eventLog.puffer.Count; ++e)
             //while (eventLog.eventList.Count > 0)
             {
                 my_triage_number_delegate = new triage_number_delegate(triage_number);
-                int i = Int32.Parse(e);
+                int i = Int32.Parse(eventLog.eventList.ElementAt(e));
                 string s = i.ToString();
-                Thread.Sleep(1000);
+                DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
+                TimeSpan difference = time - now;
+                int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
+                Thread.Sleep(duration / faster);
                 if (PatientTriage.Visible == true)
                 {
                     if (InvokeRequired)
                     {
-                    Invoke(new triage_delegate(triage));
-                    }else
+                        Invoke(new triage_delegate(triage));
+                    }
+                    else
                     {
                         triage();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }*/
                 }
                 if (i == 1)
                 {
                     if (InvokeRequired)
                     {
-                    Invoke(new patient_waiting_delegate(patient_waiting));
-                    }else
+                        Invoke(new patient_waiting_delegate(patient_waiting));
+                    }
+                    else
                     {
                         patient_waiting();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
                 }
                 else if (i == 2)
                 {
                     if (InvokeRequired)
                     {
-                    PatientTriage.Invoke(new triage_delegate(triage));
-                    }else
+                        PatientTriage.Invoke(new triage_delegate(triage));
+                    }
+                    else
                     {
                         triage();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
                 }
                 else if (s.StartsWith("3"))
                 {
                     int j = i - 30;
                     if (InvokeRequired)
                     {
-                    Invoke(my_triage_number_delegate, new Object[] { j });
-                    }else
+                        Invoke(my_triage_number_delegate, new Object[] { j });
+                    }
+                    else
                     {
                         triage_number(j);
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i});
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }*/
                 }
                 else if (s.StartsWith("4"))
                 {
                     int j = i - 40;
+                    //MessageBox.Show("4");
+                    /*
                     if (InvokeRequired)
                     {
                         Invoke(my_operate_delegate, new Object[] { j });
                     }else
                     {
                         operate(j);
+                    }*/
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }*/
                 }
                 else if (s.StartsWith("5"))
                 {
                     int j = i - 50;
-                    MessageBox.Show("Bettenstation");
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] {5 });
+                    //MessageBox.Show("5");
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
                 }
                 else if (s.StartsWith("6"))
                 {
                     int j = i - 60;
+                    // MessageBox.Show("6");
+                    /*
+                     if (InvokeRequired)
+                     {
+                         Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                     }
+                     else
+                     {
+                         add_eventLog_text(i);
+                     }
+                     */
+                }
+                else if (s.StartsWith("7"))
+                {
+                    int j = i - 70;
+                    //MessageBox.Show("7");
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
+                }
+                else if (s.StartsWith("8"))
+                {
+                    int j = i - 80;
+                    //MessageBox.Show("8");
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
+                }
+                else if (i == 9)
+                {
+                    //MessageBox.Show("9");
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
+                }
+                else if (i == 10)
+                {
+                    //   MessageBox.Show("10");
+                    /*
+                       if (InvokeRequired)
+                       {
+                           Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                       }
+                       else
+                       {
+                           add_eventLog_text(i);
+                       }
+                       */
+                }
+                else if (i == 11)
+                {
+                    //   MessageBox.Show("11");
+                    /*
+                       if (InvokeRequired)
+                       {
+                           Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                       }
+                       else
+                       {
+                           add_eventLog_text(i);
+                       }
+                       */
+                }
+                else if (s.StartsWith("12"))
+                {
+                    int j = i - 120;
+                    // MessageBox.Show("12");
+                    /*
+                     if (InvokeRequired)
+                     {
+                         Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                     }
+                     else
+                     {
+                         add_eventLog_text(i);
+                     }*/
+                }
+                else if (s.StartsWith("7"))
+                {
+                    int j = i - 700;
+                    string[] temp = s.Split(';');
+                    int staff = Int32.Parse(temp[1]);
+                    int OP = Int32.Parse(temp[2]);
+                    //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
+                    get_personalOP(staff, OP);
 
                     //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
                     aliveAfterOP(j);
@@ -138,7 +309,7 @@ namespace K4_Projekt
                     int j = i - 700;
                     string[] temp = s.Split(';');
                     int staff = Int32.Parse(temp[1]);
-                    int OP= Int32.Parse(temp[2]);
+                    int OP = Int32.Parse(temp[2]);
                     //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
                     get_personalOP(staff, OP);
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
@@ -147,7 +318,8 @@ namespace K4_Projekt
                 {
                     throw new Exception("Event doesn't exist!");
                 }
-               // eventLog.puffer.RemoveAt(0);
+                // eventLog.puffer.RemoveAt(0);
+                now = time;
             }
             MessageBox.Show("Ich habe fertig!");
         }
@@ -207,27 +379,23 @@ namespace K4_Projekt
         private void add_eventLog_text(int i)
         {
             string s = i.ToString();
-            if (i == 0)
+            if (i == 1)
             {
-                EventLogFeld.Text = "???.\n" + eventLogText;
-            }
-            else if (i == 1)
-            {
-                EventLogFeld.Text = "Patient wartet vor Triage.\n" + eventLogText;
+                // textBox_eventLog..Insert(0,eventLog.triageNumberList.ElementAt(i)+ " Patient wartet vor Triage" );
             }
             else if (i == 2)
             {
-                EventLogFeld.Text = "Patient wird triagiert.\n" + eventLogText;
+                //  listBox_eventLog.Items.Add("Patient wird triagiert.\n" + eventLogText);
             }
             else if (s.StartsWith("3"))
             {
                 int j = i - 30;
-                EventLogFeld.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
+                //  listBox_eventLog.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
             }
             else if (s.StartsWith("4"))
             {
                 int j = i - 40;
-                EventLogFeld.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
+                // listBox_eventLog.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
             }
         }
 
@@ -523,6 +691,8 @@ namespace K4_Projekt
 
 
 
+
+
         //OP - Functions
 
         //OP background
@@ -581,7 +751,7 @@ namespace K4_Projekt
         //Event Code 6
         private void aliveAfterOP(int OPRoom)
         {
-           
+
             switch (OPRoom)
             {
                 case 1:
@@ -589,8 +759,8 @@ namespace K4_Projekt
                     station++;
                     if (pictureBoxBS1.InvokeRequired)
                     {
-                        Invoke (new Bettenstation_delegate(Bettenstation));
-                       // Bettenstation_delegate d = new Bettenstation_delegate(Bettenstation);
+                        Invoke(new Bettenstation_delegate(Bettenstation));
+                        // Bettenstation_delegate d = new Bettenstation_delegate(Bettenstation);
                         //this.Invoke(d);
                     }
                     else
@@ -815,6 +985,26 @@ namespace K4_Projekt
             }
         }
 
+        private void class2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void class1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void class3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void class4_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //to delete
         private void OPRTA1Label_Click(object sender, EventArgs e)
         {
@@ -824,7 +1014,7 @@ namespace K4_Projekt
         //
         private void Bettenstation()
         {
-           
+
             switch (station)
             {
                 case 0: break; //just to be safe
@@ -850,6 +1040,6 @@ namespace K4_Projekt
 
             }
         }
+
     }
-    
 }

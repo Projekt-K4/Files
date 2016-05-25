@@ -105,9 +105,9 @@ namespace SimSharp.Samples
                 //OP Resources:
                 var obj = Ops.Get();
                 
-                yield return obj;
+                    yield return obj;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + obj.Value);
-                yield return env.TimeoutUniform(TimeSpan.FromSeconds(1200), TimeSpan.FromSeconds(7200));
+                    yield return env.TimeoutUniform(TimeSpan.FromSeconds(1200), TimeSpan.FromSeconds(7200));
                 env.Process(WardProcess(env, pat, Mortuary, new OP(obj.Value.ToString())));
                 Ops.Put(new OP(obj.Value.ToString()));
             }
