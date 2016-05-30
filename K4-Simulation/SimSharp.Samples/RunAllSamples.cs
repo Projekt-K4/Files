@@ -9,7 +9,7 @@ namespace SimSharp.Samples
             //Simulation
             eventLog.getLog();//for initalizing and creating file
        
-            new K4().RunSimulation(20, 41);//Amount of Patients as Parameter
+            new K4().RunSimulation(20, 42);//Amount of Patients as Parameter
             eventLog.getLog().writeToFile("C:/Users/Andreas/Desktop/log.csv");
             eventLog.getLog().fromFileToConsole("C:/Users/Andreas/Desktop/log.csv", "\t");
             Console.WriteLine();

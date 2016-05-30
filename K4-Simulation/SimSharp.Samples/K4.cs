@@ -13,9 +13,7 @@ namespace SimSharp.Samples
         static Resource OPWaiting = null;
         static Resource Mortuary = null;
         static Resource Ward = null;
-        static ResourcePool stuff = null;
-
-
+   
         static Store OPStore = null;
         
         static IEnumerable<Event> Steuerprozess(Environment env)    //Simulator start, Timer starts!
