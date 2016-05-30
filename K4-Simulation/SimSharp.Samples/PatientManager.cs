@@ -59,6 +59,21 @@ namespace SimSharp.Samples
             }
             return sublist;
         }
+        public Patient getPatient()//returns an amount of patients out of the list;amount has to be greater than 0
+        {
+            Patient p = null;
+            if (!patientsExists)
+            {
+                SystemRandom random = new SystemRandom();
+                this.patients = createPatients(random.Next(5, 50));//if not defined, 5-50 patients get generated before using them
+            }
+            if (patients.Count > 0)
+            {
+                p= patients[0];
+                patients.Remove(patients[0]);
+            }
+            return p;
+        }
         public List<Patient> getRandomPatients(int min,int max, bool priority=true)//returns a random amount of patients out of the list
         {
             return getPatients(random.Next(min, max), priority);
