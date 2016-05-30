@@ -58,7 +58,7 @@ namespace K4_Projekt
 
         public void read_puffer()
         {
-            eventLog.getLog().fromFileToList("file.csv");
+            eventLog.getLog().fromFileToList("log.csv");
             while (eventLog.puffer.Count > 0)
             {
                 my_triage_number_delegate = new triage_number_delegate(triage_number);
