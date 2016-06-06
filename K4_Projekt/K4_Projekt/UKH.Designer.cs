@@ -105,7 +105,7 @@ namespace K4_Projekt
             this.OPOPS42Label = new System.Windows.Forms.Label();
             this.OPOPS22Label = new System.Windows.Forms.Label();
             this.OPOPS32Label = new System.Windows.Forms.Label();
-            this.textBox_eventLog = new System.Windows.Forms.TextBox();
+            this.listBox_eventLog = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.p_t6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_lv6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_sv6)).BeginInit();
@@ -200,7 +200,6 @@ namespace K4_Projekt
             this.class1.TabIndex = 11;
             this.class1.Text = "Klasse 1\r\nLeichtverletzte: 0";
             this.class1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.class1.Click += new System.EventHandler(this.class1_Click);
             // 
             // class2
             // 
@@ -215,7 +214,6 @@ namespace K4_Projekt
             this.class2.TabIndex = 12;
             this.class2.Text = "Klasse 2\r\nSchwerverletzte: 0";
             this.class2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.class2.Click += new System.EventHandler(this.class2_Click);
             // 
             // class3
             // 
@@ -230,7 +228,6 @@ namespace K4_Projekt
             this.class3.TabIndex = 13;
             this.class3.Text = "Klasse 3\r\nHoffnungslose: 0";
             this.class3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.class3.Click += new System.EventHandler(this.class3_Click);
             // 
             // class4
             // 
@@ -245,7 +242,6 @@ namespace K4_Projekt
             this.class4.TabIndex = 14;
             this.class4.Text = "Klasse 4\r\nTote: 0";
             this.class4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.class4.Click += new System.EventHandler(this.class4_Click);
             // 
             // p_t6
             // 
@@ -1169,15 +1165,18 @@ namespace K4_Projekt
             this.OPOPS32Label.Text = "OPS";
             this.OPOPS32Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox_eventLog
+            // listBox_eventLog
             // 
-            this.textBox_eventLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox_eventLog.Location = new System.Drawing.Point(12, 1437);
-            this.textBox_eventLog.Multiline = true;
-            this.textBox_eventLog.Name = "textBox_eventLog";
-            this.textBox_eventLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_eventLog.Size = new System.Drawing.Size(1080, 317);
-            this.textBox_eventLog.TabIndex = 87;
+            this.listBox_eventLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBox_eventLog.FormattingEnabled = true;
+            this.listBox_eventLog.IntegralHeight = false;
+            this.listBox_eventLog.ItemHeight = 25;
+            this.listBox_eventLog.Items.AddRange(new object[] {
+            ""});
+            this.listBox_eventLog.Location = new System.Drawing.Point(12, 1375);
+            this.listBox_eventLog.Name = "listBox_eventLog";
+            this.listBox_eventLog.Size = new System.Drawing.Size(1007, 379);
+            this.listBox_eventLog.TabIndex = 0;
             // 
             // UKH
             // 
@@ -1185,8 +1184,8 @@ namespace K4_Projekt
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(2712, 1766);
-            this.Controls.Add(this.textBox_eventLog);
+            this.ClientSize = new System.Drawing.Size(2712, 1757);
+            this.Controls.Add(this.listBox_eventLog);
             this.Controls.Add(this.OPOPS32Label);
             this.Controls.Add(this.OPOPS22Label);
             this.Controls.Add(this.OPOPS42Label);
@@ -1392,7 +1391,7 @@ namespace K4_Projekt
         private Label OPOPS22Label;
         private Label OPOPS32Label;
         private PictureBox PatientTriage;
-        private TextBox textBox_eventLog;
+        private ListBox listBox_eventLog;
     }
 }
 
