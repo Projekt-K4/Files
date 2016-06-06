@@ -61,7 +61,7 @@ namespace K4_Projekt
 
         public void read_puffer()
         {
-            eventLog.getLog().fromFileToList("file.csv");
+            eventLog.getLog().fromFileToList("fileO.csv");
             foreach(var e in eventLog.eventList )
             //while (eventLog.eventList.Count > 0)
             {
