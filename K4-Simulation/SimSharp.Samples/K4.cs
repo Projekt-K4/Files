@@ -1,6 +1,4 @@
-﻿
-using SimSharp.Core.Resources.StoreObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 
@@ -14,8 +12,57 @@ namespace SimSharp.Samples
         static Resource Mortuary = null;
         static Resource Ward = null;
    
-        static Store OPStore = null;
-        
+        /*static Store OPStore = null;
+        static Store  ChirurgStore= null;
+        static Store NurseStore = null;
+        static Store SupportStore = null;
+        static Store AnesthesistStore = null;
+        static Store AnesthesistNurseStore = null;
+        static Store RTAStore = null;
+
+        static void initStores(Environment env,int chirurgs, int nurses, int support, int anesthesists, int anesthesistsNurse, int rtas,int ops)
+        {
+             int i = 0;
+            OPStore = new Store(env, ops);
+            ChirurgStore = new Store(env, chirurgs);
+            NurseStore = new Store(env, nurses);
+            SupportStore = new Store(env, support);
+            AnesthesistStore = new Store(env, anesthesists);
+            AnesthesistNurseStore = new Store(env, anesthesistsNurse);
+            RTAStore = new Store(env, rtas);
+            while (i<chirurgs||i<nurses||i<support||i<anesthesists||i<anesthesistsNurse||i<rtas||i<ops)
+            {
+                if(i<chirurgs)
+                {
+                    ChirurgStore.Put(new Staff(i));
+                }
+               if (i < nurses)
+                {
+                    NurseStore.Put(new Staff(i));
+                }
+                if (i < support)
+                {
+                    SupportStore.Put(new Staff(i));
+                }
+                if (i < anesthesists)
+                {
+                    AnesthesistStore.Put(new Staff(i));
+                }
+                if (i < anesthesistsNurse)
+                {
+                    AnesthesistNurseStore.Put(new Staff(i));
+                }
+                if (i < rtas)
+                {
+                    RTAStore.Put(new Staff(i));
+                }
+                if (i < ops)
+                {
+                    OPStore.Put(new Staff(i));
+                }
+                ++i;
+            }   
+        }*/
         static IEnumerable<Event> Steuerprozess(Environment env)    //Simulator start, Timer starts!
         {
             //Resources:
@@ -23,13 +70,14 @@ namespace SimSharp.Samples
             OPWaiting = new Resource(env, 50);   //where do they wait? How many can wait for OP?
             Mortuary = new Resource(env, 50);
             Ward = new Resource(env, 150);
-            OPStore = new Store(env, 4);
+
+            /*OPStore = new Store(env, 4);
 
             for (int i=1; i<=4; i++)
             {
                 OP op = new OP(i.ToString());
                 OPStore.Put(op);
-            }
+            }*/
 
             while (patientManager.getInstance().stillPatientsLeft())
             {
@@ -77,7 +125,7 @@ namespace SimSharp.Samples
             else if(pat.getTriageNr()==2)
             {
                 
-                env.Process(OP_waiting(env, pat, OPStore, OPWaiting));
+                env.Process(OP_waiting(env, pat));
             }
             else if(pat.getTriageNr()==3)
             {
@@ -86,35 +134,36 @@ namespace SimSharp.Samples
             }
             else
             {
-                env.Process(MortuaryProcess(env, pat, Mortuary));
+                env.Process(MortuaryProcess(env, pat));
             }
             
             }
             
 
-        static IEnumerable<Event> OP_waiting(Environment env, Patient pat, Store Ops, Resource Waiting)
+        static IEnumerable<Event> OP_waiting(Environment env, Patient pat)
         {
             //wating resource
-            using (var reqW = Waiting.Request())
+            using (var reqW = OPWaiting.Request())
             {
                 //patients arrive at the waitingRoom
                 yield return reqW;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "12");
 
                 //OP Resources:
-                var obj = Ops.Get();
-                
-                yield return obj;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + obj.Value);
+                var op = RSStore.getInstance().OPStore.Get(); var ane = RSStore.getInstance().AnesthesistStore.Get(); var nurse1 = RSStore.getInstance().NurseStore.Get(); var nurse2 = RSStore.getInstance().NurseStore.Get();var anen = RSStore.getInstance().AnesthesistNurseStore.Get(); var support = RSStore.getInstance().SupportStore.Get();
+
+                yield return op;yield return ane; yield return nurse1; yield return nurse2; yield return anen; yield return support; 
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + op.Value);
                 yield return env.TimeoutUniform(TimeSpan.FromSeconds(1200), TimeSpan.FromSeconds(7200));
-                env.Process(WardProcess(env, pat, Mortuary, obj.Value.ToString()));
-                Ops.Put(new OP(obj.Value.ToString()));
+                env.Process(WardProcess(env, pat, Mortuary, op.Value.ToString()));
+                RSStore.getInstance().OPStore.Put(op.Value); RSStore.getInstance().AnesthesistStore.Put(ane.Value); RSStore.getInstance().NurseStore.Put(nurse1.Value); RSStore.getInstance().NurseStore.Put(nurse2.Value); RSStore.getInstance().AnesthesistNurseStore.Put(anen.Value); RSStore.getInstance().SupportStore.Put(support.Value);
+                // Ops.Put(new OP(obj.Value.ToString()));
             }
 
         }
 
 
-        static IEnumerable<Event> MortuaryProcess (Environment env, Patient pat, Resource Mortuary) //also pass code to know WHERE the patient died (to write in Log - Visualization wants that)
+        static IEnumerable<Event> MortuaryProcess (Environment env, Patient pat) //also pass code to know WHERE the patient died (to write in Log - Visualization wants that)
         {
             //wating resource
             using (var reqM = Mortuary.Request())
@@ -149,16 +198,13 @@ namespace SimSharp.Samples
             PatientGenerator patientGen = new PatientGenerator(amount,env);//Patients get generated
             //PatientManager receives Patient list:
             patientManager.getInstance().createPatients(patientGen.getPatientList());//outside of process!!!!!!!     
+            //initialize Stores
+            RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
+
 
             //Simulation starts
             env.Process(Steuerprozess(env));
             env.RunD();
-            
-           
-
-
-
         }
-
     }
 }
