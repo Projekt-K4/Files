@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -32,6 +33,7 @@ namespace K4_Projekt
         private static int station = 0;
 
         private static string eventLogText = "";
+        private static int speed=50;
 
         public UKH()
         {
@@ -42,6 +44,7 @@ namespace K4_Projekt
         {
             var t = new Thread(new ThreadStart(read_puffer));
             t.Start();
+
         }
 
         public delegate void patient_waiting_delegate();
@@ -54,33 +57,32 @@ namespace K4_Projekt
         public delegate void operate_delegate(int i);
         public operate_delegate my_operate_delegate;
         public delegate void Bettenstation_delegate();
-        //public delegate void add_eventLog_text_delegate(int i);
-        //public add_eventLog_text_delegate my_add_eventLog_text_delegate;
+        public delegate void add_eventLog_text_delegate(int i);
+        public add_eventLog_text_delegate my_add_eventLog_text_delegate;
 
 
 
         public void read_puffer() {
             eventLog.getLog().fromFileToList("file.csv");
+
+            DateTime now = DateTime.ParseExact("00:08:40", "hh:mm:ss", new CultureInfo("de-DE"));
             for (int e = 0; e < eventLog.eventList.Count; ++e) {
+
+                my_triage_number_delegate = new triage_number_delegate(triage_number);
+                int i = Int32.Parse(eventLog.eventList.ElementAt(e));
+                string s = i.ToString();
 
                 DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
                 TimeSpan difference = time - now;
                 int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
-                Thread.Sleep(duration / faster);
+                Thread.Sleep(duration /100);
 
-                my_triage_number_delegate = new triage_number_delegate(triage_number);
-                int i = 0;
-                i = Int32.Parse(eventLog.eventList.ElementAt(e));
-
-                string s = i.ToString();
-                Thread.Sleep(1000);
                 if (PatientTriage.Visible == true) {
                     if (InvokeRequired) {
                         Invoke(new triage_delegate(triage));
                     } else {
                         triage();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
                 }
                 if (i == 1) {
                     if (InvokeRequired) {
@@ -88,14 +90,14 @@ namespace K4_Projekt
                     } else {
                         patient_waiting();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                   
                 } else if (i == 2) {
                     if (InvokeRequired) {
                         PatientTriage.Invoke(new triage_delegate(triage));
                     } else {
                         triage();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                   
                 } else if (s.StartsWith("3")) {
                     int j = i - 30;
                     if (InvokeRequired) {
@@ -124,6 +126,7 @@ namespace K4_Projekt
                     int j = i - 60;
                     //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
                     aliveAfterOP(j);
+
                     //MessageBox.Show("Kirche");
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
                 } else if (s.StartsWith("7")) //values from 711 to 774
@@ -153,7 +156,9 @@ namespace K4_Projekt
                 } else {
                     throw new Exception("Event doesn't exist!");
                 }
+                now = time;
             }
+           
         }
 
 
@@ -212,27 +217,25 @@ namespace K4_Projekt
         private void add_eventLog_text(int i)
         {
             string s = i.ToString();
-            if (i == 0)
+            if (i == 1)
             {
-                EventLogFeld.Text = "???.\n" + eventLogText;
-            }
-            else if (i == 1)
-            {
-                EventLogFeld.Text = "Patient wartet vor Triage.\n" + eventLogText;
+                eventLogText += "Patient wartet vor Triage.\n";
+                textBox_eventlog.Text = eventLogText;
             }
             else if (i == 2)
             {
-                EventLogFeld.Text = "Patient wird triagiert.\n" + eventLogText;
+                eventLogText += "Patient wird triagiert.\n";
+                textBox_eventlog.Text = eventLogText;
             }
             else if (s.StartsWith("3"))
             {
                 int j = i - 30;
-                EventLogFeld.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
+                textBox_eventlog.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
             }
             else if (s.StartsWith("4"))
             {
                 int j = i - 40;
-                EventLogFeld.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
+                textBox_eventlog.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
             }
         }
 
@@ -355,6 +358,7 @@ namespace K4_Projekt
                 throw new Exception("Triagenumber doesn't exist!");
             }
             number_triage_class(i);
+            add_eventLog_text(1);
 
         }
 
@@ -467,7 +471,7 @@ namespace K4_Projekt
             else if (SV == 4)
             {
                 p_h5.Visible = true;
-                ++SV;
+                ++H;
             }
             else if (H == 5)
             {
@@ -504,7 +508,7 @@ namespace K4_Projekt
             else if (T == 3)
             {
                 p_t4.Visible = true;
-                ++SV;
+                ++T;
             }
             else if (T == 4)
             {
@@ -820,12 +824,6 @@ namespace K4_Projekt
             }
         }
 
-        //to delete
-        private void OPRTA1Label_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //
         private void Bettenstation()
         {
@@ -878,6 +876,11 @@ namespace K4_Projekt
                 default: break;
             }
         }
+
+        private void trackBar_speed_Scroll(object sender, System.EventArgs e) {
+            speed=  trackBar_speed.Value;
+        }
+
     }
     
 }
