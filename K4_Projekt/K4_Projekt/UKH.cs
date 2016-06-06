@@ -62,93 +62,96 @@ namespace K4_Projekt
         public void read_puffer() {
             eventLog.getLog().fromFileToList("file.csv");
             for (int e = 0; e < eventLog.eventList.Count; ++e) {
-                //while (eventLog.eventList.Count > 0)
-                {
-                    my_triage_number_delegate = new triage_number_delegate(triage_number);
-                    int i = 0;
-                    i = Int32.Parse(eventLog.eventList.ElementAt(e));
 
-                    string s = i.ToString();
-                    Thread.Sleep(1000);
-                    if (PatientTriage.Visible == true) {
-                        if (InvokeRequired) {
-                            Invoke(new triage_delegate(triage));
-                        } else {
-                            triage();
-                        }
-                        //Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
-                    }
-                    if (i == 1) {
-                        if (InvokeRequired) {
-                            Invoke(new patient_waiting_delegate(patient_waiting));
-                        } else {
-                            patient_waiting();
-                        }
-                        //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    } else if (i == 2) {
-                        if (InvokeRequired) {
-                            PatientTriage.Invoke(new triage_delegate(triage));
-                        } else {
-                            triage();
-                        }
-                        //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    } else if (s.StartsWith("3")) {
-                        int j = i - 30;
-                        if (InvokeRequired) {
-                            Invoke(my_triage_number_delegate, new Object[] { j });
-                        } else {
-                            triage_number(j);
-                        }
-                        //Invoke(my_add_eventLog_text_delegate, new Object[] { i});
-                    } else if (s.StartsWith("4")) {
+                DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
+                TimeSpan difference = time - now;
+                int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
+                Thread.Sleep(duration / faster);
 
-                        int j = i - 40;
-                        /*
-                        get_personalOP(1, 1);
-                        get_personalOP(2, 1);
-                        get_personalOP(3, 1);
-                        get_personalOP(4, 1);
-                        get_personalOP(5, 1);
-                        get_personalOP(6, 1);
-                        get_personalOP(7, 1);
-                      */
-                        operate(j);
-                    } else if (s.StartsWith("5")) {
-                        int j = i - 50;
-                        diedInOP(j);
-                    } else if (s.StartsWith("6")) {
-                        int j = i - 60;
-                        //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
-                        aliveAfterOP(j);
-                        //MessageBox.Show("Kirche");
-                        //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
-                    } else if (s.StartsWith("7")) //values from 711 to 774
-                      {
+                my_triage_number_delegate = new triage_number_delegate(triage_number);
+                int i = 0;
+                i = Int32.Parse(eventLog.eventList.ElementAt(e));
 
-                        int j = i - 700;
-
-                        int staff = (s.ElementAt(1)) - '0';
-                        int OP = (s.ElementAt(2)) - '0';
-
-                        get_personalOP(staff, OP);
-                        //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
-                    } else if (s.StartsWith("8")) {
-                        Console.Write("Code not existing");
-                    } else if (s.StartsWith("9")) {
-                        LVWaiting++;
-                    } else if (s.StartsWith("10")) {
-                        int j = i - 100;
-                        Church++;
-                        SettleToChurch(j);
-                    } else if (s.StartsWith("11")) {
-                        int j = i - 110;
-                        Mortuary++;
-                        DiedAt(j);
-                    } else if (s.StartsWith("12")) {
-                        QueueOPRoom++;
+                string s = i.ToString();
+                Thread.Sleep(1000);
+                if (PatientTriage.Visible == true) {
+                    if (InvokeRequired) {
+                        Invoke(new triage_delegate(triage));
                     } else {
-                        throw new Exception("Event doesn't exist!");
+                        triage();
                     }
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
+                }
+                if (i == 1) {
+                    if (InvokeRequired) {
+                        Invoke(new patient_waiting_delegate(patient_waiting));
+                    } else {
+                        patient_waiting();
+                    }
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                } else if (i == 2) {
+                    if (InvokeRequired) {
+                        PatientTriage.Invoke(new triage_delegate(triage));
+                    } else {
+                        triage();
+                    }
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                } else if (s.StartsWith("3")) {
+                    int j = i - 30;
+                    if (InvokeRequired) {
+                        Invoke(my_triage_number_delegate, new Object[] { j });
+                    } else {
+                        triage_number(j);
+                    }
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i});
+                } else if (s.StartsWith("4")) {
+
+                    int j = i - 40;
+                    /*
+                    get_personalOP(1, 1);
+                    get_personalOP(2, 1);
+                    get_personalOP(3, 1);
+                    get_personalOP(4, 1);
+                    get_personalOP(5, 1);
+                    get_personalOP(6, 1);
+                    get_personalOP(7, 1);
+                  */
+                    operate(j);
+                } else if (s.StartsWith("5")) {
+                    int j = i - 50;
+                    diedInOP(j);
+                } else if (s.StartsWith("6")) {
+                    int j = i - 60;
+                    //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
+                    aliveAfterOP(j);
+                    //MessageBox.Show("Kirche");
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
+                } else if (s.StartsWith("7")) //values from 711 to 774
+                  {
+
+                    int j = i - 700;
+
+                    int staff = (s.ElementAt(1)) - '0';
+                    int OP = (s.ElementAt(2)) - '0';
+
+                    get_personalOP(staff, OP);
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
+                } else if (s.StartsWith("8")) {
+                    Console.Write("Code not existing");
+                } else if (s.StartsWith("9")) {
+                    LVWaiting++;
+                } else if (s.StartsWith("10")) {
+                    int j = i - 100;
+                    Church++;
+                    SettleToChurch(j);
+                } else if (s.StartsWith("11")) {
+                    int j = i - 110;
+                    Mortuary++;
+                    DiedAt(j);
+                } else if (s.StartsWith("12")) {
+                    QueueOPRoom++;
+                } else {
+                    throw new Exception("Event doesn't exist!");
                 }
             }
         }
