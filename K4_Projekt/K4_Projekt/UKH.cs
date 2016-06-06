@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -32,6 +33,7 @@ namespace K4_Projekt
         private static int StationCount = 0;
 
         private static string eventLogText = "";
+        private static int speed = 1;
 
         public UKH()
         {
@@ -68,7 +70,7 @@ namespace K4_Projekt
                 DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
                 TimeSpan difference = time - now;
                 int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
-                Thread.Sleep(duration / faster);
+                Thread.Sleep(duration / speed);
 
                 my_triage_number_delegate = new triage_number_delegate(triage_number);
                 int i = 0;
