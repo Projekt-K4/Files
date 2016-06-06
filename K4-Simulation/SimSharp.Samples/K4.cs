@@ -95,7 +95,7 @@ namespace SimSharp.Samples
             }
           
         }
-        static IEnumerable<Event> Triage(Environment env, Patient pat)
+        static IEnumerable<Event> Triage(Environment env, Patient pat, int from=0)
         {
             //patients arrive at the triage
             eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), "---", "2");
@@ -108,9 +108,11 @@ namespace SimSharp.Samples
             var TTL = pat.getTimeToLive().Subtract(support);
             pat.setTimeToLive(TTL - support);//subtract Timespan
 
-            //Patient gets KID
-            pat.setKID();
-
+            if (from == 0)
+            {
+                //Patient gets KID
+                pat.setKID();
+            }
             //Patient gets new TTL
             pat.triagePatient(pat.getTimeToLive());
        
@@ -122,7 +124,7 @@ namespace SimSharp.Samples
                 yield return env.Timeout(TimeSpan.FromSeconds(0));//Placeholder
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "9");
             }
-            else if(pat.getTriageNr()==2)
+            else if(pat.getTriageNr()==2&&from!=4)
             {
                 
                 env.Process(OP_waiting(env, pat));
@@ -155,7 +157,12 @@ namespace SimSharp.Samples
                 yield return op;yield return ane; yield return nurse1; yield return nurse2; yield return anen; yield return support; 
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + op.Value);
                 yield return env.TimeoutUniform(TimeSpan.FromSeconds(1200), TimeSpan.FromSeconds(7200));
-                env.Process(WardProcess(env, pat, Mortuary, op.Value.ToString()));
+                   
+                //System for new TTL if patient dies or survives the OP Process!!!!
+
+                //re triage process
+                env.Process(Triage(env, pat, 3));
+                // env.Process(WardProcess(env, pat, Mortuary, op.Value.ToString()));
                 RSStore.getInstance().OPStore.Put(op.Value); RSStore.getInstance().AnesthesistStore.Put(ane.Value); RSStore.getInstance().NurseStore.Put(nurse1.Value); RSStore.getInstance().NurseStore.Put(nurse2.Value); RSStore.getInstance().AnesthesistNurseStore.Put(anen.Value); RSStore.getInstance().SupportStore.Put(support.Value);
                 // Ops.Put(new OP(obj.Value.ToString()));
             }
