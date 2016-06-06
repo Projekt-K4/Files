@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -16,18 +17,25 @@ namespace K4_Projekt
     public partial class UKH : Form
     {
 
-        private static int PW = 0;
+        //Waiting
+        private static int PW = 0; //waiting for triage
+        private static int QueueOPRoom = 0;
+
+
+        //triageKlasse
         private static int LV = 0;
         private static int SV = 0;
         private static int H = 0;
         private static int T = 0;
+        private static int LVWaiting = 0;
 
-        private static int dead = 0;
-        private static int station = 0;
-        private static int QueueOPRoom = 0;
+        //end stations
+        private static int ChurchCount = 0;
+        private static int MortuaryCount = 0;
+        private static int StationCount = 0;
 
-        private static string patient_KID;
-        public static List<string> eventLogTextSource = new List<string>();
+        private static string eventLogText = "";
+        private static int speed = 1;
 
         private int faster= 100;
 
@@ -54,21 +62,29 @@ namespace K4_Projekt
         public delegate void operate_delegate(int i);
         public operate_delegate my_operate_delegate;
         public delegate void Bettenstation_delegate();
+        //public delegate void add_eventLog_text_delegate(int i);
+        //public add_eventLog_text_delegate my_add_eventLog_text_delegate;
+        public delegate void Church_delegate();
+        public delegate void Mortuary_delegate();
         public delegate void add_eventLog_text_delegate(int i);
         public add_eventLog_text_delegate my_add_eventLog_text_delegate;
         public delegate void triage_number_lv_delegate();
 
 
-        public void read_puffer()
-        {
-            Thread t_patient_waiting = new Thread(new ThreadStart(patient_waiting));
-            t_patient_waiting.Start();
-            eventLog.getLog().fromFileToList("file2.csv"); 
-            DateTime now = DateTime.ParseExact("00:08:40", "hh:mm:ss", new CultureInfo("de-DE"));
-            for (int e = 0; e < eventLog.puffer.Count; ++e)
-            //while (eventLog.eventList.Count > 0)
-            {
-                int i = Int32.Parse(eventLog.eventList.ElementAt(e));
+
+        public void read_puffer() {
+            eventLog.getLog().fromFileToList("file.csv");
+            for (int e = 0; e < eventLog.eventList.Count; ++e) {
+
+                DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
+                TimeSpan difference = time - now;
+                int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
+                Thread.Sleep(duration / speed);
+
+                my_triage_number_delegate = new triage_number_delegate(triage_number);
+                int i = 0;
+                i = Int32.Parse(eventLog.eventList.ElementAt(e));
+                
                 string s = i.ToString();
                 DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
                 TimeSpan difference = time - now;
@@ -80,8 +96,7 @@ namespace K4_Projekt
                     if (InvokeRequired)
                     {
                     Invoke(new triage_delegate(triage));
-                    } else
-                    {
+                    } else {
                         triage();
                     }
                    
@@ -140,163 +155,67 @@ namespace K4_Projekt
                         MessageBox.Show("normal");
                         triage_number(j);
                     }
-                    /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }*/
-                }
-                else if (s.StartsWith("4"))
-                {
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i});
+                } else if (s.StartsWith("4")) {
+
                     int j = i - 40;
-                    //MessageBox.Show("4");
                     /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_operate_delegate, new Object[] { j });
-                    }else
-                    {
-                        operate(j);
-                    }*/
-                    /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }*/
-                }
-                else if (s.StartsWith("5"))
-                {
+                    get_personalOP(1, 1);
+                    get_personalOP(2, 1);
+                    get_personalOP(3, 1);
+                    get_personalOP(4, 1);
+                    get_personalOP(5, 1);
+                    get_personalOP(6, 1);
+                    get_personalOP(7, 1);
+                  */
+                    operate(j);
+                } else if (s.StartsWith("5")) {
                     int j = i - 50;
-                    //MessageBox.Show("5");
-                    /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }
-                    */
-                }
-                else if (s.StartsWith("6"))
-                {
+                    diedInOP(j);
+                } else if (s.StartsWith("6")) {
                     int j = i - 60;
-                   // MessageBox.Show("6");
-                   /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }
-                    */
-                }
-                else if (s.StartsWith("7"))
+                    //Invoke(my_aliveAfterOP_delegate, new Object[] { j });
+                    aliveAfterOP(j);
+                    //MessageBox.Show("Kirche");
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
+                } else if (s.StartsWith("7")) //values from 711 to 774
                 {
-                    int j = i - 70;
-                    //MessageBox.Show("7");
-                    /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }
-                    */
+                    
+                    int j = i - 700;
+                
+                    int staff = (s.ElementAt(1)) - '0';
+                    int OP = (s.ElementAt(2)) - '0';
+                    
+                    get_personalOP(staff, OP);
+                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
+                } else if (s.StartsWith("8")) {
+                    Console.Write("Code not existing");
                 }
-                else if (s.StartsWith("8"))
+                else if (s.StartsWith("9")) //wird weggeschickt?? lt. EventCodierung auf Straße
                 {
-                    int j = i - 80;
-                    //MessageBox.Show("8");
-                    /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }
-                    */
+                    LVWaiting++;
                 }
-                else if (i==9)
+                else if (s.StartsWith("10"))
+                    //if was classified as "hoffnungslos" the patient is transported into church
                 {
-                    //MessageBox.Show("9");
-                    /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }
-                    */
+                    int j = i - 100;
+                    SettleToChurch(j);
                 }
-                else if (i == 10)
+                else if (s.StartsWith("11"))
+                    //patient dead and comes in Mortuary when died somewhere or was classified as dead
                 {
-                 //   MessageBox.Show("10");
-                 /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }
-                    */
-                }
-                else if (i == 11)
-                {
-                 //   MessageBox.Show("11");
-                 /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }
-                    */
-                }
-                else if (s.StartsWith("12"))
-                {
-                    int j = i - 120;
-                   // MessageBox.Show("12");
-                   /*
-                    if (InvokeRequired)
-                    {
-                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                    }
-                    else
-                    {
-                        add_eventLog_text(i);
-                    }*/
-                }
-                else
-                {
+                    int j = i - 110;
+                    DiedAt(j);
+                } else if (s.StartsWith("12")) {
+                    QueueOPRoom++;
+                } else {
                     throw new Exception("Event doesn't exist!");
                 }
                 // eventLog.puffer.RemoveAt(0);
                 now = time;
             }
-            MessageBox.Show("Ich habe fertig!");
         }
+
 
         private void patient_waiting()
         {
@@ -499,7 +418,7 @@ namespace K4_Projekt
             }
             else
             {
-                throw new Exception("Triagenumber doesn'T exist!");
+                throw new Exception("Triagenumber doesn't exist!");
             }
             number_triage_class(i);
 
@@ -634,25 +553,38 @@ namespace K4_Projekt
             {
                 p_h4.Visible = true;
                 ++H;
+               
             }
             else if (SV == 4)
             {
                 p_h5.Visible = true;
-                ++SV;
+                ++H;
+                
             }
             else if (H == 5)
             {
                 p_h6.Visible = true;
                 ++H;
+               
             }
             else if (H >= 6)
             {
                 ++H;
+               
             }
             else
             {
                 throw new Exception("Error at the H triage!");
             }
+            /* ChurchCount++;
+                if (InvokeRequired)
+                {
+                    Invoke(new Church_delegate(Church));
+        }
+                else
+                {
+                    Church();
+                }*/
         }
 
         private void triage_number_t()
@@ -661,40 +593,56 @@ namespace K4_Projekt
             {
                 p_t1.Visible = true;
                 ++T;
+               
             }
             else if (T == 1)
             {
                 p_t2.Visible = true;
                 ++T;
+               
             }
             else if (T == 2)
             {
                 p_t3.Visible = true;
                 ++T;
+              
             }
             else if (T == 3)
             {
                 p_t4.Visible = true;
-                ++SV;
+                ++T;
+           
             }
             else if (T == 4)
             {
                 p_t5.Visible = true;
                 ++T;
+          
             }
             else if (T == 5)
             {
                 p_t6.Visible = true;
                 ++T;
+    
             }
             else if (T >= 6)
             {
                 ++T;
+
             }
             else
             {
                 throw new Exception("Error at the T triage!");
             }
+            /*     MortuaryCount++;
+                if (InvokeRequired)
+                {
+                    Invoke(new Mortuary_delegate(Mortuary));
+        }
+                else
+                {
+                    Mortuary();
+                }*/
         }
 
 
@@ -738,19 +686,19 @@ namespace K4_Projekt
             {
                 case 1:
                     OP1.BackColor = Color.Green;
-                    dead++;
+                    T++;
                     break;
                 case 2:
                     OP2.BackColor = Color.Green;
-                    dead++;
+                    T++;
                     break;
                 case 3:
                     OP3.BackColor = Color.Green;
-                    dead++;
+                    T++;
                     break;
                 case 4:
                     OP4.BackColor = Color.Green;
-                    dead++;
+                    T++;
                     break;
                 default: break;
             }
@@ -759,30 +707,83 @@ namespace K4_Projekt
         //Event Code 6
         private void aliveAfterOP(int OPRoom)
         {
+           
             switch (OPRoom)
             {
                 case 1:
                     OP1.BackColor = Color.Green;
-                    station++;
+                    StationCount++;
+                    if (InvokeRequired)
+                    {
+                        Invoke (new Bettenstation_delegate(Bettenstation));
+                       // Bettenstation_delegate d = new Bettenstation_delegate(Bettenstation);
+                        //this.Invoke(d);
+                    }
+                    else
+                    {
+                        Bettenstation();
+                    }
+                    //Bettenstation()
                     break;
                 case 2:
                     OP2.BackColor = Color.Green;
-                    station++;
+                    StationCount++;
+                    if (InvokeRequired)
+                    {
+                        Invoke(new Bettenstation_delegate(Bettenstation));
+                    }
+                    else
+                    {
+                        Bettenstation();
+                    }
                     break;
                 case 3:
                     OP3.BackColor = Color.Green;
-                    station++;
+                    StationCount++;
+                    if (InvokeRequired)
+                    {
+                        Invoke(new Bettenstation_delegate(Bettenstation));
+                    }
+                    else
+                    {
+                        Bettenstation();
+                    }
                     break;
                 case 4:
                     OP4.BackColor = Color.Green;
-                    station++;
+                    StationCount++;
+                    if (InvokeRequired)
+                    {
+                        Invoke(new Bettenstation_delegate(Bettenstation));
+                    }
+                    else
+                    {
+                        Bettenstation();
+                    }
                     break;
                 default: break;
             }
         }
 
-        //OP staff
-        //Event Code 7
+        //event code 7 XX
+        //get personal
+        public void get_personalOP(int personalCode, int OP)
+        {
+            switch (personalCode)
+            {
+                case 1: staffOPC(OP); break;
+                case 2: staffOPS1(OP); break;
+                case 3: staffOPS2(OP); break;
+                case 4: staffOPB(OP); break;
+                case 5: staffAnä(OP); break;
+                case 6: staffAnäS(OP); break;
+                case 7: staffRTA(OP); break;
+                default: break;
+            }
+        }
+
+        //OP staff 
+        //Event Code 7 1 X
         //surgeon
         public void staffOPC(int OPRoom)
         {
@@ -809,7 +810,7 @@ namespace K4_Projekt
         }
 
         //op schwester1
-        //event code8
+        //event code 7 2 X
         public void staffOPS1(int OPRoom)
         {
             switch (OPRoom)
@@ -831,7 +832,7 @@ namespace K4_Projekt
         }
 
         //OPS2
-        //Event Code 9
+        //Event Code 73X
         public void staffOPS2(int OPRoom)
         {
             switch (OPRoom)
@@ -853,7 +854,7 @@ namespace K4_Projekt
         }
 
         //OPB
-        //Event Code 10
+        //Event Code 74X
         public void staffOPB(int OPRoom)
         {
             switch (OPRoom)
@@ -875,7 +876,7 @@ namespace K4_Projekt
         }
 
         //Anä
-        //Event Code 11
+        //Event Code 75X
         public void staffAnä(int OPRoom)
         {
             switch (OPRoom)
@@ -897,7 +898,7 @@ namespace K4_Projekt
         }
 
         //AnäS
-        //Event Code 12
+        //Event Code 76X
         public void staffAnäS(int OPRoom)
         {
             switch (OPRoom)
@@ -918,8 +919,8 @@ namespace K4_Projekt
             }
         }
 
-        //AnäS
-        //Event Code 12
+        //RTA
+        //Event Code 77X
         public void staffRTA(int OPRoom)
         {
             switch (OPRoom)
@@ -939,6 +940,166 @@ namespace K4_Projekt
                 default: break;
             }
         }
+
+        //to delete
+        private void OPRTA1Label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //runterzählen implementieren!
+        private void Bettenstation()
+        {
+            labelBS.Text = "Bettenstation: " + StationCount;
+            switch (StationCount)
+            {
+                case 0: break; //just to be safe
+                case 1:
+                    pictureBoxBS1.Visible = true;
+                    break;
+                case 2:
+                    pictureBoxBS2.Visible = true;
+                    break;
+                case 3:
+                    pictureBoxBS3.Visible = true;
+                    break;
+                case 4:
+                    pictureBoxBS4.Visible = true;
+                    break;
+                case 5:
+                    pictureBoxBS5.Visible = true;
+                    break;
+                case 6:
+                    pictureBoxBS6.Visible = true;
+                    break;
+                default: break;
+
+            }
+        }
+
+        private void Church()
+        {
+            labelChurch.Text = "Kirche: " + ChurchCount;
+            switch (ChurchCount)
+            {
+                case 0: break; //just to be safe
+                case 1:
+                    pictureBoxChurch1.Visible = true;
+                    break;
+                case 2:
+                    pictureBoxChurch2.Visible = true;
+                    break;
+                case 3:
+                    pictureBoxChurch3.Visible = true;
+                    break;
+                case 4:
+                    pictureBoxChurch4.Visible = true;
+                    break;
+                case 5:
+                    pictureBoxChurch5.Visible = true;
+                    break;
+                case 6:
+                    pictureBoxChurch6.Visible = true;
+                    break;
+                default: break;
+
+            }
+        }
+
+        private void Mortuary()
+        {
+            labelMortuary.Text = "Leichenhalle: " + MortuaryCount;
+            switch (MortuaryCount)
+            {
+                case 0: break; //just to be safe
+                case 1:
+                    pictureBoxMortuary1.Visible = true;
+                    break;
+                case 2:
+                    pictureBoxMortuary2.Visible = true;
+                    break;
+                case 3:
+                    pictureBoxMortuary3.Visible = true;
+                    break;
+                case 4:
+                    pictureBoxMortuary4.Visible = true;
+                    break;
+                case 5:
+                    pictureBoxMortuary5.Visible = true;
+                    break;
+                case 6:
+                    pictureBoxMortuary6.Visible = true;
+                    break;
+                default: break;
+
+            }
+        }
+
+        //EventCode 10
+        private void SettleToChurch(int from)
+        {
+            ChurchCount++;
+            if (InvokeRequired)
+            {
+                Invoke(new Church_delegate(Church));
+            }
+            else
+            {
+                Church();
+            }
+            switch (from)
+            {
+                case 1: StationCount--; break;
+                case 2: Console.Write("Not implemented yet."); break;
+                default: break;
+            }
+        }
+
+        //EventCode 11
+        private void DiedAt(int from)
+        {
+            MortuaryCount++;
+            if (InvokeRequired)
+            {
+                Invoke(new Mortuary_delegate(Mortuary));
+            }
+            else
+            {
+                Mortuary();
+            }
+            switch (from)
+            {
+                case 1: StationCount--;
+                    if (InvokeRequired)
+                    {
+                        Invoke(new Bettenstation_delegate(Bettenstation));
+                    }
+                    else
+                    {
+                        Bettenstation(); 
+                    }
+                   
+                    break;
+                case 2: ChurchCount--;
+                    if (InvokeRequired)
+                    {
+                        Invoke(new Church_delegate(Church));
+                    }
+                    else
+                    {
+                        Church();
+                    }
+                    break;
+
+
+                default: break;
+            }
+        }
+        //Event Code 12
+
+
+
+
     }
     
 }

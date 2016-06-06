@@ -1,4 +1,4 @@
 Ein Event (entspricht einer Zeile im Eventlog)
-  enth‰lt folgende Komponenten, jeweils durch ein \t getrennt:
+  enth√§lt folgende Komponenten, jeweils durch ein \t getrennt:
 
-Time	Patient (ID)	TTL	Aktion (Text)
+Time	Patient (ID)	TTL	Triagenummer	Aktion (Text)
