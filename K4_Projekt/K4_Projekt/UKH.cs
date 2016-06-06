@@ -27,9 +27,9 @@ namespace K4_Projekt
         private static int LVWaiting = 0;
 
         //end stations
-        private static int Church = 0;
-        private static int Mortuary = 0;
-        private static int station = 0;
+        private static int ChurchCount = 0;
+        private static int MortuaryCount = 0;
+        private static int StationCount = 0;
 
         private static string eventLogText = "";
 
@@ -56,6 +56,8 @@ namespace K4_Projekt
         public delegate void Bettenstation_delegate();
         //public delegate void add_eventLog_text_delegate(int i);
         //public add_eventLog_text_delegate my_add_eventLog_text_delegate;
+        public delegate void Church_delegate();
+        public delegate void Mortuary_delegate();
 
 
 
@@ -162,20 +164,20 @@ namespace K4_Projekt
                 {
                     Console.Write("Code not existing");
                 }
-                else if (s.StartsWith("9"))
+                else if (s.StartsWith("9")) //wird weggeschickt?? lt. EventCodierung auf Straße
                 {
                     LVWaiting++;
                 }
                 else if (s.StartsWith("10"))
+                    //if was classified as "hoffnungslos" the patient is transported into church
                 {
                     int j = i - 100;
-                    Church++;
                     SettleToChurch(j);
                 }
                 else if (s.StartsWith("11"))
+                    //patient dead and comes in Mortuary when died somewhere or was classified as dead
                 {
                     int j = i - 110;
-                    Mortuary++;
                     DiedAt(j);
                 }
                 else if (s.StartsWith("12"))
@@ -497,25 +499,38 @@ namespace K4_Projekt
             {
                 p_h4.Visible = true;
                 ++H;
+               
             }
             else if (SV == 4)
             {
                 p_h5.Visible = true;
-                ++SV;
+                ++H;
+                
             }
             else if (H == 5)
             {
                 p_h6.Visible = true;
                 ++H;
+               
             }
             else if (H >= 6)
             {
                 ++H;
+               
             }
             else
             {
                 throw new Exception("Error at the H triage!");
             }
+            /* ChurchCount++;
+                if (InvokeRequired)
+                {
+                    Invoke(new Church_delegate(Church));
+                }
+                else
+                {
+                    Church();
+                }*/
         }
 
         private void triage_number_t()
@@ -524,40 +539,56 @@ namespace K4_Projekt
             {
                 p_t1.Visible = true;
                 ++T;
+               
             }
             else if (T == 1)
             {
                 p_t2.Visible = true;
                 ++T;
+               
             }
             else if (T == 2)
             {
                 p_t3.Visible = true;
                 ++T;
+              
             }
             else if (T == 3)
             {
                 p_t4.Visible = true;
-                ++SV;
+                ++T;
+           
             }
             else if (T == 4)
             {
                 p_t5.Visible = true;
                 ++T;
+          
             }
             else if (T == 5)
             {
                 p_t6.Visible = true;
                 ++T;
+    
             }
             else if (T >= 6)
             {
                 ++T;
+
             }
             else
             {
                 throw new Exception("Error at the T triage!");
             }
+            /*     MortuaryCount++;
+                if (InvokeRequired)
+                {
+                    Invoke(new Mortuary_delegate(Mortuary));
+                }
+                else
+                {
+                    Mortuary();
+                }*/
         }
 
 
@@ -625,8 +656,8 @@ namespace K4_Projekt
             {
                 case 1:
                     OP1.BackColor = Color.Green;
-                    station++;
-                    if (pictureBoxBS1.InvokeRequired)
+                    StationCount++;
+                    if (InvokeRequired)
                     {
                         Invoke (new Bettenstation_delegate(Bettenstation));
                        // Bettenstation_delegate d = new Bettenstation_delegate(Bettenstation);
@@ -636,12 +667,12 @@ namespace K4_Projekt
                     {
                         Bettenstation();
                     }
-                    //Bettenstation();
+                    //Bettenstation()
                     break;
                 case 2:
                     OP2.BackColor = Color.Green;
-                    station++;
-                    if (pictureBoxBS2.InvokeRequired)
+                    StationCount++;
+                    if (InvokeRequired)
                     {
                         Invoke(new Bettenstation_delegate(Bettenstation));
                     }
@@ -652,8 +683,8 @@ namespace K4_Projekt
                     break;
                 case 3:
                     OP3.BackColor = Color.Green;
-                    station++;
-                    if (pictureBoxBS3.InvokeRequired)
+                    StationCount++;
+                    if (InvokeRequired)
                     {
                         Invoke(new Bettenstation_delegate(Bettenstation));
                     }
@@ -664,8 +695,8 @@ namespace K4_Projekt
                     break;
                 case 4:
                     OP4.BackColor = Color.Green;
-                    station++;
-                    if (pictureBoxBS4.InvokeRequired)
+                    StationCount++;
+                    if (InvokeRequired)
                     {
                         Invoke(new Bettenstation_delegate(Bettenstation));
                     }
@@ -860,11 +891,11 @@ namespace K4_Projekt
 
         }
 
-        //
+        //runterzählen implementieren!
         private void Bettenstation()
         {
-           
-            switch (station)
+            labelBS.Text = "Bettenstation: " + StationCount;
+            switch (StationCount)
             {
                 case 0: break; //just to be safe
                 case 1:
@@ -890,13 +921,79 @@ namespace K4_Projekt
             }
         }
 
+        private void Church()
+        {
+            labelChurch.Text = "Kirche: " + ChurchCount;
+            switch (ChurchCount)
+            {
+                case 0: break; //just to be safe
+                case 1:
+                    pictureBoxChurch1.Visible = true;
+                    break;
+                case 2:
+                    pictureBoxChurch2.Visible = true;
+                    break;
+                case 3:
+                    pictureBoxChurch3.Visible = true;
+                    break;
+                case 4:
+                    pictureBoxChurch4.Visible = true;
+                    break;
+                case 5:
+                    pictureBoxChurch5.Visible = true;
+                    break;
+                case 6:
+                    pictureBoxChurch6.Visible = true;
+                    break;
+                default: break;
+
+            }
+        }
+
+        private void Mortuary()
+        {
+            labelMortuary.Text = "Leichenhalle: " + MortuaryCount;
+            switch (MortuaryCount)
+            {
+                case 0: break; //just to be safe
+                case 1:
+                    pictureBoxMortuary1.Visible = true;
+                    break;
+                case 2:
+                    pictureBoxMortuary2.Visible = true;
+                    break;
+                case 3:
+                    pictureBoxMortuary3.Visible = true;
+                    break;
+                case 4:
+                    pictureBoxMortuary4.Visible = true;
+                    break;
+                case 5:
+                    pictureBoxMortuary5.Visible = true;
+                    break;
+                case 6:
+                    pictureBoxMortuary6.Visible = true;
+                    break;
+                default: break;
+
+            }
+        }
 
         //EventCode 10
         private void SettleToChurch(int from)
         {
+            ChurchCount++;
+            if (InvokeRequired)
+            {
+                Invoke(new Church_delegate(Church));
+            }
+            else
+            {
+                Church();
+            }
             switch (from)
             {
-                case 1: station--; break;
+                case 1: StationCount--; break;
                 case 2: Console.Write("Not implemented yet."); break;
                 default: break;
             }
@@ -905,13 +1002,48 @@ namespace K4_Projekt
         //EventCode 11
         private void DiedAt(int from)
         {
+            MortuaryCount++;
+            if (InvokeRequired)
+            {
+                Invoke(new Mortuary_delegate(Mortuary));
+            }
+            else
+            {
+                Mortuary();
+            }
             switch (from)
             {
-                case 1: station--; break;
-                case 2: Church--; break;
+                case 1: StationCount--;
+                    if (InvokeRequired)
+                    {
+                        Invoke(new Bettenstation_delegate(Bettenstation));
+                    }
+                    else
+                    {
+                        Bettenstation(); 
+                    }
+                   
+                    break;
+                case 2: ChurchCount--;
+                    if (InvokeRequired)
+                    {
+                        Invoke(new Church_delegate(Church));
+                    }
+                    else
+                    {
+                        Church();
+                    }
+                    break;
+
+
                 default: break;
             }
         }
+        //Event Code 12
+
+
+
+
     }
     
 }
