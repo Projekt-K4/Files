@@ -56,7 +56,7 @@ namespace SimSharp.Samples
 
         public void initStores(Environment env, int chirurgs, int nurses, int support, int anesthesists, int anesthesistsNurse, int rtas, int ops)
         {
-            int i = 0;
+            int i = 1;
             OPStore = new Store(env, ops);
             ChirurgStore = new Store(env, chirurgs);
             NurseStore = new Store(env, nurses);
@@ -64,33 +64,33 @@ namespace SimSharp.Samples
             AnesthesistStore = new Store(env, anesthesists);
             AnesthesistNurseStore = new Store(env, anesthesistsNurse);
             RTAStore = new Store(env, rtas);
-            while (i < chirurgs || i < nurses || i < support || i < anesthesists || i < anesthesistsNurse || i < rtas || i < ops)
+            while (i <= chirurgs || i <= nurses || i <= support || i <= anesthesists || i <= anesthesistsNurse || i <= rtas || i <= ops)
             {
-                if (i < chirurgs)
+                if (i <= chirurgs)
                 {
                     ChirurgStore.Put(new Staff(i));
                 }
-                if (i < nurses)
+                if (i <= nurses)
                 {
                     NurseStore.Put(new Staff(i));
                 }
-                if (i < support)
+                if (i <= support)
                 {
                     SupportStore.Put(new Staff(i));
                 }
-                if (i < anesthesists)
+                if (i <= anesthesists)
                 {
                     AnesthesistStore.Put(new Staff(i));
                 }
-                if (i < anesthesistsNurse)
+                if (i <= anesthesistsNurse)
                 {
                     AnesthesistNurseStore.Put(new Staff(i));
                 }
-                if (i < rtas)
+                if (i <= rtas)
                 {
                     RTAStore.Put(new Staff(i));
                 }
-                if (i < ops)
+                if (i <= ops)
                 {
                     OPStore.Put(new Staff(i));
                 }
