@@ -38,10 +38,10 @@ namespace SimSharp.Samples
         {
             if (from == 0)
             {
-            //patients arrive at the triage
-            eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), "---", "2");
+                //patients arrive at the triage
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), "---", "2");
 
-            //timestop for the duration of the triage process
+                //timestop for the duration of the triage process
             yield return env.Timeout(TimeSpan.FromSeconds(30));
 
             //TTL Calculation
@@ -56,7 +56,7 @@ namespace SimSharp.Samples
             pat.triagePatient(pat.getTimeToLive());
             if (from == 0)
             {
-            //patient finally printed to log with triage number
+                //patient finally printed to log with triage number
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "3" + pat.getTriageNr().ToString());
             }
             if (pat.getTriageNr()==1 && from != 4)
@@ -70,7 +70,7 @@ namespace SimSharp.Samples
                 
                 env.Process(OP_waiting(env, pat,Op,OPWaiting));
             }
-            else if(pat.getTriageNr()==3)
+            else if(pat.getTriageNr()==3 && from != 4)
             {
                 yield return env.Timeout(TimeSpan.FromSeconds(0));
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "10");
@@ -80,7 +80,9 @@ namespace SimSharp.Samples
                 yield return env.Timeout(TimeSpan.FromSeconds(0));
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "11");
             }
-            
+            else if ((pat.getTriageNr() == 1|| pat.getTriageNr() == 3) && from==4)
+            {
+                env.Process(WardProcess(env, pat,"4"));
             }
             
         }
