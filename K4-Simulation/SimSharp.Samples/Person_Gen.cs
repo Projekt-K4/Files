@@ -11,10 +11,10 @@ namespace SimSharp.Samples
     class PatientGenerator : IEnumerable, IEnumerator //PatientGenerator
     {
         private static int sequence = 0; //Pool aus dem fortlaufende Katastrophen Nummer für Patient erstellt wird
-        public SystemRandom globalTime = new SystemRandom();
+        public SystemRandom globalTime = null;
         private static List<Patient> patientList = new List<Patient>();
         private static int position = -1;
-        private Random random_int = new Random();
+        private Random random_int = null;
 
 
         public PatientGenerator()
