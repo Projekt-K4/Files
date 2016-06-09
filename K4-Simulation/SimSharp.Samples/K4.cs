@@ -74,7 +74,7 @@ namespace SimSharp.Samples
                 
                 env.Process(OP_waiting(env, pat));
             }
-            else if(pat.getTriageNr()==3)
+            else if(pat.getTriageNr()==3 && from != 4)
             {
                 yield return env.Timeout(TimeSpan.FromSeconds(0));
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "10");
@@ -83,7 +83,7 @@ namespace SimSharp.Samples
             {
                 env.Process(MortuaryProcess(env, pat));
             }
-            else if (pat.getTriageNr() == 1&&from==4)
+            else if ((pat.getTriageNr() == 1|| pat.getTriageNr() == 3) && from==4)
             {
                 env.Process(WardProcess(env, pat,"4"));
             }
