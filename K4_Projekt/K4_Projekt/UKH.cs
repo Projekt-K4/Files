@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Collections;
 
 namespace K4_Projekt
 {
@@ -42,8 +44,10 @@ namespace K4_Projekt
 
         public void UKH_Load(object sender, EventArgs e)
         {
+           
             var t = new Thread(new ThreadStart(read_puffer));
             t.Start();
+            
         }
 
         public delegate void patient_waiting_delegate();
@@ -60,51 +64,77 @@ namespace K4_Projekt
         //public add_eventLog_text_delegate my_add_eventLog_text_delegate;
         public delegate void Church_delegate();
         public delegate void Mortuary_delegate();
+        public delegate void add_eventLog_text_delegate(int i);
+        public add_eventLog_text_delegate my_add_eventLog_text_delegate;
 
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("fileO.csv");
+            eventLog.getLog().fromFileToList("file0.csv");
+            DateTime now = DateTime.ParseExact("00:08:00", "hh:mm:ss", new CultureInfo("de-DE"));
             for (int e = 0; e < eventLog.eventList.Count; ++e) {
-
-               /* DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
-                TimeSpan difference = time - now;
-                int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
-                Thread.Sleep(duration / speed);*/
 
                 my_triage_number_delegate = new triage_number_delegate(triage_number);
                 int i = 0;
                 i = Int32.Parse(eventLog.eventList.ElementAt(e));
                 
                 string s = i.ToString();
-                Thread.Sleep(1000);
-                if (PatientTriage.Visible == true) {
-                    if (InvokeRequired) {
-                    Invoke(new triage_delegate(triage));
-                    } else {
-                        triage();
-                    }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { 0 });
-                }
-                if (i == 1) {
-                    if (InvokeRequired) {
+                DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
+                TimeSpan difference = time - now;
+                int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
+                Thread.Sleep(duration/1000);
+               
+               
+                if (i == 1)
+                {
+                    ++PW;
+                    if (InvokeRequired)
+                    {
                         Invoke(new patient_waiting_delegate(patient_waiting));
-                    } else {
+                    }else
+                    {
                         patient_waiting();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                } else if (i == 2) {
-                    if (InvokeRequired) {
+                    
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }
+                    */
+
+                }
+                else if (i == 2)
+                {
+                    if (InvokeRequired)
+                    {
                         PatientTriage.Invoke(new triage_delegate(triage));
-                    } else {
+                    }else
+                    {
                         triage();
                     }
-                    //Invoke(my_add_eventLog_text_delegate, new Object[] { i });
-                } else if (s.StartsWith("3")) {
+                    /*
+                    if (InvokeRequired)
+                    {
+                        Invoke(my_add_eventLog_text_delegate, new Object[] { i });
+                    }
+                    else
+                    {
+                        add_eventLog_text(i);
+                    }*/
+                }
+                else if (s.StartsWith("3"))
+                {
                     int j = i - 30;
-                    if (InvokeRequired) {
+                    if (InvokeRequired)
+                    {
                         Invoke(my_triage_number_delegate, new Object[] { j });
-                    } else {
+                    }else
+                    {
                         triage_number(j);
                     }
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { i});
@@ -132,7 +162,6 @@ namespace K4_Projekt
                     //Invoke(my_add_eventLog_text_delegate, new Object[] { 6 });
                 } else if (s.StartsWith("7")) //values from 711 to 774
                 {
-                    
                     int j = i - 700;
                 
                     int staff = (s.ElementAt(1)) - '0';
@@ -163,103 +192,157 @@ namespace K4_Projekt
                 } else {
                     throw new Exception("Event doesn't exist!");
                 }
+                // eventLog.puffer.RemoveAt(0);
+                now = time;
             }
+            MessageBox.Show("FERTIG!");
         }
 
 
-        private void patient_waiting()
-        {
-            if (Patient1.Visible == false)
-            {
+        private void patient_waiting() {
+            if (PW == 0) {
+                Patient1.Visible = false;
+                Patient2.Visible = false;
+                Patient3.Visible = false;
+                Patient4.Visible = false;
+                Patient5.Visible = false;
+                Patient6.Visible = false;
+            } else if (PW == 1) {
                 Patient1.Visible = true;
-                ++PW;
-            }
-            else if (Patient1.Visible == true && Patient2.Visible == false)
-            {
+                Patient2.Visible = false;
+                Patient3.Visible = false;
+                Patient4.Visible = false;
+                Patient5.Visible = false;
+                Patient6.Visible = false;
+            } else if (PW == 2) {
+                Patient1.Visible = true;
                 Patient2.Visible = true;
-                ++PW;
-            }
-            else if (Patient2.Visible == true && Patient3.Visible == false)
-            {
+                Patient3.Visible = false;
+                Patient4.Visible = false;
+                Patient5.Visible = false;
+                Patient6.Visible = false;
+            } else if (PW == 3) {
+                Patient1.Visible = true;
+                Patient2.Visible = true;
                 Patient3.Visible = true;
-                ++PW;
-            }
-            else if (Patient3.Visible == true && Patient4.Visible == false)
-            {
+                Patient4.Visible = false;
+                Patient5.Visible = false;
+                Patient6.Visible = false;
+            } else if (PW == 4) {
+                Patient1.Visible = true;
+                Patient2.Visible = true;
+                Patient3.Visible = true;
                 Patient4.Visible = true;
-                ++PW;
-            }
-            else if (Patient4.Visible == true && Patient5.Visible == false)
-            {
+                Patient5.Visible = false;
+                Patient6.Visible = false;
+            } else if (PW == 5) {
+                Patient1.Visible = true;
+                Patient2.Visible = true;
+                Patient3.Visible = true;
+                Patient4.Visible = true;
                 Patient5.Visible = true;
-                ++PW;
-            }
-            else if (Patient5.Visible == true && Patient6.Visible == false)
-            {
+                Patient6.Visible = false;
+            } else if (PW >= 6) {
+                Patient1.Visible = true;
+                Patient2.Visible = true;
+                Patient3.Visible = true;
+                Patient4.Visible = true;
+                Patient5.Visible = true;
                 Patient6.Visible = true;
-                ++PW;
-            }
-            else if (Patient5.Visible == true && Patient6.Visible == true)
-            {
-                ++PW;
-            }
-            else
-            {
+            } else {
                 throw new Exception("Error in patient waiting queue!");
             }
-            /*
-            if (InvokeRequired)
-            {
-                Invoke(new number_waiting_delegate(number_waiting));
-            }else
-            {
-                number_waiting();
-            }*/
+            
             number_waiting();
+            add_eventLog_text(1);
+            
 
         }
 
         private void add_eventLog_text(int i)
         {
-            string s = i.ToString();
-            if (i == 0)
+            if (i == 1)
             {
-                EventLogFeld.Text = "???.\n" + eventLogText;
-            }
-            else if (i == 1)
-            {
-                EventLogFeld.Text = "Patient wartet vor Triage.\n" + eventLogText;
+                eventLogText += " Patient wartet vor Triage/r";
+                textBox_eventlog.Text = eventLogText;
             }
             else if (i == 2)
             {
-                EventLogFeld.Text = "Patient wird triagiert.\n" + eventLogText;
+              //  listBox_eventLog.Items.Add("Patient wird triagiert.\n" + eventLogText);
             }
-            else if (s.StartsWith("3"))
+            else if (i==3)
             {
-                int j = i - 30;
-                EventLogFeld.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
+              //  listBox_eventLog.Text = "Patient bekommt Triagenummer " + j + ".\n" + eventLogText;
             }
-            else if (s.StartsWith("4"))
+            else if (i == 4)
             {
-                int j = i - 40;
-                EventLogFeld.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
+               // listBox_eventLog.Text = "Patient wird in OP" + j + " operiert.\n" + eventLogText;
             }
         }
 
-        private void number_waiting()
-        {
-            if (PW == 1)
-            {
+        private void number_waiting() {
+            if (PW == 1) {
                 Queue.Text = PW + " Patient wartet";
-            }
-            else if (PW == 0 || PW > 1)
-            {
+            } else if (PW == 0 || PW > 1) {
                 Queue.Text = PW + " Patienten warten";
+            } else {
+                throw new Exception("Error in number waiting!");
+            }
+        }
+
+        private void triage() {
+
+                PatientTriage.Visible = true;
+            if (PW == 6) {
+                    Patient6.Visible = false;
+                    --PW;
+            } else if (PW == 5) {
+                    Patient5.Visible = false;
+                    --PW;
+            } else if (PW == 4) {
+                    Patient4.Visible = false;
+                    --PW;
+            } else if (PW == 3) {
+                    Patient3.Visible = false;
+                    --PW;
+            } else if (PW == 2) {
+                    Patient2.Visible = false;
+                    --PW;
+            } else if (PW == 1) {
+                    Patient1.Visible = false;
+                    --PW;
+            } else {
+                --PW;
+                }
+
+            patient_waiting();
+            number_waiting();
+        }
+
+        private void triage_number(int i)
+                {
+            PatientTriage.Visible = false;
+            if (i == 1) { 
+                 triage_number_lv();
+                }
+            else if (i == 2)
+            {
+                triage_number_sv();
+            }
+            else if (i == 3)
+            {
+                triage_number_h();
+            }
+            else if (i == 4)
+            {
+                triage_number_t();
             }
             else
             {
-                throw new Exception("Error in number waiting!");
+                throw new Exception("Triagenumber doesn't exist!");
             }
+            number_triage_class(i);
+
         }
 
         private void number_triage_class(int i)
@@ -284,88 +367,6 @@ namespace K4_Projekt
             {
                 throw new Exception("Error in triage class text!");
             }
-        }
-
-        private void triage()
-        {
-            if (PatientTriage.Visible == false)
-            {
-                PatientTriage.Visible = true;
-                if (PW == 6)
-                {
-                    Patient6.Visible = false;
-                    --PW;
-                }
-                else if (PW == 5)
-                {
-                    Patient5.Visible = false;
-                    --PW;
-                }
-                else if (PW == 4)
-                {
-                    Patient4.Visible = false;
-                    --PW;
-                }
-                else if (PW == 3)
-                {
-                    Patient3.Visible = false;
-                    --PW;
-                }
-                else if (PW == 2)
-                {
-                    Patient2.Visible = false;
-                    --PW;
-                }
-                else if (PW == 1)
-                {
-                    Patient1.Visible = false;
-                    --PW;
-                }
-                else
-                {
-                    --PW;
-                }
-            }
-            else
-            {
-                PatientTriage.Visible = false;
-            }
-            /*
-            if (InvokeRequired)
-            {
-            Invoke(new number_waiting_delegate(number_waiting));
-            }else
-            {
-                number_waiting();
-            }
-            */
-            number_waiting();
-        }
-
-        private void triage_number(int i)
-        {
-            if (i == 1)
-            {
-                triage_number_lv();
-            }
-            else if (i == 2)
-            {
-                triage_number_sv();
-            }
-            else if (i == 3)
-            {
-                triage_number_h();
-            }
-            else if (i == 4)
-            {
-                triage_number_t();
-            }
-            else
-            {
-                throw new Exception("Triagenumber doesn't exist!");
-            }
-            number_triage_class(i);
-
         }
 
         private void triage_number_lv()
@@ -564,6 +565,8 @@ namespace K4_Projekt
                     Mortuary();
                 }*/
         }
+
+
 
 
 
