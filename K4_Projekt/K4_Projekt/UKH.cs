@@ -130,7 +130,7 @@ namespace K4_Projekt {
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("file.csv");
+            eventLog.getLog().fromFileToList("fileO.csv");
             for (int e = 0; e < eventLog.eventList.Count; ++e) {
                 KID = eventLog.KIDList.ElementAt(e);
                 my_triage_number_delegate = new triage_number_delegate(triage_number);
