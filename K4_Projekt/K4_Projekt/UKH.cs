@@ -36,7 +36,7 @@ namespace K4_Projekt
 
         private static string eventLogText = "";
         private static int speed = 1;
-
+        
         public UKH()
         {
             InitializeComponent();
@@ -70,7 +70,7 @@ namespace K4_Projekt
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("file0.csv");
+            eventLog.getLog().fromFileToList("file.csv");
             DateTime now = DateTime.ParseExact("00:08:00", "hh:mm:ss", new CultureInfo("de-DE"));
             for (int e = 0; e < eventLog.eventList.Count; ++e) {
 
@@ -253,7 +253,7 @@ namespace K4_Projekt
                 throw new Exception("Error in patient waiting queue!");
             }
             
-            number_waiting();
+                number_waiting();
             add_eventLog_text(1);
             
 
@@ -292,39 +292,39 @@ namespace K4_Projekt
 
         private void triage() {
 
-                PatientTriage.Visible = true;
+            PatientTriage.Visible = true;
             if (PW == 6) {
-                    Patient6.Visible = false;
-                    --PW;
+                Patient6.Visible = false;
+                --PW;
             } else if (PW == 5) {
-                    Patient5.Visible = false;
-                    --PW;
+                Patient5.Visible = false;
+                --PW;
             } else if (PW == 4) {
-                    Patient4.Visible = false;
-                    --PW;
+                Patient4.Visible = false;
+                --PW;
             } else if (PW == 3) {
-                    Patient3.Visible = false;
-                    --PW;
+                Patient3.Visible = false;
+                --PW;
             } else if (PW == 2) {
-                    Patient2.Visible = false;
-                    --PW;
+                Patient2.Visible = false;
+                --PW;
             } else if (PW == 1) {
-                    Patient1.Visible = false;
-                    --PW;
+                Patient1.Visible = false;
+                --PW;
             } else {
                 --PW;
-                }
+            }
 
             patient_waiting();
             number_waiting();
         }
 
         private void triage_number(int i)
-                {
+        {
             PatientTriage.Visible = false;
             if (i == 1) { 
                  triage_number_lv();
-                }
+            }
             else if (i == 2)
             {
                 triage_number_sv();
