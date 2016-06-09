@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -85,4 +85,4 @@ namespace SimSharp.Samples
         private bool is_TriageAssistant = false;
     }
 
-}
+}*/
