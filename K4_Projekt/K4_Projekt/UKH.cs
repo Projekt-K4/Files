@@ -62,13 +62,14 @@ namespace K4_Projekt
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("file.csv");
+            eventLog.getLog().fromFileToList("fileO.csv");
             for (int e = 0; e < eventLog.eventList.Count; ++e) {
 
-                DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
+               /* DateTime time = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
                 TimeSpan difference = time - now;
                 int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
                 Thread.Sleep(duration / faster);
+                */
 
                 my_triage_number_delegate = new triage_number_delegate(triage_number);
                 int i = 0;
