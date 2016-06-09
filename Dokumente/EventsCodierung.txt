@@ -7,7 +7,7 @@ ______________________________________________________________________________
 4[.]	wird operiert [in OP #]		Patient wird in OP # operiert.		--> bedeutet: OP besetzt
 5[.]	in OP # gestorben		Patient ist in OP verstorben.		--> bedeutet: OP frei, Patient in Kühlraum
 6[.]	von OP # auf Bettenstation	Patient wurde operiert und kommt auf Bettenstation.		--> bedeutet: OP frei, Patient auf Bettenstation
-7;[.];[.]	Personal in OP # eingetroffen	... in OP # eingetroffen und bereit für OP
+7[.][.]	Personal in OP # eingetroffen	... in OP # eingetroffen und bereit für OP
 	(7: Personal eingetroffen, zweite Zahl: welche Art von Personal (zB 1 = Chirurg), dritte Zahl: OPNummer)
 	1.Kästchen-Code:
 		1: OP Chirurg
