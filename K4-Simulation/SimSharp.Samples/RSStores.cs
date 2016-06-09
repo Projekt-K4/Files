@@ -54,6 +54,8 @@ namespace SimSharp.Samples
         public Store AnesthesistNurseStore;
         public Store RTAStore;
 
+        //methods to change the amount of each stufftype....
+
         public void initStores(Environment env, int chirurgs, int nurses, int support, int anesthesists, int anesthesistsNurse, int rtas, int ops)
         {
             int i = 1;
