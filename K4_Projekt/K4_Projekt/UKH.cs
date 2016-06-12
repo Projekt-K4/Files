@@ -251,6 +251,17 @@ namespace K4_Projekt {
         }
 
 
+
+        //
+        //
+        //
+        //AUVA LOGO !!!!!!!!!!
+        //
+        //
+        //
+
+
+
         private void updateAmountOfPatients() {
             AmountOfPatients = T + H + SV + LV;
             labelPatientAmount.Text = ("Patienten \ninsgesamt: " + AmountOfPatients.ToString());
