@@ -113,10 +113,8 @@ namespace SimSharp.Samples
                 var support = RSStore.getInstance().SupportStore.Get();
                 var rta = RSStore.getInstance().RTAStore.Get();
 
-                yield return ch;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "1" + op.Value);
-                yield return ane;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "5" + op.Value);
+              
+                
                 yield return nurse1;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "2" + op.Value);
                 yield return nurse2;
@@ -127,6 +125,10 @@ namespace SimSharp.Samples
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "4" + op.Value);
                 yield return rta;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "7" + op.Value);
+                yield return ch;
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "1" + op.Value);
+                yield return ane;
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "5" + op.Value);
                 yield return op;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + op.Value);
                 //System for new TTL if patient dies or survives the OP Process!!!!
@@ -138,6 +140,8 @@ namespace SimSharp.Samples
                 int OPNr = Int32.Parse(op.Value.ToString());
                //it´t possible that the patient is still alive without the if....has to be changed
                 yield return env.TimeoutUniform(TimeSpan.FromSeconds(Parameter.getInstance().OPMin), TimeSpan.FromSeconds(Parameter.getInstance().OPMax));
+                //OP Freigabe
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "" + "8" + op.Value);
                 //re triage process
                 env.Process(Triage(env, pat, 4,OPNr));
                 // env.Process(WardProcess(env, pat, Mortuary, op.Value.ToString()));
