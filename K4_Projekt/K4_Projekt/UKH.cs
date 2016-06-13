@@ -38,6 +38,9 @@ namespace K4_Projekt {
         private static bool takeNextEvent = false;
         private static string CurrentTime = "";
         private static string EventTime = "";
+        private static int sec = 1000;
+        private static string button = "break";
+        private static bool stop = false;
 
         //eventlog
         private static int patientWaitingEventLogNumber = 0;
@@ -65,18 +68,42 @@ namespace K4_Projekt {
         public delegate void diedInOP_delegate(int i);
         public diedInOP_delegate my_diedInOP_delegate;
         public delegate void updateAmountOfPatients_delegate();
+        public delegate void OPavailable_delegate(int i);
+        public OPavailable_delegate my_OPavailable_delegate;
+
 
         public UKH() {
             InitializeComponent();
         }
 
-
-        public void UKH_Load(object sender, EventArgs e) {
+        private void buttonStart_Click(object sender, EventArgs e) {
+            buttonStart.Enabled = false;
+            buttonStart.BackColor = Color.DimGray;
+            buttonBreak.Enabled = true;
+            buttonBreak.BackColor = Color.DarkRed;
             Thread triageThread = new Thread(new ThreadStart(read_puffer));
             triageThread.Start();
         }
 
-            
+        private void buttonBreak_Click(object sender, EventArgs e) {
+            if (button.Equals("break")) {
+                buttonBreak.Text = "WEITER";
+                buttonBreak.BackColor = Color.Green;
+                button = "continue";
+                stop = true;
+            } else if (button.Equals("continue")) {
+                buttonBreak.Text = "PAUSE";
+                buttonBreak.BackColor = Color.DarkRed;
+                button = "break";
+                stop = false;
+            }
+        }
+
+        private void Stop() {
+            while (stop) { }
+        }
+
+
         private static string changeTimeFormat(DateTime t) {
             int hh = t.Hour;
             int mm = t.Minute;
@@ -113,11 +140,13 @@ namespace K4_Projekt {
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("file8.csv");
+            eventLog.getLog().fromFileToList("log.csv");
             DateTime currentEventTime = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
             DateTime Timer = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
 
             for (int eventLine = 0; eventLine < eventLog.eventList.Count; ++eventLine) {
+                Stop();
+
                 EventTime = eventLog.timeStampList.ElementAt(eventLine);
                 KID = eventLog.KIDList.ElementAt(eventLine);
                 timeStamp = eventLog.timeStampList.ElementAt(eventLine);
@@ -126,12 +155,13 @@ namespace K4_Projekt {
                 takeNextEvent = false;
 
                 while (takeNextEvent == false) {
-                     CurrentTime= changeTimeFormat(Timer);
+                    Stop();
+                    CurrentTime = changeTimeFormat(Timer);
 
                     if (CurrentTime.Equals(EventTime)) {
                         takeNextEvent = true;
                         eventsAtSameTime = false;
-                        
+
                         //my_triage_number_delegate = new triage_number_delegate(triage_number);
                         int i = Int32.Parse(eventLog.eventList.ElementAt(eventLine));
                         string s = i.ToString();
@@ -142,7 +172,7 @@ namespace K4_Projekt {
                         int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
                         if (duration == 0) {
                             eventsAtSameTime = true;
-                            Thread.Sleep(1000 / speed);
+                            Thread.Sleep(sec / speed);
                         }
 
                         //Eventcode wird auf Ereignis überprüft
@@ -172,7 +202,7 @@ namespace K4_Projekt {
 
                             int j = i - 50;
                             diedInOP(j);
-                            
+
                         } else if (s.StartsWith("6")) {
 
                             int j = i - 60;
@@ -188,7 +218,11 @@ namespace K4_Projekt {
                             get_personalOP(staff, OP);
 
                         } else if (s.StartsWith("8")) {
-                            Console.Write("Code not existing");
+                            int j = i - 80;
+
+                            OPavailable(j);
+
+
 
                         } else if (s.StartsWith("9")) //wird weggeschickt?? lt. EventCodierung auf Straße
                           {
@@ -229,30 +263,73 @@ namespace K4_Projekt {
                         currentEventTime = previousEventTime;
 
                     } else {
-                        if(eventsAtSameTime == true) {                            
+                        Stop();
+                        if (eventsAtSameTime == true) {
                             eventsAtSameTime = false;
-                        }else {                            
+                        } else {
                             Thread.Sleep(1000 / speed);
                         }
                         Timer = Timer.AddSeconds(1);
                         CurrentTime = changeTimeFormat(Timer);
-                        
+
                         if (InvokeRequired) {
                             Invoke((MethodInvoker)delegate { textBoxTimer.Text = CurrentTime; });
                         } else {
                             textBoxTimer.Text = CurrentTime;
                         }
                         takeNextEvent = false;
-
                     }
                 }
             }
             MessageBox.Show("FERTIG!");
-        }
+        } 
 
         private void updateAmountOfPatients() {
             AmountOfPatients = T + H + SV + LV;
             labelPatientAmount.Text = ("Patienten \ninsgesamt: " + AmountOfPatients.ToString());
+        }
+
+        private void OPavailable(int i) {
+            if(i == 1) {
+                Invoke((MethodInvoker)delegate { OP1.BackColor = Color.Green; });
+                Invoke((MethodInvoker)delegate { OPOPS11Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9); });
+
+            } else if( i == 2){
+                Invoke((MethodInvoker)delegate { OP2.BackColor = Color.Green; });
+                Invoke((MethodInvoker)delegate { OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9); });
+            } else if(i == 3){
+                Invoke((MethodInvoker)delegate { OP3.BackColor = Color.Green; });
+                Invoke((MethodInvoker)delegate { OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9); });
+            } else if (i == 4) {
+                Invoke((MethodInvoker)delegate { OP4.BackColor = Color.Green; });
+                Invoke((MethodInvoker)delegate { OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9); });
+                
+            }
+            add_eventLog_text(8, i);
         }
 
 
@@ -298,9 +375,9 @@ namespace K4_Projekt {
         private void add_eventLog_text(int i, int j) {
             if (i == 3) {
                 if (InvokeRequired) {
-                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient bekommt Triagenummer " + j + "\n"); });
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient bekommt Triageklasse " + j + "\n"); });
                 } else {
-                    textBoxEventlog.AppendText(timeStamp +"\t"+KID + " \tPatient bekommt Triagenummer " + j + "\n");
+                    textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient bekommt Triageklasse " + j + "\n");
                 }
             } else if (i == 4) {
                 if (InvokeRequired) {
@@ -334,9 +411,9 @@ namespace K4_Projekt {
                         textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient ist in der Kirche verstorben\n");
                     }
                 }
-            }else if (i == 71) {
+            } else if (i == 71) {
                 if (InvokeRequired) {
-                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tChirurg ist in OP"+j+" eingetroffen\n"); });
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tChirurg ist in OP" + j + " eingetroffen\n"); });
                 } else {
                     textBoxEventlog.AppendText(timeStamp + "\t\t\tChirurg ist in OP" + j + " eingetroffen\n");
                 }
@@ -375,6 +452,12 @@ namespace K4_Projekt {
                     Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tRTA ist in OP" + j + " eingetroffen\n"); });
                 } else {
                     textBoxEventlog.AppendText(timeStamp + "\t\t\tRTA ist in OP" + j + " eingetroffen\n");
+                }
+            } else if (i == 8) {
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tOP" + j + " wieder frei\n"); });
+                } else {
+                    textBoxEventlog.AppendText(timeStamp + "\t\t\tOP" + j + " wieder frei\n");
                 }
             }
         }
@@ -671,6 +754,7 @@ namespace K4_Projekt {
                     OP1.BackColor = Color.Green;
                     StationCount++;
                     if (InvokeRequired) {
+                        Invoke(new Bettenstation_delegate(Bettenstation));
                         OPOPS11Label.BackColor = Color.FromArgb(193, 9, 9);
                         OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
                         OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
@@ -1185,7 +1269,8 @@ namespace K4_Projekt {
         private void trackBarSpeed_Scroll(object sender, EventArgs e) {
             speed = trackBarSpeed.Value;
         }
-        
+
+   
     }
     
 }
