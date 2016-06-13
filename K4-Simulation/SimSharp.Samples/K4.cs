@@ -96,7 +96,7 @@ namespace SimSharp.Samples
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "12");
 
                 //OP Resources:
-                OP op = RSStore.getInstance().GetOP();
+                var op = RSStore.getInstance().OPStore.Get();
                 var ch = RSStore.getInstance().ChirurgStore.Get();
                 var ane = RSStore.getInstance().AnesthesistStore.Get();
                 var nurse1 = RSStore.getInstance().NurseStore.Get();
@@ -106,27 +106,27 @@ namespace SimSharp.Samples
                 var rta = RSStore.getInstance().RTAStore.Get();
 
                 yield return ch;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "1" + op);
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "1" + op.Value);
                 yield return ane;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "5" + op);
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "5" + op.Value);
                 yield return nurse1;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "2" + op);
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "2" + op.Value);
                 yield return nurse2;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "3" + op);
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "3" + op.Value);
                 yield return anen;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "6" + op);
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "6" + op.Value);
                 yield return support;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "4" + op);
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "4" + op.Value);
                 yield return rta;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "7" + op);
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "7" + op.Value);
                 yield return op;
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + op);
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + op.Value);
                 //System for new TTL if patient dies or survives the OP Process!!!!
 
                 //re triage process
                 env.Process(Triage(env, pat, 3));
                 // env.Process(WardProcess(env, pat, Mortuary, op.Value.ToString()));
-                RSStore.getInstance().PutOP(op); RSStore.getInstance().ChirurgStore.Put(ch.Value); RSStore.getInstance().AnesthesistStore.Put(ane.Value); RSStore.getInstance().NurseStore.Put(nurse1.Value); RSStore.getInstance().NurseStore.Put(nurse2.Value); RSStore.getInstance().AnesthesistNurseStore.Put(anen.Value); RSStore.getInstance().SupportStore.Put(support.Value);
+                RSStore.getInstance().OPStore.Put(op.Value); RSStore.getInstance().ChirurgStore.Put(ch.Value); RSStore.getInstance().AnesthesistStore.Put(ane.Value); RSStore.getInstance().NurseStore.Put(nurse1.Value); RSStore.getInstance().NurseStore.Put(nurse2.Value); RSStore.getInstance().AnesthesistNurseStore.Put(anen.Value); RSStore.getInstance().SupportStore.Put(support.Value);
                 // Ops.Put(new OP(obj.Value.ToString()));
             }
 
