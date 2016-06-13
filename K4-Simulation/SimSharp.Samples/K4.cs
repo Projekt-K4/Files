@@ -206,7 +206,7 @@ namespace SimSharp.Samples
             //initialize Stores
             RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
             //Parameter for waitingTimes and RoomSpace
-            Parameter.getInstance().initialize(50, 50, 100, 30, 0, 3600, 1000, 1200, 7200, 10);
+            Parameter.getInstance().initialize(50, 50, 100, 30, 0, 3600, 1000, 1800, 3600, 25);
 
             //Simulation starts
             env.Process(Steuerprozess(env));
@@ -223,7 +223,7 @@ namespace SimSharp.Samples
             //initialize Stores
             RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
             //Parameter for waitingTimes and RoomSpace
-            Parameter.getInstance().initialize(50, 50, 100, 30, 0, 3600, 1000, 1200, 7200, 10);
+            Parameter.getInstance().initialize(50, 50, 100, 30, 0, 3600, 1000,1800,3600, 25);
 
             //Simulation starts
             env.Process(Steuerprozess(env));
