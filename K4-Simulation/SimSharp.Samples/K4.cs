@@ -36,7 +36,7 @@ namespace SimSharp.Samples
             }
           
         }
-        static IEnumerable<Event> Triage(Environment env, Patient pat, int from=0)
+        static IEnumerable<Event> Triage(Environment env, Patient pat, int from = 0, int detail = 0)
         {
             if (from == 0)
             {
@@ -81,11 +81,15 @@ namespace SimSharp.Samples
             }
             else if(pat.getTriageNr() == 4)
             {
+                if (from == 4)
+                {
+                    eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "5"+detail);
+                }
                 env.Process(MortuaryProcess(env, pat));
             }
             else if ((pat.getTriageNr() == 1|| pat.getTriageNr() == 3) && from==4)
             {
-                env.Process(WardProcess(env, pat,"4"));
+                env.Process(WardProcess(env, pat,detail.ToString()));
             }
         }
             
@@ -108,7 +112,7 @@ namespace SimSharp.Samples
                 var anen = RSStore.getInstance().AnesthesistNurseStore.Get();
                 var support = RSStore.getInstance().SupportStore.Get();
                 var rta = RSStore.getInstance().RTAStore.Get();
-                
+
                 yield return ch;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "1" + op.Value);
                 yield return ane;
@@ -131,12 +135,20 @@ namespace SimSharp.Samples
                 {
                     pat.setTimeToLive(pat.getTimeToLive().Add(TimeSpan.FromDays(Parameter.getInstance().OPWinTime)));
                 }
+                int OPNr = Int32.Parse(op.Value.ToString());
                //it´t possible that the patient is still alive without the if....has to be changed
                 yield return env.TimeoutUniform(TimeSpan.FromSeconds(Parameter.getInstance().OPMin), TimeSpan.FromSeconds(Parameter.getInstance().OPMax));
                 //re triage process
-                env.Process(Triage(env, pat, 4));
+                env.Process(Triage(env, pat, 4,OPNr));
                 // env.Process(WardProcess(env, pat, Mortuary, op.Value.ToString()));
-                RSStore.getInstance().OPStore.Put(op.Value); RSStore.getInstance().ChirurgStore.Put(ch.Value); RSStore.getInstance().AnesthesistStore.Put(ane.Value); RSStore.getInstance().NurseStore.Put(nurse1.Value); RSStore.getInstance().NurseStore.Put(nurse2.Value); RSStore.getInstance().AnesthesistNurseStore.Put(anen.Value); RSStore.getInstance().SupportStore.Put(support.Value);
+                RSStore.getInstance().OPStore.Put(op.Value);
+                RSStore.getInstance().ChirurgStore.Put(ch.Value);
+                RSStore.getInstance().AnesthesistStore.Put(ane.Value);
+                RSStore.getInstance().NurseStore.Put(nurse1.Value);
+                RSStore.getInstance().NurseStore.Put(nurse2.Value);
+                RSStore.getInstance().AnesthesistNurseStore.Put(anen.Value);
+                RSStore.getInstance().SupportStore.Put(support.Value);
+                RSStore.getInstance().RTAStore.Put(rta.Value);
                 // Ops.Put(new OP(obj.Value.ToString()));
             }
 

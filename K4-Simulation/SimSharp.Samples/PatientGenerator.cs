@@ -28,10 +28,10 @@ namespace SimSharp.Samples
         // # {190, 150, 50, 60 }
         // # {0.5 , 0.2, 12, 17} 
         //Chance for generating:         Position:
-        private double[] distribution = { 0.1          // # dead Patient                  0
-                                        , 0.1           // # hopeless Patient              1
-                                        , 0.7           // # severly injured Patient       2
-                                        , 0.1 };        // # slightly injured Patient      3
+        private double[] distribution = { 0.15         // # dead Patient                  0
+                                        , 0.15           // # hopeless Patient              1
+                                        , 0.55           // # severly injured Patient       2
+                                        , 0.15 };        // # slightly injured Patient      3
 
         /*          Constructor          */
         /*public PatientGenerator()
