@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="K4.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="Parameter.cs" />
     <Compile Include="PatientManager.cs" />
     <Compile Include="PatientGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
