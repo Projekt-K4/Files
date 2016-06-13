@@ -34,9 +34,9 @@ namespace K4_Projekt {
         private static int StationCount = 0;
 
         //Time
-        DateTime startTime = DateTime.ParseExact("00:08:00", "hh:mm:ss", new CultureInfo("de-DE"));
-        private static int speed = 1000;
-        private static bool speedChange = false;
+        DateTime startTime = DateTime.ParseExact("00:32:00", "hh:mm:ss", new CultureInfo("de-DE"));
+        DateTime timeVisi = DateTime.ParseExact("00:32:00", "hh:mm:ss", new CultureInfo("de-DE"));
+        private static int speed = 10;
 
         //eventlog
         private static int patientWaitingEventLogNumber = 0;
@@ -51,7 +51,7 @@ namespace K4_Projekt {
             triageThread.Start();
 
             timer.Interval = 1000/speed;
-            timer.Tick += new EventHandler(this.t_Tick);
+            timer.Tick += new EventHandler(this.timer_Tick);
             timer.Start();
         }
 
@@ -88,11 +88,13 @@ namespace K4_Projekt {
             //        textBoxTimer.Text = timer.ToString("hh:mm:ss");
             //    }
             //}
-        private void t_Tick(object sender, EventArgs e) {
-           
-            int hh = startTime.Hour;
-            int mm = startTime.Minute;
-            int ss = startTime.Second;
+        private void timer_Tick(object sender, EventArgs e) {
+
+            
+            timeVisi.AddSeconds(1);
+            int hh = timeVisi.Hour;
+            int mm = timeVisi.Minute;
+            int ss = timeVisi.Second;
 
             //time
             string time = "";
@@ -130,7 +132,7 @@ namespace K4_Projekt {
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("fileO.csv");
+            eventLog.getLog().fromFileToList("file.csv");
             for (int e = 0; e < eventLog.eventList.Count; ++e) {
                 KID = eventLog.KIDList.ElementAt(e);
                 my_triage_number_delegate = new triage_number_delegate(triage_number);
@@ -170,25 +172,17 @@ namespace K4_Projekt {
                 } else if (s.StartsWith("4")) {
 
                     int j = i - 40;
-                    /*
-                    get_personalOP(1, 1);
-                    get_personalOP(2, 1);
-                    get_personalOP(3, 1);
-                    get_personalOP(4, 1);
-                    get_personalOP(5, 1);
-                    get_personalOP(6, 1);
-                    get_personalOP(7, 1);
-                  */
                     operate(j);
-                } else if (s.StartsWith("5")) {
-                    int j = i - 50;
 
+                } else if (s.StartsWith("5")) {
+
+                    int j = i - 50;
                     diedInOP(j);
 
 
                 } else if (s.StartsWith("6")) {
-                    int j = i - 60;
 
+                    int j = i - 60;
                     aliveAfterOP(j);
 
                 } else if (s.StartsWith("7")) //values from 711 to 774
@@ -208,9 +202,7 @@ namespace K4_Projekt {
                     } else {
                         patientInWaitingarea();
                     }
-
-
-
+                    
                 } else if (s.StartsWith("10"))
                   //if was classified as "hoffnungslos" the patient is transported into church
                   {
@@ -231,6 +223,7 @@ namespace K4_Projekt {
                 } else {
                     throw new Exception("Event doesn't exist!");
                 }
+                //AmountOfPatients aktuaisieren
                 if (InvokeRequired) {
                     Invoke(new updateAmountOfPatients_delegate(updateAmountOfPatients));
                 } else {
@@ -241,9 +234,12 @@ namespace K4_Projekt {
             MessageBox.Show("FERTIG!");
         }
 
+
         private void updateAmountOfPatients() {
-            labelPatientAmount.Text = ("Patienten \ninsgesamt: " +(T + H + SV + LV));
+            AmountOfPatients = T + H + SV + LV;
+            labelPatientAmount.Text = ("Patienten \ninsgesamt: " + AmountOfPatients.ToString());
         }
+
 
         private void patient_waiting() {
             ++PW;
@@ -276,6 +272,8 @@ namespace K4_Projekt {
                 textBox_eventlog.AppendText(KID + "\tPatient wird in Wartebereich geschickt\n");
             } else if (i == 10) {
                 textBox_eventlog.AppendText(KID + "\tPatient wird in Kirche verlegt\n");
+            } else if (i == 11) {
+                textBox_eventlog.AppendText(KID + "\tPatient kommt in Leichenhalle\n");
             } else if (i == 12) {
                 textBox_eventlog.AppendText(KID + "\tPatient wartet auf OP\n");
             }
@@ -357,13 +355,17 @@ namespace K4_Projekt {
         private void triage_number(int i) {
             PatientTriage.Visible = false;
             if (i == 1) {
-                triage_number_lv();
+                //  triage_number_lv();
+                ++LV;
             } else if (i == 2) {
-                triage_number_sv();
+                // triage_number_sv();
+                ++SV;
             } else if (i == 3) {
-                triage_number_h();
+                //  triage_number_h();
+                ++H;
             } else if (i == 4) {
-                triage_number_t();
+                //  triage_number_t();
+                ++T;
             } else {
                 throw new Exception("Triagenumber doesn't exist!");
             }
@@ -384,7 +386,7 @@ namespace K4_Projekt {
                 throw new Exception("Error in triage class text!");
             }
         }
-
+        /*
         private void triage_number_lv() {
             if (LV == 0) {
                 p_lv1.Visible = true;
@@ -490,7 +492,7 @@ namespace K4_Projekt {
             }
         }
 
-
+    */
 
 
 
@@ -858,8 +860,8 @@ namespace K4_Projekt {
                     pictureBoxMortuary6.Visible = true;
                     break;
                 default: break;
-
             }
+            add_eventLog_text(11);
         }
 
         //EventCode 10
@@ -880,6 +882,8 @@ namespace K4_Projekt {
                 case 2: Console.Write("Not implemented yet."); break;
                 default: break;
             }
+            add_eventLog_text(10, from);
+
         }
 
         //EventCode 11
@@ -938,7 +942,9 @@ namespace K4_Projekt {
             add_eventLog_text(12);
         }
 
-
+        private void trackBar1_Scroll(object sender, EventArgs e) {
+            speed = trackBarSpeed.Value;
+        }
     }
     
 }
