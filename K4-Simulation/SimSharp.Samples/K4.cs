@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 
@@ -8,15 +7,18 @@ namespace SimSharp.Samples
     public class K4
     {
 
-        static Resource Op = null;
+        //static Resource Op = null;
         static Resource OPWaiting = null;
-        static IEnumerable<Event> Steuerprozess(Environment env)//Simulator start, Timer starts!
+        static Resource Mortuary = null;
+        static Resource Ward = null;
+  
+        static IEnumerable<Event> Steuerprozess(Environment env)    //Simulator start, Timer starts!
         {
             //Resources:
 
-            OPWaiting = new Resource(env, 50);   //where do they wait? How many can wait for OP?
-            Mortuary = new Resource(env, 50);
-            Ward = new Resource(env, 150);
+            OPWaiting = new Resource(env, Parameter.getInstance().OPWaiting);   //where do they wait? How many can wait for OP?
+            Mortuary = new Resource(env, Parameter.getInstance().mortuary);
+            Ward = new Resource(env, Parameter.getInstance().ward);
 
             while (patientManager.getInstance().stillPatientsLeft())
             {
@@ -25,7 +27,7 @@ namespace SimSharp.Samples
 
                 //each patient finds his way to the triage
                 Patient pat = null;
-                while((pat=patientManager.getInstance().getPatient())!=null)
+                while((pat=patientManager.getInstance().getPatient(env))!=null)
                 {
                     pat.arrivalTime = env.Now;
                     eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), "---", "1");
@@ -34,7 +36,7 @@ namespace SimSharp.Samples
             }
           
         }
-        static IEnumerable<Event> Triage(Environment env, Patient pat)
+        static IEnumerable<Event> Triage(Environment env, Patient pat, int from = 0, int detail = 0)
         {
             if (from == 0)
             {
@@ -42,16 +44,18 @@ namespace SimSharp.Samples
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), "---", "2");
 
                 //timestop for the duration of the triage process
-            yield return env.Timeout(TimeSpan.FromSeconds(30));
-
+                yield return env.Timeout(TimeSpan.FromSeconds(Parameter.getInstance().triageTime));
+            }
             //TTL Calculation
             var support = env.Now.Subtract(pat.arrivalTime);//Timespan between now and arrival
             var TTL = pat.getTimeToLive().Subtract(support);
             pat.setTimeToLive(TTL - support);//subtract Timespan
 
+            if (from == 0)
+            {
                 //Patient gets KID
                 pat.setKID();
-
+            }
             //Patient gets new TTL
             pat.triagePatient(pat.getTimeToLive());
             if (from == 0)
@@ -62,13 +66,13 @@ namespace SimSharp.Samples
             if (pat.getTriageNr()==1 && from != 4)
             {
                 
-                yield return env.Timeout(TimeSpan.FromSeconds(0));
+                yield return env.Timeout(TimeSpan.FromSeconds(0));//Placeholder
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "9");
             }
-            else if(pat.getTriageNr()==2)
+            else if(pat.getTriageNr()==2&&from!=4)
             {
                 
-                env.Process(OP_waiting(env, pat,Op,OPWaiting));
+                env.Process(OP_waiting(env, pat));
             }
             else if(pat.getTriageNr()==3 && from != 4)
             {
@@ -77,21 +81,25 @@ namespace SimSharp.Samples
             }
             else if(pat.getTriageNr() == 4)
             {
-                yield return env.Timeout(TimeSpan.FromSeconds(0));
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "11");
+                if (from == 4)
+                {
+                    eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "5"+detail);
+                }
+                env.Process(MortuaryProcess(env, pat));
             }
             else if ((pat.getTriageNr() == 1|| pat.getTriageNr() == 3) && from==4)
             {
-                env.Process(WardProcess(env, pat,"4"));
+                env.Process(WardProcess(env, pat,detail.ToString()));
             }
-            
         }
-        static IEnumerable<Event> OP_waiting(Environment env, Patient pat, Resource Op,Resource Waiting)
+            
+
+        static IEnumerable<Event> OP_waiting(Environment env, Patient pat)
         {
             //wating resource
-            using (var reqW = Waiting.Request())
+            using (var reqW = OPWaiting.Request())
             {
-                //patients arrive at the triage
+                //patients arrive at the waitingRoom
                 yield return reqW;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "12");
 
@@ -122,16 +130,43 @@ namespace SimSharp.Samples
                 yield return op;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + op.Value);
                 //System for new TTL if patient dies or survives the OP Process!!!!
-
+                //Has to be changed in the near future!!!!!!!!
+                if (survive(env, pat))
+                {
+                    pat.setTimeToLive(pat.getTimeToLive().Add(TimeSpan.FromDays(Parameter.getInstance().OPWinTime)));
+                }
+                int OPNr = Int32.Parse(op.Value.ToString());
+               //it´t possible that the patient is still alive without the if....has to be changed
+                yield return env.TimeoutUniform(TimeSpan.FromSeconds(Parameter.getInstance().OPMin), TimeSpan.FromSeconds(Parameter.getInstance().OPMax));
                 //re triage process
-                env.Process(Triage(env, pat, 3));
+                env.Process(Triage(env, pat, 4,OPNr));
                 // env.Process(WardProcess(env, pat, Mortuary, op.Value.ToString()));
-                RSStore.getInstance().OPStore.Put(op.Value); RSStore.getInstance().ChirurgStore.Put(ch.Value); RSStore.getInstance().AnesthesistStore.Put(ane.Value); RSStore.getInstance().NurseStore.Put(nurse1.Value); RSStore.getInstance().NurseStore.Put(nurse2.Value); RSStore.getInstance().AnesthesistNurseStore.Put(anen.Value); RSStore.getInstance().SupportStore.Put(support.Value);
+                RSStore.getInstance().OPStore.Put(op.Value);
+                RSStore.getInstance().ChirurgStore.Put(ch.Value);
+                RSStore.getInstance().AnesthesistStore.Put(ane.Value);
+                RSStore.getInstance().NurseStore.Put(nurse1.Value);
+                RSStore.getInstance().NurseStore.Put(nurse2.Value);
+                RSStore.getInstance().AnesthesistNurseStore.Put(anen.Value);
+                RSStore.getInstance().SupportStore.Put(support.Value);
+                RSStore.getInstance().RTAStore.Put(rta.Value);
                 // Ops.Put(new OP(obj.Value.ToString()));
             }
 
         }
-
+        static bool survive(Environment env,Patient p)
+        {
+            TimeSpan timeDifference = p.getTimeToLive().Subtract(DateTime.Now);
+            double TTLInSec = timeDifference.TotalSeconds;
+            if (TTLInSec > TTLGlobal.TTL_DEAD)
+            {
+                double live = env.RandUniform(0, 100);
+                if (live > Parameter.getInstance().OPDyingRate)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         static IEnumerable<Event> MortuaryProcess (Environment env, Patient pat) //also pass code to know WHERE the patient died (to write in Log - Visualization wants that)
         {
@@ -145,10 +180,10 @@ namespace SimSharp.Samples
 
         }
 
-        static IEnumerable<Event> WardProcess(Environment env, Patient pat, Resource ward, String comeFrom)
+        static IEnumerable<Event> WardProcess(Environment env, Patient pat, String comeFrom)
         {
             //wating resource
-            using (var reqM = ward.Request())
+            using (var reqM = Ward.Request())
             {
                 //dead patient brought into mortuary
                 yield return reqM;
@@ -158,26 +193,41 @@ namespace SimSharp.Samples
         }
 
 
-        public void RunSimulation(int amount)
+        public void RunSimulation(int amount,int seed)
         {
             //creating Environment of Simulation
-            var env = new Environment(randomSeed: 41);
+            var env = new Environment(seed);//is responsible for every randomNumber in the simulation
+            env.Reset(seed);
             
             //creating Patients
-            PatientGenerator patientGen = new PatientGenerator(amount);//Patients get generated
+            PatientGenerator patientGen = new PatientGenerator(amount,env);//Patients get generated
             //PatientManager receives Patient list:
             patientManager.getInstance().createPatients(patientGen.getPatientList());//outside of process!!!!!!!     
             //initialize Stores
             RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
+            //Parameter for waitingTimes and RoomSpace
+            Parameter.getInstance().initialize(50, 50, 100, 30, 0, 3600, 1000, 1200, 7200, 10);
 
             //Simulation starts
             env.Process(Steuerprozess(env));
             env.RunD();
-           
-
-
-
         }
+        public void RunSimulation(int amount)//overload without seed
+        {
+            //creating Environment of Simulation
+            var env = new Environment();//is responsible for every randomNumber in the simulation
+            //creating Patients
+            PatientGenerator patientGen = new PatientGenerator(amount, env);//Patients get generated
+            //PatientManager receives Patient list:
+            patientManager.getInstance().createPatients(patientGen.getPatientList());//outside of process!!!!!!!     
+            //initialize Stores
+            RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
+            //Parameter for waitingTimes and RoomSpace
+            Parameter.getInstance().initialize(50, 50, 100, 30, 0, 3600, 1000, 1200, 7200, 10);
 
+            //Simulation starts
+            env.Process(Steuerprozess(env));
+            env.RunD();
+        }
     }
 }

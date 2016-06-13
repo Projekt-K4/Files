@@ -19,49 +19,58 @@ namespace SimSharp.Samples
     {
         /*          Fields          */
         private static int sequence = 0;                                //iterating number for KID
-        public SystemRandom globalTime = new SystemRandom();
+        //public SystemRandom globalTime = new SystemRandom();
         private static List<Patient> patientList = new List<Patient>(); //List of all Patients
         private static int position = -1;                               //position in List for Iterator
-        private Random randGen = new Random();                          //source for all randomness happening
 
         //Distribution Array
         //does not need to be given in percentages.Could also be set as:
         // # {190, 150, 50, 60 }
         // # {0.5 , 0.2, 12, 17} 
         //Chance for generating:         Position:
-        private double[] distribution = { 0.25           // # dead Patient                  0
-                                        , 0.25           // # hopeless Patient              1
-                                        , 0.25           // # severly injured Patient       2
-                                        , 0.25 };        // # slightly injured Patient      3
+        private double[] distribution = { 0.15         // # dead Patient                  0
+                                        , 0.15           // # hopeless Patient              1
+                                        , 0.55           // # severly injured Patient       2
+                                        , 0.15 };        // # slightly injured Patient      3
 
         /*          Constructor          */
-        public PatientGenerator()
+        /*public PatientGenerator()
         {
             Console.WriteLine("Catastrophe engages\n");
+    
+            randGen = new Random();
 
-        }
+        }*/
         //Creates PatientGenerator with given number of casualties
-        public PatientGenerator(int _numberOfCasualties)
+        /*public PatientGenerator(int _numberOfCasualties)
         {
             generateCasualties(_numberOfCasualties);
             Console.WriteLine(_numberOfCasualties + " involved in catastrophe\n");
-        }
+            //randGen = new SystemRandom();
+            randGen = new Random();
+        }*/
+        public PatientGenerator(int _numberOfCasualties, Environment env)
+        {
+            generateCasualties(_numberOfCasualties, env);
+            Console.WriteLine(_numberOfCasualties + " involved in catastrophe\n");
+            //globalTime = new SystemRandom(seed);
+    }
 
         /*          Private         */
         //Produces given number of Patients and appends them to patientList
-        private void generateCasualties(int _numberOfPatients)
+        private void generateCasualties(int _numberOfPatients, Environment env)
         {
             for (int i = 0; i < _numberOfPatients; i++)
             {
-                addPatient();
+                addPatient(env);
             }
         }
         /*          Public          */
 
         //Adds a new Patient to the List according to the given distribution
-        public bool addPatient()
+        public bool addPatient(Environment env)
         {
-            double x = randGen.NextDouble(); // determins the Patients state
+            double x = env.RandUniform(0,1); // determins the Patients state
             double sumDist = distribution.Sum();
 
             if (x <= distribution[0] / sumDist)
@@ -70,15 +79,15 @@ namespace SimSharp.Samples
             }
             else if (x <= (distribution[0] + distribution[1]) / sumDist)
             {
-                patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_DEAD + 1, TTLGlobal.TTL_HOPELESS))); // Creates hopeless patient as distributed
+                patientList.Add(new Patient((double)env.RandUniform(TTLGlobal.TTL_DEAD + 1, TTLGlobal.TTL_HOPELESS))); // Creates hopeless patient as distributed
             }
             else if (x <= (distribution[0] + distribution[1] + distribution[2]) / sumDist)
             {
-                patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_HOPELESS + 1, TTLGlobal.TTL_SEVERELY_INJURED)));
+                patientList.Add(new Patient((double)env.RandUniform(TTLGlobal.TTL_HOPELESS + 1, TTLGlobal.TTL_SEVERELY_INJURED)));
             }
             else if (x <= distribution.Sum())
             {
-                patientList.Add(new Patient((double)randGen.Next(TTLGlobal.TTL_SEVERELY_INJURED + 1, TTLGlobal.TTL_SLIGHTLY_INJURED)));
+                patientList.Add(new Patient((double)env.RandUniform(TTLGlobal.TTL_SEVERELY_INJURED + 1, TTLGlobal.TTL_SLIGHTLY_INJURED)));
             }
             else
                 Console.WriteLine("Something went wrong!");
