@@ -22,7 +22,7 @@ ______________________________________________________________________________
 		2: OP 2
 		3: OP 3
 		4: OP 4
-	
+8[.]	OP # freigegeben	
 9	leichtverletzter Patient wartet	(wird daweil "auf die Straße" geschickt)
 10[.]	Patient ist ein hoffnungsloser Fall und kommt in Kirche
 	(In Triage selbst wird auch in Hoffnungslos eingestuft)
