@@ -19,7 +19,6 @@ namespace K4_Projekt {
         private static int PW = 0; //waiting for triage
         private static int QueueOPRoom = 0;
 
-
         //triageKlasse
         private static int LV = 0;
         private static int SV = 0;
@@ -34,26 +33,16 @@ namespace K4_Projekt {
         private static int StationCount = 0;
 
         //Time
-        DateTime startTime = DateTime.ParseExact("00:08:00", "hh:mm:ss", new CultureInfo("de-DE"));
-        private static int speed = 1000;
-        private static bool speedChange = false;
+        private static int speed = 1;
+        private static bool eventsAtSameTime = false;
+        private static bool takeNextEvent = false;
+        private static string CurrentTime = "";
+        private static string EventTime = "";
 
         //eventlog
         private static int patientWaitingEventLogNumber = 0;
         private static string KID;
-
-        public UKH() {
-            InitializeComponent();
-        }
-
-        public void UKH_Load(object sender, EventArgs e) {
-            Thread triageThread = new Thread(new ThreadStart(read_puffer));
-            triageThread.Start();
-
-            timer.Interval = 1000/speed;
-            timer.Tick += new EventHandler(this.t_Tick);
-            timer.Start();
-        }
+        private static string timeStamp;
 
         public delegate void patient_waiting_delegate();
         public delegate void triage_delegate();
@@ -77,27 +66,22 @@ namespace K4_Projekt {
         public diedInOP_delegate my_diedInOP_delegate;
         public delegate void updateAmountOfPatients_delegate();
 
-        
-            //DateTime time = DateTime.ParseExact("00:08:00", "hh:mm:ss", new CultureInfo("de-DE"));
-            //while (true) {
-            //    Thread.Sleep(1000/speed );
-            //    timer.AddSeconds(1);
-            //    if (InvokeRequired) {
-            //        Invoke((MethodInvoker)delegate { textBoxTimer.Text = timer.Now.ToString("hh:mm:ss"); });
-            //    } else {
-            //        textBoxTimer.Text = timer.ToString("hh:mm:ss");
-            //    }
-            //}
-        private void t_Tick(object sender, EventArgs e) {
-           
-            int hh = startTime.Hour;
-            int mm = startTime.Minute;
-            int ss = startTime.Second;
+        public UKH() {
+            InitializeComponent();
+        }
 
-            //time
+
+        public void UKH_Load(object sender, EventArgs e) {
+            Thread triageThread = new Thread(new ThreadStart(read_puffer));
+            triageThread.Start();
+        }
+
+            
+        private static string changeTimeFormat(DateTime t) {
+            int hh = t.Hour;
+            int mm = t.Minute;
+            int ss = t.Second;
             string time = "";
-
-            //padding leading zero
             if (hh < 10) {
                 time += "0" + hh;
             } else {
@@ -117,133 +101,172 @@ namespace K4_Projekt {
             } else {
                 time += ss;
             }
-
-            //update label
-            if (InvokeRequired) {
-                Invoke((MethodInvoker)delegate { textBoxTimer.Text = time; });
-            } else {
-                textBoxTimer.Text = time; 
-            }
-            
+            return time;
         }
-    
+
+        private static string setStartTime() {
+            DateTime firstEvent = DateTime.ParseExact(eventLog.timeStampList.ElementAt(0), "hh:mm:ss", new CultureInfo("de-DE"));
+            DateTime forFirstEvent = DateTime.ParseExact("00:00:05", "hh:mm:ss", new CultureInfo("de-DE"));
+            TimeSpan start = firstEvent - forFirstEvent;
+            return start.ToString();
+        }
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("fileO.csv");
-            for (int e = 0; e < eventLog.eventList.Count; ++e) {
-                KID = eventLog.KIDList.ElementAt(e);
-                my_triage_number_delegate = new triage_number_delegate(triage_number);
-                int i = 0;
-                i = Int32.Parse(eventLog.eventList.ElementAt(e));
+            eventLog.getLog().fromFileToList("file.csv");
+            DateTime currentEventTime = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
+            DateTime Timer = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
 
-                string s = i.ToString();
-                DateTime oldTime = DateTime.ParseExact(eventLog.timeStampList.ElementAt(e), "hh:mm:ss", new CultureInfo("de-DE"));
-                TimeSpan difference = oldTime - startTime;
-                int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
-                if (duration == 0) {
-                    duration = 1000;
+            for (int eventLine = 0; eventLine < eventLog.eventList.Count; ++eventLine) {
+                EventTime = eventLog.timeStampList.ElementAt(eventLine);
+                KID = eventLog.KIDList.ElementAt(eventLine);
+                timeStamp = eventLog.timeStampList.ElementAt(eventLine);
+
+                DateTime previousEventTime = DateTime.ParseExact(eventLog.timeStampList.ElementAt(eventLine), "hh:mm:ss", new CultureInfo("de-DE"));
+                takeNextEvent = false;
+
+                while (takeNextEvent == false) {
+                     CurrentTime= changeTimeFormat(Timer);
+
+                    if (CurrentTime.Equals(EventTime)) {
+                        takeNextEvent = true;
+                        eventsAtSameTime = false;
+                        
+                        //my_triage_number_delegate = new triage_number_delegate(triage_number);
+                        int i = Int32.Parse(eventLog.eventList.ElementAt(eventLine));
+                        string s = i.ToString();
+
+                        //wenn der Zeitunterschied zwischen zwei Events null ist, wird trotzdem für eine Sekunde die GUI geändert, 
+                        //dass man etwas erkennen kann
+                        TimeSpan difference = previousEventTime - currentEventTime;
+                        int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
+                        if (duration == 0) {
+                            eventsAtSameTime = true;
+                            Thread.Sleep(1000 / speed);
+                        }
+
+                        //Eventcode wird auf Ereignis überprüft
+                        if (i == 1) {
+                            if (InvokeRequired) {
+                                Invoke(new patient_waiting_delegate(patient_waiting));
+                            } else {
+                                patient_waiting();
+                            }
+                        } else if (i == 2) {
+                            if (InvokeRequired) {
+                                Invoke(new triage_delegate(triage));
+                            } else {
+                                triage();
+                            }
+                        } else if (s.StartsWith("3")) {
+
+                            int j = i - 30;
+                            triage_number(j);
+
+                        } else if (s.StartsWith("4")) {
+
+                            int j = i - 40;
+                            operate(j);
+
+                        } else if (s.StartsWith("5")) {
+
+                            int j = i - 50;
+                            diedInOP(j);
+                            
+                        } else if (s.StartsWith("6")) {
+
+                            int j = i - 60;
+                            aliveAfterOP(j);
+
+                        } else if (s.StartsWith("7")) //values from 711 to 774
+                        {
+                            int j = i - 700;
+
+                            int staff = (s.ElementAt(1)) - '0';
+                            int OP = (s.ElementAt(2)) - '0';
+
+                            get_personalOP(staff, OP);
+
+                        } else if (s.StartsWith("8")) {
+                            Console.Write("Code not existing");
+
+                        } else if (s.StartsWith("9")) //wird weggeschickt?? lt. EventCodierung auf Straße
+                          {
+                            if (InvokeRequired) {
+                                Invoke(new patientInWaitingarea_delegate(patientInWaitingarea));
+                            } else {
+                                patientInWaitingarea();
+                            }
+
+                        } else if (s.StartsWith("10"))
+                          //if was classified as "hoffnungslos" the patient is transported into church
+                          {
+                            int j = i - 100;
+                            SettleToChurch(j);
+                        } else if (s.StartsWith("11"))
+                          //patient dead and comes in Mortuary when died somewhere or was classified as dead
+                          {
+                            int j = i - 110;
+                            DiedAt(j);
+                        } else if (s.StartsWith("12")) {
+                            QueueOPRoom++;
+                            if (InvokeRequired) {
+                                Invoke(new patientInWaitingarea_delegate(patientWaitingForOP));
+                            } else {
+                                patientWaitingForOP();
+                            }
+
+                        } else {
+                            throw new Exception("Event doesn't exist!");
+                        }
+                        //AmountOfPatients aktuaisieren
+                        if (InvokeRequired) {
+                            Invoke(new updateAmountOfPatients_delegate(updateAmountOfPatients));
+                        } else {
+                            updateAmountOfPatients();
+                        }
+
+                        currentEventTime = previousEventTime;
+
+                    } else {
+                        if(eventsAtSameTime == true) {                            
+                            eventsAtSameTime = false;
+                        }else {                            
+                            Thread.Sleep(1000 / speed);
+                        }
+                        Timer = Timer.AddSeconds(1);
+                        CurrentTime = changeTimeFormat(Timer);
+                        
+                        if (InvokeRequired) {
+                            Invoke((MethodInvoker)delegate { textBoxTimer.Text = CurrentTime; });
+                        } else {
+                            textBoxTimer.Text = CurrentTime;
+                        }
+                        takeNextEvent = false;
+
+                    }
                 }
-                Thread.Sleep(duration / speed);
-
-
-                if (i == 1) {
-                    if (InvokeRequired) {
-                        Invoke(new patient_waiting_delegate(patient_waiting));
-                    } else {
-                        patient_waiting();
-                    }
-
-                } else if (i == 2) {
-                    if (InvokeRequired) {
-                        Invoke(new triage_delegate(triage));
-                    } else {
-                        triage();
-                    }
-                } else if (s.StartsWith("3")) {
-                    int j = i - 30;
-                    if (InvokeRequired) {
-                        Invoke(my_triage_number_delegate, new Object[] { j });
-                    } else {
-                        triage_number(j);
-                    }
-                } else if (s.StartsWith("4")) {
-
-                    int j = i - 40;
-                    /*
-                    get_personalOP(1, 1);
-                    get_personalOP(2, 1);
-                    get_personalOP(3, 1);
-                    get_personalOP(4, 1);
-                    get_personalOP(5, 1);
-                    get_personalOP(6, 1);
-                    get_personalOP(7, 1);
-                  */
-                    operate(j);
-                } else if (s.StartsWith("5")) {
-                    int j = i - 50;
-
-                    diedInOP(j);
-
-
-                } else if (s.StartsWith("6")) {
-                    int j = i - 60;
-
-                    aliveAfterOP(j);
-
-                } else if (s.StartsWith("7")) //values from 711 to 774
-                {
-                    int j = i - 700;
-
-                    int staff = (s.ElementAt(1)) - '0';
-                    int OP = (s.ElementAt(2)) - '0';
-
-                    get_personalOP(staff, OP);
-                } else if (s.StartsWith("8")) {
-                    Console.Write("Code not existing");
-                } else if (s.StartsWith("9")) //wird weggeschickt?? lt. EventCodierung auf Straße
-                  {
-                    if (InvokeRequired) {
-                        Invoke(new patientInWaitingarea_delegate(patientInWaitingarea));
-                    } else {
-                        patientInWaitingarea();
-                    }
-
-
-
-                } else if (s.StartsWith("10"))
-                  //if was classified as "hoffnungslos" the patient is transported into church
-                  {
-                    int j = i - 100;
-                    SettleToChurch(j);
-                } else if (s.StartsWith("11"))
-                  //patient dead and comes in Mortuary when died somewhere or was classified as dead
-                  {
-                    int j = i - 110;
-                    DiedAt(j);
-                } else if (s.StartsWith("12")) {
-                    if (InvokeRequired) {
-                        Invoke(new patientInWaitingarea_delegate(patientWaitingForOP));
-                    } else {
-                        patientWaitingForOP();
-                    }
-
-                } else {
-                    throw new Exception("Event doesn't exist!");
-                }
-                if (InvokeRequired) {
-                    Invoke(new updateAmountOfPatients_delegate(updateAmountOfPatients));
-                } else {
-                    updateAmountOfPatients();
-                }
-                startTime = oldTime;
             }
             MessageBox.Show("FERTIG!");
         }
 
+
+
+        //
+        //
+        //
+        //AUVA LOGO !!!!!!!!!!
+        //
+        //
+        //
+
+
+
         private void updateAmountOfPatients() {
-            labelPatientAmount.Text = ("Patienten \ninsgesamt: " +(T + H + SV + LV));
+            AmountOfPatients = T + H + SV + LV;
+            labelPatientAmount.Text = ("Patienten \ninsgesamt: " + AmountOfPatients.ToString());
         }
+
 
         private void patient_waiting() {
             ++PW;
@@ -269,15 +292,17 @@ namespace K4_Projekt {
         private void add_eventLog_text(int i) {
             if (i == 1) {
                 ++patientWaitingEventLogNumber;
-                textBox_eventlog.AppendText("undefined\t\t" + patientWaitingEventLogNumber + ". Patient wartet vor Triage\n");
+                textBoxEventlog.AppendText(timeStamp + "\t---\t\t" + patientWaitingEventLogNumber + ". Patient wartet vor Triage\n");
             } else if (i == 2) {
-                textBox_eventlog.AppendText(KID + "\t\tPatient wird triagiert\n");
+                textBoxEventlog.AppendText(timeStamp + "\t---\t\t" + "Patient wird triagiert\n");
             } else if (i == 9) {
-                textBox_eventlog.AppendText(KID + "\tPatient wird in Wartebereich geschickt\n");
+                textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient wird in Wartebereich geschickt\n");
             } else if (i == 10) {
-                textBox_eventlog.AppendText(KID + "\tPatient wird in Kirche verlegt\n");
+                textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient wird in Kirche verlegt\n");
+            } else if (i == 11) {
+                textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient kommt in Leichenhalle\n");
             } else if (i == 12) {
-                textBox_eventlog.AppendText(KID + "\tPatient wartet auf OP\n");
+                textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient wartet auf OP\n");
             }
         }
 
@@ -285,41 +310,83 @@ namespace K4_Projekt {
         private void add_eventLog_text(int i, int j) {
             if (i == 3) {
                 if (InvokeRequired) {
-                    Invoke((MethodInvoker)delegate { textBox_eventlog.AppendText(KID + "\tPatient bekommt Triagenummer " + j + "\n"); });
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient bekommt Triagenummer " + j + "\n"); });
                 } else {
-                    textBox_eventlog.AppendText(KID + "\tPatient bekommt Triagenummer " + j + "\n");
+                    textBoxEventlog.AppendText(timeStamp +"\t"+KID + " \tPatient bekommt Triagenummer " + j + "\n");
                 }
             } else if (i == 4) {
                 if (InvokeRequired) {
-                    Invoke((MethodInvoker)delegate { textBox_eventlog.AppendText(KID + "\tPatient wird in OP" + j + " operiert\n"); });
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient wird in OP" + j + " operiert\n"); });
                 } else {
-                    textBox_eventlog.AppendText(KID + "\tPatient wird in OP" + j + " operiert\n");
+                    textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient wird in OP" + j + " operiert\n");
                 }
             } else if (i == 5) {
                 if (InvokeRequired) {
-                    Invoke((MethodInvoker)delegate { textBox_eventlog.AppendText(KID + "\tPatient ist in OP" + j + " verstorben\n"); });
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient ist in OP" + j + " verstorben\n"); });
                 } else {
-                    textBox_eventlog.AppendText(KID + "\tPatient ist in OP" + j + " verstorben\n");
+                    textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient ist in OP" + j + " verstorben\n");
                 }
             } else if (i == 6) {
                 if (InvokeRequired) {
-                    Invoke((MethodInvoker)delegate { textBox_eventlog.AppendText(KID + "\tPatient aus OP" + j + " auf die Bettenstation verlegt\n"); });
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient aus OP" + j + " auf die Bettenstation verlegt\n"); });
                 } else {
-                    textBox_eventlog.AppendText(KID + "\tPatient aus OP" + j + " auf die Bettenstation verlegt\n");
+                    textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient aus OP" + j + " auf die Bettenstation verlegt\n");
                 }
             } else if (i == 11) {
                 if (j == 1) {
                     if (InvokeRequired) {
-                        Invoke((MethodInvoker)delegate { textBox_eventlog.AppendText(KID + "\tPatient ist auf der Bettenstation verstorben\n"); });
+                        Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient ist auf der Bettenstation verstorben\n"); });
                     } else {
-                        textBox_eventlog.AppendText(KID + "\tPatient ist auf der Bettenstation verstorben\n");
+                        textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient ist auf der Bettenstation verstorben\n");
                     }
                 } else if (j == 2) {
                     if (InvokeRequired) {
-                        Invoke((MethodInvoker)delegate { textBox_eventlog.AppendText(KID + "\tPatient ist in der Kirche verstorben\n"); });
+                        Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient ist in der Kirche verstorben\n"); });
                     } else {
-                        textBox_eventlog.AppendText(KID + "\tPatient ist in der Kirche verstorben\n");
+                        textBoxEventlog.AppendText(timeStamp + "\t" + KID + " \tPatient ist in der Kirche verstorben\n");
                     }
+                }
+            }else if (i == 71) {
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tChirurg ist in OP"+j+" eingetroffen\n"); });
+                } else {
+                    textBoxEventlog.AppendText(timeStamp + "\t\t\tChirurg ist in OP" + j + " eingetroffen\n");
+                }
+            } else if (i == 72) {
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\terste OP-Schwester ist in OP" + j + " eingetroffen\n"); });
+                } else {
+                    textBoxEventlog.AppendText(timeStamp + "\t\t\terste OP-Schwester ist in OP" + j + " eingetroffen\n");
+                }
+            } else if (i == 73) {
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tzweite OP-Schwester ist in OP" + j + " eingetroffen\n"); });
+                } else {
+                    textBoxEventlog.AppendText(timeStamp + "\t\t\tzweite OP-Schwester ist in OP" + j + " eingetroffen\n");
+                }
+            } else if (i == 74) {
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tOP-Beihilfe ist in OP" + j + " eingetroffen\n"); });
+                } else {
+                    textBoxEventlog.AppendText(timeStamp + "\t\t\tOP-Beihilfe ist in OP" + j + " eingetroffen\n");
+                }
+            } else if (i == 75) {
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tAnästhesist ist in OP" + j + " eingetroffen\n"); });
+                } else {
+                    textBoxEventlog.AppendText(timeStamp + "\t\t\tAnästhesist ist in OP" + j + " eingetroffen\n");
+                }
+            } else if (i == 76) {
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tAnästhesischwester ist in OP" + j + " eingetroffen\n"); });
+                } else {
+                    textBoxEventlog.AppendText(timeStamp + "\t\t\tAnästhesischwester ist in OP" + j + " eingetroffen\n");
+                }
+            } else if (i == 77) {
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tRTA ist in OP" + j + " eingetroffen\n"); });
+                } else {
+                    textBoxEventlog.AppendText(timeStamp + "\t\t\tRTA ist in OP" + j + " eingetroffen\n");
                 }
             }
         }
@@ -355,15 +422,24 @@ namespace K4_Projekt {
         }
 
         private void triage_number(int i) {
-            PatientTriage.Visible = false;
+            if (InvokeRequired) {
+                Invoke((MethodInvoker)delegate { PatientTriage.Visible = false; });
+            } else {
+                PatientTriage.Visible = false;
+            }
+           
             if (i == 1) {
-                triage_number_lv();
+                // triage_number_lv();
+                ++LV;
             } else if (i == 2) {
-                triage_number_sv();
+                //triage_number_sv();
+                ++SV;
             } else if (i == 3) {
-                triage_number_h();
+                //triage_number_h();
+                ++H;
             } else if (i == 4) {
-                triage_number_t();
+                //triage_number_t();
+                ++T;
             } else {
                 throw new Exception("Triagenumber doesn't exist!");
             }
@@ -373,18 +449,38 @@ namespace K4_Projekt {
 
         private void number_triage_class(int i) {
             if (i == 1) {
-                class1.Text = "Klasse 1\nLeichtverletzte: " + LV;
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { class1.Text = "Klasse 1\nLeichtverletzte: " + LV; });
+                } else {
+                    class1.Text = "Klasse 1\nLeichtverletzte: " + LV;
+                }
+                
             } else if (i == 2) {
-                class2.Text = "Klasse 2\nSchwerverletzte: " + SV;
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { class2.Text = "Klasse 2\nSchwerverletzte: " + SV; });
+                } else {
+                    class2.Text = "Klasse 2\nSchwerverletzte: " + SV;
+                }
+                
             } else if (i == 3) {
-                class3.Text = "Klasse 3\nHoffnungslose: " + H;
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate { class3.Text = "Klasse 3\nHoffnungslose: " + H; });
+                } else {
+                    class3.Text = "Klasse 3\nHoffnungslose: " + H;
+                }
+                
             } else if (i == 4) {
-                class4.Text = "Klasse 4\nTote: " + T;
+                if (InvokeRequired) {
+                    Invoke((MethodInvoker)delegate {class4.Text = "Klasse 4\nTote: " + T;
+                    });
+                } else {
+                    class4.Text = "Klasse 4\nTote: " + T;
+                }
             } else {
                 throw new Exception("Error in triage class text!");
             }
         }
-
+        /*
         private void triage_number_lv() {
             if (LV == 0) {
                 p_lv1.Visible = true;
@@ -490,7 +586,7 @@ namespace K4_Projekt {
             }
         }
 
-
+    */
 
 
 
@@ -500,22 +596,24 @@ namespace K4_Projekt {
 
         //Event Code 4
         public void operate(int OPRoom) {
+            --QueueOPRoom;
+            if (InvokeRequired) {
+                Invoke(new patientWaitingForOP_delegate(patientWaitingForOP));
+            } else {
+                patientWaitingForOP();
+            }
             switch (OPRoom) {
                 case 1:
                     OP1.BackColor = Color.Red;
-                    QueueOPRoom--;
                     break;
                 case 2:
                     OP2.BackColor = Color.Red;
-                    QueueOPRoom--;
                     break;
                 case 3:
                     OP3.BackColor = Color.Red;
-                    QueueOPRoom--;
                     break;
                 case 4:
                     OP4.BackColor = Color.Red;
-                    QueueOPRoom--;
                     break;
                 default: break;
             }
@@ -529,18 +627,47 @@ namespace K4_Projekt {
                 case 1:
                     OP1.BackColor = Color.Green;
                     T++;
+                    OPOPS11Label.BackColor =Color.FromArgb(193,9,9);
+                    OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9);
+
                     break;
                 case 2:
                     OP2.BackColor = Color.Green;
                     T++;
+                    OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9);
                     break;
                 case 3:
                     OP3.BackColor = Color.Green;
                     T++;
+                    OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9);
                     break;
                 case 4:
                     OP4.BackColor = Color.Green;
                     T++;
+                    OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9);
                     break;
                 default: break;
             }
@@ -556,11 +683,25 @@ namespace K4_Projekt {
                     OP1.BackColor = Color.Green;
                     StationCount++;
                     if (InvokeRequired) {
-                        Invoke(new Bettenstation_delegate(Bettenstation));
+                        OPOPS11Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9);
                         // Bettenstation_delegate d = new Bettenstation_delegate(Bettenstation);
                         //this.Invoke(d);
                     } else {
                         Bettenstation();
+                        OPOPS11Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9);
+
                     }
                     //Bettenstation()
                     break;
@@ -569,8 +710,22 @@ namespace K4_Projekt {
                     StationCount++;
                     if (InvokeRequired) {
                         Invoke(new Bettenstation_delegate(Bettenstation));
+                        OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9);
                     } else {
                         Bettenstation();
+                        OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9);
                     }
                     break;
                 case 3:
@@ -578,8 +733,22 @@ namespace K4_Projekt {
                     StationCount++;
                     if (InvokeRequired) {
                         Invoke(new Bettenstation_delegate(Bettenstation));
+                        OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9);
                     } else {
                         Bettenstation();
+                        OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9);
                     }
                     break;
                 case 4:
@@ -587,8 +756,22 @@ namespace K4_Projekt {
                     StationCount++;
                     if (InvokeRequired) {
                         Invoke(new Bettenstation_delegate(Bettenstation));
+                        OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9);
                     } else {
                         Bettenstation();
+                        OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9);
                     }
                     break;
                 default: break;
@@ -602,13 +785,27 @@ namespace K4_Projekt {
         {
             switch (personalCode)
             {
-                case 1: staffOPC(OP); break;
-                case 2: staffOPS1(OP); break;
-                case 3: staffOPS2(OP); break;
-                case 4: staffOPB(OP); break;
-                case 5: staffAnä(OP); break;
-                case 6: staffAnäS(OP); break;
-                case 7: staffRTA(OP); break;
+                case 1: staffOPC(OP);
+                    add_eventLog_text(71, OP);
+                    break;
+                case 2: staffOPS1(OP);
+                    add_eventLog_text(72, OP);
+                    break;
+                case 3: staffOPS2(OP);
+                    add_eventLog_text(73, OP);
+                    break;
+                case 4: staffOPB(OP);
+                    add_eventLog_text(74, OP);
+                    break;
+                case 5: staffAnä(OP);
+                    add_eventLog_text(75, OP);
+                    break;
+                case 6: staffAnäS(OP);
+                    add_eventLog_text(76, OP);
+                    break;
+                case 7: staffRTA(OP);
+                    add_eventLog_text(77, OP);
+                    break;
                 default: break;
             }
         }
@@ -858,8 +1055,8 @@ namespace K4_Projekt {
                     pictureBoxMortuary6.Visible = true;
                     break;
                 default: break;
-
             }
+            add_eventLog_text(11);
         }
 
         //EventCode 10
@@ -880,6 +1077,8 @@ namespace K4_Projekt {
                 case 2: Console.Write("Not implemented yet."); break;
                 default: break;
             }
+            add_eventLog_text(10, from);
+
         }
 
         //EventCode 11
@@ -924,20 +1123,57 @@ namespace K4_Projekt {
                 default: break;
             }
         }
-        //Event Code 12
+       
 
 
-
+        //Event Code 9
         private void patientInWaitingarea() {
             LVWaiting++;
             add_eventLog_text(9);
         }
 
+        //Event Code 12
         private void patientWaitingForOP() {
-            QueueOPRoom++;
+            if (InvokeRequired) {
+                Invoke((MethodInvoker)delegate { labelOPWartebereich.Text = "OP-Wartebereich: " + QueueOPRoom; });
+            } else {
+                labelOPWartebereich.Text = "OP-Wartebereich: " + QueueOPRoom;
+            }
+            switch (QueueOPRoom) {
+                case 0:
+                    pictureBoxOPWB1.Visible = false;
+                    break; 
+                case 1:
+                    pictureBoxOPWB1.Visible = true;
+                    pictureBoxOPWB2.Visible = false;
+                    break;
+                case 2:
+                    pictureBoxOPWB2.Visible = true;
+                    pictureBoxOPWB3.Visible = false;
+                    break;
+                case 3:
+                    pictureBoxOPWB3.Visible = true;
+                    pictureBoxOPWB4.Visible = false;
+                    break;
+                case 4:
+                    pictureBoxOPWB4.Visible = true;
+                    pictureBoxOPWB5.Visible = false;
+                    break;
+                case 5:
+                    pictureBoxOPWB5.Visible = true;
+                    pictureBoxOPWB6.Visible = false;
+                    break;
+                case 6:
+                    pictureBoxOPWB6.Visible = true;
+                    break;
+                default: break;
+            }
             add_eventLog_text(12);
         }
 
+        private void trackBarSpeed_Scroll(object sender, EventArgs e) {
+            speed = trackBarSpeed.Value;
+        }
 
     }
     
