@@ -54,6 +54,16 @@ namespace SimSharp.Samples
         public Store AnesthesistNurseStore;
         public Store RTAStore;
 
+        public OP GetOP()
+        {
+            return (OP) this.OPStore.Get().Value;
+        }
+
+        public void PutOP(OP op)
+        {
+            this.OPStore.Put(op);
+        }
+
         //methods to change the amount of each stufftype....
 
         public void initStores(Environment env, int chirurgs, int nurses, int support, int anesthesists, int anesthesistsNurse, int rtas, int ops)
