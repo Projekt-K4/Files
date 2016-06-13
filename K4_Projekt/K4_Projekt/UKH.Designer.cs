@@ -85,30 +85,6 @@ namespace K4_Projekt
             this.textBoxTimer = new System.Windows.Forms.TextBox();
             this.groupBoxStatistic = new System.Windows.Forms.GroupBox();
             this.labelPatientAmount = new System.Windows.Forms.Label();
-            this.p_lv1 = new System.Windows.Forms.PictureBox();
-            this.p_lv2 = new System.Windows.Forms.PictureBox();
-            this.p_lv3 = new System.Windows.Forms.PictureBox();
-            this.p_lv4 = new System.Windows.Forms.PictureBox();
-            this.p_lv5 = new System.Windows.Forms.PictureBox();
-            this.p_sv1 = new System.Windows.Forms.PictureBox();
-            this.p_sv2 = new System.Windows.Forms.PictureBox();
-            this.p_sv3 = new System.Windows.Forms.PictureBox();
-            this.p_sv4 = new System.Windows.Forms.PictureBox();
-            this.p_sv5 = new System.Windows.Forms.PictureBox();
-            this.p_h1 = new System.Windows.Forms.PictureBox();
-            this.p_h2 = new System.Windows.Forms.PictureBox();
-            this.p_h3 = new System.Windows.Forms.PictureBox();
-            this.p_h4 = new System.Windows.Forms.PictureBox();
-            this.p_h5 = new System.Windows.Forms.PictureBox();
-            this.p_t1 = new System.Windows.Forms.PictureBox();
-            this.p_t2 = new System.Windows.Forms.PictureBox();
-            this.p_t3 = new System.Windows.Forms.PictureBox();
-            this.p_t4 = new System.Windows.Forms.PictureBox();
-            this.p_t5 = new System.Windows.Forms.PictureBox();
-            this.p_h6 = new System.Windows.Forms.PictureBox();
-            this.p_sv6 = new System.Windows.Forms.PictureBox();
-            this.p_lv6 = new System.Windows.Forms.PictureBox();
-            this.p_t6 = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.labelOPWartebereich = new System.Windows.Forms.Label();
             this.pictureBoxOPWB6 = new System.Windows.Forms.PictureBox();
@@ -188,30 +164,6 @@ namespace K4_Projekt
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
             this.groupBoxTimer.SuspendLayout();
             this.groupBoxStatistic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB5)).BeginInit();
@@ -447,10 +399,9 @@ namespace K4_Projekt
             // 
             // OPOPS12Label
             // 
-            this.OPOPS12Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPS12Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPS12Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS12Label.Location = new System.Drawing.Point(803, 691);
+            this.OPOPS12Label.Location = new System.Drawing.Point(956, 645);
             this.OPOPS12Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPS12Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPS12Label.Name = "OPOPS12Label";
@@ -461,10 +412,9 @@ namespace K4_Projekt
             // 
             // OPAnäS1Label
             // 
-            this.OPAnäS1Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnäS1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnäS1Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS1Label.Location = new System.Drawing.Point(593, 691);
+            this.OPAnäS1Label.Location = new System.Drawing.Point(746, 645);
             this.OPAnäS1Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPAnäS1Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPAnäS1Label.Name = "OPAnäS1Label";
@@ -475,10 +425,9 @@ namespace K4_Projekt
             // 
             // OPRTA1Label
             // 
-            this.OPRTA1Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPRTA1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPRTA1Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA1Label.Location = new System.Drawing.Point(523, 691);
+            this.OPRTA1Label.Location = new System.Drawing.Point(676, 645);
             this.OPRTA1Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPRTA1Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPRTA1Label.Name = "OPRTA1Label";
@@ -489,10 +438,9 @@ namespace K4_Projekt
             // 
             // OPOPS11Label
             // 
-            this.OPOPS11Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPS11Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPS11Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS11Label.Location = new System.Drawing.Point(873, 691);
+            this.OPOPS11Label.Location = new System.Drawing.Point(1026, 645);
             this.OPOPS11Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPS11Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPS11Label.Name = "OPOPS11Label";
@@ -503,10 +451,9 @@ namespace K4_Projekt
             // 
             // OPAnä1Label
             // 
-            this.OPAnä1Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnä1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnä1Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä1Label.Location = new System.Drawing.Point(663, 691);
+            this.OPAnä1Label.Location = new System.Drawing.Point(816, 645);
             this.OPAnä1Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPAnä1Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPAnä1Label.Name = "OPAnä1Label";
@@ -517,10 +464,9 @@ namespace K4_Projekt
             // 
             // OPOPB1Label
             // 
-            this.OPOPB1Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPB1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPB1Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB1Label.Location = new System.Drawing.Point(733, 691);
+            this.OPOPB1Label.Location = new System.Drawing.Point(886, 645);
             this.OPOPB1Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPB1Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPB1Label.Name = "OPOPB1Label";
@@ -531,10 +477,9 @@ namespace K4_Projekt
             // 
             // OPOPC1Label
             // 
-            this.OPOPC1Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPC1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPC1Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPC1Label.Location = new System.Drawing.Point(943, 691);
+            this.OPOPC1Label.Location = new System.Drawing.Point(1096, 645);
             this.OPOPC1Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPC1Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPC1Label.Name = "OPOPC1Label";
@@ -546,11 +491,10 @@ namespace K4_Projekt
             // OP1Label
             // 
             this.OP1Label.AccessibleName = "";
-            this.OP1Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OP1Label.AutoSize = true;
             this.OP1Label.BackColor = System.Drawing.Color.Transparent;
             this.OP1Label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OP1Label.Location = new System.Drawing.Point(527, 502);
+            this.OP1Label.Location = new System.Drawing.Point(680, 456);
             this.OP1Label.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.OP1Label.Name = "OP1Label";
             this.OP1Label.Size = new System.Drawing.Size(54, 25);
@@ -560,9 +504,8 @@ namespace K4_Projekt
             // OP1
             // 
             this.OP1.AccessibleName = "";
-            this.OP1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OP1.BackColor = System.Drawing.Color.Green;
-            this.OP1.Location = new System.Drawing.Point(523, 533);
+            this.OP1.Location = new System.Drawing.Point(676, 487);
             this.OP1.Margin = new System.Windows.Forms.Padding(6);
             this.OP1.Name = "OP1";
             this.OP1.Size = new System.Drawing.Size(490, 213);
@@ -681,9 +624,9 @@ namespace K4_Projekt
             this.labelBS.Location = new System.Drawing.Point(1332, 1147);
             this.labelBS.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelBS.Name = "labelBS";
-            this.labelBS.Size = new System.Drawing.Size(138, 25);
+            this.labelBS.Size = new System.Drawing.Size(162, 25);
             this.labelBS.TabIndex = 129;
-            this.labelBS.Text = "Bettenstation";
+            this.labelBS.Text = "Bettenstation: 0";
             // 
             // pictureBoxChurch
             // 
@@ -719,9 +662,9 @@ namespace K4_Projekt
             this.labelChurch.Location = new System.Drawing.Point(898, 1147);
             this.labelChurch.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelChurch.Name = "labelChurch";
-            this.labelChurch.Size = new System.Drawing.Size(73, 25);
+            this.labelChurch.Size = new System.Drawing.Size(97, 25);
             this.labelChurch.TabIndex = 132;
-            this.labelChurch.Text = "Kirche";
+            this.labelChurch.Text = "Kirche: 0";
             // 
             // labelMortuary
             // 
@@ -733,9 +676,9 @@ namespace K4_Projekt
             this.labelMortuary.Location = new System.Drawing.Point(1765, 1146);
             this.labelMortuary.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelMortuary.Name = "labelMortuary";
-            this.labelMortuary.Size = new System.Drawing.Size(134, 25);
+            this.labelMortuary.Size = new System.Drawing.Size(158, 25);
             this.labelMortuary.TabIndex = 133;
-            this.labelMortuary.Text = "Leichenhalle";
+            this.labelMortuary.Text = "Leichenhalle: 0";
             // 
             // pictureBoxChurch6
             // 
@@ -935,11 +878,11 @@ namespace K4_Projekt
             // 
             this.trackBarSpeed.LargeChange = 10;
             this.trackBarSpeed.Location = new System.Drawing.Point(6, 172);
-            this.trackBarSpeed.Maximum = 1000;
+            this.trackBarSpeed.Maximum = 3000;
             this.trackBarSpeed.Minimum = 1;
             this.trackBarSpeed.Name = "trackBarSpeed";
             this.trackBarSpeed.Size = new System.Drawing.Size(289, 90);
-            this.trackBarSpeed.SmallChange = 10;
+            this.trackBarSpeed.SmallChange = 300;
             this.trackBarSpeed.TabIndex = 147;
             this.trackBarSpeed.Value = 1;
             this.trackBarSpeed.Scroll += new System.EventHandler(this.trackBarSpeed_Scroll);
@@ -954,7 +897,7 @@ namespace K4_Projekt
             this.groupBoxTimer.Size = new System.Drawing.Size(301, 268);
             this.groupBoxTimer.TabIndex = 148;
             this.groupBoxTimer.TabStop = false;
-            this.groupBoxTimer.Text = "Uhrzeit";
+            this.groupBoxTimer.Text = "Laufzeit";
             // 
             // textBoxTimer
             // 
@@ -1000,363 +943,25 @@ namespace K4_Projekt
             this.labelPatientAmount.Text = "Patienten insgesamt: 0";
             this.labelPatientAmount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // p_lv1
-            // 
-            this.p_lv1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_lv1.Image = global::K4_Projekt.Properties.Resources.patient_gruen;
-            this.p_lv1.InitialImage = null;
-            this.p_lv1.Location = new System.Drawing.Point(949, 159);
-            this.p_lv1.Margin = new System.Windows.Forms.Padding(4);
-            this.p_lv1.Name = "p_lv1";
-            this.p_lv1.Size = new System.Drawing.Size(50, 81);
-            this.p_lv1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_lv1.TabIndex = 20;
-            this.p_lv1.TabStop = false;
-            this.p_lv1.Visible = false;
-            // 
-            // p_lv2
-            // 
-            this.p_lv2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_lv2.Image = global::K4_Projekt.Properties.Resources.patient_gruen;
-            this.p_lv2.InitialImage = null;
-            this.p_lv2.Location = new System.Drawing.Point(1005, 159);
-            this.p_lv2.Margin = new System.Windows.Forms.Padding(4);
-            this.p_lv2.Name = "p_lv2";
-            this.p_lv2.Size = new System.Drawing.Size(50, 81);
-            this.p_lv2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_lv2.TabIndex = 21;
-            this.p_lv2.TabStop = false;
-            this.p_lv2.Visible = false;
-            // 
-            // p_lv3
-            // 
-            this.p_lv3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_lv3.Image = global::K4_Projekt.Properties.Resources.patient_gruen;
-            this.p_lv3.InitialImage = null;
-            this.p_lv3.Location = new System.Drawing.Point(1061, 159);
-            this.p_lv3.Margin = new System.Windows.Forms.Padding(4);
-            this.p_lv3.Name = "p_lv3";
-            this.p_lv3.Size = new System.Drawing.Size(50, 81);
-            this.p_lv3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_lv3.TabIndex = 22;
-            this.p_lv3.TabStop = false;
-            this.p_lv3.Visible = false;
-            // 
-            // p_lv4
-            // 
-            this.p_lv4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_lv4.Image = global::K4_Projekt.Properties.Resources.patient_gruen;
-            this.p_lv4.InitialImage = null;
-            this.p_lv4.Location = new System.Drawing.Point(1117, 159);
-            this.p_lv4.Margin = new System.Windows.Forms.Padding(4);
-            this.p_lv4.Name = "p_lv4";
-            this.p_lv4.Size = new System.Drawing.Size(50, 81);
-            this.p_lv4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_lv4.TabIndex = 23;
-            this.p_lv4.TabStop = false;
-            this.p_lv4.Visible = false;
-            // 
-            // p_lv5
-            // 
-            this.p_lv5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_lv5.Image = global::K4_Projekt.Properties.Resources.patient_gruen;
-            this.p_lv5.InitialImage = null;
-            this.p_lv5.Location = new System.Drawing.Point(1173, 159);
-            this.p_lv5.Margin = new System.Windows.Forms.Padding(4);
-            this.p_lv5.Name = "p_lv5";
-            this.p_lv5.Size = new System.Drawing.Size(50, 81);
-            this.p_lv5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_lv5.TabIndex = 24;
-            this.p_lv5.TabStop = false;
-            this.p_lv5.Visible = false;
-            // 
-            // p_sv1
-            // 
-            this.p_sv1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_sv1.Image = global::K4_Projekt.Properties.Resources.patient_rot;
-            this.p_sv1.InitialImage = null;
-            this.p_sv1.Location = new System.Drawing.Point(949, 245);
-            this.p_sv1.Margin = new System.Windows.Forms.Padding(4);
-            this.p_sv1.Name = "p_sv1";
-            this.p_sv1.Size = new System.Drawing.Size(50, 81);
-            this.p_sv1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_sv1.TabIndex = 25;
-            this.p_sv1.TabStop = false;
-            this.p_sv1.Visible = false;
-            // 
-            // p_sv2
-            // 
-            this.p_sv2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_sv2.Image = global::K4_Projekt.Properties.Resources.patient_rot;
-            this.p_sv2.InitialImage = null;
-            this.p_sv2.Location = new System.Drawing.Point(1005, 245);
-            this.p_sv2.Margin = new System.Windows.Forms.Padding(4);
-            this.p_sv2.Name = "p_sv2";
-            this.p_sv2.Size = new System.Drawing.Size(50, 81);
-            this.p_sv2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_sv2.TabIndex = 26;
-            this.p_sv2.TabStop = false;
-            this.p_sv2.Visible = false;
-            // 
-            // p_sv3
-            // 
-            this.p_sv3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_sv3.Image = global::K4_Projekt.Properties.Resources.patient_rot;
-            this.p_sv3.InitialImage = null;
-            this.p_sv3.Location = new System.Drawing.Point(1061, 245);
-            this.p_sv3.Margin = new System.Windows.Forms.Padding(4);
-            this.p_sv3.Name = "p_sv3";
-            this.p_sv3.Size = new System.Drawing.Size(50, 81);
-            this.p_sv3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_sv3.TabIndex = 27;
-            this.p_sv3.TabStop = false;
-            this.p_sv3.Visible = false;
-            // 
-            // p_sv4
-            // 
-            this.p_sv4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_sv4.Image = global::K4_Projekt.Properties.Resources.patient_rot;
-            this.p_sv4.InitialImage = null;
-            this.p_sv4.Location = new System.Drawing.Point(1117, 245);
-            this.p_sv4.Margin = new System.Windows.Forms.Padding(4);
-            this.p_sv4.Name = "p_sv4";
-            this.p_sv4.Size = new System.Drawing.Size(50, 81);
-            this.p_sv4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_sv4.TabIndex = 28;
-            this.p_sv4.TabStop = false;
-            this.p_sv4.Visible = false;
-            // 
-            // p_sv5
-            // 
-            this.p_sv5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_sv5.Image = global::K4_Projekt.Properties.Resources.patient_rot;
-            this.p_sv5.InitialImage = null;
-            this.p_sv5.Location = new System.Drawing.Point(1173, 245);
-            this.p_sv5.Margin = new System.Windows.Forms.Padding(4);
-            this.p_sv5.Name = "p_sv5";
-            this.p_sv5.Size = new System.Drawing.Size(50, 81);
-            this.p_sv5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_sv5.TabIndex = 29;
-            this.p_sv5.TabStop = false;
-            this.p_sv5.Visible = false;
-            // 
-            // p_h1
-            // 
-            this.p_h1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_h1.Image = global::K4_Projekt.Properties.Resources.patient_blau;
-            this.p_h1.InitialImage = null;
-            this.p_h1.Location = new System.Drawing.Point(949, 332);
-            this.p_h1.Margin = new System.Windows.Forms.Padding(4);
-            this.p_h1.Name = "p_h1";
-            this.p_h1.Size = new System.Drawing.Size(50, 81);
-            this.p_h1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_h1.TabIndex = 30;
-            this.p_h1.TabStop = false;
-            this.p_h1.Visible = false;
-            // 
-            // p_h2
-            // 
-            this.p_h2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_h2.Image = global::K4_Projekt.Properties.Resources.patient_blau;
-            this.p_h2.InitialImage = null;
-            this.p_h2.Location = new System.Drawing.Point(1005, 332);
-            this.p_h2.Margin = new System.Windows.Forms.Padding(4);
-            this.p_h2.Name = "p_h2";
-            this.p_h2.Size = new System.Drawing.Size(50, 81);
-            this.p_h2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_h2.TabIndex = 31;
-            this.p_h2.TabStop = false;
-            this.p_h2.Visible = false;
-            // 
-            // p_h3
-            // 
-            this.p_h3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_h3.Image = global::K4_Projekt.Properties.Resources.patient_blau;
-            this.p_h3.InitialImage = null;
-            this.p_h3.Location = new System.Drawing.Point(1061, 332);
-            this.p_h3.Margin = new System.Windows.Forms.Padding(4);
-            this.p_h3.Name = "p_h3";
-            this.p_h3.Size = new System.Drawing.Size(50, 81);
-            this.p_h3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_h3.TabIndex = 32;
-            this.p_h3.TabStop = false;
-            this.p_h3.Visible = false;
-            // 
-            // p_h4
-            // 
-            this.p_h4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_h4.Image = global::K4_Projekt.Properties.Resources.patient_blau;
-            this.p_h4.InitialImage = null;
-            this.p_h4.Location = new System.Drawing.Point(1117, 332);
-            this.p_h4.Margin = new System.Windows.Forms.Padding(4);
-            this.p_h4.Name = "p_h4";
-            this.p_h4.Size = new System.Drawing.Size(50, 81);
-            this.p_h4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_h4.TabIndex = 33;
-            this.p_h4.TabStop = false;
-            this.p_h4.Visible = false;
-            // 
-            // p_h5
-            // 
-            this.p_h5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_h5.Image = global::K4_Projekt.Properties.Resources.patient_blau;
-            this.p_h5.InitialImage = null;
-            this.p_h5.Location = new System.Drawing.Point(1173, 332);
-            this.p_h5.Margin = new System.Windows.Forms.Padding(4);
-            this.p_h5.Name = "p_h5";
-            this.p_h5.Size = new System.Drawing.Size(50, 81);
-            this.p_h5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_h5.TabIndex = 34;
-            this.p_h5.TabStop = false;
-            this.p_h5.Visible = false;
-            // 
-            // p_t1
-            // 
-            this.p_t1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_t1.Image = global::K4_Projekt.Properties.Resources.patient_schwarz;
-            this.p_t1.InitialImage = null;
-            this.p_t1.Location = new System.Drawing.Point(949, 416);
-            this.p_t1.Margin = new System.Windows.Forms.Padding(4);
-            this.p_t1.Name = "p_t1";
-            this.p_t1.Size = new System.Drawing.Size(50, 81);
-            this.p_t1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_t1.TabIndex = 35;
-            this.p_t1.TabStop = false;
-            this.p_t1.Visible = false;
-            // 
-            // p_t2
-            // 
-            this.p_t2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_t2.Image = global::K4_Projekt.Properties.Resources.patient_schwarz;
-            this.p_t2.InitialImage = null;
-            this.p_t2.Location = new System.Drawing.Point(1005, 416);
-            this.p_t2.Margin = new System.Windows.Forms.Padding(4);
-            this.p_t2.Name = "p_t2";
-            this.p_t2.Size = new System.Drawing.Size(50, 81);
-            this.p_t2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_t2.TabIndex = 36;
-            this.p_t2.TabStop = false;
-            this.p_t2.Visible = false;
-            // 
-            // p_t3
-            // 
-            this.p_t3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_t3.Image = global::K4_Projekt.Properties.Resources.patient_schwarz;
-            this.p_t3.InitialImage = null;
-            this.p_t3.Location = new System.Drawing.Point(1061, 416);
-            this.p_t3.Margin = new System.Windows.Forms.Padding(4);
-            this.p_t3.Name = "p_t3";
-            this.p_t3.Size = new System.Drawing.Size(50, 81);
-            this.p_t3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_t3.TabIndex = 37;
-            this.p_t3.TabStop = false;
-            this.p_t3.Visible = false;
-            // 
-            // p_t4
-            // 
-            this.p_t4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_t4.Image = global::K4_Projekt.Properties.Resources.patient_schwarz;
-            this.p_t4.InitialImage = null;
-            this.p_t4.Location = new System.Drawing.Point(1117, 416);
-            this.p_t4.Margin = new System.Windows.Forms.Padding(4);
-            this.p_t4.Name = "p_t4";
-            this.p_t4.Size = new System.Drawing.Size(50, 81);
-            this.p_t4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_t4.TabIndex = 38;
-            this.p_t4.TabStop = false;
-            this.p_t4.Visible = false;
-            // 
-            // p_t5
-            // 
-            this.p_t5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_t5.Image = global::K4_Projekt.Properties.Resources.patient_schwarz;
-            this.p_t5.InitialImage = null;
-            this.p_t5.Location = new System.Drawing.Point(1173, 416);
-            this.p_t5.Margin = new System.Windows.Forms.Padding(4);
-            this.p_t5.Name = "p_t5";
-            this.p_t5.Size = new System.Drawing.Size(50, 81);
-            this.p_t5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_t5.TabIndex = 39;
-            this.p_t5.TabStop = false;
-            this.p_t5.Visible = false;
-            // 
-            // p_h6
-            // 
-            this.p_h6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_h6.Image = global::K4_Projekt.Properties.Resources.patient_blau_queue;
-            this.p_h6.InitialImage = null;
-            this.p_h6.Location = new System.Drawing.Point(1229, 332);
-            this.p_h6.Margin = new System.Windows.Forms.Padding(4);
-            this.p_h6.Name = "p_h6";
-            this.p_h6.Size = new System.Drawing.Size(50, 81);
-            this.p_h6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_h6.TabIndex = 41;
-            this.p_h6.TabStop = false;
-            this.p_h6.Visible = false;
-            // 
-            // p_sv6
-            // 
-            this.p_sv6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_sv6.Image = global::K4_Projekt.Properties.Resources.patient_rot_queue;
-            this.p_sv6.InitialImage = null;
-            this.p_sv6.Location = new System.Drawing.Point(1229, 245);
-            this.p_sv6.Margin = new System.Windows.Forms.Padding(4);
-            this.p_sv6.Name = "p_sv6";
-            this.p_sv6.Size = new System.Drawing.Size(50, 81);
-            this.p_sv6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_sv6.TabIndex = 42;
-            this.p_sv6.TabStop = false;
-            this.p_sv6.Visible = false;
-            // 
-            // p_lv6
-            // 
-            this.p_lv6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_lv6.Image = global::K4_Projekt.Properties.Resources.patient_gruen_queue;
-            this.p_lv6.InitialImage = null;
-            this.p_lv6.Location = new System.Drawing.Point(1229, 159);
-            this.p_lv6.Margin = new System.Windows.Forms.Padding(4);
-            this.p_lv6.Name = "p_lv6";
-            this.p_lv6.Size = new System.Drawing.Size(50, 81);
-            this.p_lv6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_lv6.TabIndex = 43;
-            this.p_lv6.TabStop = false;
-            this.p_lv6.Visible = false;
-            // 
-            // p_t6
-            // 
-            this.p_t6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.p_t6.Image = global::K4_Projekt.Properties.Resources.patient_schwarz_queue;
-            this.p_t6.InitialImage = null;
-            this.p_t6.Location = new System.Drawing.Point(1229, 416);
-            this.p_t6.Margin = new System.Windows.Forms.Padding(4);
-            this.p_t6.Name = "p_t6";
-            this.p_t6.Size = new System.Drawing.Size(50, 81);
-            this.p_t6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.p_t6.TabIndex = 44;
-            this.p_t6.TabStop = false;
-            this.p_t6.Visible = false;
-            // 
             // labelOPWartebereich
             // 
             this.labelOPWartebereich.AccessibleName = "";
-            this.labelOPWartebereich.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelOPWartebereich.AutoSize = true;
             this.labelOPWartebereich.BackColor = System.Drawing.Color.Transparent;
             this.labelOPWartebereich.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelOPWartebereich.Location = new System.Drawing.Point(1283, 122);
+            this.labelOPWartebereich.Location = new System.Drawing.Point(670, 173);
             this.labelOPWartebereich.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelOPWartebereich.Name = "labelOPWartebereich";
-            this.labelOPWartebereich.Size = new System.Drawing.Size(177, 25);
+            this.labelOPWartebereich.Size = new System.Drawing.Size(201, 25);
             this.labelOPWartebereich.TabIndex = 157;
-            this.labelOPWartebereich.Text = "OP-Wartebereich";
+            this.labelOPWartebereich.Text = "OP-Wartebereich: 0";
             // 
             // pictureBoxOPWB6
             // 
-            this.pictureBoxOPWB6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxOPWB6.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxOPWB6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
             this.pictureBoxOPWB6.InitialImage = null;
-            this.pictureBoxOPWB6.Location = new System.Drawing.Point(1623, 206);
+            this.pictureBoxOPWB6.Location = new System.Drawing.Point(1010, 257);
             this.pictureBoxOPWB6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxOPWB6.Name = "pictureBoxOPWB6";
             this.pictureBoxOPWB6.Size = new System.Drawing.Size(50, 81);
@@ -1367,11 +972,10 @@ namespace K4_Projekt
             // 
             // pictureBoxOPWB4
             // 
-            this.pictureBoxOPWB4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxOPWB4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxOPWB4.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxOPWB4.InitialImage = null;
-            this.pictureBoxOPWB4.Location = new System.Drawing.Point(1511, 206);
+            this.pictureBoxOPWB4.Location = new System.Drawing.Point(898, 257);
             this.pictureBoxOPWB4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxOPWB4.Name = "pictureBoxOPWB4";
             this.pictureBoxOPWB4.Size = new System.Drawing.Size(50, 81);
@@ -1382,11 +986,10 @@ namespace K4_Projekt
             // 
             // pictureBoxOPWB5
             // 
-            this.pictureBoxOPWB5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxOPWB5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxOPWB5.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxOPWB5.InitialImage = null;
-            this.pictureBoxOPWB5.Location = new System.Drawing.Point(1567, 206);
+            this.pictureBoxOPWB5.Location = new System.Drawing.Point(954, 257);
             this.pictureBoxOPWB5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxOPWB5.Name = "pictureBoxOPWB5";
             this.pictureBoxOPWB5.Size = new System.Drawing.Size(50, 81);
@@ -1397,11 +1000,10 @@ namespace K4_Projekt
             // 
             // pictureBoxOPWB3
             // 
-            this.pictureBoxOPWB3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxOPWB3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxOPWB3.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxOPWB3.InitialImage = null;
-            this.pictureBoxOPWB3.Location = new System.Drawing.Point(1455, 206);
+            this.pictureBoxOPWB3.Location = new System.Drawing.Point(842, 257);
             this.pictureBoxOPWB3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxOPWB3.Name = "pictureBoxOPWB3";
             this.pictureBoxOPWB3.Size = new System.Drawing.Size(50, 81);
@@ -1412,11 +1014,10 @@ namespace K4_Projekt
             // 
             // pictureBoxOPWB2
             // 
-            this.pictureBoxOPWB2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxOPWB2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxOPWB2.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxOPWB2.InitialImage = null;
-            this.pictureBoxOPWB2.Location = new System.Drawing.Point(1399, 206);
+            this.pictureBoxOPWB2.Location = new System.Drawing.Point(786, 257);
             this.pictureBoxOPWB2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxOPWB2.Name = "pictureBoxOPWB2";
             this.pictureBoxOPWB2.Size = new System.Drawing.Size(50, 81);
@@ -1427,11 +1028,10 @@ namespace K4_Projekt
             // 
             // pictureBoxOPWB1
             // 
-            this.pictureBoxOPWB1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxOPWB1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxOPWB1.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxOPWB1.InitialImage = null;
-            this.pictureBoxOPWB1.Location = new System.Drawing.Point(1343, 206);
+            this.pictureBoxOPWB1.Location = new System.Drawing.Point(730, 257);
             this.pictureBoxOPWB1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxOPWB1.Name = "pictureBoxOPWB1";
             this.pictureBoxOPWB1.Size = new System.Drawing.Size(50, 81);
@@ -1443,12 +1043,11 @@ namespace K4_Projekt
             // pictureBoxOPWartebereich
             // 
             this.pictureBoxOPWartebereich.AccessibleName = "";
-            this.pictureBoxOPWartebereich.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxOPWartebereich.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxOPWartebereich.Location = new System.Drawing.Point(1289, 152);
+            this.pictureBoxOPWartebereich.Location = new System.Drawing.Point(676, 203);
             this.pictureBoxOPWartebereich.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxOPWartebereich.Name = "pictureBoxOPWartebereich";
-            this.pictureBoxOPWartebereich.Size = new System.Drawing.Size(422, 190);
+            this.pictureBoxOPWartebereich.Size = new System.Drawing.Size(412, 179);
             this.pictureBoxOPWartebereich.TabIndex = 150;
             this.pictureBoxOPWartebereich.TabStop = false;
             // 
@@ -1552,9 +1151,9 @@ namespace K4_Projekt
             this.labelWaitingArea.Location = new System.Drawing.Point(2199, 1146);
             this.labelWaitingArea.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelWaitingArea.Name = "labelWaitingArea";
-            this.labelWaitingArea.Size = new System.Drawing.Size(140, 25);
+            this.labelWaitingArea.Size = new System.Drawing.Size(164, 25);
             this.labelWaitingArea.TabIndex = 159;
-            this.labelWaitingArea.Text = "Wartebereich";
+            this.labelWaitingArea.Text = "Wartebereich: 0";
             // 
             // pictureBoxWaitingArea
             // 
@@ -1582,10 +1181,9 @@ namespace K4_Projekt
             // 
             // OPOPS22Label
             // 
-            this.OPOPS22Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPS22Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPS22Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS22Label.Location = new System.Drawing.Point(1479, 691);
+            this.OPOPS22Label.Location = new System.Drawing.Point(1632, 645);
             this.OPOPS22Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPS22Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPS22Label.Name = "OPOPS22Label";
@@ -1596,10 +1194,9 @@ namespace K4_Projekt
             // 
             // OPAnäS2Label
             // 
-            this.OPAnäS2Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnäS2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnäS2Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS2Label.Location = new System.Drawing.Point(1269, 691);
+            this.OPAnäS2Label.Location = new System.Drawing.Point(1422, 645);
             this.OPAnäS2Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPAnäS2Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPAnäS2Label.Name = "OPAnäS2Label";
@@ -1610,10 +1207,9 @@ namespace K4_Projekt
             // 
             // OPRTA2Label
             // 
-            this.OPRTA2Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPRTA2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPRTA2Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA2Label.Location = new System.Drawing.Point(1199, 691);
+            this.OPRTA2Label.Location = new System.Drawing.Point(1352, 645);
             this.OPRTA2Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPRTA2Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPRTA2Label.Name = "OPRTA2Label";
@@ -1624,10 +1220,9 @@ namespace K4_Projekt
             // 
             // OPOPS21Label
             // 
-            this.OPOPS21Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPS21Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPS21Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS21Label.Location = new System.Drawing.Point(1549, 691);
+            this.OPOPS21Label.Location = new System.Drawing.Point(1702, 645);
             this.OPOPS21Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPS21Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPS21Label.Name = "OPOPS21Label";
@@ -1638,10 +1233,9 @@ namespace K4_Projekt
             // 
             // OPAnä2Label
             // 
-            this.OPAnä2Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnä2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnä2Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä2Label.Location = new System.Drawing.Point(1339, 691);
+            this.OPAnä2Label.Location = new System.Drawing.Point(1492, 645);
             this.OPAnä2Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPAnä2Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPAnä2Label.Name = "OPAnä2Label";
@@ -1652,10 +1246,9 @@ namespace K4_Projekt
             // 
             // OPOPB2Label
             // 
-            this.OPOPB2Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPB2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPB2Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB2Label.Location = new System.Drawing.Point(1409, 691);
+            this.OPOPB2Label.Location = new System.Drawing.Point(1562, 645);
             this.OPOPB2Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPB2Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPB2Label.Name = "OPOPB2Label";
@@ -1666,10 +1259,9 @@ namespace K4_Projekt
             // 
             // OPOPC2Label
             // 
-            this.OPOPC2Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPC2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPC2Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPC2Label.Location = new System.Drawing.Point(1619, 691);
+            this.OPOPC2Label.Location = new System.Drawing.Point(1772, 645);
             this.OPOPC2Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPC2Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPC2Label.Name = "OPOPC2Label";
@@ -1681,11 +1273,10 @@ namespace K4_Projekt
             // OP2Label
             // 
             this.OP2Label.AccessibleName = "";
-            this.OP2Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OP2Label.AutoSize = true;
             this.OP2Label.BackColor = System.Drawing.Color.Transparent;
             this.OP2Label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OP2Label.Location = new System.Drawing.Point(1203, 502);
+            this.OP2Label.Location = new System.Drawing.Point(1356, 456);
             this.OP2Label.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.OP2Label.Name = "OP2Label";
             this.OP2Label.Size = new System.Drawing.Size(54, 25);
@@ -1695,9 +1286,8 @@ namespace K4_Projekt
             // OP2
             // 
             this.OP2.AccessibleName = "";
-            this.OP2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OP2.BackColor = System.Drawing.Color.Green;
-            this.OP2.Location = new System.Drawing.Point(1199, 533);
+            this.OP2.Location = new System.Drawing.Point(1352, 487);
             this.OP2.Margin = new System.Windows.Forms.Padding(6);
             this.OP2.Name = "OP2";
             this.OP2.Size = new System.Drawing.Size(490, 213);
@@ -1706,10 +1296,9 @@ namespace K4_Projekt
             // 
             // OPOPS32Label
             // 
-            this.OPOPS32Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPS32Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPS32Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS32Label.Location = new System.Drawing.Point(803, 983);
+            this.OPOPS32Label.Location = new System.Drawing.Point(956, 937);
             this.OPOPS32Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPS32Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPS32Label.Name = "OPOPS32Label";
@@ -1720,10 +1309,9 @@ namespace K4_Projekt
             // 
             // OPAnäS3Label
             // 
-            this.OPAnäS3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnäS3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnäS3Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS3Label.Location = new System.Drawing.Point(593, 983);
+            this.OPAnäS3Label.Location = new System.Drawing.Point(746, 937);
             this.OPAnäS3Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPAnäS3Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPAnäS3Label.Name = "OPAnäS3Label";
@@ -1734,10 +1322,9 @@ namespace K4_Projekt
             // 
             // OPRTA3Label
             // 
-            this.OPRTA3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPRTA3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPRTA3Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA3Label.Location = new System.Drawing.Point(523, 983);
+            this.OPRTA3Label.Location = new System.Drawing.Point(676, 937);
             this.OPRTA3Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPRTA3Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPRTA3Label.Name = "OPRTA3Label";
@@ -1748,10 +1335,9 @@ namespace K4_Projekt
             // 
             // OPOPS31Label
             // 
-            this.OPOPS31Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPS31Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPS31Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS31Label.Location = new System.Drawing.Point(873, 983);
+            this.OPOPS31Label.Location = new System.Drawing.Point(1026, 937);
             this.OPOPS31Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPS31Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPS31Label.Name = "OPOPS31Label";
@@ -1762,10 +1348,9 @@ namespace K4_Projekt
             // 
             // OPAnä3Label
             // 
-            this.OPAnä3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnä3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnä3Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä3Label.Location = new System.Drawing.Point(663, 983);
+            this.OPAnä3Label.Location = new System.Drawing.Point(816, 937);
             this.OPAnä3Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPAnä3Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPAnä3Label.Name = "OPAnä3Label";
@@ -1776,10 +1361,9 @@ namespace K4_Projekt
             // 
             // OPOPB3Label
             // 
-            this.OPOPB3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPB3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPB3Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB3Label.Location = new System.Drawing.Point(733, 983);
+            this.OPOPB3Label.Location = new System.Drawing.Point(886, 937);
             this.OPOPB3Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPB3Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPB3Label.Name = "OPOPB3Label";
@@ -1790,10 +1374,9 @@ namespace K4_Projekt
             // 
             // OPOPC3Label
             // 
-            this.OPOPC3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPC3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPC3Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPC3Label.Location = new System.Drawing.Point(943, 983);
+            this.OPOPC3Label.Location = new System.Drawing.Point(1096, 937);
             this.OPOPC3Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPC3Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPC3Label.Name = "OPOPC3Label";
@@ -1805,11 +1388,10 @@ namespace K4_Projekt
             // OP3Label
             // 
             this.OP3Label.AccessibleName = "";
-            this.OP3Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OP3Label.AutoSize = true;
             this.OP3Label.BackColor = System.Drawing.Color.Transparent;
             this.OP3Label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OP3Label.Location = new System.Drawing.Point(527, 794);
+            this.OP3Label.Location = new System.Drawing.Point(680, 748);
             this.OP3Label.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.OP3Label.Name = "OP3Label";
             this.OP3Label.Size = new System.Drawing.Size(54, 25);
@@ -1819,9 +1401,8 @@ namespace K4_Projekt
             // OP3
             // 
             this.OP3.AccessibleName = "";
-            this.OP3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OP3.BackColor = System.Drawing.Color.Green;
-            this.OP3.Location = new System.Drawing.Point(523, 825);
+            this.OP3.Location = new System.Drawing.Point(676, 779);
             this.OP3.Margin = new System.Windows.Forms.Padding(6);
             this.OP3.Name = "OP3";
             this.OP3.Size = new System.Drawing.Size(490, 213);
@@ -1830,10 +1411,9 @@ namespace K4_Projekt
             // 
             // OPOPS42Label
             // 
-            this.OPOPS42Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPS42Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPS42Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS42Label.Location = new System.Drawing.Point(1479, 983);
+            this.OPOPS42Label.Location = new System.Drawing.Point(1632, 937);
             this.OPOPS42Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPS42Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPS42Label.Name = "OPOPS42Label";
@@ -1844,10 +1424,9 @@ namespace K4_Projekt
             // 
             // OPAnäS4Label
             // 
-            this.OPAnäS4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnäS4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnäS4Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS4Label.Location = new System.Drawing.Point(1269, 983);
+            this.OPAnäS4Label.Location = new System.Drawing.Point(1422, 937);
             this.OPAnäS4Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPAnäS4Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPAnäS4Label.Name = "OPAnäS4Label";
@@ -1858,10 +1437,9 @@ namespace K4_Projekt
             // 
             // OPRTA4Label
             // 
-            this.OPRTA4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPRTA4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPRTA4Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA4Label.Location = new System.Drawing.Point(1199, 983);
+            this.OPRTA4Label.Location = new System.Drawing.Point(1352, 937);
             this.OPRTA4Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPRTA4Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPRTA4Label.Name = "OPRTA4Label";
@@ -1872,10 +1450,9 @@ namespace K4_Projekt
             // 
             // OPOPS41Label
             // 
-            this.OPOPS41Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPS41Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPS41Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS41Label.Location = new System.Drawing.Point(1549, 983);
+            this.OPOPS41Label.Location = new System.Drawing.Point(1702, 937);
             this.OPOPS41Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPS41Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPS41Label.Name = "OPOPS41Label";
@@ -1886,10 +1463,9 @@ namespace K4_Projekt
             // 
             // OPAnä4Label
             // 
-            this.OPAnä4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPAnä4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPAnä4Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä4Label.Location = new System.Drawing.Point(1339, 983);
+            this.OPAnä4Label.Location = new System.Drawing.Point(1492, 937);
             this.OPAnä4Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPAnä4Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPAnä4Label.Name = "OPAnä4Label";
@@ -1900,10 +1476,9 @@ namespace K4_Projekt
             // 
             // OPOPB4Label
             // 
-            this.OPOPB4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPB4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPB4Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB4Label.Location = new System.Drawing.Point(1409, 983);
+            this.OPOPB4Label.Location = new System.Drawing.Point(1562, 937);
             this.OPOPB4Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPB4Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPB4Label.Name = "OPOPB4Label";
@@ -1914,10 +1489,9 @@ namespace K4_Projekt
             // 
             // OPOPC4Label
             // 
-            this.OPOPC4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OPOPC4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
             this.OPOPC4Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPC4Label.Location = new System.Drawing.Point(1619, 983);
+            this.OPOPC4Label.Location = new System.Drawing.Point(1772, 937);
             this.OPOPC4Label.Margin = new System.Windows.Forms.Padding(0);
             this.OPOPC4Label.MaximumSize = new System.Drawing.Size(200, 56);
             this.OPOPC4Label.Name = "OPOPC4Label";
@@ -1929,11 +1503,10 @@ namespace K4_Projekt
             // OP4Label
             // 
             this.OP4Label.AccessibleName = "";
-            this.OP4Label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OP4Label.AutoSize = true;
             this.OP4Label.BackColor = System.Drawing.Color.Transparent;
             this.OP4Label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OP4Label.Location = new System.Drawing.Point(1203, 794);
+            this.OP4Label.Location = new System.Drawing.Point(1356, 748);
             this.OP4Label.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.OP4Label.Name = "OP4Label";
             this.OP4Label.Size = new System.Drawing.Size(54, 25);
@@ -1943,9 +1516,8 @@ namespace K4_Projekt
             // OP4
             // 
             this.OP4.AccessibleName = "";
-            this.OP4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OP4.BackColor = System.Drawing.Color.Green;
-            this.OP4.Location = new System.Drawing.Point(1199, 825);
+            this.OP4.Location = new System.Drawing.Point(1352, 779);
             this.OP4.Margin = new System.Windows.Forms.Padding(6);
             this.OP4.Name = "OP4";
             this.OP4.Size = new System.Drawing.Size(490, 213);
@@ -2040,31 +1612,7 @@ namespace K4_Projekt
             this.Controls.Add(this.OP1Label);
             this.Controls.Add(this.OP1);
             this.Controls.Add(this.PatientTriage);
-            this.Controls.Add(this.p_t6);
-            this.Controls.Add(this.p_lv6);
-            this.Controls.Add(this.p_sv6);
-            this.Controls.Add(this.p_h6);
             this.Controls.Add(this.Patient6);
-            this.Controls.Add(this.p_t5);
-            this.Controls.Add(this.p_t4);
-            this.Controls.Add(this.p_t3);
-            this.Controls.Add(this.p_t2);
-            this.Controls.Add(this.p_t1);
-            this.Controls.Add(this.p_h5);
-            this.Controls.Add(this.p_h4);
-            this.Controls.Add(this.p_h3);
-            this.Controls.Add(this.p_h2);
-            this.Controls.Add(this.p_h1);
-            this.Controls.Add(this.p_sv5);
-            this.Controls.Add(this.p_sv4);
-            this.Controls.Add(this.p_sv3);
-            this.Controls.Add(this.p_sv2);
-            this.Controls.Add(this.p_sv1);
-            this.Controls.Add(this.p_lv5);
-            this.Controls.Add(this.p_lv4);
-            this.Controls.Add(this.p_lv3);
-            this.Controls.Add(this.p_lv2);
-            this.Controls.Add(this.p_lv1);
             this.Controls.Add(this.Patient4);
             this.Controls.Add(this.Patient5);
             this.Controls.Add(this.Patient3);
@@ -2118,30 +1666,6 @@ namespace K4_Projekt
             this.groupBoxTimer.ResumeLayout(false);
             this.groupBoxTimer.PerformLayout();
             this.groupBoxStatistic.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_h6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_sv6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_lv6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_t6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB5)).EndInit();
@@ -2225,30 +1749,6 @@ namespace K4_Projekt
         private TextBox textBoxTimer;
         private GroupBox groupBoxStatistic;
         private Label labelPatientAmount;
-        private PictureBox p_lv1;
-        private PictureBox p_lv2;
-        private PictureBox p_lv3;
-        private PictureBox p_lv4;
-        private PictureBox p_lv5;
-        private PictureBox p_sv1;
-        private PictureBox p_sv2;
-        private PictureBox p_sv3;
-        private PictureBox p_sv4;
-        private PictureBox p_sv5;
-        private PictureBox p_h1;
-        private PictureBox p_h2;
-        private PictureBox p_h3;
-        private PictureBox p_h4;
-        private PictureBox p_h5;
-        private PictureBox p_t1;
-        private PictureBox p_t2;
-        private PictureBox p_t3;
-        private PictureBox p_t4;
-        private PictureBox p_t5;
-        private PictureBox p_h6;
-        private PictureBox p_sv6;
-        private PictureBox p_lv6;
-        private PictureBox p_t6;
         private Timer timer;
         private Label labelOPWartebereich;
         private PictureBox pictureBoxOPWB6;
