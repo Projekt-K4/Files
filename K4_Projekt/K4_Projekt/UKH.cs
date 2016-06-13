@@ -38,6 +38,9 @@ namespace K4_Projekt {
         private static bool takeNextEvent = false;
         private static string CurrentTime = "";
         private static string EventTime = "";
+        private static int sec = 1000;
+        private static string button = "break";
+        private static bool stop = false;
 
         //eventlog
         private static int patientWaitingEventLogNumber = 0;
@@ -73,13 +76,34 @@ namespace K4_Projekt {
             InitializeComponent();
         }
 
-
-        public void UKH_Load(object sender, EventArgs e) {
+        private void buttonStart_Click(object sender, EventArgs e) {
+            buttonStart.Enabled = false;
+            buttonStart.BackColor = Color.DimGray;
+            buttonBreak.Enabled = true;
+            buttonBreak.BackColor = Color.DarkRed;
             Thread triageThread = new Thread(new ThreadStart(read_puffer));
             triageThread.Start();
         }
 
-            
+        private void buttonBreak_Click(object sender, EventArgs e) {
+            if (button.Equals("break")) {
+                buttonBreak.Text = "WEITER";
+                buttonBreak.BackColor = Color.Green;
+                button = "continue";
+                stop = true;
+            } else if (button.Equals("continue")) {
+                buttonBreak.Text = "PAUSE";
+                buttonBreak.BackColor = Color.DarkRed;
+                button = "break";
+                stop = false;
+            }
+        }
+
+        private void Stop() {
+            while (stop) { }
+        }
+
+
         private static string changeTimeFormat(DateTime t) {
             int hh = t.Hour;
             int mm = t.Minute;
@@ -121,6 +145,8 @@ namespace K4_Projekt {
             DateTime Timer = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
 
             for (int eventLine = 0; eventLine < eventLog.eventList.Count; ++eventLine) {
+                Stop();
+
                 EventTime = eventLog.timeStampList.ElementAt(eventLine);
                 KID = eventLog.KIDList.ElementAt(eventLine);
                 timeStamp = eventLog.timeStampList.ElementAt(eventLine);
@@ -129,12 +155,13 @@ namespace K4_Projekt {
                 takeNextEvent = false;
 
                 while (takeNextEvent == false) {
-                     CurrentTime= changeTimeFormat(Timer);
+                    Stop();
+                    CurrentTime = changeTimeFormat(Timer);
 
                     if (CurrentTime.Equals(EventTime)) {
                         takeNextEvent = true;
                         eventsAtSameTime = false;
-                        
+
                         //my_triage_number_delegate = new triage_number_delegate(triage_number);
                         int i = Int32.Parse(eventLog.eventList.ElementAt(eventLine));
                         string s = i.ToString();
@@ -145,7 +172,7 @@ namespace K4_Projekt {
                         int duration = difference.Hours * 60 * 60 * 1000 + difference.Minutes * 60 * 1000 + difference.Seconds * 1000;
                         if (duration == 0) {
                             eventsAtSameTime = true;
-                            Thread.Sleep(1000 / speed);
+                            Thread.Sleep(sec / speed);
                         }
 
                         //Eventcode wird auf Ereignis überprüft
@@ -175,7 +202,7 @@ namespace K4_Projekt {
 
                             int j = i - 50;
                             diedInOP(j);
-                            
+
                         } else if (s.StartsWith("6")) {
 
                             int j = i - 60;
@@ -192,10 +219,10 @@ namespace K4_Projekt {
 
                         } else if (s.StartsWith("8")) {
                             int j = i - 80;
-                         
-                                OPavailable(j);
-                            
-                       
+
+                            OPavailable(j);
+
+
 
                         } else if (s.StartsWith("9")) //wird weggeschickt?? lt. EventCodierung auf Straße
                           {
@@ -236,26 +263,26 @@ namespace K4_Projekt {
                         currentEventTime = previousEventTime;
 
                     } else {
-                        if(eventsAtSameTime == true) {                            
+                        Stop();
+                        if (eventsAtSameTime == true) {
                             eventsAtSameTime = false;
-                        }else {                            
+                        } else {
                             Thread.Sleep(1000 / speed);
                         }
                         Timer = Timer.AddSeconds(1);
                         CurrentTime = changeTimeFormat(Timer);
-                        
+
                         if (InvokeRequired) {
                             Invoke((MethodInvoker)delegate { textBoxTimer.Text = CurrentTime; });
                         } else {
                             textBoxTimer.Text = CurrentTime;
                         }
                         takeNextEvent = false;
-
                     }
                 }
             }
             MessageBox.Show("FERTIG!");
-        }
+        } 
 
         private void updateAmountOfPatients() {
             AmountOfPatients = T + H + SV + LV;
@@ -1243,6 +1270,7 @@ namespace K4_Projekt {
             speed = trackBarSpeed.Value;
         }
 
+   
     }
     
 }

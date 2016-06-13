@@ -130,6 +130,8 @@ namespace K4_Projekt
             this.OPOPC4Label = new System.Windows.Forms.Label();
             this.OP4Label = new System.Windows.Forms.Label();
             this.OP4 = new System.Windows.Forms.PictureBox();
+            this.buttonStart = new System.Windows.Forms.Button();
+            this.buttonBreak = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Patient6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Patient4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Patient5)).BeginInit();
@@ -517,7 +519,7 @@ namespace K4_Projekt
             this.pictureBoxWard.AccessibleName = "";
             this.pictureBoxWard.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxWard.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxWard.Location = new System.Drawing.Point(1338, 1177);
+            this.pictureBoxWard.Location = new System.Drawing.Point(1338, 1377);
             this.pictureBoxWard.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxWard.Name = "pictureBoxWard";
             this.pictureBoxWard.Size = new System.Drawing.Size(422, 190);
@@ -530,7 +532,7 @@ namespace K4_Projekt
             this.pictureBoxBS6.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxBS6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
             this.pictureBoxBS6.InitialImage = null;
-            this.pictureBoxBS6.Location = new System.Drawing.Point(1672, 1231);
+            this.pictureBoxBS6.Location = new System.Drawing.Point(1672, 1431);
             this.pictureBoxBS6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxBS6.Name = "pictureBoxBS6";
             this.pictureBoxBS6.Size = new System.Drawing.Size(50, 81);
@@ -545,7 +547,7 @@ namespace K4_Projekt
             this.pictureBoxBS4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxBS4.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxBS4.InitialImage = null;
-            this.pictureBoxBS4.Location = new System.Drawing.Point(1560, 1231);
+            this.pictureBoxBS4.Location = new System.Drawing.Point(1560, 1431);
             this.pictureBoxBS4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxBS4.Name = "pictureBoxBS4";
             this.pictureBoxBS4.Size = new System.Drawing.Size(50, 81);
@@ -560,7 +562,7 @@ namespace K4_Projekt
             this.pictureBoxBS5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxBS5.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxBS5.InitialImage = null;
-            this.pictureBoxBS5.Location = new System.Drawing.Point(1616, 1231);
+            this.pictureBoxBS5.Location = new System.Drawing.Point(1616, 1431);
             this.pictureBoxBS5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxBS5.Name = "pictureBoxBS5";
             this.pictureBoxBS5.Size = new System.Drawing.Size(50, 81);
@@ -575,7 +577,7 @@ namespace K4_Projekt
             this.pictureBoxBS3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxBS3.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxBS3.InitialImage = null;
-            this.pictureBoxBS3.Location = new System.Drawing.Point(1504, 1231);
+            this.pictureBoxBS3.Location = new System.Drawing.Point(1504, 1431);
             this.pictureBoxBS3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxBS3.Name = "pictureBoxBS3";
             this.pictureBoxBS3.Size = new System.Drawing.Size(50, 81);
@@ -590,7 +592,7 @@ namespace K4_Projekt
             this.pictureBoxBS2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxBS2.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxBS2.InitialImage = null;
-            this.pictureBoxBS2.Location = new System.Drawing.Point(1448, 1231);
+            this.pictureBoxBS2.Location = new System.Drawing.Point(1448, 1431);
             this.pictureBoxBS2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxBS2.Name = "pictureBoxBS2";
             this.pictureBoxBS2.Size = new System.Drawing.Size(50, 81);
@@ -605,7 +607,7 @@ namespace K4_Projekt
             this.pictureBoxBS1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxBS1.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxBS1.InitialImage = null;
-            this.pictureBoxBS1.Location = new System.Drawing.Point(1392, 1231);
+            this.pictureBoxBS1.Location = new System.Drawing.Point(1392, 1431);
             this.pictureBoxBS1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxBS1.Name = "pictureBoxBS1";
             this.pictureBoxBS1.Size = new System.Drawing.Size(50, 81);
@@ -621,7 +623,7 @@ namespace K4_Projekt
             this.labelBS.AutoSize = true;
             this.labelBS.BackColor = System.Drawing.Color.Transparent;
             this.labelBS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelBS.Location = new System.Drawing.Point(1332, 1147);
+            this.labelBS.Location = new System.Drawing.Point(1332, 1347);
             this.labelBS.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelBS.Name = "labelBS";
             this.labelBS.Size = new System.Drawing.Size(162, 25);
@@ -633,7 +635,7 @@ namespace K4_Projekt
             this.pictureBoxChurch.AccessibleName = "";
             this.pictureBoxChurch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxChurch.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxChurch.Location = new System.Drawing.Point(904, 1177);
+            this.pictureBoxChurch.Location = new System.Drawing.Point(904, 1377);
             this.pictureBoxChurch.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxChurch.Name = "pictureBoxChurch";
             this.pictureBoxChurch.Size = new System.Drawing.Size(422, 190);
@@ -645,7 +647,7 @@ namespace K4_Projekt
             this.pictureBoxMortuary.AccessibleName = "";
             this.pictureBoxMortuary.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxMortuary.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxMortuary.Location = new System.Drawing.Point(1772, 1177);
+            this.pictureBoxMortuary.Location = new System.Drawing.Point(1772, 1377);
             this.pictureBoxMortuary.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxMortuary.Name = "pictureBoxMortuary";
             this.pictureBoxMortuary.Size = new System.Drawing.Size(422, 190);
@@ -659,7 +661,7 @@ namespace K4_Projekt
             this.labelChurch.AutoSize = true;
             this.labelChurch.BackColor = System.Drawing.Color.Transparent;
             this.labelChurch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelChurch.Location = new System.Drawing.Point(898, 1147);
+            this.labelChurch.Location = new System.Drawing.Point(898, 1347);
             this.labelChurch.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelChurch.Name = "labelChurch";
             this.labelChurch.Size = new System.Drawing.Size(97, 25);
@@ -673,7 +675,7 @@ namespace K4_Projekt
             this.labelMortuary.AutoSize = true;
             this.labelMortuary.BackColor = System.Drawing.Color.Transparent;
             this.labelMortuary.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelMortuary.Location = new System.Drawing.Point(1765, 1146);
+            this.labelMortuary.Location = new System.Drawing.Point(1765, 1346);
             this.labelMortuary.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelMortuary.Name = "labelMortuary";
             this.labelMortuary.Size = new System.Drawing.Size(158, 25);
@@ -686,7 +688,7 @@ namespace K4_Projekt
             this.pictureBoxChurch6.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxChurch6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
             this.pictureBoxChurch6.InitialImage = null;
-            this.pictureBoxChurch6.Location = new System.Drawing.Point(1232, 1231);
+            this.pictureBoxChurch6.Location = new System.Drawing.Point(1232, 1431);
             this.pictureBoxChurch6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxChurch6.Name = "pictureBoxChurch6";
             this.pictureBoxChurch6.Size = new System.Drawing.Size(50, 81);
@@ -701,7 +703,7 @@ namespace K4_Projekt
             this.pictureBoxChurch4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxChurch4.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxChurch4.InitialImage = null;
-            this.pictureBoxChurch4.Location = new System.Drawing.Point(1120, 1231);
+            this.pictureBoxChurch4.Location = new System.Drawing.Point(1120, 1431);
             this.pictureBoxChurch4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxChurch4.Name = "pictureBoxChurch4";
             this.pictureBoxChurch4.Size = new System.Drawing.Size(50, 77);
@@ -716,7 +718,7 @@ namespace K4_Projekt
             this.pictureBoxChurch5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxChurch5.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxChurch5.InitialImage = null;
-            this.pictureBoxChurch5.Location = new System.Drawing.Point(1176, 1231);
+            this.pictureBoxChurch5.Location = new System.Drawing.Point(1176, 1431);
             this.pictureBoxChurch5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxChurch5.Name = "pictureBoxChurch5";
             this.pictureBoxChurch5.Size = new System.Drawing.Size(50, 81);
@@ -731,7 +733,7 @@ namespace K4_Projekt
             this.pictureBoxChurch3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxChurch3.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxChurch3.InitialImage = null;
-            this.pictureBoxChurch3.Location = new System.Drawing.Point(1064, 1231);
+            this.pictureBoxChurch3.Location = new System.Drawing.Point(1064, 1431);
             this.pictureBoxChurch3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxChurch3.Name = "pictureBoxChurch3";
             this.pictureBoxChurch3.Size = new System.Drawing.Size(50, 81);
@@ -746,7 +748,7 @@ namespace K4_Projekt
             this.pictureBoxChurch2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxChurch2.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxChurch2.InitialImage = null;
-            this.pictureBoxChurch2.Location = new System.Drawing.Point(1008, 1231);
+            this.pictureBoxChurch2.Location = new System.Drawing.Point(1008, 1431);
             this.pictureBoxChurch2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxChurch2.Name = "pictureBoxChurch2";
             this.pictureBoxChurch2.Size = new System.Drawing.Size(50, 81);
@@ -761,7 +763,7 @@ namespace K4_Projekt
             this.pictureBoxChurch1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxChurch1.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxChurch1.InitialImage = null;
-            this.pictureBoxChurch1.Location = new System.Drawing.Point(952, 1231);
+            this.pictureBoxChurch1.Location = new System.Drawing.Point(952, 1431);
             this.pictureBoxChurch1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxChurch1.Name = "pictureBoxChurch1";
             this.pictureBoxChurch1.Size = new System.Drawing.Size(50, 81);
@@ -776,7 +778,7 @@ namespace K4_Projekt
             this.pictureBoxMortuary6.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxMortuary6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
             this.pictureBoxMortuary6.InitialImage = null;
-            this.pictureBoxMortuary6.Location = new System.Drawing.Point(2100, 1231);
+            this.pictureBoxMortuary6.Location = new System.Drawing.Point(2100, 1431);
             this.pictureBoxMortuary6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxMortuary6.Name = "pictureBoxMortuary6";
             this.pictureBoxMortuary6.Size = new System.Drawing.Size(50, 81);
@@ -791,7 +793,7 @@ namespace K4_Projekt
             this.pictureBoxMortuary4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxMortuary4.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxMortuary4.InitialImage = null;
-            this.pictureBoxMortuary4.Location = new System.Drawing.Point(1988, 1231);
+            this.pictureBoxMortuary4.Location = new System.Drawing.Point(1988, 1431);
             this.pictureBoxMortuary4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxMortuary4.Name = "pictureBoxMortuary4";
             this.pictureBoxMortuary4.Size = new System.Drawing.Size(50, 77);
@@ -806,7 +808,7 @@ namespace K4_Projekt
             this.pictureBoxMortuary5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxMortuary5.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxMortuary5.InitialImage = null;
-            this.pictureBoxMortuary5.Location = new System.Drawing.Point(2044, 1231);
+            this.pictureBoxMortuary5.Location = new System.Drawing.Point(2044, 1431);
             this.pictureBoxMortuary5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxMortuary5.Name = "pictureBoxMortuary5";
             this.pictureBoxMortuary5.Size = new System.Drawing.Size(50, 81);
@@ -821,7 +823,7 @@ namespace K4_Projekt
             this.pictureBoxMortuary3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxMortuary3.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxMortuary3.InitialImage = null;
-            this.pictureBoxMortuary3.Location = new System.Drawing.Point(1932, 1231);
+            this.pictureBoxMortuary3.Location = new System.Drawing.Point(1932, 1431);
             this.pictureBoxMortuary3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxMortuary3.Name = "pictureBoxMortuary3";
             this.pictureBoxMortuary3.Size = new System.Drawing.Size(50, 81);
@@ -836,7 +838,7 @@ namespace K4_Projekt
             this.pictureBoxMortuary2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxMortuary2.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxMortuary2.InitialImage = null;
-            this.pictureBoxMortuary2.Location = new System.Drawing.Point(1876, 1231);
+            this.pictureBoxMortuary2.Location = new System.Drawing.Point(1876, 1431);
             this.pictureBoxMortuary2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxMortuary2.Name = "pictureBoxMortuary2";
             this.pictureBoxMortuary2.Size = new System.Drawing.Size(50, 81);
@@ -851,7 +853,7 @@ namespace K4_Projekt
             this.pictureBoxMortuary1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxMortuary1.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxMortuary1.InitialImage = null;
-            this.pictureBoxMortuary1.Location = new System.Drawing.Point(1820, 1231);
+            this.pictureBoxMortuary1.Location = new System.Drawing.Point(1820, 1431);
             this.pictureBoxMortuary1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxMortuary1.Name = "pictureBoxMortuary1";
             this.pictureBoxMortuary1.Size = new System.Drawing.Size(50, 81);
@@ -866,7 +868,7 @@ namespace K4_Projekt
             this.textBoxEventlog.BackColor = System.Drawing.Color.White;
             this.textBoxEventlog.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBoxEventlog.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEventlog.Location = new System.Drawing.Point(12, 1132);
+            this.textBoxEventlog.Location = new System.Drawing.Point(12, 1332);
             this.textBoxEventlog.Multiline = true;
             this.textBoxEventlog.Name = "textBoxEventlog";
             this.textBoxEventlog.ReadOnly = true;
@@ -1057,7 +1059,7 @@ namespace K4_Projekt
             this.pictureBoxWaitingArea6.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxWaitingArea6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
             this.pictureBoxWaitingArea6.InitialImage = null;
-            this.pictureBoxWaitingArea6.Location = new System.Drawing.Point(2534, 1231);
+            this.pictureBoxWaitingArea6.Location = new System.Drawing.Point(2534, 1431);
             this.pictureBoxWaitingArea6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxWaitingArea6.Name = "pictureBoxWaitingArea6";
             this.pictureBoxWaitingArea6.Size = new System.Drawing.Size(50, 81);
@@ -1072,7 +1074,7 @@ namespace K4_Projekt
             this.pictureBoxWaitingArea4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxWaitingArea4.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxWaitingArea4.InitialImage = null;
-            this.pictureBoxWaitingArea4.Location = new System.Drawing.Point(2422, 1231);
+            this.pictureBoxWaitingArea4.Location = new System.Drawing.Point(2422, 1431);
             this.pictureBoxWaitingArea4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxWaitingArea4.Name = "pictureBoxWaitingArea4";
             this.pictureBoxWaitingArea4.Size = new System.Drawing.Size(50, 77);
@@ -1087,7 +1089,7 @@ namespace K4_Projekt
             this.pictureBoxWaitingArea5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxWaitingArea5.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxWaitingArea5.InitialImage = null;
-            this.pictureBoxWaitingArea5.Location = new System.Drawing.Point(2478, 1231);
+            this.pictureBoxWaitingArea5.Location = new System.Drawing.Point(2478, 1431);
             this.pictureBoxWaitingArea5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxWaitingArea5.Name = "pictureBoxWaitingArea5";
             this.pictureBoxWaitingArea5.Size = new System.Drawing.Size(50, 81);
@@ -1102,7 +1104,7 @@ namespace K4_Projekt
             this.pictureBoxWaitingArea3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxWaitingArea3.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxWaitingArea3.InitialImage = null;
-            this.pictureBoxWaitingArea3.Location = new System.Drawing.Point(2366, 1231);
+            this.pictureBoxWaitingArea3.Location = new System.Drawing.Point(2366, 1431);
             this.pictureBoxWaitingArea3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxWaitingArea3.Name = "pictureBoxWaitingArea3";
             this.pictureBoxWaitingArea3.Size = new System.Drawing.Size(50, 81);
@@ -1117,7 +1119,7 @@ namespace K4_Projekt
             this.pictureBoxWaitingArea2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxWaitingArea2.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxWaitingArea2.InitialImage = null;
-            this.pictureBoxWaitingArea2.Location = new System.Drawing.Point(2310, 1231);
+            this.pictureBoxWaitingArea2.Location = new System.Drawing.Point(2310, 1431);
             this.pictureBoxWaitingArea2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxWaitingArea2.Name = "pictureBoxWaitingArea2";
             this.pictureBoxWaitingArea2.Size = new System.Drawing.Size(50, 81);
@@ -1132,7 +1134,7 @@ namespace K4_Projekt
             this.pictureBoxWaitingArea1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxWaitingArea1.Image = global::K4_Projekt.Properties.Resources.patient_;
             this.pictureBoxWaitingArea1.InitialImage = null;
-            this.pictureBoxWaitingArea1.Location = new System.Drawing.Point(2254, 1231);
+            this.pictureBoxWaitingArea1.Location = new System.Drawing.Point(2254, 1431);
             this.pictureBoxWaitingArea1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxWaitingArea1.Name = "pictureBoxWaitingArea1";
             this.pictureBoxWaitingArea1.Size = new System.Drawing.Size(50, 81);
@@ -1148,7 +1150,7 @@ namespace K4_Projekt
             this.labelWaitingArea.AutoSize = true;
             this.labelWaitingArea.BackColor = System.Drawing.Color.Transparent;
             this.labelWaitingArea.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelWaitingArea.Location = new System.Drawing.Point(2199, 1146);
+            this.labelWaitingArea.Location = new System.Drawing.Point(2199, 1346);
             this.labelWaitingArea.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelWaitingArea.Name = "labelWaitingArea";
             this.labelWaitingArea.Size = new System.Drawing.Size(164, 25);
@@ -1160,7 +1162,7 @@ namespace K4_Projekt
             this.pictureBoxWaitingArea.AccessibleName = "";
             this.pictureBoxWaitingArea.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBoxWaitingArea.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxWaitingArea.Location = new System.Drawing.Point(2206, 1177);
+            this.pictureBoxWaitingArea.Location = new System.Drawing.Point(2206, 1377);
             this.pictureBoxWaitingArea.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxWaitingArea.Name = "pictureBoxWaitingArea";
             this.pictureBoxWaitingArea.Size = new System.Drawing.Size(422, 190);
@@ -1524,13 +1526,44 @@ namespace K4_Projekt
             this.OP4.TabIndex = 185;
             this.OP4.TabStop = false;
             // 
+            // buttonStart
+            // 
+            this.buttonStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonStart.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStart.ForeColor = System.Drawing.Color.White;
+            this.buttonStart.Location = new System.Drawing.Point(2366, 1074);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(301, 79);
+            this.buttonStart.TabIndex = 194;
+            this.buttonStart.Text = "START";
+            this.buttonStart.UseVisualStyleBackColor = false;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
+            // 
+            // buttonBreak
+            // 
+            this.buttonBreak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBreak.BackColor = System.Drawing.Color.DimGray;
+            this.buttonBreak.Enabled = false;
+            this.buttonBreak.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBreak.ForeColor = System.Drawing.Color.White;
+            this.buttonBreak.Location = new System.Drawing.Point(2366, 1175);
+            this.buttonBreak.Name = "buttonBreak";
+            this.buttonBreak.Size = new System.Drawing.Size(301, 79);
+            this.buttonBreak.TabIndex = 195;
+            this.buttonBreak.Text = "PAUSE";
+            this.buttonBreak.UseVisualStyleBackColor = false;
+            this.buttonBreak.Click += new System.EventHandler(this.buttonBreak_Click);
+            // 
             // UKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(2674, 1429);
+            this.ClientSize = new System.Drawing.Size(2674, 1629);
+            this.Controls.Add(this.buttonBreak);
+            this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.OPOPS42Label);
             this.Controls.Add(this.OPAnäS4Label);
             this.Controls.Add(this.OPRTA4Label);
@@ -1630,7 +1663,6 @@ namespace K4_Projekt
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "AUVA UKH Linz Triage-Simulator";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.UKH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Patient6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Patient4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Patient5)).EndInit();
@@ -1794,6 +1826,8 @@ namespace K4_Projekt
         private Label OPOPC4Label;
         private Label OP4Label;
         private PictureBox OP4;
+        private Button buttonStart;
+        private Button buttonBreak;
     }
 }
 
