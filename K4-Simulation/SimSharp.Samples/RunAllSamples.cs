@@ -6,15 +6,14 @@ namespace SimSharp.Samples
     {
         public static void Main(string[] args)
         {
-         
             //Simulation
             eventLog.getLog();//for initalizing and creating file
-            patientManager.getInstance();//initializing PatientManager
-     
-            new K4().RunSimulation(20);//Amount of Patients as Parameter
+
+            new K4().RunSimulation(50,42);//Amount of Patients as Parameter
+            //new K4().RunSimulation(20);
             eventLog.getLog().writeToFile("C:/Users/Andreas/Desktop/log.csv");
             eventLog.getLog().fromFileToConsole("C:/Users/Andreas/Desktop/log.csv", "\t");
-            Console.WriteLine();
+            Console.WriteLine("Finished");
             Console.ReadKey();
         }
     }
