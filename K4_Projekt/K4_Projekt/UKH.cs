@@ -19,7 +19,6 @@ namespace K4_Projekt {
         private static int PW = 0; //waiting for triage
         private static int QueueOPRoom = 0;
 
-
         //triageKlasse
         private static int LV = 0;
         private static int SV = 0;
@@ -114,7 +113,7 @@ namespace K4_Projekt {
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("file5.csv");
+            eventLog.getLog().fromFileToList("file.csv");
             DateTime currentEventTime = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
             DateTime Timer = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
 
@@ -210,6 +209,7 @@ namespace K4_Projekt {
                             int j = i - 110;
                             DiedAt(j);
                         } else if (s.StartsWith("12")) {
+                            QueueOPRoom++;
                             if (InvokeRequired) {
                                 Invoke(new patientInWaitingarea_delegate(patientWaitingForOP));
                             } else {
@@ -596,22 +596,24 @@ namespace K4_Projekt {
 
         //Event Code 4
         public void operate(int OPRoom) {
+            --QueueOPRoom;
+            if (InvokeRequired) {
+                Invoke(new patientWaitingForOP_delegate(patientWaitingForOP));
+            } else {
+                patientWaitingForOP();
+            }
             switch (OPRoom) {
                 case 1:
                     OP1.BackColor = Color.Red;
-                    QueueOPRoom--;
                     break;
                 case 2:
                     OP2.BackColor = Color.Red;
-                    QueueOPRoom--;
                     break;
                 case 3:
                     OP3.BackColor = Color.Red;
-                    QueueOPRoom--;
                     break;
                 case 4:
                     OP4.BackColor = Color.Red;
-                    QueueOPRoom--;
                     break;
                 default: break;
             }
@@ -1036,17 +1038,51 @@ namespace K4_Projekt {
                 default: break;
             }
         }
-        //Event Code 12
+       
 
 
-
+        //Event Code 9
         private void patientInWaitingarea() {
             LVWaiting++;
             add_eventLog_text(9);
         }
 
+        //Event Code 12
         private void patientWaitingForOP() {
-            QueueOPRoom++;
+            if (InvokeRequired) {
+                Invoke((MethodInvoker)delegate { labelOPWartebereich.Text = "OP-Wartebereich: " + QueueOPRoom; });
+            } else {
+                labelOPWartebereich.Text = "OP-Wartebereich: " + QueueOPRoom;
+            }
+            switch (QueueOPRoom) {
+                case 0:
+                    pictureBoxOPWB1.Visible = false;
+                    break; 
+                case 1:
+                    pictureBoxOPWB1.Visible = true;
+                    pictureBoxOPWB2.Visible = false;
+                    break;
+                case 2:
+                    pictureBoxOPWB2.Visible = true;
+                    pictureBoxOPWB3.Visible = false;
+                    break;
+                case 3:
+                    pictureBoxOPWB3.Visible = true;
+                    pictureBoxOPWB4.Visible = false;
+                    break;
+                case 4:
+                    pictureBoxOPWB4.Visible = true;
+                    pictureBoxOPWB5.Visible = false;
+                    break;
+                case 5:
+                    pictureBoxOPWB5.Visible = true;
+                    pictureBoxOPWB6.Visible = false;
+                    break;
+                case 6:
+                    pictureBoxOPWB6.Visible = true;
+                    break;
+                default: break;
+            }
             add_eventLog_text(12);
         }
 
