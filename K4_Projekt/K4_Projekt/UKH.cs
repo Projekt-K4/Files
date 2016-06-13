@@ -113,7 +113,7 @@ namespace K4_Projekt {
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("file.csv");
+            eventLog.getLog().fromFileToList("file8.csv");
             DateTime currentEventTime = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
             DateTime Timer = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
 
@@ -249,18 +249,6 @@ namespace K4_Projekt {
             }
             MessageBox.Show("FERTIG!");
         }
-
-
-
-        //
-        //
-        //
-        //AUVA LOGO !!!!!!!!!!
-        //
-        //
-        //
-
-
 
         private void updateAmountOfPatients() {
             AmountOfPatients = T + H + SV + LV;
@@ -1044,6 +1032,29 @@ namespace K4_Projekt {
         //Event Code 9
         private void patientInWaitingarea() {
             LVWaiting++;
+            labelWaitingArea.Text = "Wartebereich: " + LVWaiting;
+            switch (LVWaiting) {
+                case 0: break; //just to be safe
+                case 1:
+                    pictureBoxWaitingArea1.Visible = true;
+                    break;
+                case 2:
+                    pictureBoxWaitingArea2.Visible = true;
+                    break;
+                case 3:
+                    pictureBoxWaitingArea3.Visible = true;
+                    break;
+                case 4:
+                    pictureBoxWaitingArea4.Visible = true;
+                    break;
+                case 5:
+                    pictureBoxWaitingArea5.Visible = true;
+                    break;
+                case 6:
+                    pictureBoxWaitingArea6.Visible = true;
+                    break;
+                default: break;
+            }
             add_eventLog_text(9);
         }
 
@@ -1089,6 +1100,7 @@ namespace K4_Projekt {
         private void trackBarSpeed_Scroll(object sender, EventArgs e) {
             speed = trackBarSpeed.Value;
         }
+        
     }
     
 }
