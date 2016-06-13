@@ -116,7 +116,7 @@ namespace K4_Projekt {
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("file10.csv");
+            eventLog.getLog().fromFileToList("log.csv");
             DateTime currentEventTime = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
             DateTime Timer = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
 
