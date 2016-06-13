@@ -627,18 +627,47 @@ namespace K4_Projekt {
                 case 1:
                     OP1.BackColor = Color.Green;
                     T++;
+                    OPOPS11Label.BackColor =Color.FromArgb(193,9,9);
+                    OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9);
+
                     break;
                 case 2:
                     OP2.BackColor = Color.Green;
                     T++;
+                    OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9);
                     break;
                 case 3:
                     OP3.BackColor = Color.Green;
                     T++;
+                    OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9);
                     break;
                 case 4:
                     OP4.BackColor = Color.Green;
                     T++;
+                    OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9);
+                    OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9);
                     break;
                 default: break;
             }
@@ -654,11 +683,25 @@ namespace K4_Projekt {
                     OP1.BackColor = Color.Green;
                     StationCount++;
                     if (InvokeRequired) {
-                        Invoke(new Bettenstation_delegate(Bettenstation));
+                        OPOPS11Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9);
                         // Bettenstation_delegate d = new Bettenstation_delegate(Bettenstation);
                         //this.Invoke(d);
                     } else {
                         Bettenstation();
+                        OPOPS11Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9);
+
                     }
                     //Bettenstation()
                     break;
@@ -667,8 +710,22 @@ namespace K4_Projekt {
                     StationCount++;
                     if (InvokeRequired) {
                         Invoke(new Bettenstation_delegate(Bettenstation));
+                        OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9);
                     } else {
                         Bettenstation();
+                        OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9);
                     }
                     break;
                 case 3:
@@ -676,8 +733,22 @@ namespace K4_Projekt {
                     StationCount++;
                     if (InvokeRequired) {
                         Invoke(new Bettenstation_delegate(Bettenstation));
+                        OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9);
                     } else {
                         Bettenstation();
+                        OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9);
                     }
                     break;
                 case 4:
@@ -685,8 +756,22 @@ namespace K4_Projekt {
                     StationCount++;
                     if (InvokeRequired) {
                         Invoke(new Bettenstation_delegate(Bettenstation));
+                        OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9);
                     } else {
                         Bettenstation();
+                        OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9);
                     }
                     break;
                 default: break;
@@ -1089,6 +1174,7 @@ namespace K4_Projekt {
         private void trackBarSpeed_Scroll(object sender, EventArgs e) {
             speed = trackBarSpeed.Value;
         }
+
     }
     
 }
