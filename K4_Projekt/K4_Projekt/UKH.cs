@@ -445,7 +445,7 @@ namespace K4_Projekt {
                 if (InvokeRequired) {
                     Invoke((MethodInvoker)delegate { textBoxEventlog.AppendText(timeStamp + "\t\t\tAnästhesieschwester ist in OP" + j + " eingetroffen\n"); });
                 } else {
-                    textBoxEventlog.AppendText(timeStamp + "\t\t\Anästhesieschwester ist in OP" + j + " eingetroffen\n");
+                    textBoxEventlog.AppendText(timeStamp + "\t\t\tAnästhesieschwester ist in OP" + j + " eingetroffen\n");
                 }
             } else if (i == 77) {
                 if (InvokeRequired) {
