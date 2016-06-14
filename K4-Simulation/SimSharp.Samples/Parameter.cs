@@ -18,11 +18,12 @@ namespace SimSharp.Samples
             }
             return instance;
         }
-        public void initialize(int _OPWaiting, int _mortuary, int _ward, int _triageTime, int _arriveMin, int _arriveMax, int _OPWinTime, int _OPMin, int _OPMax, int _OPDyingRate)
+        public void initialize(int _OPWaiting, int _mortuary, int _ward, int _church, int _triageTime, int _arriveMin, int _arriveMax, int _OPWinTime, int _OPMin, int _OPMax, int _OPDyingRate)
         {
             OPWaiting = _OPWaiting;
             mortuary = _mortuary;
             ward = _ward;
+            church = _church;
 
             triageTime = _triageTime;
             arriveMin = _arriveMin;
@@ -37,6 +38,7 @@ namespace SimSharp.Samples
         public int OPWaiting;
         public int mortuary;
         public int ward;
+        public int church;
 
         public int triageTime;
         public int arriveMin;

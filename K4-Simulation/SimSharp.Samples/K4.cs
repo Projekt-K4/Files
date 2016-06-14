@@ -11,7 +11,8 @@ namespace SimSharp.Samples
         static Resource OPWaiting = null;
         static Resource Mortuary = null;
         static Resource Ward = null;
-  
+        static Resource Church = null;
+
         static IEnumerable<Event> Steuerprozess(Environment env)    //Simulator start, Timer starts!
         {
             //Resources:
@@ -19,6 +20,8 @@ namespace SimSharp.Samples
             OPWaiting = new Resource(env, Parameter.getInstance().OPWaiting);   //where do they wait? How many can wait for OP?
             Mortuary = new Resource(env, Parameter.getInstance().mortuary);
             Ward = new Resource(env, Parameter.getInstance().ward);
+            Church = new Resource(env, Parameter.getInstance().church);
+
 
             while (patientManager.getInstance().stillPatientsLeft())
             {
@@ -76,8 +79,7 @@ namespace SimSharp.Samples
             }
             else if(pat.getTriageNr()==3 && from != 4)
             {
-                yield return env.Timeout(TimeSpan.FromSeconds(0));
-                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "10");
+                env.Process(ChurchProcess(env, pat, from.ToString()));
             }
             else if(pat.getTriageNr() == 4)
             {
@@ -196,6 +198,18 @@ namespace SimSharp.Samples
 
         }
 
+        static IEnumerable<Event> ChurchProcess(Environment env, Patient pat, String comeFrom)
+        {
+            //wating resource
+            using (var reqM = Church.Request())
+            {
+                //dead patient brought into mortuary
+                yield return reqM;
+                eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "10");
+            }
+
+        }
+
 
         public void RunSimulation(int amount,int seed)
         {
@@ -210,7 +224,7 @@ namespace SimSharp.Samples
             //initialize Stores
             RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
             //Parameter for waitingTimes and RoomSpace
-            Parameter.getInstance().initialize(50, 50, 100, 30, 0, 3600, 1000, 1800, 3600, 25);
+            Parameter.getInstance().initialize(50, 50, 100,100, 30, 0, 3600, 1000, 1800, 3600, 25);
 
             //Simulation starts
             env.Process(Steuerprozess(env));
@@ -227,7 +241,7 @@ namespace SimSharp.Samples
             //initialize Stores
             RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
             //Parameter for waitingTimes and RoomSpace
-            Parameter.getInstance().initialize(50, 50, 100, 30, 0, 3600, 1000,1800,3600, 25);
+            Parameter.getInstance().initialize(50, 50, 100, 100, 30, 0, 3600, 1000, 1800, 3600, 25);
 
             //Simulation starts
             env.Process(Steuerprozess(env));
