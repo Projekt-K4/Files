@@ -281,7 +281,7 @@ namespace K4_Projekt {
                     }
                 }
             }
-            MessageBox.Show("FERTIG!");
+            MessageBox.Show("Triage ist fertig!");
         } 
 
         private void updateAmountOfPatients() {
