@@ -880,11 +880,11 @@ namespace K4_Projekt
             // 
             this.trackBarSpeed.LargeChange = 10;
             this.trackBarSpeed.Location = new System.Drawing.Point(6, 172);
-            this.trackBarSpeed.Maximum = 3000;
+            this.trackBarSpeed.Maximum = 750;
             this.trackBarSpeed.Minimum = 1;
             this.trackBarSpeed.Name = "trackBarSpeed";
             this.trackBarSpeed.Size = new System.Drawing.Size(289, 90);
-            this.trackBarSpeed.SmallChange = 300;
+            this.trackBarSpeed.SmallChange = 10;
             this.trackBarSpeed.TabIndex = 147;
             this.trackBarSpeed.Value = 1;
             this.trackBarSpeed.Scroll += new System.EventHandler(this.trackBarSpeed_Scroll);
@@ -1658,7 +1658,6 @@ namespace K4_Projekt
             this.Controls.Add(this.AUVA_LOGO);
             this.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimizeBox = false;
             this.Name = "UKH";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "AUVA UKH Linz Triage-Simulator";
