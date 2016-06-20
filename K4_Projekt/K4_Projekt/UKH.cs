@@ -683,6 +683,7 @@ namespace K4_Projekt {
                     OP1.BackColor = Color.Green;
                     StationCount++;
                     if (InvokeRequired) {
+                        Invoke(new Bettenstation_delegate(Bettenstation));
                         OPOPS11Label.BackColor = Color.FromArgb(193, 9, 9);
                         OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
                         OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
