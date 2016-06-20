@@ -64,6 +64,18 @@ namespace SimSharp.Samples
             this.OPStore.Put(op);
         }
 
+        public int opsReady()
+        {
+            int amount = 0;
+            for (int i = 1; i <= OPStore.Count; ++i)
+            {
+                if (ChirurgStore.Count >= i && ChirurgStore.Count >= i && (NurseStore.Count >= i * 2) && SupportStore.Count >= i && AnesthesistNurseStore.Count >= i && AnesthesistNurseStore.Count >= i && RTAStore.Count >= i)
+                {
+                    amount++;
+                }
+            }
+            return amount;
+        }
         //methods to change the amount of each stufftype....
 
         public void initStores(Environment env, int chirurgs, int nurses, int support, int anesthesists, int anesthesistsNurse, int rtas, int ops)

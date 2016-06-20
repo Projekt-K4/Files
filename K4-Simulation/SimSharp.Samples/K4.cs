@@ -22,7 +22,14 @@ namespace SimSharp.Samples
             Ward = new Resource(env, Parameter.getInstance().ward);
             Church = new Resource(env, Parameter.getInstance().church);
 
-
+            for(int i=0;i<RSStore.getInstance().opsReady();i++)
+            {
+                //probability for available ops to be blocked at the beginning
+                if(env.RandUniform(0,100)<Parameter.getInstance().OPBlockedRate)
+                {
+                    env.Process(Block_OP(env));
+                }
+            }
             while (patientManager.getInstance().stillPatientsLeft())
             {
                 //timestop in seconds until new patient arrives
@@ -94,7 +101,41 @@ namespace SimSharp.Samples
                 env.Process(WardProcess(env, pat,detail.ToString()));
             }
         }
-            
+        
+        static IEnumerable<Event>Block_OP(Environment env)
+        {
+            //OP Resources:
+            var op = RSStore.getInstance().OPStore.Get();
+            var ch = RSStore.getInstance().ChirurgStore.Get();
+            var ane = RSStore.getInstance().AnesthesistStore.Get();
+            var nurse1 = RSStore.getInstance().NurseStore.Get();
+            var nurse2 = RSStore.getInstance().NurseStore.Get();
+            var anen = RSStore.getInstance().AnesthesistNurseStore.Get();
+            var support = RSStore.getInstance().SupportStore.Get();
+            var rta = RSStore.getInstance().RTAStore.Get();
+
+            yield return nurse1;
+            yield return nurse2;
+            yield return anen;
+            yield return support;
+            yield return rta;
+            yield return ch;
+            yield return ane;
+            yield return op;
+
+            //Blocked OP
+            eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "13" + op.Value);
+            yield return env.TimeoutUniform(TimeSpan.FromSeconds(Parameter.getInstance().OPMin), TimeSpan.FromSeconds(Parameter.getInstance().OPMax));
+            RSStore.getInstance().OPStore.Put(op.Value);
+            RSStore.getInstance().ChirurgStore.Put(ch.Value);
+            RSStore.getInstance().AnesthesistStore.Put(ane.Value);
+            RSStore.getInstance().NurseStore.Put(nurse1.Value);
+            RSStore.getInstance().NurseStore.Put(nurse2.Value);
+            RSStore.getInstance().AnesthesistNurseStore.Put(anen.Value);
+            RSStore.getInstance().SupportStore.Put(support.Value);
+            RSStore.getInstance().RTAStore.Put(rta.Value);
+            eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "13" + op.Value);
+        }
 
         static IEnumerable<Event> OP_waiting(Environment env, Patient pat)
         {
@@ -133,15 +174,19 @@ namespace SimSharp.Samples
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "7" + "5" + op.Value);
                 yield return op;
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), pat.getTimeToLiveString(), pat.getKID(), pat.getTriageNr().ToString(), "4" + op.Value);
-                //System for new TTL if patient dies or survives the OP Process!!!!
-                //Has to be changed in the near future!!!!!!!!
+
+                //Probability for surviving the OP
                 if (survive(env, pat))
                 {
                     pat.setTimeToLive(pat.getTimeToLive().Add(TimeSpan.FromDays(Parameter.getInstance().OPWinTime)));
                 }
+                else
+                {
+                    pat.setTimeToLive(env.Now);
+                }
                 int OPNr = Int32.Parse(op.Value.ToString());
                //it´t possible that the patient is still alive without the if....has to be changed
-                yield return env.TimeoutUniform(TimeSpan.FromSeconds(Parameter.getInstance().OPMin), TimeSpan.FromSeconds(Parameter.getInstance().OPMax));
+                yield return env.TimeoutUniform(TimeSpan.FromSeconds(Parameter.getInstance().OPBlockedMin), TimeSpan.FromSeconds(Parameter.getInstance().OPBlockedMax));
                 //OP Freigabe
                 eventLog.getLog().addLog(env.Now.ToLongTimeString(), "", "", "", "" + "8" + op.Value);
                 //re triage process
@@ -224,7 +269,7 @@ namespace SimSharp.Samples
             //initialize Stores
             RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
             //Parameter for waitingTimes and RoomSpace
-            Parameter.getInstance().initialize(50, 50, 100,100, 30, 0, 3600, 1000, 1800, 3600, 25);
+            Parameter.getInstance().initialize(50, 50, 100,100, 30, 0, 3600, 1000, 1800, 3600, 25,600,1800,50);
 
             //Simulation starts
             env.Process(Steuerprozess(env));
@@ -241,7 +286,7 @@ namespace SimSharp.Samples
             //initialize Stores
             RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
             //Parameter for waitingTimes and RoomSpace
-            Parameter.getInstance().initialize(50, 50, 100, 100, 30, 0, 3600, 1000, 1800, 3600, 25);
+            Parameter.getInstance().initialize(50, 50, 100, 100, 30, 0, 3600, 1000, 1800, 3600, 25,600,1800,50);
 
             //Simulation starts
             env.Process(Steuerprozess(env));
