@@ -52,7 +52,7 @@ namespace SimSharp.Samples
         public PatientGenerator(int _numberOfCasualties, Environment env)
         {
             generateCasualties(_numberOfCasualties, env);
-            Console.WriteLine(_numberOfCasualties + " involved in catastrophe");
+            Console.WriteLine(_numberOfCasualties + " involved in catastrophe!");
             //globalTime = new SystemRandom(seed);
     }
 
