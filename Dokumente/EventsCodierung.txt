@@ -40,6 +40,7 @@ ______________________________________________________________________________
 	// + wo er her kommt
 	
 13[.]	OP blockieren (OP ist von Beginn an belegt) - bei erneuter Codeausgabe wird OP wd frei und PAtient nicht in Statistik genommen
+	Personal muss auch kommen. Code immer bei 0:0
 	
 
 Anm.: [.] -> Zahl zwischen 1-4 (4 OPs)
