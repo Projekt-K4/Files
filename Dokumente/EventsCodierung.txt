@@ -39,7 +39,7 @@ ______________________________________________________________________________
 12	Patient wartet auf OP
 	// + wo er her kommt
 	
-13[.]	OP blockieren (OP ist von Beginn an belegt)
+13[.]	OP blockieren (OP ist von Beginn an belegt) - bei erneuter Codeausgabe wird OP wd frei und PAtient nicht in Statistik genommen
 	
 
 Anm.: [.] -> Zahl zwischen 1-4 (4 OPs)
