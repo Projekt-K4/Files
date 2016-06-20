@@ -39,6 +39,8 @@ ______________________________________________________________________________
 12	Patient wartet auf OP
 	// + wo er her kommt
 	
+13[.]	OP blockieren (OP ist von Beginn an belegt)
+	
 
 Anm.: [.] -> Zahl zwischen 1-4 (4 OPs)
 (zu 4: in [] OP-Nummer -> dann zB 41 eingelesen für OP1)
