@@ -12,7 +12,7 @@ namespace SimSharp.Samples
             new K4().RunSimulation(50);//Amount of Patients as Parameter
             //new K4().RunSimulation(20);
             eventLog.getLog().writeToFile("C:/Users/Andreas/Desktop/log.csv");
-          //  eventLog.getLog().fromFileToConsole("C:/Users/Andreas/Desktop/log.csv", "\t");
+            //eventLog.getLog().fromFileToConsole("C:/Users/Andreas/Desktop/log.csv", "\t");
             Console.WriteLine("Finished");
             Console.ReadKey();
         }
