@@ -47,6 +47,13 @@ namespace K4_Projekt {
         private static string KID;
         private static string timeStamp;
 
+        //OP
+        private static bool OP1available = true;
+        private static bool OP2available = true;
+        private static bool OP3available = true;
+        private static bool OP4available = true;
+
+
         public delegate void patient_waiting_delegate();
         public delegate void triage_delegate();
         public delegate void triage_number_delegate(int i);
@@ -133,14 +140,21 @@ namespace K4_Projekt {
 
         private static string setStartTime() {
             DateTime firstEvent = DateTime.ParseExact(eventLog.timeStampList.ElementAt(0), "hh:mm:ss", new CultureInfo("de-DE"));
-            DateTime forFirstEvent = DateTime.ParseExact("00:00:05", "hh:mm:ss", new CultureInfo("de-DE"));
-            TimeSpan start = firstEvent - forFirstEvent;
+            DateTime nullTime = DateTime.ParseExact("00:00:00", "hh:mm:ss", new CultureInfo("de-DE"));
+            TimeSpan start;
+            DateTime forFirstEvent;
+            if (firstEvent.Hour.Equals(00) && firstEvent.Minute.Equals(00) && firstEvent.Second.Equals(00)) {
+                start = firstEvent - nullTime;
+            } else {
+                forFirstEvent = DateTime.ParseExact("00:00:05", "hh:mm:ss", new CultureInfo("de-DE"));
+                start = firstEvent - forFirstEvent; 
+            }
             return start.ToString();
         }
 
 
         public void read_puffer() {
-            eventLog.getLog().fromFileToList("log.csv");
+            eventLog.getLog().fromFileToList("file11.csv");
             DateTime currentEventTime = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
             DateTime Timer = DateTime.ParseExact(setStartTime(), "hh:mm:ss", new CultureInfo("de-DE"));
 
@@ -249,6 +263,9 @@ namespace K4_Projekt {
                             } else {
                                 patientWaitingForOP();
                             }
+                        } else if (s.StartsWith("13")) {
+                            int j = i - 130;
+                            OPnotvailable(j);
 
                         } else {
                             throw new Exception("Event doesn't exist!");
@@ -273,9 +290,9 @@ namespace K4_Projekt {
                         CurrentTime = changeTimeFormat(Timer);
 
                         if (InvokeRequired) {
-                            Invoke((MethodInvoker)delegate { textBoxTimer.Text = CurrentTime; });
+                            Invoke((MethodInvoker)delegate { textBoxTime.Text = CurrentTime; });
                         } else {
-                            textBoxTimer.Text = CurrentTime;
+                            textBoxTime.Text = CurrentTime;
                         }
                         takeNextEvent = false;
                     }
@@ -291,42 +308,42 @@ namespace K4_Projekt {
 
         private void OPavailable(int i) {
             if(i == 1) {
-                Invoke((MethodInvoker)delegate { OP1.BackColor = Color.Green; });
-                Invoke((MethodInvoker)delegate { OPOPS11Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { pictureBoxOP1.BackColor = Color.Green; });
+                Invoke((MethodInvoker)delegate { labelOPS21.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelRTA1.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPS11.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelAnae1.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelAnaeS1.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPB1.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPC1.BackColor = Color.FromArgb(193, 9, 9); });
 
             } else if( i == 2){
-                Invoke((MethodInvoker)delegate { OP2.BackColor = Color.Green; });
-                Invoke((MethodInvoker)delegate { OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { pictureBoxOP2.BackColor = Color.Green; });
+                Invoke((MethodInvoker)delegate { labelOPS22.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelRTA2.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPS12.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelAnae2.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelAnaeS2.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPB2.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPC2.BackColor = Color.FromArgb(193, 9, 9); });
             } else if(i == 3){
-                Invoke((MethodInvoker)delegate { OP3.BackColor = Color.Green; });
-                Invoke((MethodInvoker)delegate { OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { pictureBoxOP3.BackColor = Color.Green; });
+                Invoke((MethodInvoker)delegate { labelOPS23.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelRTA3.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPS13.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelAnae3.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelAnaeS3.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPB3.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPC3.BackColor = Color.FromArgb(193, 9, 9); });
             } else if (i == 4) {
-                Invoke((MethodInvoker)delegate { OP4.BackColor = Color.Green; });
-                Invoke((MethodInvoker)delegate { OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9); });
-                Invoke((MethodInvoker)delegate { OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { pictureBoxOP4.BackColor = Color.Green; });
+                Invoke((MethodInvoker)delegate { labelOPS24.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelRTA4.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPS14.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelAnae4.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelAnaeS4.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPB4.BackColor = Color.FromArgb(193, 9, 9); });
+                Invoke((MethodInvoker)delegate { labelOPC4.BackColor = Color.FromArgb(193, 9, 9); });
                 
             }
             add_eventLog_text(8, i);
@@ -336,17 +353,17 @@ namespace K4_Projekt {
         private void patient_waiting() {
             ++PW;
             if (PW == 1) {
-                Patient1.Visible = true;
+                pictureBoxPatientWaitingTriage1.Visible = true;
             } else if (PW == 2) {
-                Patient2.Visible = true;
+                pictureBoxPatientWaitingTriage2.Visible = true;
             } else if (PW == 3) {
-                Patient3.Visible = true;
+                pictureBoxPatientWaitingTriage3.Visible = true;
             } else if (PW == 4) {
-                Patient4.Visible = true;
+                pictureBoxPatientWaitingTriage4.Visible = true;
             } else if (PW == 5) {
-                Patient5.Visible = true;
+                pictureBoxPatientWaitingTriage5.Visible = true;
             } else if (PW >= 6) {
-                Patient6.Visible = true;
+                pictureBoxPatientWaitingTriage6.Visible = true;
             } else {
                 throw new Exception("Error in patient waiting queue!");
             }
@@ -474,19 +491,19 @@ namespace K4_Projekt {
 
         private void triage() {
             --PW;
-            PatientTriage.Visible = true;
+            pictureBoxPatientTriage.Visible = true;
             if (PW == 5) {
-                Patient6.Visible = false;
+                pictureBoxPatientWaitingTriage6.Visible = false;
             } else if (PW == 4) {
-                Patient5.Visible = false;
+                pictureBoxPatientWaitingTriage5.Visible = false;
             } else if (PW == 3) {
-                Patient4.Visible = false;
+                pictureBoxPatientWaitingTriage4.Visible = false;
             } else if (PW == 2) {
-                Patient3.Visible = false;
+                pictureBoxPatientWaitingTriage3.Visible = false;
             }else if (PW == 1) {
-                Patient2.Visible = false;
+                pictureBoxPatientWaitingTriage2.Visible = false;
             } else if (PW == 0) {
-                Patient1.Visible = false;
+                pictureBoxPatientWaitingTriage1.Visible = false;
             }
             number_waiting();
             add_eventLog_text(2);
@@ -494,9 +511,9 @@ namespace K4_Projekt {
 
         private void triage_number(int i) {
             if (InvokeRequired) {
-                Invoke((MethodInvoker)delegate { PatientTriage.Visible = false; });
+                Invoke((MethodInvoker)delegate { pictureBoxPatientTriage.Visible = false; });
             } else {
-                PatientTriage.Visible = false;
+                pictureBoxPatientTriage.Visible = false;
             }
            
             if (i == 1) {
@@ -521,31 +538,31 @@ namespace K4_Projekt {
         private void number_triage_class(int i) {
             if (i == 1) {
                 if (InvokeRequired) {
-                    Invoke((MethodInvoker)delegate { class1.Text = "Klasse 1\nLeichtverletzte: " + LV; });
+                    Invoke((MethodInvoker)delegate { labelTriagegroup1.Text = "Klasse 1\nLeichtverletzte: " + LV; });
                 } else {
-                    class1.Text = "Klasse 1\nLeichtverletzte: " + LV;
+                    labelTriagegroup1.Text = "Klasse 1\nLeichtverletzte: " + LV;
                 }
                 
             } else if (i == 2) {
                 if (InvokeRequired) {
-                    Invoke((MethodInvoker)delegate { class2.Text = "Klasse 2\nSchwerverletzte: " + SV; });
+                    Invoke((MethodInvoker)delegate { labelTriagegroup2.Text = "Klasse 2\nSchwerverletzte: " + SV; });
                 } else {
-                    class2.Text = "Klasse 2\nSchwerverletzte: " + SV;
+                    labelTriagegroup2.Text = "Klasse 2\nSchwerverletzte: " + SV;
                 }
                 
             } else if (i == 3) {
                 if (InvokeRequired) {
-                    Invoke((MethodInvoker)delegate { class3.Text = "Klasse 3\nHoffnungslose: " + H; });
+                    Invoke((MethodInvoker)delegate { labelTriagegroup3.Text = "Klasse 3\nHoffnungslose: " + H; });
                 } else {
-                    class3.Text = "Klasse 3\nHoffnungslose: " + H;
+                    labelTriagegroup3.Text = "Klasse 3\nHoffnungslose: " + H;
                 }
                 
             } else if (i == 4) {
                 if (InvokeRequired) {
-                    Invoke((MethodInvoker)delegate {class4.Text = "Klasse 4\nTote: " + T;
+                    Invoke((MethodInvoker)delegate {labelTriagegroup4.Text = "Klasse 4\nTote: " + T;
                     });
                 } else {
-                    class4.Text = "Klasse 4\nTote: " + T;
+                    labelTriagegroup4.Text = "Klasse 4\nTote: " + T;
                 }
             } else {
                 throw new Exception("Error in triage class text!");
@@ -675,16 +692,16 @@ namespace K4_Projekt {
             }
             switch (OPRoom) {
                 case 1:
-                    OP1.BackColor = Color.Red;
+                    pictureBoxOP1.BackColor = Color.Red;
                     break;
                 case 2:
-                    OP2.BackColor = Color.Red;
+                    pictureBoxOP2.BackColor = Color.Red;
                     break;
                 case 3:
-                    OP3.BackColor = Color.Red;
+                    pictureBoxOP3.BackColor = Color.Red;
                     break;
                 case 4:
-                    OP4.BackColor = Color.Red;
+                    pictureBoxOP4.BackColor = Color.Red;
                     break;
                 default: break;
             }
@@ -696,49 +713,49 @@ namespace K4_Projekt {
         public void diedInOP(int OPRoom) {
             switch (OPRoom) {
                 case 1:
-                    OP1.BackColor = Color.Green;
+                    pictureBoxOP1.BackColor = Color.Green;
                     T++;
-                    OPOPS11Label.BackColor =Color.FromArgb(193,9,9);
-                    OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPS21.BackColor =Color.FromArgb(193,9,9);
+                    labelRTA1.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPS11.BackColor = Color.FromArgb(193, 9, 9);
+                    labelAnae1.BackColor = Color.FromArgb(193, 9, 9);
+                    labelAnaeS1.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPB1.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPC1.BackColor = Color.FromArgb(193, 9, 9);
 
                     break;
                 case 2:
-                    OP2.BackColor = Color.Green;
+                    pictureBoxOP2.BackColor = Color.Green;
                     T++;
-                    OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPS22.BackColor = Color.FromArgb(193, 9, 9);
+                    labelRTA2.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPS12.BackColor = Color.FromArgb(193, 9, 9);
+                    labelAnae2.BackColor = Color.FromArgb(193, 9, 9);
+                    labelAnaeS2.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPB2.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPC2.BackColor = Color.FromArgb(193, 9, 9);
                     break;
                 case 3:
-                    OP3.BackColor = Color.Green;
+                    pictureBoxOP3.BackColor = Color.Green;
                     T++;
-                    OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPS23.BackColor = Color.FromArgb(193, 9, 9);
+                    labelRTA3.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPS13.BackColor = Color.FromArgb(193, 9, 9);
+                    labelAnae3.BackColor = Color.FromArgb(193, 9, 9);
+                    labelAnaeS3.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPB3.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPC3.BackColor = Color.FromArgb(193, 9, 9);
                     break;
                 case 4:
-                    OP4.BackColor = Color.Green;
+                    pictureBoxOP4.BackColor = Color.Green;
                     T++;
-                    OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9);
-                    OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPS24.BackColor = Color.FromArgb(193, 9, 9);
+                    labelRTA4.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPS14.BackColor = Color.FromArgb(193, 9, 9);
+                    labelAnae4.BackColor = Color.FromArgb(193, 9, 9);
+                    labelAnaeS4.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPB4.BackColor = Color.FromArgb(193, 9, 9);
+                    labelOPC4.BackColor = Color.FromArgb(193, 9, 9);
                     break;
                 default: break;
             }
@@ -751,99 +768,99 @@ namespace K4_Projekt {
 
             switch (OPRoom) {
                 case 1:
-                    OP1.BackColor = Color.Green;
+                    pictureBoxOP1.BackColor = Color.Green;
                     StationCount++;
                     if (InvokeRequired) {
                         Invoke(new Bettenstation_delegate(Bettenstation));
-                        OPOPS11Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS21.BackColor = Color.FromArgb(193, 9, 9);
+                        labelRTA1.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS11.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnae1.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnaeS1.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPB1.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPC1.BackColor = Color.FromArgb(193, 9, 9);
                         // Bettenstation_delegate d = new Bettenstation_delegate(Bettenstation);
                         //this.Invoke(d);
                     } else {
                         Bettenstation();
-                        OPOPS11Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPRTA1Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPS12Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnä1Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnäS1Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPB1Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPC1Label.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS21.BackColor = Color.FromArgb(193, 9, 9);
+                        labelRTA1.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS11.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnae1.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnaeS1.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPB1.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPC1.BackColor = Color.FromArgb(193, 9, 9);
 
                     }
                     //Bettenstation()
                     break;
                 case 2:
-                    OP2.BackColor = Color.Green;
+                    pictureBoxOP2.BackColor = Color.Green;
                     StationCount++;
                     if (InvokeRequired) {
                         Invoke(new Bettenstation_delegate(Bettenstation));
-                        OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS22.BackColor = Color.FromArgb(193, 9, 9);
+                        labelRTA2.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS12.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnae2.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnaeS2.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPB2.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPC2.BackColor = Color.FromArgb(193, 9, 9);
                     } else {
                         Bettenstation();
-                        OPOPS21Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPRTA2Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPS22Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnä2Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnäS2Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPB2Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPC2Label.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS22.BackColor = Color.FromArgb(193, 9, 9);
+                        labelRTA2.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS12.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnae2.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnaeS2.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPB2.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPC2.BackColor = Color.FromArgb(193, 9, 9);
                     }
                     break;
                 case 3:
-                    OP3.BackColor = Color.Green;
+                    pictureBoxOP3.BackColor = Color.Green;
                     StationCount++;
                     if (InvokeRequired) {
                         Invoke(new Bettenstation_delegate(Bettenstation));
-                        OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS23.BackColor = Color.FromArgb(193, 9, 9);
+                        labelRTA3.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS13.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnae3.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnaeS3.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPB3.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPC3.BackColor = Color.FromArgb(193, 9, 9);
                     } else {
                         Bettenstation();
-                        OPOPS31Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPRTA3Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPS32Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnä3Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnäS3Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPB3Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPC3Label.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS23.BackColor = Color.FromArgb(193, 9, 9);
+                        labelRTA3.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS13.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnae3.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnaeS3.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPB3.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPC3.BackColor = Color.FromArgb(193, 9, 9);
                     }
                     break;
                 case 4:
-                    OP4.BackColor = Color.Green;
+                    pictureBoxOP4.BackColor = Color.Green;
                     StationCount++;
                     if (InvokeRequired) {
                         Invoke(new Bettenstation_delegate(Bettenstation));
-                        OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS24.BackColor = Color.FromArgb(193, 9, 9);
+                        labelRTA4.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS14.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnae4.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnaeS4.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPB4.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPC4.BackColor = Color.FromArgb(193, 9, 9);
                     } else {
                         Bettenstation();
-                        OPOPS41Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPRTA4Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPS42Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnä4Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPAnäS4Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPB4Label.BackColor = Color.FromArgb(193, 9, 9);
-                        OPOPC4Label.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS24.BackColor = Color.FromArgb(193, 9, 9);
+                        labelRTA4.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPS14.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnae4.BackColor = Color.FromArgb(193, 9, 9);
+                        labelAnaeS4.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPB4.BackColor = Color.FromArgb(193, 9, 9);
+                        labelOPC4.BackColor = Color.FromArgb(193, 9, 9);
                     }
                     break;
                 default: break;
@@ -890,16 +907,16 @@ namespace K4_Projekt {
             switch (OPRoom)
             {
                 case 1:
-                    OPOPC1Label.BackColor = Color.LimeGreen;
+                    labelOPC1.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPOPC2Label.BackColor = Color.LimeGreen;
+                    labelOPC2.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPOPC3Label.BackColor = Color.LimeGreen;
+                    labelOPC3.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPOPC4Label.BackColor = Color.LimeGreen;
+                    labelOPC4.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -916,16 +933,16 @@ namespace K4_Projekt {
             switch (OPRoom)
             {
                 case 1:
-                    OPOPS11Label.BackColor = Color.LimeGreen;
+                    labelOPS21.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPOPS21Label.BackColor = Color.LimeGreen;
+                    labelOPS22.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPOPS31Label.BackColor = Color.LimeGreen;
+                    labelOPS23.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPOPS41Label.BackColor = Color.LimeGreen;
+                    labelOPS24.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -938,16 +955,16 @@ namespace K4_Projekt {
             switch (OPRoom)
             {
                 case 1:
-                    OPOPS12Label.BackColor = Color.LimeGreen;
+                    labelOPS11.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPOPS22Label.BackColor = Color.LimeGreen;
+                    labelOPS12.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPOPS32Label.BackColor = Color.LimeGreen;
+                    labelOPS13.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPOPS42Label.BackColor = Color.LimeGreen;
+                    labelOPS14.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -960,16 +977,16 @@ namespace K4_Projekt {
             switch (OPRoom)
             {
                 case 1:
-                    OPOPB1Label.BackColor = Color.LimeGreen;
+                    labelOPB1.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPOPB2Label.BackColor = Color.LimeGreen;
+                    labelOPB2.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPOPB3Label.BackColor = Color.LimeGreen;
+                    labelOPB3.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPOPB4Label.BackColor = Color.LimeGreen;
+                    labelOPB4.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -982,16 +999,16 @@ namespace K4_Projekt {
             switch (OPRoom)
             {
                 case 1:
-                    OPAnä1Label.BackColor = Color.LimeGreen;
+                    labelAnae1.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPAnä2Label.BackColor = Color.LimeGreen;
+                    labelAnae2.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPAnä3Label.BackColor = Color.LimeGreen;
+                    labelAnae3.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPAnä4Label.BackColor = Color.LimeGreen;
+                    labelAnae4.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -1004,16 +1021,16 @@ namespace K4_Projekt {
             switch (OPRoom)
             {
                 case 1:
-                    OPAnäS1Label.BackColor = Color.LimeGreen;
+                    labelAnaeS1.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPAnäS2Label.BackColor = Color.LimeGreen;
+                    labelAnaeS2.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPAnäS3Label.BackColor = Color.LimeGreen;
+                    labelAnaeS3.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPAnäS4Label.BackColor = Color.LimeGreen;
+                    labelAnaeS4.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -1026,16 +1043,16 @@ namespace K4_Projekt {
             switch (OPRoom)
             {
                 case 1:
-                    OPRTA1Label.BackColor = Color.LimeGreen;
+                    labelRTA1.BackColor = Color.LimeGreen;
                     break;
                 case 2:
-                    OPRTA2Label.BackColor = Color.LimeGreen;
+                    labelRTA2.BackColor = Color.LimeGreen;
                     break;
                 case 3:
-                    OPRTA3Label.BackColor = Color.LimeGreen;
+                    labelRTA3.BackColor = Color.LimeGreen;
                     break;
                 case 4:
-                    OPRTA4Label.BackColor = Color.LimeGreen;
+                    labelRTA4.BackColor = Color.LimeGreen;
                     break;
                 default: break;
             }
@@ -1045,27 +1062,27 @@ namespace K4_Projekt {
         //runterzählen implementieren!
         private void Bettenstation()
         {
-            labelBS.Text = "Bettenstation: " + StationCount;
+            labelWard.Text = "Bettenstation: " + StationCount;
             switch (StationCount)
             {
                 case 0: break; //just to be safe
                 case 1:
-                    pictureBoxBS1.Visible = true;
+                    pictureBoxWardPatient1.Visible = true;
                     break;
                 case 2:
-                    pictureBoxBS2.Visible = true;
+                    pictureBoxWardPatient2.Visible = true;
                     break;
                 case 3:
-                    pictureBoxBS3.Visible = true;
+                    pictureBoxWardPatient3.Visible = true;
                     break;
                 case 4:
-                    pictureBoxBS4.Visible = true;
+                    pictureBoxWardPatient4.Visible = true;
                     break;
                 case 5:
-                    pictureBoxBS5.Visible = true;
+                    pictureBoxWardPatient5.Visible = true;
                     break;
                 case 6:
-                    pictureBoxBS6.Visible = true;
+                    pictureBoxWardPatient6.Visible = true;
                     break;
                 default: break;
 
@@ -1074,27 +1091,27 @@ namespace K4_Projekt {
 
         private void Church()
         {
-            labelChurch.Text = "Kirche: " + ChurchCount;
+            labelSilentRoom.Text = "Kirche: " + ChurchCount;
             switch (ChurchCount)
             {
                 case 0: break; //just to be safe
                 case 1:
-                    pictureBoxChurch1.Visible = true;
+                    pictureBoxSilentRoomPatient1.Visible = true;
                     break;
                 case 2:
-                    pictureBoxChurch2.Visible = true;
+                    pictureBoxSilentRoomPatient2.Visible = true;
                     break;
                 case 3:
-                    pictureBoxChurch3.Visible = true;
+                    pictureBoxSilentRoomPatient3.Visible = true;
                     break;
                 case 4:
-                    pictureBoxChurch4.Visible = true;
+                    pictureBoxSilentRoomPatient4.Visible = true;
                     break;
                 case 5:
-                    pictureBoxChurch5.Visible = true;
+                    pictureBoxSilentRoomPatient5.Visible = true;
                     break;
                 case 6:
-                    pictureBoxChurch6.Visible = true;
+                    pictureBoxSilentRoomPatient6.Visible = true;
                     break;
                 default: break;
 
@@ -1109,22 +1126,22 @@ namespace K4_Projekt {
             {
                 case 0: break; //just to be safe
                 case 1:
-                    pictureBoxMortuary1.Visible = true;
+                    pictureBoxMortuaryPatient1.Visible = true;
                     break;
                 case 2:
-                    pictureBoxMortuary2.Visible = true;
+                    pictureBoxMortuaryPatient2.Visible = true;
                     break;
                 case 3:
-                    pictureBoxMortuary3.Visible = true;
+                    pictureBoxMortuaryPatient3.Visible = true;
                     break;
                 case 4:
-                    pictureBoxMortuary4.Visible = true;
+                    pictureBoxMortuaryPatient4.Visible = true;
                     break;
                 case 5:
-                    pictureBoxMortuary5.Visible = true;
+                    pictureBoxMortuaryPatient5.Visible = true;
                     break;
                 case 6:
-                    pictureBoxMortuary6.Visible = true;
+                    pictureBoxMortuaryPatient6.Visible = true;
                     break;
                 default: break;
             }
@@ -1205,22 +1222,22 @@ namespace K4_Projekt {
             switch (LVWaiting) {
                 case 0: break; //just to be safe
                 case 1:
-                    pictureBoxWaitingArea1.Visible = true;
+                    pictureBoxWaitingAreaPatient1.Visible = true;
                     break;
                 case 2:
-                    pictureBoxWaitingArea2.Visible = true;
+                    pictureBoxWaitingAreaPatient2.Visible = true;
                     break;
                 case 3:
-                    pictureBoxWaitingArea3.Visible = true;
+                    pictureBoxWaitingAreaPatient3.Visible = true;
                     break;
                 case 4:
-                    pictureBoxWaitingArea4.Visible = true;
+                    pictureBoxWaitingAreaPatient4.Visible = true;
                     break;
                 case 5:
-                    pictureBoxWaitingArea5.Visible = true;
+                    pictureBoxWaitingAreaPatient5.Visible = true;
                     break;
                 case 6:
-                    pictureBoxWaitingArea6.Visible = true;
+                    pictureBoxWaitingAreaPatient6.Visible = true;
                     break;
                 default: break;
             }
@@ -1236,30 +1253,30 @@ namespace K4_Projekt {
             }
             switch (QueueOPRoom) {
                 case 0:
-                    pictureBoxOPWB1.Visible = false;
+                    pictureBoxOPWaitingareaPatient1.Visible = false;
                     break; 
                 case 1:
-                    pictureBoxOPWB1.Visible = true;
-                    pictureBoxOPWB2.Visible = false;
+                    pictureBoxOPWaitingareaPatient1.Visible = true;
+                    pictureBoxOPWaitingareaPatient2.Visible = false;
                     break;
                 case 2:
-                    pictureBoxOPWB2.Visible = true;
-                    pictureBoxOPWB3.Visible = false;
+                    pictureBoxOPWaitingareaPatient2.Visible = true;
+                    pictureBoxOPWaitingareaPatient3.Visible = false;
                     break;
                 case 3:
-                    pictureBoxOPWB3.Visible = true;
-                    pictureBoxOPWB4.Visible = false;
+                    pictureBoxOPWaitingareaPatient3.Visible = true;
+                    pictureBoxOPWaitingareaPatient4.Visible = false;
                     break;
                 case 4:
-                    pictureBoxOPWB4.Visible = true;
-                    pictureBoxOPWB5.Visible = false;
+                    pictureBoxOPWaitingareaPatient4.Visible = true;
+                    pictureBoxOPWaitingareaPatient5.Visible = false;
                     break;
                 case 5:
-                    pictureBoxOPWB5.Visible = true;
-                    pictureBoxOPWB6.Visible = false;
+                    pictureBoxOPWaitingareaPatient5.Visible = true;
+                    pictureBoxOPWaitingareaPatient6.Visible = false;
                     break;
                 case 6:
-                    pictureBoxOPWB6.Visible = true;
+                    pictureBoxOPWaitingareaPatient6.Visible = true;
                     break;
                 default: break;
             }
@@ -1270,7 +1287,116 @@ namespace K4_Projekt {
             speed = trackBarSpeed.Value;
         }
 
-   
+        private void OPnotvailable(int OPRoom) {
+            switch (OPRoom) {
+                case 1:
+                    switch (OP1available) {
+                        case true:
+                            Invoke((MethodInvoker)delegate { pictureBoxOP1.BackColor = Color.DarkRed; });
+                            Invoke((MethodInvoker)delegate { labelOPS21.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelRTA1.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPS11.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelAnae1.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelAnaeS1.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPB1.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPC1.BackColor = Color.LimeGreen; });
+                            OP1available = false;
+                            break;
+                        case false:
+                            Invoke((MethodInvoker)delegate { pictureBoxOP1.BackColor = Color.Green; });
+                            Invoke((MethodInvoker)delegate { labelOPS21.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelRTA1.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPS11.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelAnae1.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelAnaeS1.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPB1.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPC1.BackColor = Color.FromArgb(193, 9, 9); });
+                            OP1available = true;
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (OP2available) {
+                        case true:
+                            Invoke((MethodInvoker)delegate { pictureBoxOP2.BackColor = Color.DarkRed; });
+                            Invoke((MethodInvoker)delegate { labelOPS22.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelRTA2.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPS12.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelAnae2.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelAnaeS2.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPB2.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPC2.BackColor = Color.LimeGreen; });
+                            OP2available = false;
+                            break;
+                        case false:
+                            Invoke((MethodInvoker)delegate { pictureBoxOP2.BackColor = Color.Green; });
+                            Invoke((MethodInvoker)delegate { labelOPS22.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelRTA2.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPS12.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelAnae2.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelAnaeS2.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPB2.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPC2.BackColor = Color.FromArgb(193, 9, 9); });
+                            OP2available = true;
+                            break;
+                    }
+                    break;
+                case 3:
+                    switch (OP3available) {
+                        case true:
+                            Invoke((MethodInvoker)delegate { pictureBoxOP3.BackColor = Color.DarkRed; });
+                            Invoke((MethodInvoker)delegate { labelOPS23.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelRTA3.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPS13.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelAnae3.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelAnaeS3.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPB3.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPC3.BackColor = Color.LimeGreen; });
+                            OP3available = false;
+                            break;
+                        case false:
+                            Invoke((MethodInvoker)delegate { pictureBoxOP3.BackColor = Color.Green; });
+                            Invoke((MethodInvoker)delegate { labelOPS23.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelRTA3.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPS13.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelAnae3.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelAnaeS3.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPB3.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPC3.BackColor = Color.FromArgb(193, 9, 9); });
+                            OP3available = true;
+                            break;
+                    }
+                    break;
+                case 4:
+                    switch (OP4available) {
+                        case true:
+                            Invoke((MethodInvoker)delegate { pictureBoxOP4.BackColor = Color.DarkRed; });
+                            Invoke((MethodInvoker)delegate { labelOPS24.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelRTA4.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPS14.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelAnae4.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelAnaeS4.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPB4.BackColor = Color.LimeGreen; });
+                            Invoke((MethodInvoker)delegate { labelOPC4.BackColor = Color.LimeGreen; });
+                            OP4available = false;
+                            break;
+                        case false:
+                            Invoke((MethodInvoker)delegate { pictureBoxOP4.BackColor = Color.Green; });
+                            Invoke((MethodInvoker)delegate { labelOPS24.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelRTA4.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPS14.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelAnae4.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelAnaeS4.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPB4.BackColor = Color.FromArgb(193, 9, 9); });
+                            Invoke((MethodInvoker)delegate { labelOPC4.BackColor = Color.FromArgb(193, 9, 9); });
+                            OP4available = true;
+                            break;
+                    }
+                    break;
+                default: break;
+            }
+
+        }
     }
     
 }

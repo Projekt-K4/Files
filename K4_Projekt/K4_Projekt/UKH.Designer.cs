@@ -30,174 +30,174 @@ namespace K4_Projekt
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Triageplatzbeschriftung = new System.Windows.Forms.Label();
+            this.labelTriagespace = new System.Windows.Forms.Label();
             this.Queue = new System.Windows.Forms.Label();
-            this.Triagewagen = new System.Windows.Forms.Label();
-            this.class1 = new System.Windows.Forms.Label();
-            this.class2 = new System.Windows.Forms.Label();
-            this.class3 = new System.Windows.Forms.Label();
-            this.class4 = new System.Windows.Forms.Label();
-            this.Patient6 = new System.Windows.Forms.PictureBox();
-            this.Patient4 = new System.Windows.Forms.PictureBox();
-            this.Patient5 = new System.Windows.Forms.PictureBox();
-            this.Patient3 = new System.Windows.Forms.PictureBox();
-            this.Patient2 = new System.Windows.Forms.PictureBox();
-            this.Patient1 = new System.Windows.Forms.PictureBox();
-            this.Triageplatz = new System.Windows.Forms.PictureBox();
+            this.labelTriage = new System.Windows.Forms.Label();
+            this.labelTriagegroup1 = new System.Windows.Forms.Label();
+            this.labelTriagegroup2 = new System.Windows.Forms.Label();
+            this.labelTriagegroup3 = new System.Windows.Forms.Label();
+            this.labelTriagegroup4 = new System.Windows.Forms.Label();
+            this.pictureBoxPatientWaitingTriage6 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPatientWaitingTriage4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPatientWaitingTriage5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPatientWaitingTriage3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPatientWaitingTriage2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPatientWaitingTriage1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTriagespace = new System.Windows.Forms.PictureBox();
             this.AUVA_LOGO = new System.Windows.Forms.PictureBox();
-            this.PatientTriage = new System.Windows.Forms.PictureBox();
-            this.OPOPS12Label = new System.Windows.Forms.Label();
-            this.OPAnäS1Label = new System.Windows.Forms.Label();
-            this.OPRTA1Label = new System.Windows.Forms.Label();
-            this.OPOPS11Label = new System.Windows.Forms.Label();
-            this.OPAnä1Label = new System.Windows.Forms.Label();
-            this.OPOPB1Label = new System.Windows.Forms.Label();
-            this.OPOPC1Label = new System.Windows.Forms.Label();
-            this.OP1Label = new System.Windows.Forms.Label();
-            this.OP1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPatientTriage = new System.Windows.Forms.PictureBox();
+            this.labelOPS11 = new System.Windows.Forms.Label();
+            this.labelAnaeS1 = new System.Windows.Forms.Label();
+            this.labelRTA1 = new System.Windows.Forms.Label();
+            this.labelOPS21 = new System.Windows.Forms.Label();
+            this.labelAnae1 = new System.Windows.Forms.Label();
+            this.labelOPB1 = new System.Windows.Forms.Label();
+            this.labelOPC1 = new System.Windows.Forms.Label();
+            this.labelOP1 = new System.Windows.Forms.Label();
+            this.pictureBoxOP1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxWard = new System.Windows.Forms.PictureBox();
-            this.pictureBoxBS6 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxBS4 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxBS5 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxBS3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxBS2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxBS1 = new System.Windows.Forms.PictureBox();
-            this.labelBS = new System.Windows.Forms.Label();
-            this.pictureBoxChurch = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWardPatient6 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWardPatient4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWardPatient5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWardPatient3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWardPatient2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWardPatient1 = new System.Windows.Forms.PictureBox();
+            this.labelWard = new System.Windows.Forms.Label();
+            this.pictureBoxSilentRoom = new System.Windows.Forms.PictureBox();
             this.pictureBoxMortuary = new System.Windows.Forms.PictureBox();
-            this.labelChurch = new System.Windows.Forms.Label();
+            this.labelSilentRoom = new System.Windows.Forms.Label();
             this.labelMortuary = new System.Windows.Forms.Label();
-            this.pictureBoxChurch6 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxChurch4 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxChurch5 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxChurch3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxChurch2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxChurch1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMortuary6 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMortuary4 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMortuary5 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMortuary3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMortuary2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMortuary1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSilentRoomPatient6 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSilentRoomPatient4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSilentRoomPatient5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSilentRoomPatient3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSilentRoomPatient2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSilentRoomPatient1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMortuaryPatient6 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMortuaryPatient4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMortuaryPatient5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMortuaryPatient3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMortuaryPatient2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMortuaryPatient1 = new System.Windows.Forms.PictureBox();
             this.textBoxEventlog = new System.Windows.Forms.TextBox();
             this.trackBarSpeed = new System.Windows.Forms.TrackBar();
-            this.groupBoxTimer = new System.Windows.Forms.GroupBox();
-            this.textBoxTimer = new System.Windows.Forms.TextBox();
+            this.groupBoxRuntime = new System.Windows.Forms.GroupBox();
+            this.textBoxTime = new System.Windows.Forms.TextBox();
             this.groupBoxStatistic = new System.Windows.Forms.GroupBox();
             this.labelPatientAmount = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.labelOPWartebereich = new System.Windows.Forms.Label();
-            this.pictureBoxOPWB6 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxOPWB4 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxOPWB5 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxOPWB3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxOPWB2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxOPWB1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxOPWartebereich = new System.Windows.Forms.PictureBox();
-            this.pictureBoxWaitingArea6 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxWaitingArea4 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxWaitingArea5 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxWaitingArea3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxWaitingArea2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxWaitingArea1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxOPWaitingareaPatient6 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxOPWaitingareaPatient4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxOPWaitingareaPatient5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxOPWaitingareaPatient3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxOPWaitingareaPatient2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxOPWaitingareaPatient1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxOPWaitingarea = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWaitingAreaPatient6 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWaitingAreaPatient4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWaitingAreaPatient5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWaitingAreaPatient3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWaitingAreaPatient2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWaitingAreaPatient1 = new System.Windows.Forms.PictureBox();
             this.labelWaitingArea = new System.Windows.Forms.Label();
             this.pictureBoxWaitingArea = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.OPOPS22Label = new System.Windows.Forms.Label();
-            this.OPAnäS2Label = new System.Windows.Forms.Label();
-            this.OPRTA2Label = new System.Windows.Forms.Label();
-            this.OPOPS21Label = new System.Windows.Forms.Label();
-            this.OPAnä2Label = new System.Windows.Forms.Label();
-            this.OPOPB2Label = new System.Windows.Forms.Label();
-            this.OPOPC2Label = new System.Windows.Forms.Label();
-            this.OP2Label = new System.Windows.Forms.Label();
-            this.OP2 = new System.Windows.Forms.PictureBox();
-            this.OPOPS32Label = new System.Windows.Forms.Label();
-            this.OPAnäS3Label = new System.Windows.Forms.Label();
-            this.OPRTA3Label = new System.Windows.Forms.Label();
-            this.OPOPS31Label = new System.Windows.Forms.Label();
-            this.OPAnä3Label = new System.Windows.Forms.Label();
-            this.OPOPB3Label = new System.Windows.Forms.Label();
-            this.OPOPC3Label = new System.Windows.Forms.Label();
-            this.OP3Label = new System.Windows.Forms.Label();
-            this.OP3 = new System.Windows.Forms.PictureBox();
-            this.OPOPS42Label = new System.Windows.Forms.Label();
-            this.OPAnäS4Label = new System.Windows.Forms.Label();
-            this.OPRTA4Label = new System.Windows.Forms.Label();
-            this.OPOPS41Label = new System.Windows.Forms.Label();
-            this.OPAnä4Label = new System.Windows.Forms.Label();
-            this.OPOPB4Label = new System.Windows.Forms.Label();
-            this.OPOPC4Label = new System.Windows.Forms.Label();
-            this.OP4Label = new System.Windows.Forms.Label();
-            this.OP4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAUVALogo = new System.Windows.Forms.PictureBox();
+            this.labelOPS12 = new System.Windows.Forms.Label();
+            this.labelAnaeS2 = new System.Windows.Forms.Label();
+            this.labelRTA2 = new System.Windows.Forms.Label();
+            this.labelOPS22 = new System.Windows.Forms.Label();
+            this.labelAnae2 = new System.Windows.Forms.Label();
+            this.labelOPB2 = new System.Windows.Forms.Label();
+            this.labelOPC2 = new System.Windows.Forms.Label();
+            this.labelOP2 = new System.Windows.Forms.Label();
+            this.pictureBoxOP2 = new System.Windows.Forms.PictureBox();
+            this.labelOPS13 = new System.Windows.Forms.Label();
+            this.labelAnaeS3 = new System.Windows.Forms.Label();
+            this.labelRTA3 = new System.Windows.Forms.Label();
+            this.labelOPS23 = new System.Windows.Forms.Label();
+            this.labelAnae3 = new System.Windows.Forms.Label();
+            this.labelOPB3 = new System.Windows.Forms.Label();
+            this.labelOPC3 = new System.Windows.Forms.Label();
+            this.labelOP3 = new System.Windows.Forms.Label();
+            this.pictureBoxOP3 = new System.Windows.Forms.PictureBox();
+            this.labelOPS14 = new System.Windows.Forms.Label();
+            this.labelAnaeS4 = new System.Windows.Forms.Label();
+            this.labelRTA4 = new System.Windows.Forms.Label();
+            this.labelOPS24 = new System.Windows.Forms.Label();
+            this.labelAnae4 = new System.Windows.Forms.Label();
+            this.labelOPB4 = new System.Windows.Forms.Label();
+            this.labelOPC4 = new System.Windows.Forms.Label();
+            this.labelOP4 = new System.Windows.Forms.Label();
+            this.pictureBoxOP4 = new System.Windows.Forms.PictureBox();
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonBreak = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Triageplatz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTriagespace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AUVA_LOGO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PatientTriage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientTriage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
-            this.groupBoxTimer.SuspendLayout();
+            this.groupBoxRuntime.SuspendLayout();
             this.groupBoxStatistic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWartebereich)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingarea)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OP2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OP3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OP4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAUVALogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOP3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOP4)).BeginInit();
             this.SuspendLayout();
             // 
-            // Triageplatzbeschriftung
+            // labelTriagespace
             // 
-            this.Triageplatzbeschriftung.AccessibleName = "";
-            this.Triageplatzbeschriftung.AutoSize = true;
-            this.Triageplatzbeschriftung.BackColor = System.Drawing.Color.Transparent;
-            this.Triageplatzbeschriftung.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Triageplatzbeschriftung.Location = new System.Drawing.Point(160, 172);
-            this.Triageplatzbeschriftung.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.Triageplatzbeschriftung.Name = "Triageplatzbeschriftung";
-            this.Triageplatzbeschriftung.Size = new System.Drawing.Size(119, 25);
-            this.Triageplatzbeschriftung.TabIndex = 6;
-            this.Triageplatzbeschriftung.Text = "Triageplatz";
+            this.labelTriagespace.AccessibleName = "";
+            this.labelTriagespace.AutoSize = true;
+            this.labelTriagespace.BackColor = System.Drawing.Color.Transparent;
+            this.labelTriagespace.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelTriagespace.Location = new System.Drawing.Point(159, 172);
+            this.labelTriagespace.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelTriagespace.Name = "labelTriagespace";
+            this.labelTriagespace.Size = new System.Drawing.Size(131, 25);
+            this.labelTriagespace.TabIndex = 6;
+            this.labelTriagespace.Text = "Triagespace";
             // 
             // Queue
             // 
@@ -205,170 +205,171 @@ namespace K4_Projekt
             this.Queue.AccessibleName = "Queue2";
             this.Queue.AutoSize = true;
             this.Queue.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Queue.Location = new System.Drawing.Point(160, 128);
+            this.Queue.Location = new System.Drawing.Point(159, 128);
             this.Queue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Queue.Name = "Queue";
-            this.Queue.Size = new System.Drawing.Size(191, 25);
+            this.Queue.Size = new System.Drawing.Size(216, 25);
             this.Queue.TabIndex = 8;
-            this.Queue.Text = "0 Patienten warten";
+            this.Queue.Text = "0 patients are waiting";
             // 
-            // Triagewagen
+            // labelTriage
             // 
-            this.Triagewagen.BackColor = System.Drawing.Color.LightCoral;
-            this.Triagewagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Triagewagen.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Triagewagen.Location = new System.Drawing.Point(366, 234);
-            this.Triagewagen.Margin = new System.Windows.Forms.Padding(10);
-            this.Triagewagen.Name = "Triagewagen";
-            this.Triagewagen.Size = new System.Drawing.Size(186, 112);
-            this.Triagewagen.TabIndex = 10;
-            this.Triagewagen.Text = "Triagewagen";
-            this.Triagewagen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTriage.BackColor = System.Drawing.Color.Silver;
+            this.labelTriage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelTriage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTriage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelTriage.Location = new System.Drawing.Point(366, 234);
+            this.labelTriage.Margin = new System.Windows.Forms.Padding(10);
+            this.labelTriage.Name = "labelTriage";
+            this.labelTriage.Size = new System.Drawing.Size(186, 112);
+            this.labelTriage.TabIndex = 10;
+            this.labelTriage.Text = "Triage";
+            this.labelTriage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // class1
+            // labelTriagegroup1
             // 
-            this.class1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.class1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
-            this.class1.ForeColor = System.Drawing.Color.White;
-            this.class1.Location = new System.Drawing.Point(46, 63);
-            this.class1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.class1.MaximumSize = new System.Drawing.Size(220, 80);
-            this.class1.Name = "class1";
-            this.class1.Size = new System.Drawing.Size(220, 70);
-            this.class1.TabIndex = 11;
-            this.class1.Text = "Klasse 1\r\nLeichtverletzte: 0";
-            this.class1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelTriagegroup1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTriagegroup1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
+            this.labelTriagegroup1.ForeColor = System.Drawing.Color.White;
+            this.labelTriagegroup1.Location = new System.Drawing.Point(46, 63);
+            this.labelTriagegroup1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelTriagegroup1.MaximumSize = new System.Drawing.Size(220, 80);
+            this.labelTriagegroup1.Name = "labelTriagegroup1";
+            this.labelTriagegroup1.Size = new System.Drawing.Size(220, 70);
+            this.labelTriagegroup1.TabIndex = 11;
+            this.labelTriagegroup1.Text = "Group 1\r\nslightly injured: 0";
+            this.labelTriagegroup1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // class2
+            // labelTriagegroup2
             // 
-            this.class2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.class2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.class2.ForeColor = System.Drawing.Color.White;
-            this.class2.Location = new System.Drawing.Point(46, 155);
-            this.class2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.class2.MaximumSize = new System.Drawing.Size(220, 80);
-            this.class2.Name = "class2";
-            this.class2.Size = new System.Drawing.Size(220, 70);
-            this.class2.TabIndex = 12;
-            this.class2.Text = "Klasse 2\r\nSchwerverletzte: 0";
-            this.class2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelTriagegroup2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTriagegroup2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelTriagegroup2.ForeColor = System.Drawing.Color.White;
+            this.labelTriagegroup2.Location = new System.Drawing.Point(46, 155);
+            this.labelTriagegroup2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelTriagegroup2.MaximumSize = new System.Drawing.Size(220, 80);
+            this.labelTriagegroup2.Name = "labelTriagegroup2";
+            this.labelTriagegroup2.Size = new System.Drawing.Size(220, 70);
+            this.labelTriagegroup2.TabIndex = 12;
+            this.labelTriagegroup2.Text = "Group 2\r\nseriously injured: 0";
+            this.labelTriagegroup2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // class3
+            // labelTriagegroup3
             // 
-            this.class3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.class3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(16)))), ((int)(((byte)(142)))));
-            this.class3.ForeColor = System.Drawing.Color.White;
-            this.class3.Location = new System.Drawing.Point(46, 248);
-            this.class3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.class3.MaximumSize = new System.Drawing.Size(220, 80);
-            this.class3.Name = "class3";
-            this.class3.Size = new System.Drawing.Size(220, 70);
-            this.class3.TabIndex = 13;
-            this.class3.Text = "Klasse 3\r\nHoffnungslose: 0";
-            this.class3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelTriagegroup3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTriagegroup3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(16)))), ((int)(((byte)(142)))));
+            this.labelTriagegroup3.ForeColor = System.Drawing.Color.White;
+            this.labelTriagegroup3.Location = new System.Drawing.Point(46, 248);
+            this.labelTriagegroup3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelTriagegroup3.MaximumSize = new System.Drawing.Size(220, 80);
+            this.labelTriagegroup3.Name = "labelTriagegroup3";
+            this.labelTriagegroup3.Size = new System.Drawing.Size(220, 70);
+            this.labelTriagegroup3.TabIndex = 13;
+            this.labelTriagegroup3.Text = "Group 3\r\nhopeless: 0";
+            this.labelTriagegroup3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // class4
+            // labelTriagegroup4
             // 
-            this.class4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.class4.BackColor = System.Drawing.Color.Black;
-            this.class4.ForeColor = System.Drawing.Color.White;
-            this.class4.Location = new System.Drawing.Point(46, 337);
-            this.class4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.class4.MaximumSize = new System.Drawing.Size(220, 80);
-            this.class4.Name = "class4";
-            this.class4.Size = new System.Drawing.Size(220, 70);
-            this.class4.TabIndex = 14;
-            this.class4.Text = "Klasse 4\r\nTote: 0";
-            this.class4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelTriagegroup4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTriagegroup4.BackColor = System.Drawing.Color.Black;
+            this.labelTriagegroup4.ForeColor = System.Drawing.Color.White;
+            this.labelTriagegroup4.Location = new System.Drawing.Point(46, 337);
+            this.labelTriagegroup4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelTriagegroup4.MaximumSize = new System.Drawing.Size(220, 80);
+            this.labelTriagegroup4.Name = "labelTriagegroup4";
+            this.labelTriagegroup4.Size = new System.Drawing.Size(220, 70);
+            this.labelTriagegroup4.TabIndex = 14;
+            this.labelTriagegroup4.Text = "Group 4\r\ndead: 0";
+            this.labelTriagegroup4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Patient6
+            // pictureBoxPatientWaitingTriage6
             // 
-            this.Patient6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
-            this.Patient6.InitialImage = null;
-            this.Patient6.Location = new System.Drawing.Point(508, 39);
-            this.Patient6.Margin = new System.Windows.Forms.Padding(4);
-            this.Patient6.Name = "Patient6";
-            this.Patient6.Size = new System.Drawing.Size(50, 81);
-            this.Patient6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Patient6.TabIndex = 40;
-            this.Patient6.TabStop = false;
-            this.Patient6.Visible = false;
+            this.pictureBoxPatientWaitingTriage6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
+            this.pictureBoxPatientWaitingTriage6.InitialImage = null;
+            this.pictureBoxPatientWaitingTriage6.Location = new System.Drawing.Point(437, 47);
+            this.pictureBoxPatientWaitingTriage6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxPatientWaitingTriage6.Name = "pictureBoxPatientWaitingTriage6";
+            this.pictureBoxPatientWaitingTriage6.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxPatientWaitingTriage6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPatientWaitingTriage6.TabIndex = 40;
+            this.pictureBoxPatientWaitingTriage6.TabStop = false;
+            this.pictureBoxPatientWaitingTriage6.Visible = false;
             // 
-            // Patient4
+            // pictureBoxPatientWaitingTriage4
             // 
-            this.Patient4.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.Patient4.InitialImage = null;
-            this.Patient4.Location = new System.Drawing.Point(396, 39);
-            this.Patient4.Margin = new System.Windows.Forms.Padding(4);
-            this.Patient4.Name = "Patient4";
-            this.Patient4.Size = new System.Drawing.Size(50, 77);
-            this.Patient4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Patient4.TabIndex = 19;
-            this.Patient4.TabStop = false;
-            this.Patient4.Visible = false;
+            this.pictureBoxPatientWaitingTriage4.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxPatientWaitingTriage4.InitialImage = null;
+            this.pictureBoxPatientWaitingTriage4.Location = new System.Drawing.Point(325, 47);
+            this.pictureBoxPatientWaitingTriage4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxPatientWaitingTriage4.Name = "pictureBoxPatientWaitingTriage4";
+            this.pictureBoxPatientWaitingTriage4.Size = new System.Drawing.Size(50, 77);
+            this.pictureBoxPatientWaitingTriage4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPatientWaitingTriage4.TabIndex = 19;
+            this.pictureBoxPatientWaitingTriage4.TabStop = false;
+            this.pictureBoxPatientWaitingTriage4.Visible = false;
             // 
-            // Patient5
+            // pictureBoxPatientWaitingTriage5
             // 
-            this.Patient5.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.Patient5.InitialImage = null;
-            this.Patient5.Location = new System.Drawing.Point(452, 39);
-            this.Patient5.Margin = new System.Windows.Forms.Padding(4);
-            this.Patient5.Name = "Patient5";
-            this.Patient5.Size = new System.Drawing.Size(50, 81);
-            this.Patient5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Patient5.TabIndex = 18;
-            this.Patient5.TabStop = false;
-            this.Patient5.Visible = false;
+            this.pictureBoxPatientWaitingTriage5.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxPatientWaitingTriage5.InitialImage = null;
+            this.pictureBoxPatientWaitingTriage5.Location = new System.Drawing.Point(381, 47);
+            this.pictureBoxPatientWaitingTriage5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxPatientWaitingTriage5.Name = "pictureBoxPatientWaitingTriage5";
+            this.pictureBoxPatientWaitingTriage5.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxPatientWaitingTriage5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPatientWaitingTriage5.TabIndex = 18;
+            this.pictureBoxPatientWaitingTriage5.TabStop = false;
+            this.pictureBoxPatientWaitingTriage5.Visible = false;
             // 
-            // Patient3
+            // pictureBoxPatientWaitingTriage3
             // 
-            this.Patient3.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.Patient3.InitialImage = null;
-            this.Patient3.Location = new System.Drawing.Point(340, 39);
-            this.Patient3.Margin = new System.Windows.Forms.Padding(4);
-            this.Patient3.Name = "Patient3";
-            this.Patient3.Size = new System.Drawing.Size(50, 81);
-            this.Patient3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Patient3.TabIndex = 17;
-            this.Patient3.TabStop = false;
-            this.Patient3.Visible = false;
+            this.pictureBoxPatientWaitingTriage3.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxPatientWaitingTriage3.InitialImage = null;
+            this.pictureBoxPatientWaitingTriage3.Location = new System.Drawing.Point(269, 47);
+            this.pictureBoxPatientWaitingTriage3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxPatientWaitingTriage3.Name = "pictureBoxPatientWaitingTriage3";
+            this.pictureBoxPatientWaitingTriage3.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxPatientWaitingTriage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPatientWaitingTriage3.TabIndex = 17;
+            this.pictureBoxPatientWaitingTriage3.TabStop = false;
+            this.pictureBoxPatientWaitingTriage3.Visible = false;
             // 
-            // Patient2
+            // pictureBoxPatientWaitingTriage2
             // 
-            this.Patient2.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.Patient2.InitialImage = null;
-            this.Patient2.Location = new System.Drawing.Point(284, 39);
-            this.Patient2.Margin = new System.Windows.Forms.Padding(4);
-            this.Patient2.Name = "Patient2";
-            this.Patient2.Size = new System.Drawing.Size(50, 81);
-            this.Patient2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Patient2.TabIndex = 16;
-            this.Patient2.TabStop = false;
-            this.Patient2.Visible = false;
+            this.pictureBoxPatientWaitingTriage2.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxPatientWaitingTriage2.InitialImage = null;
+            this.pictureBoxPatientWaitingTriage2.Location = new System.Drawing.Point(213, 47);
+            this.pictureBoxPatientWaitingTriage2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxPatientWaitingTriage2.Name = "pictureBoxPatientWaitingTriage2";
+            this.pictureBoxPatientWaitingTriage2.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxPatientWaitingTriage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPatientWaitingTriage2.TabIndex = 16;
+            this.pictureBoxPatientWaitingTriage2.TabStop = false;
+            this.pictureBoxPatientWaitingTriage2.Visible = false;
             // 
-            // Patient1
+            // pictureBoxPatientWaitingTriage1
             // 
-            this.Patient1.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.Patient1.InitialImage = null;
-            this.Patient1.Location = new System.Drawing.Point(228, 39);
-            this.Patient1.Margin = new System.Windows.Forms.Padding(4);
-            this.Patient1.Name = "Patient1";
-            this.Patient1.Size = new System.Drawing.Size(50, 81);
-            this.Patient1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Patient1.TabIndex = 15;
-            this.Patient1.TabStop = false;
-            this.Patient1.Visible = false;
+            this.pictureBoxPatientWaitingTriage1.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxPatientWaitingTriage1.InitialImage = null;
+            this.pictureBoxPatientWaitingTriage1.Location = new System.Drawing.Point(157, 47);
+            this.pictureBoxPatientWaitingTriage1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxPatientWaitingTriage1.Name = "pictureBoxPatientWaitingTriage1";
+            this.pictureBoxPatientWaitingTriage1.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxPatientWaitingTriage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPatientWaitingTriage1.TabIndex = 15;
+            this.pictureBoxPatientWaitingTriage1.TabStop = false;
+            this.pictureBoxPatientWaitingTriage1.Visible = false;
             // 
-            // Triageplatz
+            // pictureBoxTriagespace
             // 
-            this.Triageplatz.AccessibleName = "";
-            this.Triageplatz.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Triageplatz.Location = new System.Drawing.Point(166, 203);
-            this.Triageplatz.Margin = new System.Windows.Forms.Padding(6);
-            this.Triageplatz.Name = "Triageplatz";
-            this.Triageplatz.Size = new System.Drawing.Size(412, 179);
-            this.Triageplatz.TabIndex = 5;
-            this.Triageplatz.TabStop = false;
+            this.pictureBoxTriagespace.AccessibleName = "";
+            this.pictureBoxTriagespace.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxTriagespace.Location = new System.Drawing.Point(166, 203);
+            this.pictureBoxTriagespace.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxTriagespace.Name = "pictureBoxTriagespace";
+            this.pictureBoxTriagespace.Size = new System.Drawing.Size(412, 179);
+            this.pictureBoxTriagespace.TabIndex = 5;
+            this.pictureBoxTriagespace.TabStop = false;
             // 
             // AUVA_LOGO
             // 
@@ -385,134 +386,134 @@ namespace K4_Projekt
             this.AUVA_LOGO.TabIndex = 0;
             this.AUVA_LOGO.TabStop = false;
             // 
-            // PatientTriage
+            // pictureBoxPatientTriage
             // 
-            this.PatientTriage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PatientTriage.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.PatientTriage.InitialImage = null;
-            this.PatientTriage.Location = new System.Drawing.Point(236, 247);
-            this.PatientTriage.Margin = new System.Windows.Forms.Padding(6);
-            this.PatientTriage.Name = "PatientTriage";
-            this.PatientTriage.Size = new System.Drawing.Size(60, 92);
-            this.PatientTriage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PatientTriage.TabIndex = 45;
-            this.PatientTriage.TabStop = false;
-            this.PatientTriage.Visible = false;
+            this.pictureBoxPatientTriage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxPatientTriage.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxPatientTriage.InitialImage = null;
+            this.pictureBoxPatientTriage.Location = new System.Drawing.Point(236, 247);
+            this.pictureBoxPatientTriage.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxPatientTriage.Name = "pictureBoxPatientTriage";
+            this.pictureBoxPatientTriage.Size = new System.Drawing.Size(60, 92);
+            this.pictureBoxPatientTriage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPatientTriage.TabIndex = 45;
+            this.pictureBoxPatientTriage.TabStop = false;
+            this.pictureBoxPatientTriage.Visible = false;
             // 
-            // OPOPS12Label
+            // labelOPS11
             // 
-            this.OPOPS12Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS12Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS12Label.Location = new System.Drawing.Point(956, 645);
-            this.OPOPS12Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPS12Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPS12Label.Name = "OPOPS12Label";
-            this.OPOPS12Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPS12Label.TabIndex = 118;
-            this.OPOPS12Label.Text = "OPS";
-            this.OPOPS12Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPS11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPS11.ForeColor = System.Drawing.Color.White;
+            this.labelOPS11.Location = new System.Drawing.Point(956, 645);
+            this.labelOPS11.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPS11.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPS11.Name = "labelOPS11";
+            this.labelOPS11.Size = new System.Drawing.Size(71, 55);
+            this.labelOPS11.TabIndex = 118;
+            this.labelOPS11.Text = "OPS";
+            this.labelOPS11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPAnäS1Label
+            // labelAnaeS1
             // 
-            this.OPAnäS1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPAnäS1Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS1Label.Location = new System.Drawing.Point(746, 645);
-            this.OPAnäS1Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPAnäS1Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPAnäS1Label.Name = "OPAnäS1Label";
-            this.OPAnäS1Label.Size = new System.Drawing.Size(71, 55);
-            this.OPAnäS1Label.TabIndex = 93;
-            this.OPAnäS1Label.Text = "AnäS";
-            this.OPAnäS1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnaeS1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelAnaeS1.ForeColor = System.Drawing.Color.White;
+            this.labelAnaeS1.Location = new System.Drawing.Point(746, 645);
+            this.labelAnaeS1.Margin = new System.Windows.Forms.Padding(0);
+            this.labelAnaeS1.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelAnaeS1.Name = "labelAnaeS1";
+            this.labelAnaeS1.Size = new System.Drawing.Size(71, 55);
+            this.labelAnaeS1.TabIndex = 93;
+            this.labelAnaeS1.Text = "AnäS";
+            this.labelAnaeS1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPRTA1Label
+            // labelRTA1
             // 
-            this.OPRTA1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPRTA1Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA1Label.Location = new System.Drawing.Point(676, 645);
-            this.OPRTA1Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPRTA1Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPRTA1Label.Name = "OPRTA1Label";
-            this.OPRTA1Label.Size = new System.Drawing.Size(71, 55);
-            this.OPRTA1Label.TabIndex = 92;
-            this.OPRTA1Label.Text = "RTA";
-            this.OPRTA1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelRTA1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelRTA1.ForeColor = System.Drawing.Color.White;
+            this.labelRTA1.Location = new System.Drawing.Point(676, 645);
+            this.labelRTA1.Margin = new System.Windows.Forms.Padding(0);
+            this.labelRTA1.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelRTA1.Name = "labelRTA1";
+            this.labelRTA1.Size = new System.Drawing.Size(71, 55);
+            this.labelRTA1.TabIndex = 92;
+            this.labelRTA1.Text = "RTA";
+            this.labelRTA1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPS11Label
+            // labelOPS21
             // 
-            this.OPOPS11Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS11Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS11Label.Location = new System.Drawing.Point(1026, 645);
-            this.OPOPS11Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPS11Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPS11Label.Name = "OPOPS11Label";
-            this.OPOPS11Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPS11Label.TabIndex = 91;
-            this.OPOPS11Label.Text = "OPS";
-            this.OPOPS11Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPS21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPS21.ForeColor = System.Drawing.Color.White;
+            this.labelOPS21.Location = new System.Drawing.Point(1026, 645);
+            this.labelOPS21.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPS21.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPS21.Name = "labelOPS21";
+            this.labelOPS21.Size = new System.Drawing.Size(71, 55);
+            this.labelOPS21.TabIndex = 91;
+            this.labelOPS21.Text = "OPS";
+            this.labelOPS21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPAnä1Label
+            // labelAnae1
             // 
-            this.OPAnä1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPAnä1Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä1Label.Location = new System.Drawing.Point(816, 645);
-            this.OPAnä1Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPAnä1Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPAnä1Label.Name = "OPAnä1Label";
-            this.OPAnä1Label.Size = new System.Drawing.Size(71, 55);
-            this.OPAnä1Label.TabIndex = 90;
-            this.OPAnä1Label.Text = "Anä";
-            this.OPAnä1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnae1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelAnae1.ForeColor = System.Drawing.Color.White;
+            this.labelAnae1.Location = new System.Drawing.Point(816, 645);
+            this.labelAnae1.Margin = new System.Windows.Forms.Padding(0);
+            this.labelAnae1.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelAnae1.Name = "labelAnae1";
+            this.labelAnae1.Size = new System.Drawing.Size(71, 55);
+            this.labelAnae1.TabIndex = 90;
+            this.labelAnae1.Text = "Anä";
+            this.labelAnae1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPB1Label
+            // labelOPB1
             // 
-            this.OPOPB1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPB1Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB1Label.Location = new System.Drawing.Point(886, 645);
-            this.OPOPB1Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPB1Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPB1Label.Name = "OPOPB1Label";
-            this.OPOPB1Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPB1Label.TabIndex = 89;
-            this.OPOPB1Label.Text = "OPB";
-            this.OPOPB1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPB1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPB1.ForeColor = System.Drawing.Color.White;
+            this.labelOPB1.Location = new System.Drawing.Point(886, 645);
+            this.labelOPB1.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPB1.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPB1.Name = "labelOPB1";
+            this.labelOPB1.Size = new System.Drawing.Size(71, 55);
+            this.labelOPB1.TabIndex = 89;
+            this.labelOPB1.Text = "OPB";
+            this.labelOPB1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPC1Label
+            // labelOPC1
             // 
-            this.OPOPC1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPC1Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPC1Label.Location = new System.Drawing.Point(1096, 645);
-            this.OPOPC1Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPC1Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPC1Label.Name = "OPOPC1Label";
-            this.OPOPC1Label.Size = new System.Drawing.Size(70, 55);
-            this.OPOPC1Label.TabIndex = 88;
-            this.OPOPC1Label.Text = "OPC";
-            this.OPOPC1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPC1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPC1.ForeColor = System.Drawing.Color.White;
+            this.labelOPC1.Location = new System.Drawing.Point(1096, 645);
+            this.labelOPC1.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPC1.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPC1.Name = "labelOPC1";
+            this.labelOPC1.Size = new System.Drawing.Size(70, 55);
+            this.labelOPC1.TabIndex = 88;
+            this.labelOPC1.Text = "OPC";
+            this.labelOPC1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OP1Label
+            // labelOP1
             // 
-            this.OP1Label.AccessibleName = "";
-            this.OP1Label.AutoSize = true;
-            this.OP1Label.BackColor = System.Drawing.Color.Transparent;
-            this.OP1Label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OP1Label.Location = new System.Drawing.Point(680, 456);
-            this.OP1Label.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.OP1Label.Name = "OP1Label";
-            this.OP1Label.Size = new System.Drawing.Size(54, 25);
-            this.OP1Label.TabIndex = 87;
-            this.OP1Label.Text = "OP1";
+            this.labelOP1.AccessibleName = "";
+            this.labelOP1.AutoSize = true;
+            this.labelOP1.BackColor = System.Drawing.Color.Transparent;
+            this.labelOP1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelOP1.Location = new System.Drawing.Point(671, 456);
+            this.labelOP1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelOP1.Name = "labelOP1";
+            this.labelOP1.Size = new System.Drawing.Size(60, 25);
+            this.labelOP1.TabIndex = 87;
+            this.labelOP1.Text = "OP 1";
             // 
-            // OP1
+            // pictureBoxOP1
             // 
-            this.OP1.AccessibleName = "";
-            this.OP1.BackColor = System.Drawing.Color.Green;
-            this.OP1.Location = new System.Drawing.Point(676, 487);
-            this.OP1.Margin = new System.Windows.Forms.Padding(6);
-            this.OP1.Name = "OP1";
-            this.OP1.Size = new System.Drawing.Size(490, 213);
-            this.OP1.TabIndex = 86;
-            this.OP1.TabStop = false;
+            this.pictureBoxOP1.AccessibleName = "";
+            this.pictureBoxOP1.BackColor = System.Drawing.Color.Green;
+            this.pictureBoxOP1.Location = new System.Drawing.Point(676, 487);
+            this.pictureBoxOP1.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxOP1.Name = "pictureBoxOP1";
+            this.pictureBoxOP1.Size = new System.Drawing.Size(490, 213);
+            this.pictureBoxOP1.TabIndex = 86;
+            this.pictureBoxOP1.TabStop = false;
             // 
             // pictureBoxWard
             // 
@@ -526,121 +527,121 @@ namespace K4_Projekt
             this.pictureBoxWard.TabIndex = 122;
             this.pictureBoxWard.TabStop = false;
             // 
-            // pictureBoxBS6
+            // pictureBoxWardPatient6
             // 
-            this.pictureBoxBS6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxBS6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxBS6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
-            this.pictureBoxBS6.InitialImage = null;
-            this.pictureBoxBS6.Location = new System.Drawing.Point(1672, 1431);
-            this.pictureBoxBS6.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxBS6.Name = "pictureBoxBS6";
-            this.pictureBoxBS6.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxBS6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBS6.TabIndex = 128;
-            this.pictureBoxBS6.TabStop = false;
-            this.pictureBoxBS6.Visible = false;
+            this.pictureBoxWardPatient6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWardPatient6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWardPatient6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
+            this.pictureBoxWardPatient6.InitialImage = null;
+            this.pictureBoxWardPatient6.Location = new System.Drawing.Point(1672, 1431);
+            this.pictureBoxWardPatient6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWardPatient6.Name = "pictureBoxWardPatient6";
+            this.pictureBoxWardPatient6.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWardPatient6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWardPatient6.TabIndex = 128;
+            this.pictureBoxWardPatient6.TabStop = false;
+            this.pictureBoxWardPatient6.Visible = false;
             // 
-            // pictureBoxBS4
+            // pictureBoxWardPatient4
             // 
-            this.pictureBoxBS4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxBS4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxBS4.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxBS4.InitialImage = null;
-            this.pictureBoxBS4.Location = new System.Drawing.Point(1560, 1431);
-            this.pictureBoxBS4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxBS4.Name = "pictureBoxBS4";
-            this.pictureBoxBS4.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxBS4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBS4.TabIndex = 127;
-            this.pictureBoxBS4.TabStop = false;
-            this.pictureBoxBS4.Visible = false;
+            this.pictureBoxWardPatient4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWardPatient4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWardPatient4.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxWardPatient4.InitialImage = null;
+            this.pictureBoxWardPatient4.Location = new System.Drawing.Point(1560, 1431);
+            this.pictureBoxWardPatient4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWardPatient4.Name = "pictureBoxWardPatient4";
+            this.pictureBoxWardPatient4.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWardPatient4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWardPatient4.TabIndex = 127;
+            this.pictureBoxWardPatient4.TabStop = false;
+            this.pictureBoxWardPatient4.Visible = false;
             // 
-            // pictureBoxBS5
+            // pictureBoxWardPatient5
             // 
-            this.pictureBoxBS5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxBS5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxBS5.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxBS5.InitialImage = null;
-            this.pictureBoxBS5.Location = new System.Drawing.Point(1616, 1431);
-            this.pictureBoxBS5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxBS5.Name = "pictureBoxBS5";
-            this.pictureBoxBS5.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxBS5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBS5.TabIndex = 126;
-            this.pictureBoxBS5.TabStop = false;
-            this.pictureBoxBS5.Visible = false;
+            this.pictureBoxWardPatient5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWardPatient5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWardPatient5.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxWardPatient5.InitialImage = null;
+            this.pictureBoxWardPatient5.Location = new System.Drawing.Point(1616, 1431);
+            this.pictureBoxWardPatient5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWardPatient5.Name = "pictureBoxWardPatient5";
+            this.pictureBoxWardPatient5.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWardPatient5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWardPatient5.TabIndex = 126;
+            this.pictureBoxWardPatient5.TabStop = false;
+            this.pictureBoxWardPatient5.Visible = false;
             // 
-            // pictureBoxBS3
+            // pictureBoxWardPatient3
             // 
-            this.pictureBoxBS3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxBS3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxBS3.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxBS3.InitialImage = null;
-            this.pictureBoxBS3.Location = new System.Drawing.Point(1504, 1431);
-            this.pictureBoxBS3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxBS3.Name = "pictureBoxBS3";
-            this.pictureBoxBS3.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxBS3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBS3.TabIndex = 125;
-            this.pictureBoxBS3.TabStop = false;
-            this.pictureBoxBS3.Visible = false;
+            this.pictureBoxWardPatient3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWardPatient3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWardPatient3.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxWardPatient3.InitialImage = null;
+            this.pictureBoxWardPatient3.Location = new System.Drawing.Point(1504, 1431);
+            this.pictureBoxWardPatient3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWardPatient3.Name = "pictureBoxWardPatient3";
+            this.pictureBoxWardPatient3.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWardPatient3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWardPatient3.TabIndex = 125;
+            this.pictureBoxWardPatient3.TabStop = false;
+            this.pictureBoxWardPatient3.Visible = false;
             // 
-            // pictureBoxBS2
+            // pictureBoxWardPatient2
             // 
-            this.pictureBoxBS2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxBS2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxBS2.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxBS2.InitialImage = null;
-            this.pictureBoxBS2.Location = new System.Drawing.Point(1448, 1431);
-            this.pictureBoxBS2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxBS2.Name = "pictureBoxBS2";
-            this.pictureBoxBS2.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxBS2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBS2.TabIndex = 124;
-            this.pictureBoxBS2.TabStop = false;
-            this.pictureBoxBS2.Visible = false;
+            this.pictureBoxWardPatient2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWardPatient2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWardPatient2.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxWardPatient2.InitialImage = null;
+            this.pictureBoxWardPatient2.Location = new System.Drawing.Point(1448, 1431);
+            this.pictureBoxWardPatient2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWardPatient2.Name = "pictureBoxWardPatient2";
+            this.pictureBoxWardPatient2.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWardPatient2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWardPatient2.TabIndex = 124;
+            this.pictureBoxWardPatient2.TabStop = false;
+            this.pictureBoxWardPatient2.Visible = false;
             // 
-            // pictureBoxBS1
+            // pictureBoxWardPatient1
             // 
-            this.pictureBoxBS1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxBS1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxBS1.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxBS1.InitialImage = null;
-            this.pictureBoxBS1.Location = new System.Drawing.Point(1392, 1431);
-            this.pictureBoxBS1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxBS1.Name = "pictureBoxBS1";
-            this.pictureBoxBS1.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxBS1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBS1.TabIndex = 123;
-            this.pictureBoxBS1.TabStop = false;
-            this.pictureBoxBS1.Visible = false;
+            this.pictureBoxWardPatient1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWardPatient1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWardPatient1.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxWardPatient1.InitialImage = null;
+            this.pictureBoxWardPatient1.Location = new System.Drawing.Point(1392, 1431);
+            this.pictureBoxWardPatient1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWardPatient1.Name = "pictureBoxWardPatient1";
+            this.pictureBoxWardPatient1.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWardPatient1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWardPatient1.TabIndex = 123;
+            this.pictureBoxWardPatient1.TabStop = false;
+            this.pictureBoxWardPatient1.Visible = false;
             // 
-            // labelBS
+            // labelWard
             // 
-            this.labelBS.AccessibleName = "";
-            this.labelBS.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.labelBS.AutoSize = true;
-            this.labelBS.BackColor = System.Drawing.Color.Transparent;
-            this.labelBS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelBS.Location = new System.Drawing.Point(1332, 1347);
-            this.labelBS.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelBS.Name = "labelBS";
-            this.labelBS.Size = new System.Drawing.Size(162, 25);
-            this.labelBS.TabIndex = 129;
-            this.labelBS.Text = "Bettenstation: 0";
+            this.labelWard.AccessibleName = "";
+            this.labelWard.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelWard.AutoSize = true;
+            this.labelWard.BackColor = System.Drawing.Color.Transparent;
+            this.labelWard.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelWard.Location = new System.Drawing.Point(1332, 1347);
+            this.labelWard.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelWard.Name = "labelWard";
+            this.labelWard.Size = new System.Drawing.Size(87, 25);
+            this.labelWard.TabIndex = 129;
+            this.labelWard.Text = "Ward: 0";
             // 
-            // pictureBoxChurch
+            // pictureBoxSilentRoom
             // 
-            this.pictureBoxChurch.AccessibleName = "";
-            this.pictureBoxChurch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxChurch.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxChurch.Location = new System.Drawing.Point(904, 1377);
-            this.pictureBoxChurch.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBoxChurch.Name = "pictureBoxChurch";
-            this.pictureBoxChurch.Size = new System.Drawing.Size(422, 190);
-            this.pictureBoxChurch.TabIndex = 130;
-            this.pictureBoxChurch.TabStop = false;
+            this.pictureBoxSilentRoom.AccessibleName = "";
+            this.pictureBoxSilentRoom.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxSilentRoom.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxSilentRoom.Location = new System.Drawing.Point(904, 1377);
+            this.pictureBoxSilentRoom.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxSilentRoom.Name = "pictureBoxSilentRoom";
+            this.pictureBoxSilentRoom.Size = new System.Drawing.Size(422, 190);
+            this.pictureBoxSilentRoom.TabIndex = 130;
+            this.pictureBoxSilentRoom.TabStop = false;
             // 
             // pictureBoxMortuary
             // 
@@ -654,19 +655,19 @@ namespace K4_Projekt
             this.pictureBoxMortuary.TabIndex = 131;
             this.pictureBoxMortuary.TabStop = false;
             // 
-            // labelChurch
+            // labelSilentRoom
             // 
-            this.labelChurch.AccessibleName = "";
-            this.labelChurch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.labelChurch.AutoSize = true;
-            this.labelChurch.BackColor = System.Drawing.Color.Transparent;
-            this.labelChurch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelChurch.Location = new System.Drawing.Point(898, 1347);
-            this.labelChurch.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelChurch.Name = "labelChurch";
-            this.labelChurch.Size = new System.Drawing.Size(97, 25);
-            this.labelChurch.TabIndex = 132;
-            this.labelChurch.Text = "Kirche: 0";
+            this.labelSilentRoom.AccessibleName = "";
+            this.labelSilentRoom.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelSilentRoom.AutoSize = true;
+            this.labelSilentRoom.BackColor = System.Drawing.Color.Transparent;
+            this.labelSilentRoom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelSilentRoom.Location = new System.Drawing.Point(898, 1347);
+            this.labelSilentRoom.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelSilentRoom.Name = "labelSilentRoom";
+            this.labelSilentRoom.Size = new System.Drawing.Size(152, 25);
+            this.labelSilentRoom.TabIndex = 132;
+            this.labelSilentRoom.Text = "Silent Room: 0";
             // 
             // labelMortuary
             // 
@@ -678,189 +679,189 @@ namespace K4_Projekt
             this.labelMortuary.Location = new System.Drawing.Point(1765, 1346);
             this.labelMortuary.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelMortuary.Name = "labelMortuary";
-            this.labelMortuary.Size = new System.Drawing.Size(158, 25);
+            this.labelMortuary.Size = new System.Drawing.Size(121, 25);
             this.labelMortuary.TabIndex = 133;
-            this.labelMortuary.Text = "Leichenhalle: 0";
+            this.labelMortuary.Text = "Mortuary: 0";
             // 
-            // pictureBoxChurch6
+            // pictureBoxSilentRoomPatient6
             // 
-            this.pictureBoxChurch6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxChurch6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxChurch6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
-            this.pictureBoxChurch6.InitialImage = null;
-            this.pictureBoxChurch6.Location = new System.Drawing.Point(1232, 1431);
-            this.pictureBoxChurch6.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxChurch6.Name = "pictureBoxChurch6";
-            this.pictureBoxChurch6.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxChurch6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxChurch6.TabIndex = 139;
-            this.pictureBoxChurch6.TabStop = false;
-            this.pictureBoxChurch6.Visible = false;
+            this.pictureBoxSilentRoomPatient6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxSilentRoomPatient6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxSilentRoomPatient6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
+            this.pictureBoxSilentRoomPatient6.InitialImage = null;
+            this.pictureBoxSilentRoomPatient6.Location = new System.Drawing.Point(1232, 1431);
+            this.pictureBoxSilentRoomPatient6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxSilentRoomPatient6.Name = "pictureBoxSilentRoomPatient6";
+            this.pictureBoxSilentRoomPatient6.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxSilentRoomPatient6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSilentRoomPatient6.TabIndex = 139;
+            this.pictureBoxSilentRoomPatient6.TabStop = false;
+            this.pictureBoxSilentRoomPatient6.Visible = false;
             // 
-            // pictureBoxChurch4
+            // pictureBoxSilentRoomPatient4
             // 
-            this.pictureBoxChurch4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxChurch4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxChurch4.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxChurch4.InitialImage = null;
-            this.pictureBoxChurch4.Location = new System.Drawing.Point(1120, 1431);
-            this.pictureBoxChurch4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxChurch4.Name = "pictureBoxChurch4";
-            this.pictureBoxChurch4.Size = new System.Drawing.Size(50, 77);
-            this.pictureBoxChurch4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxChurch4.TabIndex = 138;
-            this.pictureBoxChurch4.TabStop = false;
-            this.pictureBoxChurch4.Visible = false;
+            this.pictureBoxSilentRoomPatient4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxSilentRoomPatient4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxSilentRoomPatient4.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxSilentRoomPatient4.InitialImage = null;
+            this.pictureBoxSilentRoomPatient4.Location = new System.Drawing.Point(1120, 1431);
+            this.pictureBoxSilentRoomPatient4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxSilentRoomPatient4.Name = "pictureBoxSilentRoomPatient4";
+            this.pictureBoxSilentRoomPatient4.Size = new System.Drawing.Size(50, 77);
+            this.pictureBoxSilentRoomPatient4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSilentRoomPatient4.TabIndex = 138;
+            this.pictureBoxSilentRoomPatient4.TabStop = false;
+            this.pictureBoxSilentRoomPatient4.Visible = false;
             // 
-            // pictureBoxChurch5
+            // pictureBoxSilentRoomPatient5
             // 
-            this.pictureBoxChurch5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxChurch5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxChurch5.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxChurch5.InitialImage = null;
-            this.pictureBoxChurch5.Location = new System.Drawing.Point(1176, 1431);
-            this.pictureBoxChurch5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxChurch5.Name = "pictureBoxChurch5";
-            this.pictureBoxChurch5.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxChurch5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxChurch5.TabIndex = 137;
-            this.pictureBoxChurch5.TabStop = false;
-            this.pictureBoxChurch5.Visible = false;
+            this.pictureBoxSilentRoomPatient5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxSilentRoomPatient5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxSilentRoomPatient5.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxSilentRoomPatient5.InitialImage = null;
+            this.pictureBoxSilentRoomPatient5.Location = new System.Drawing.Point(1176, 1431);
+            this.pictureBoxSilentRoomPatient5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxSilentRoomPatient5.Name = "pictureBoxSilentRoomPatient5";
+            this.pictureBoxSilentRoomPatient5.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxSilentRoomPatient5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSilentRoomPatient5.TabIndex = 137;
+            this.pictureBoxSilentRoomPatient5.TabStop = false;
+            this.pictureBoxSilentRoomPatient5.Visible = false;
             // 
-            // pictureBoxChurch3
+            // pictureBoxSilentRoomPatient3
             // 
-            this.pictureBoxChurch3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxChurch3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxChurch3.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxChurch3.InitialImage = null;
-            this.pictureBoxChurch3.Location = new System.Drawing.Point(1064, 1431);
-            this.pictureBoxChurch3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxChurch3.Name = "pictureBoxChurch3";
-            this.pictureBoxChurch3.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxChurch3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxChurch3.TabIndex = 136;
-            this.pictureBoxChurch3.TabStop = false;
-            this.pictureBoxChurch3.Visible = false;
+            this.pictureBoxSilentRoomPatient3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxSilentRoomPatient3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxSilentRoomPatient3.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxSilentRoomPatient3.InitialImage = null;
+            this.pictureBoxSilentRoomPatient3.Location = new System.Drawing.Point(1064, 1431);
+            this.pictureBoxSilentRoomPatient3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxSilentRoomPatient3.Name = "pictureBoxSilentRoomPatient3";
+            this.pictureBoxSilentRoomPatient3.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxSilentRoomPatient3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSilentRoomPatient3.TabIndex = 136;
+            this.pictureBoxSilentRoomPatient3.TabStop = false;
+            this.pictureBoxSilentRoomPatient3.Visible = false;
             // 
-            // pictureBoxChurch2
+            // pictureBoxSilentRoomPatient2
             // 
-            this.pictureBoxChurch2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxChurch2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxChurch2.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxChurch2.InitialImage = null;
-            this.pictureBoxChurch2.Location = new System.Drawing.Point(1008, 1431);
-            this.pictureBoxChurch2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxChurch2.Name = "pictureBoxChurch2";
-            this.pictureBoxChurch2.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxChurch2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxChurch2.TabIndex = 135;
-            this.pictureBoxChurch2.TabStop = false;
-            this.pictureBoxChurch2.Visible = false;
+            this.pictureBoxSilentRoomPatient2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxSilentRoomPatient2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxSilentRoomPatient2.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxSilentRoomPatient2.InitialImage = null;
+            this.pictureBoxSilentRoomPatient2.Location = new System.Drawing.Point(1008, 1431);
+            this.pictureBoxSilentRoomPatient2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxSilentRoomPatient2.Name = "pictureBoxSilentRoomPatient2";
+            this.pictureBoxSilentRoomPatient2.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxSilentRoomPatient2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSilentRoomPatient2.TabIndex = 135;
+            this.pictureBoxSilentRoomPatient2.TabStop = false;
+            this.pictureBoxSilentRoomPatient2.Visible = false;
             // 
-            // pictureBoxChurch1
+            // pictureBoxSilentRoomPatient1
             // 
-            this.pictureBoxChurch1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxChurch1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxChurch1.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxChurch1.InitialImage = null;
-            this.pictureBoxChurch1.Location = new System.Drawing.Point(952, 1431);
-            this.pictureBoxChurch1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxChurch1.Name = "pictureBoxChurch1";
-            this.pictureBoxChurch1.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxChurch1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxChurch1.TabIndex = 134;
-            this.pictureBoxChurch1.TabStop = false;
-            this.pictureBoxChurch1.Visible = false;
+            this.pictureBoxSilentRoomPatient1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxSilentRoomPatient1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxSilentRoomPatient1.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxSilentRoomPatient1.InitialImage = null;
+            this.pictureBoxSilentRoomPatient1.Location = new System.Drawing.Point(952, 1431);
+            this.pictureBoxSilentRoomPatient1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxSilentRoomPatient1.Name = "pictureBoxSilentRoomPatient1";
+            this.pictureBoxSilentRoomPatient1.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxSilentRoomPatient1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSilentRoomPatient1.TabIndex = 134;
+            this.pictureBoxSilentRoomPatient1.TabStop = false;
+            this.pictureBoxSilentRoomPatient1.Visible = false;
             // 
-            // pictureBoxMortuary6
+            // pictureBoxMortuaryPatient6
             // 
-            this.pictureBoxMortuary6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxMortuary6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxMortuary6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
-            this.pictureBoxMortuary6.InitialImage = null;
-            this.pictureBoxMortuary6.Location = new System.Drawing.Point(2100, 1431);
-            this.pictureBoxMortuary6.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxMortuary6.Name = "pictureBoxMortuary6";
-            this.pictureBoxMortuary6.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxMortuary6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMortuary6.TabIndex = 145;
-            this.pictureBoxMortuary6.TabStop = false;
-            this.pictureBoxMortuary6.Visible = false;
+            this.pictureBoxMortuaryPatient6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxMortuaryPatient6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxMortuaryPatient6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
+            this.pictureBoxMortuaryPatient6.InitialImage = null;
+            this.pictureBoxMortuaryPatient6.Location = new System.Drawing.Point(2100, 1431);
+            this.pictureBoxMortuaryPatient6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxMortuaryPatient6.Name = "pictureBoxMortuaryPatient6";
+            this.pictureBoxMortuaryPatient6.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxMortuaryPatient6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMortuaryPatient6.TabIndex = 145;
+            this.pictureBoxMortuaryPatient6.TabStop = false;
+            this.pictureBoxMortuaryPatient6.Visible = false;
             // 
-            // pictureBoxMortuary4
+            // pictureBoxMortuaryPatient4
             // 
-            this.pictureBoxMortuary4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxMortuary4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxMortuary4.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxMortuary4.InitialImage = null;
-            this.pictureBoxMortuary4.Location = new System.Drawing.Point(1988, 1431);
-            this.pictureBoxMortuary4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxMortuary4.Name = "pictureBoxMortuary4";
-            this.pictureBoxMortuary4.Size = new System.Drawing.Size(50, 77);
-            this.pictureBoxMortuary4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMortuary4.TabIndex = 144;
-            this.pictureBoxMortuary4.TabStop = false;
-            this.pictureBoxMortuary4.Visible = false;
+            this.pictureBoxMortuaryPatient4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxMortuaryPatient4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxMortuaryPatient4.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxMortuaryPatient4.InitialImage = null;
+            this.pictureBoxMortuaryPatient4.Location = new System.Drawing.Point(1988, 1431);
+            this.pictureBoxMortuaryPatient4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxMortuaryPatient4.Name = "pictureBoxMortuaryPatient4";
+            this.pictureBoxMortuaryPatient4.Size = new System.Drawing.Size(50, 77);
+            this.pictureBoxMortuaryPatient4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMortuaryPatient4.TabIndex = 144;
+            this.pictureBoxMortuaryPatient4.TabStop = false;
+            this.pictureBoxMortuaryPatient4.Visible = false;
             // 
-            // pictureBoxMortuary5
+            // pictureBoxMortuaryPatient5
             // 
-            this.pictureBoxMortuary5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxMortuary5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxMortuary5.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxMortuary5.InitialImage = null;
-            this.pictureBoxMortuary5.Location = new System.Drawing.Point(2044, 1431);
-            this.pictureBoxMortuary5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxMortuary5.Name = "pictureBoxMortuary5";
-            this.pictureBoxMortuary5.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxMortuary5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMortuary5.TabIndex = 143;
-            this.pictureBoxMortuary5.TabStop = false;
-            this.pictureBoxMortuary5.Visible = false;
+            this.pictureBoxMortuaryPatient5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxMortuaryPatient5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxMortuaryPatient5.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxMortuaryPatient5.InitialImage = null;
+            this.pictureBoxMortuaryPatient5.Location = new System.Drawing.Point(2044, 1431);
+            this.pictureBoxMortuaryPatient5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxMortuaryPatient5.Name = "pictureBoxMortuaryPatient5";
+            this.pictureBoxMortuaryPatient5.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxMortuaryPatient5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMortuaryPatient5.TabIndex = 143;
+            this.pictureBoxMortuaryPatient5.TabStop = false;
+            this.pictureBoxMortuaryPatient5.Visible = false;
             // 
-            // pictureBoxMortuary3
+            // pictureBoxMortuaryPatient3
             // 
-            this.pictureBoxMortuary3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxMortuary3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxMortuary3.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxMortuary3.InitialImage = null;
-            this.pictureBoxMortuary3.Location = new System.Drawing.Point(1932, 1431);
-            this.pictureBoxMortuary3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxMortuary3.Name = "pictureBoxMortuary3";
-            this.pictureBoxMortuary3.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxMortuary3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMortuary3.TabIndex = 142;
-            this.pictureBoxMortuary3.TabStop = false;
-            this.pictureBoxMortuary3.Visible = false;
+            this.pictureBoxMortuaryPatient3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxMortuaryPatient3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxMortuaryPatient3.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxMortuaryPatient3.InitialImage = null;
+            this.pictureBoxMortuaryPatient3.Location = new System.Drawing.Point(1932, 1431);
+            this.pictureBoxMortuaryPatient3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxMortuaryPatient3.Name = "pictureBoxMortuaryPatient3";
+            this.pictureBoxMortuaryPatient3.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxMortuaryPatient3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMortuaryPatient3.TabIndex = 142;
+            this.pictureBoxMortuaryPatient3.TabStop = false;
+            this.pictureBoxMortuaryPatient3.Visible = false;
             // 
-            // pictureBoxMortuary2
+            // pictureBoxMortuaryPatient2
             // 
-            this.pictureBoxMortuary2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxMortuary2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxMortuary2.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxMortuary2.InitialImage = null;
-            this.pictureBoxMortuary2.Location = new System.Drawing.Point(1876, 1431);
-            this.pictureBoxMortuary2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxMortuary2.Name = "pictureBoxMortuary2";
-            this.pictureBoxMortuary2.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxMortuary2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMortuary2.TabIndex = 141;
-            this.pictureBoxMortuary2.TabStop = false;
-            this.pictureBoxMortuary2.Visible = false;
+            this.pictureBoxMortuaryPatient2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxMortuaryPatient2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxMortuaryPatient2.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxMortuaryPatient2.InitialImage = null;
+            this.pictureBoxMortuaryPatient2.Location = new System.Drawing.Point(1876, 1431);
+            this.pictureBoxMortuaryPatient2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxMortuaryPatient2.Name = "pictureBoxMortuaryPatient2";
+            this.pictureBoxMortuaryPatient2.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxMortuaryPatient2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMortuaryPatient2.TabIndex = 141;
+            this.pictureBoxMortuaryPatient2.TabStop = false;
+            this.pictureBoxMortuaryPatient2.Visible = false;
             // 
-            // pictureBoxMortuary1
+            // pictureBoxMortuaryPatient1
             // 
-            this.pictureBoxMortuary1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxMortuary1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxMortuary1.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxMortuary1.InitialImage = null;
-            this.pictureBoxMortuary1.Location = new System.Drawing.Point(1820, 1431);
-            this.pictureBoxMortuary1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxMortuary1.Name = "pictureBoxMortuary1";
-            this.pictureBoxMortuary1.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxMortuary1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMortuary1.TabIndex = 140;
-            this.pictureBoxMortuary1.TabStop = false;
-            this.pictureBoxMortuary1.Visible = false;
+            this.pictureBoxMortuaryPatient1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxMortuaryPatient1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxMortuaryPatient1.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxMortuaryPatient1.InitialImage = null;
+            this.pictureBoxMortuaryPatient1.Location = new System.Drawing.Point(1820, 1431);
+            this.pictureBoxMortuaryPatient1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxMortuaryPatient1.Name = "pictureBoxMortuaryPatient1";
+            this.pictureBoxMortuaryPatient1.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxMortuaryPatient1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMortuaryPatient1.TabIndex = 140;
+            this.pictureBoxMortuaryPatient1.TabStop = false;
+            this.pictureBoxMortuaryPatient1.Visible = false;
             // 
             // textBoxEventlog
             // 
@@ -889,46 +890,46 @@ namespace K4_Projekt
             this.trackBarSpeed.Value = 1;
             this.trackBarSpeed.Scroll += new System.EventHandler(this.trackBarSpeed_Scroll);
             // 
-            // groupBoxTimer
+            // groupBoxRuntime
             // 
-            this.groupBoxTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxTimer.Controls.Add(this.textBoxTimer);
-            this.groupBoxTimer.Controls.Add(this.trackBarSpeed);
-            this.groupBoxTimer.Location = new System.Drawing.Point(2366, 234);
-            this.groupBoxTimer.Name = "groupBoxTimer";
-            this.groupBoxTimer.Size = new System.Drawing.Size(301, 268);
-            this.groupBoxTimer.TabIndex = 148;
-            this.groupBoxTimer.TabStop = false;
-            this.groupBoxTimer.Text = "Laufzeit";
+            this.groupBoxRuntime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxRuntime.Controls.Add(this.textBoxTime);
+            this.groupBoxRuntime.Controls.Add(this.trackBarSpeed);
+            this.groupBoxRuntime.Location = new System.Drawing.Point(2366, 234);
+            this.groupBoxRuntime.Name = "groupBoxRuntime";
+            this.groupBoxRuntime.Size = new System.Drawing.Size(301, 268);
+            this.groupBoxRuntime.TabIndex = 148;
+            this.groupBoxRuntime.TabStop = false;
+            this.groupBoxRuntime.Text = "Runtime";
             // 
-            // textBoxTimer
+            // textBoxTime
             // 
-            this.textBoxTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTimer.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxTimer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTimer.Location = new System.Drawing.Point(6, 57);
-            this.textBoxTimer.Margin = new System.Windows.Forms.Padding(0);
-            this.textBoxTimer.Name = "textBoxTimer";
-            this.textBoxTimer.Size = new System.Drawing.Size(289, 76);
-            this.textBoxTimer.TabIndex = 150;
-            this.textBoxTimer.Text = "00:00:00";
-            this.textBoxTimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTime.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTime.Location = new System.Drawing.Point(6, 57);
+            this.textBoxTime.Margin = new System.Windows.Forms.Padding(0);
+            this.textBoxTime.Name = "textBoxTime";
+            this.textBoxTime.Size = new System.Drawing.Size(289, 76);
+            this.textBoxTime.TabIndex = 150;
+            this.textBoxTime.Text = "00:00:00";
+            this.textBoxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBoxStatistic
             // 
             this.groupBoxStatistic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxStatistic.Controls.Add(this.labelPatientAmount);
-            this.groupBoxStatistic.Controls.Add(this.class2);
-            this.groupBoxStatistic.Controls.Add(this.class1);
-            this.groupBoxStatistic.Controls.Add(this.class3);
-            this.groupBoxStatistic.Controls.Add(this.class4);
+            this.groupBoxStatistic.Controls.Add(this.labelTriagegroup2);
+            this.groupBoxStatistic.Controls.Add(this.labelTriagegroup1);
+            this.groupBoxStatistic.Controls.Add(this.labelTriagegroup3);
+            this.groupBoxStatistic.Controls.Add(this.labelTriagegroup4);
             this.groupBoxStatistic.Location = new System.Drawing.Point(2366, 508);
             this.groupBoxStatistic.Name = "groupBoxStatistic";
             this.groupBoxStatistic.Size = new System.Drawing.Size(301, 541);
             this.groupBoxStatistic.TabIndex = 149;
             this.groupBoxStatistic.TabStop = false;
-            this.groupBoxStatistic.Text = "Statistik";
+            this.groupBoxStatistic.Text = "Statistic";
             // 
             // labelPatientAmount
             // 
@@ -954,194 +955,194 @@ namespace K4_Projekt
             this.labelOPWartebereich.Location = new System.Drawing.Point(670, 173);
             this.labelOPWartebereich.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelOPWartebereich.Name = "labelOPWartebereich";
-            this.labelOPWartebereich.Size = new System.Drawing.Size(201, 25);
+            this.labelOPWartebereich.Size = new System.Drawing.Size(188, 25);
             this.labelOPWartebereich.TabIndex = 157;
-            this.labelOPWartebereich.Text = "OP-Wartebereich: 0";
+            this.labelOPWartebereich.Text = "OP-Waitingarea: 0";
             // 
-            // pictureBoxOPWB6
+            // pictureBoxOPWaitingareaPatient6
             // 
-            this.pictureBoxOPWB6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxOPWB6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
-            this.pictureBoxOPWB6.InitialImage = null;
-            this.pictureBoxOPWB6.Location = new System.Drawing.Point(1010, 257);
-            this.pictureBoxOPWB6.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxOPWB6.Name = "pictureBoxOPWB6";
-            this.pictureBoxOPWB6.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxOPWB6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxOPWB6.TabIndex = 156;
-            this.pictureBoxOPWB6.TabStop = false;
-            this.pictureBoxOPWB6.Visible = false;
+            this.pictureBoxOPWaitingareaPatient6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxOPWaitingareaPatient6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
+            this.pictureBoxOPWaitingareaPatient6.InitialImage = null;
+            this.pictureBoxOPWaitingareaPatient6.Location = new System.Drawing.Point(1010, 257);
+            this.pictureBoxOPWaitingareaPatient6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxOPWaitingareaPatient6.Name = "pictureBoxOPWaitingareaPatient6";
+            this.pictureBoxOPWaitingareaPatient6.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxOPWaitingareaPatient6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOPWaitingareaPatient6.TabIndex = 156;
+            this.pictureBoxOPWaitingareaPatient6.TabStop = false;
+            this.pictureBoxOPWaitingareaPatient6.Visible = false;
             // 
-            // pictureBoxOPWB4
+            // pictureBoxOPWaitingareaPatient4
             // 
-            this.pictureBoxOPWB4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxOPWB4.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxOPWB4.InitialImage = null;
-            this.pictureBoxOPWB4.Location = new System.Drawing.Point(898, 257);
-            this.pictureBoxOPWB4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxOPWB4.Name = "pictureBoxOPWB4";
-            this.pictureBoxOPWB4.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxOPWB4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxOPWB4.TabIndex = 155;
-            this.pictureBoxOPWB4.TabStop = false;
-            this.pictureBoxOPWB4.Visible = false;
+            this.pictureBoxOPWaitingareaPatient4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxOPWaitingareaPatient4.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxOPWaitingareaPatient4.InitialImage = null;
+            this.pictureBoxOPWaitingareaPatient4.Location = new System.Drawing.Point(898, 257);
+            this.pictureBoxOPWaitingareaPatient4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxOPWaitingareaPatient4.Name = "pictureBoxOPWaitingareaPatient4";
+            this.pictureBoxOPWaitingareaPatient4.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxOPWaitingareaPatient4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOPWaitingareaPatient4.TabIndex = 155;
+            this.pictureBoxOPWaitingareaPatient4.TabStop = false;
+            this.pictureBoxOPWaitingareaPatient4.Visible = false;
             // 
-            // pictureBoxOPWB5
+            // pictureBoxOPWaitingareaPatient5
             // 
-            this.pictureBoxOPWB5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxOPWB5.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxOPWB5.InitialImage = null;
-            this.pictureBoxOPWB5.Location = new System.Drawing.Point(954, 257);
-            this.pictureBoxOPWB5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxOPWB5.Name = "pictureBoxOPWB5";
-            this.pictureBoxOPWB5.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxOPWB5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxOPWB5.TabIndex = 154;
-            this.pictureBoxOPWB5.TabStop = false;
-            this.pictureBoxOPWB5.Visible = false;
+            this.pictureBoxOPWaitingareaPatient5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxOPWaitingareaPatient5.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxOPWaitingareaPatient5.InitialImage = null;
+            this.pictureBoxOPWaitingareaPatient5.Location = new System.Drawing.Point(954, 257);
+            this.pictureBoxOPWaitingareaPatient5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxOPWaitingareaPatient5.Name = "pictureBoxOPWaitingareaPatient5";
+            this.pictureBoxOPWaitingareaPatient5.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxOPWaitingareaPatient5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOPWaitingareaPatient5.TabIndex = 154;
+            this.pictureBoxOPWaitingareaPatient5.TabStop = false;
+            this.pictureBoxOPWaitingareaPatient5.Visible = false;
             // 
-            // pictureBoxOPWB3
+            // pictureBoxOPWaitingareaPatient3
             // 
-            this.pictureBoxOPWB3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxOPWB3.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxOPWB3.InitialImage = null;
-            this.pictureBoxOPWB3.Location = new System.Drawing.Point(842, 257);
-            this.pictureBoxOPWB3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxOPWB3.Name = "pictureBoxOPWB3";
-            this.pictureBoxOPWB3.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxOPWB3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxOPWB3.TabIndex = 153;
-            this.pictureBoxOPWB3.TabStop = false;
-            this.pictureBoxOPWB3.Visible = false;
+            this.pictureBoxOPWaitingareaPatient3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxOPWaitingareaPatient3.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxOPWaitingareaPatient3.InitialImage = null;
+            this.pictureBoxOPWaitingareaPatient3.Location = new System.Drawing.Point(842, 257);
+            this.pictureBoxOPWaitingareaPatient3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxOPWaitingareaPatient3.Name = "pictureBoxOPWaitingareaPatient3";
+            this.pictureBoxOPWaitingareaPatient3.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxOPWaitingareaPatient3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOPWaitingareaPatient3.TabIndex = 153;
+            this.pictureBoxOPWaitingareaPatient3.TabStop = false;
+            this.pictureBoxOPWaitingareaPatient3.Visible = false;
             // 
-            // pictureBoxOPWB2
+            // pictureBoxOPWaitingareaPatient2
             // 
-            this.pictureBoxOPWB2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxOPWB2.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxOPWB2.InitialImage = null;
-            this.pictureBoxOPWB2.Location = new System.Drawing.Point(786, 257);
-            this.pictureBoxOPWB2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxOPWB2.Name = "pictureBoxOPWB2";
-            this.pictureBoxOPWB2.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxOPWB2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxOPWB2.TabIndex = 152;
-            this.pictureBoxOPWB2.TabStop = false;
-            this.pictureBoxOPWB2.Visible = false;
+            this.pictureBoxOPWaitingareaPatient2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxOPWaitingareaPatient2.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxOPWaitingareaPatient2.InitialImage = null;
+            this.pictureBoxOPWaitingareaPatient2.Location = new System.Drawing.Point(786, 257);
+            this.pictureBoxOPWaitingareaPatient2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxOPWaitingareaPatient2.Name = "pictureBoxOPWaitingareaPatient2";
+            this.pictureBoxOPWaitingareaPatient2.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxOPWaitingareaPatient2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOPWaitingareaPatient2.TabIndex = 152;
+            this.pictureBoxOPWaitingareaPatient2.TabStop = false;
+            this.pictureBoxOPWaitingareaPatient2.Visible = false;
             // 
-            // pictureBoxOPWB1
+            // pictureBoxOPWaitingareaPatient1
             // 
-            this.pictureBoxOPWB1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxOPWB1.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxOPWB1.InitialImage = null;
-            this.pictureBoxOPWB1.Location = new System.Drawing.Point(730, 257);
-            this.pictureBoxOPWB1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxOPWB1.Name = "pictureBoxOPWB1";
-            this.pictureBoxOPWB1.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxOPWB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxOPWB1.TabIndex = 151;
-            this.pictureBoxOPWB1.TabStop = false;
-            this.pictureBoxOPWB1.Visible = false;
+            this.pictureBoxOPWaitingareaPatient1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxOPWaitingareaPatient1.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxOPWaitingareaPatient1.InitialImage = null;
+            this.pictureBoxOPWaitingareaPatient1.Location = new System.Drawing.Point(730, 257);
+            this.pictureBoxOPWaitingareaPatient1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxOPWaitingareaPatient1.Name = "pictureBoxOPWaitingareaPatient1";
+            this.pictureBoxOPWaitingareaPatient1.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxOPWaitingareaPatient1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOPWaitingareaPatient1.TabIndex = 151;
+            this.pictureBoxOPWaitingareaPatient1.TabStop = false;
+            this.pictureBoxOPWaitingareaPatient1.Visible = false;
             // 
-            // pictureBoxOPWartebereich
+            // pictureBoxOPWaitingarea
             // 
-            this.pictureBoxOPWartebereich.AccessibleName = "";
-            this.pictureBoxOPWartebereich.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxOPWartebereich.Location = new System.Drawing.Point(676, 203);
-            this.pictureBoxOPWartebereich.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBoxOPWartebereich.Name = "pictureBoxOPWartebereich";
-            this.pictureBoxOPWartebereich.Size = new System.Drawing.Size(412, 179);
-            this.pictureBoxOPWartebereich.TabIndex = 150;
-            this.pictureBoxOPWartebereich.TabStop = false;
+            this.pictureBoxOPWaitingarea.AccessibleName = "";
+            this.pictureBoxOPWaitingarea.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxOPWaitingarea.Location = new System.Drawing.Point(676, 203);
+            this.pictureBoxOPWaitingarea.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxOPWaitingarea.Name = "pictureBoxOPWaitingarea";
+            this.pictureBoxOPWaitingarea.Size = new System.Drawing.Size(412, 179);
+            this.pictureBoxOPWaitingarea.TabIndex = 150;
+            this.pictureBoxOPWaitingarea.TabStop = false;
             // 
-            // pictureBoxWaitingArea6
+            // pictureBoxWaitingAreaPatient6
             // 
-            this.pictureBoxWaitingArea6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxWaitingArea6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxWaitingArea6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
-            this.pictureBoxWaitingArea6.InitialImage = null;
-            this.pictureBoxWaitingArea6.Location = new System.Drawing.Point(2534, 1431);
-            this.pictureBoxWaitingArea6.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxWaitingArea6.Name = "pictureBoxWaitingArea6";
-            this.pictureBoxWaitingArea6.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxWaitingArea6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxWaitingArea6.TabIndex = 165;
-            this.pictureBoxWaitingArea6.TabStop = false;
-            this.pictureBoxWaitingArea6.Visible = false;
+            this.pictureBoxWaitingAreaPatient6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWaitingAreaPatient6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWaitingAreaPatient6.Image = global::K4_Projekt.Properties.Resources.patient_queue1;
+            this.pictureBoxWaitingAreaPatient6.InitialImage = null;
+            this.pictureBoxWaitingAreaPatient6.Location = new System.Drawing.Point(2534, 1431);
+            this.pictureBoxWaitingAreaPatient6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWaitingAreaPatient6.Name = "pictureBoxWaitingAreaPatient6";
+            this.pictureBoxWaitingAreaPatient6.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWaitingAreaPatient6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWaitingAreaPatient6.TabIndex = 165;
+            this.pictureBoxWaitingAreaPatient6.TabStop = false;
+            this.pictureBoxWaitingAreaPatient6.Visible = false;
             // 
-            // pictureBoxWaitingArea4
+            // pictureBoxWaitingAreaPatient4
             // 
-            this.pictureBoxWaitingArea4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxWaitingArea4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxWaitingArea4.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxWaitingArea4.InitialImage = null;
-            this.pictureBoxWaitingArea4.Location = new System.Drawing.Point(2422, 1431);
-            this.pictureBoxWaitingArea4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxWaitingArea4.Name = "pictureBoxWaitingArea4";
-            this.pictureBoxWaitingArea4.Size = new System.Drawing.Size(50, 77);
-            this.pictureBoxWaitingArea4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxWaitingArea4.TabIndex = 164;
-            this.pictureBoxWaitingArea4.TabStop = false;
-            this.pictureBoxWaitingArea4.Visible = false;
+            this.pictureBoxWaitingAreaPatient4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWaitingAreaPatient4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWaitingAreaPatient4.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxWaitingAreaPatient4.InitialImage = null;
+            this.pictureBoxWaitingAreaPatient4.Location = new System.Drawing.Point(2422, 1431);
+            this.pictureBoxWaitingAreaPatient4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWaitingAreaPatient4.Name = "pictureBoxWaitingAreaPatient4";
+            this.pictureBoxWaitingAreaPatient4.Size = new System.Drawing.Size(50, 77);
+            this.pictureBoxWaitingAreaPatient4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWaitingAreaPatient4.TabIndex = 164;
+            this.pictureBoxWaitingAreaPatient4.TabStop = false;
+            this.pictureBoxWaitingAreaPatient4.Visible = false;
             // 
-            // pictureBoxWaitingArea5
+            // pictureBoxWaitingAreaPatient5
             // 
-            this.pictureBoxWaitingArea5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxWaitingArea5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxWaitingArea5.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxWaitingArea5.InitialImage = null;
-            this.pictureBoxWaitingArea5.Location = new System.Drawing.Point(2478, 1431);
-            this.pictureBoxWaitingArea5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxWaitingArea5.Name = "pictureBoxWaitingArea5";
-            this.pictureBoxWaitingArea5.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxWaitingArea5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxWaitingArea5.TabIndex = 163;
-            this.pictureBoxWaitingArea5.TabStop = false;
-            this.pictureBoxWaitingArea5.Visible = false;
+            this.pictureBoxWaitingAreaPatient5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWaitingAreaPatient5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWaitingAreaPatient5.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxWaitingAreaPatient5.InitialImage = null;
+            this.pictureBoxWaitingAreaPatient5.Location = new System.Drawing.Point(2478, 1431);
+            this.pictureBoxWaitingAreaPatient5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWaitingAreaPatient5.Name = "pictureBoxWaitingAreaPatient5";
+            this.pictureBoxWaitingAreaPatient5.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWaitingAreaPatient5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWaitingAreaPatient5.TabIndex = 163;
+            this.pictureBoxWaitingAreaPatient5.TabStop = false;
+            this.pictureBoxWaitingAreaPatient5.Visible = false;
             // 
-            // pictureBoxWaitingArea3
+            // pictureBoxWaitingAreaPatient3
             // 
-            this.pictureBoxWaitingArea3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxWaitingArea3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxWaitingArea3.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxWaitingArea3.InitialImage = null;
-            this.pictureBoxWaitingArea3.Location = new System.Drawing.Point(2366, 1431);
-            this.pictureBoxWaitingArea3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxWaitingArea3.Name = "pictureBoxWaitingArea3";
-            this.pictureBoxWaitingArea3.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxWaitingArea3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxWaitingArea3.TabIndex = 162;
-            this.pictureBoxWaitingArea3.TabStop = false;
-            this.pictureBoxWaitingArea3.Visible = false;
+            this.pictureBoxWaitingAreaPatient3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWaitingAreaPatient3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWaitingAreaPatient3.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxWaitingAreaPatient3.InitialImage = null;
+            this.pictureBoxWaitingAreaPatient3.Location = new System.Drawing.Point(2366, 1431);
+            this.pictureBoxWaitingAreaPatient3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWaitingAreaPatient3.Name = "pictureBoxWaitingAreaPatient3";
+            this.pictureBoxWaitingAreaPatient3.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWaitingAreaPatient3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWaitingAreaPatient3.TabIndex = 162;
+            this.pictureBoxWaitingAreaPatient3.TabStop = false;
+            this.pictureBoxWaitingAreaPatient3.Visible = false;
             // 
-            // pictureBoxWaitingArea2
+            // pictureBoxWaitingAreaPatient2
             // 
-            this.pictureBoxWaitingArea2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxWaitingArea2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxWaitingArea2.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxWaitingArea2.InitialImage = null;
-            this.pictureBoxWaitingArea2.Location = new System.Drawing.Point(2310, 1431);
-            this.pictureBoxWaitingArea2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxWaitingArea2.Name = "pictureBoxWaitingArea2";
-            this.pictureBoxWaitingArea2.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxWaitingArea2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxWaitingArea2.TabIndex = 161;
-            this.pictureBoxWaitingArea2.TabStop = false;
-            this.pictureBoxWaitingArea2.Visible = false;
+            this.pictureBoxWaitingAreaPatient2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWaitingAreaPatient2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWaitingAreaPatient2.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxWaitingAreaPatient2.InitialImage = null;
+            this.pictureBoxWaitingAreaPatient2.Location = new System.Drawing.Point(2310, 1431);
+            this.pictureBoxWaitingAreaPatient2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWaitingAreaPatient2.Name = "pictureBoxWaitingAreaPatient2";
+            this.pictureBoxWaitingAreaPatient2.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWaitingAreaPatient2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWaitingAreaPatient2.TabIndex = 161;
+            this.pictureBoxWaitingAreaPatient2.TabStop = false;
+            this.pictureBoxWaitingAreaPatient2.Visible = false;
             // 
-            // pictureBoxWaitingArea1
+            // pictureBoxWaitingAreaPatient1
             // 
-            this.pictureBoxWaitingArea1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxWaitingArea1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxWaitingArea1.Image = global::K4_Projekt.Properties.Resources.patient_;
-            this.pictureBoxWaitingArea1.InitialImage = null;
-            this.pictureBoxWaitingArea1.Location = new System.Drawing.Point(2254, 1431);
-            this.pictureBoxWaitingArea1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxWaitingArea1.Name = "pictureBoxWaitingArea1";
-            this.pictureBoxWaitingArea1.Size = new System.Drawing.Size(50, 81);
-            this.pictureBoxWaitingArea1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxWaitingArea1.TabIndex = 160;
-            this.pictureBoxWaitingArea1.TabStop = false;
-            this.pictureBoxWaitingArea1.Visible = false;
+            this.pictureBoxWaitingAreaPatient1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxWaitingAreaPatient1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBoxWaitingAreaPatient1.Image = global::K4_Projekt.Properties.Resources.patient_;
+            this.pictureBoxWaitingAreaPatient1.InitialImage = null;
+            this.pictureBoxWaitingAreaPatient1.Location = new System.Drawing.Point(2254, 1431);
+            this.pictureBoxWaitingAreaPatient1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWaitingAreaPatient1.Name = "pictureBoxWaitingAreaPatient1";
+            this.pictureBoxWaitingAreaPatient1.Size = new System.Drawing.Size(50, 81);
+            this.pictureBoxWaitingAreaPatient1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxWaitingAreaPatient1.TabIndex = 160;
+            this.pictureBoxWaitingAreaPatient1.TabStop = false;
+            this.pictureBoxWaitingAreaPatient1.Visible = false;
             // 
             // labelWaitingArea
             // 
@@ -1153,9 +1154,9 @@ namespace K4_Projekt
             this.labelWaitingArea.Location = new System.Drawing.Point(2199, 1346);
             this.labelWaitingArea.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelWaitingArea.Name = "labelWaitingArea";
-            this.labelWaitingArea.Size = new System.Drawing.Size(164, 25);
+            this.labelWaitingArea.Size = new System.Drawing.Size(151, 25);
             this.labelWaitingArea.TabIndex = 159;
-            this.labelWaitingArea.Text = "Wartebereich: 0";
+            this.labelWaitingArea.Text = "Waitingarea: 0";
             // 
             // pictureBoxWaitingArea
             // 
@@ -1169,362 +1170,362 @@ namespace K4_Projekt
             this.pictureBoxWaitingArea.TabIndex = 158;
             this.pictureBoxWaitingArea.TabStop = false;
             // 
-            // pictureBox1
+            // pictureBoxAUVALogo
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = global::K4_Projekt.Properties.Resources.AUVA_svg;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(2366, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(296, 216);
-            this.pictureBox1.TabIndex = 166;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxAUVALogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxAUVALogo.BackgroundImage = global::K4_Projekt.Properties.Resources.AUVA_svg;
+            this.pictureBoxAUVALogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxAUVALogo.InitialImage = null;
+            this.pictureBoxAUVALogo.Location = new System.Drawing.Point(2366, 12);
+            this.pictureBoxAUVALogo.Name = "pictureBoxAUVALogo";
+            this.pictureBoxAUVALogo.Size = new System.Drawing.Size(296, 216);
+            this.pictureBoxAUVALogo.TabIndex = 166;
+            this.pictureBoxAUVALogo.TabStop = false;
             // 
-            // OPOPS22Label
+            // labelOPS12
             // 
-            this.OPOPS22Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS22Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS22Label.Location = new System.Drawing.Point(1632, 645);
-            this.OPOPS22Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPS22Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPS22Label.Name = "OPOPS22Label";
-            this.OPOPS22Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPS22Label.TabIndex = 175;
-            this.OPOPS22Label.Text = "OPS";
-            this.OPOPS22Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPS12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPS12.ForeColor = System.Drawing.Color.White;
+            this.labelOPS12.Location = new System.Drawing.Point(1632, 645);
+            this.labelOPS12.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPS12.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPS12.Name = "labelOPS12";
+            this.labelOPS12.Size = new System.Drawing.Size(71, 55);
+            this.labelOPS12.TabIndex = 175;
+            this.labelOPS12.Text = "OPS";
+            this.labelOPS12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPAnäS2Label
+            // labelAnaeS2
             // 
-            this.OPAnäS2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPAnäS2Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS2Label.Location = new System.Drawing.Point(1422, 645);
-            this.OPAnäS2Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPAnäS2Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPAnäS2Label.Name = "OPAnäS2Label";
-            this.OPAnäS2Label.Size = new System.Drawing.Size(71, 55);
-            this.OPAnäS2Label.TabIndex = 174;
-            this.OPAnäS2Label.Text = "AnäS";
-            this.OPAnäS2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnaeS2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelAnaeS2.ForeColor = System.Drawing.Color.White;
+            this.labelAnaeS2.Location = new System.Drawing.Point(1422, 645);
+            this.labelAnaeS2.Margin = new System.Windows.Forms.Padding(0);
+            this.labelAnaeS2.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelAnaeS2.Name = "labelAnaeS2";
+            this.labelAnaeS2.Size = new System.Drawing.Size(71, 55);
+            this.labelAnaeS2.TabIndex = 174;
+            this.labelAnaeS2.Text = "AnäS";
+            this.labelAnaeS2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPRTA2Label
+            // labelRTA2
             // 
-            this.OPRTA2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPRTA2Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA2Label.Location = new System.Drawing.Point(1352, 645);
-            this.OPRTA2Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPRTA2Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPRTA2Label.Name = "OPRTA2Label";
-            this.OPRTA2Label.Size = new System.Drawing.Size(71, 55);
-            this.OPRTA2Label.TabIndex = 173;
-            this.OPRTA2Label.Text = "RTA";
-            this.OPRTA2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelRTA2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelRTA2.ForeColor = System.Drawing.Color.White;
+            this.labelRTA2.Location = new System.Drawing.Point(1352, 645);
+            this.labelRTA2.Margin = new System.Windows.Forms.Padding(0);
+            this.labelRTA2.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelRTA2.Name = "labelRTA2";
+            this.labelRTA2.Size = new System.Drawing.Size(71, 55);
+            this.labelRTA2.TabIndex = 173;
+            this.labelRTA2.Text = "RTA";
+            this.labelRTA2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPS21Label
+            // labelOPS22
             // 
-            this.OPOPS21Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS21Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS21Label.Location = new System.Drawing.Point(1702, 645);
-            this.OPOPS21Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPS21Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPS21Label.Name = "OPOPS21Label";
-            this.OPOPS21Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPS21Label.TabIndex = 172;
-            this.OPOPS21Label.Text = "OPS";
-            this.OPOPS21Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPS22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPS22.ForeColor = System.Drawing.Color.White;
+            this.labelOPS22.Location = new System.Drawing.Point(1702, 645);
+            this.labelOPS22.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPS22.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPS22.Name = "labelOPS22";
+            this.labelOPS22.Size = new System.Drawing.Size(71, 55);
+            this.labelOPS22.TabIndex = 172;
+            this.labelOPS22.Text = "OPS";
+            this.labelOPS22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPAnä2Label
+            // labelAnae2
             // 
-            this.OPAnä2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPAnä2Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä2Label.Location = new System.Drawing.Point(1492, 645);
-            this.OPAnä2Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPAnä2Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPAnä2Label.Name = "OPAnä2Label";
-            this.OPAnä2Label.Size = new System.Drawing.Size(71, 55);
-            this.OPAnä2Label.TabIndex = 171;
-            this.OPAnä2Label.Text = "Anä";
-            this.OPAnä2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnae2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelAnae2.ForeColor = System.Drawing.Color.White;
+            this.labelAnae2.Location = new System.Drawing.Point(1492, 645);
+            this.labelAnae2.Margin = new System.Windows.Forms.Padding(0);
+            this.labelAnae2.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelAnae2.Name = "labelAnae2";
+            this.labelAnae2.Size = new System.Drawing.Size(71, 55);
+            this.labelAnae2.TabIndex = 171;
+            this.labelAnae2.Text = "Anä";
+            this.labelAnae2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPB2Label
+            // labelOPB2
             // 
-            this.OPOPB2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPB2Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB2Label.Location = new System.Drawing.Point(1562, 645);
-            this.OPOPB2Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPB2Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPB2Label.Name = "OPOPB2Label";
-            this.OPOPB2Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPB2Label.TabIndex = 170;
-            this.OPOPB2Label.Text = "OPB";
-            this.OPOPB2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPB2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPB2.ForeColor = System.Drawing.Color.White;
+            this.labelOPB2.Location = new System.Drawing.Point(1562, 645);
+            this.labelOPB2.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPB2.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPB2.Name = "labelOPB2";
+            this.labelOPB2.Size = new System.Drawing.Size(71, 55);
+            this.labelOPB2.TabIndex = 170;
+            this.labelOPB2.Text = "OPB";
+            this.labelOPB2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPC2Label
+            // labelOPC2
             // 
-            this.OPOPC2Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPC2Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPC2Label.Location = new System.Drawing.Point(1772, 645);
-            this.OPOPC2Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPC2Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPC2Label.Name = "OPOPC2Label";
-            this.OPOPC2Label.Size = new System.Drawing.Size(70, 55);
-            this.OPOPC2Label.TabIndex = 169;
-            this.OPOPC2Label.Text = "OPC";
-            this.OPOPC2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPC2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPC2.ForeColor = System.Drawing.Color.White;
+            this.labelOPC2.Location = new System.Drawing.Point(1772, 645);
+            this.labelOPC2.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPC2.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPC2.Name = "labelOPC2";
+            this.labelOPC2.Size = new System.Drawing.Size(70, 55);
+            this.labelOPC2.TabIndex = 169;
+            this.labelOPC2.Text = "OPC";
+            this.labelOPC2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OP2Label
+            // labelOP2
             // 
-            this.OP2Label.AccessibleName = "";
-            this.OP2Label.AutoSize = true;
-            this.OP2Label.BackColor = System.Drawing.Color.Transparent;
-            this.OP2Label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OP2Label.Location = new System.Drawing.Point(1356, 456);
-            this.OP2Label.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.OP2Label.Name = "OP2Label";
-            this.OP2Label.Size = new System.Drawing.Size(54, 25);
-            this.OP2Label.TabIndex = 168;
-            this.OP2Label.Text = "OP2";
+            this.labelOP2.AccessibleName = "";
+            this.labelOP2.AutoSize = true;
+            this.labelOP2.BackColor = System.Drawing.Color.Transparent;
+            this.labelOP2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelOP2.Location = new System.Drawing.Point(1347, 456);
+            this.labelOP2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelOP2.Name = "labelOP2";
+            this.labelOP2.Size = new System.Drawing.Size(60, 25);
+            this.labelOP2.TabIndex = 168;
+            this.labelOP2.Text = "OP 2";
             // 
-            // OP2
+            // pictureBoxOP2
             // 
-            this.OP2.AccessibleName = "";
-            this.OP2.BackColor = System.Drawing.Color.Green;
-            this.OP2.Location = new System.Drawing.Point(1352, 487);
-            this.OP2.Margin = new System.Windows.Forms.Padding(6);
-            this.OP2.Name = "OP2";
-            this.OP2.Size = new System.Drawing.Size(490, 213);
-            this.OP2.TabIndex = 167;
-            this.OP2.TabStop = false;
+            this.pictureBoxOP2.AccessibleName = "";
+            this.pictureBoxOP2.BackColor = System.Drawing.Color.Green;
+            this.pictureBoxOP2.Location = new System.Drawing.Point(1352, 487);
+            this.pictureBoxOP2.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxOP2.Name = "pictureBoxOP2";
+            this.pictureBoxOP2.Size = new System.Drawing.Size(490, 213);
+            this.pictureBoxOP2.TabIndex = 167;
+            this.pictureBoxOP2.TabStop = false;
             // 
-            // OPOPS32Label
+            // labelOPS13
             // 
-            this.OPOPS32Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS32Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS32Label.Location = new System.Drawing.Point(956, 937);
-            this.OPOPS32Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPS32Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPS32Label.Name = "OPOPS32Label";
-            this.OPOPS32Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPS32Label.TabIndex = 184;
-            this.OPOPS32Label.Text = "OPS";
-            this.OPOPS32Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPS13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPS13.ForeColor = System.Drawing.Color.White;
+            this.labelOPS13.Location = new System.Drawing.Point(956, 937);
+            this.labelOPS13.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPS13.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPS13.Name = "labelOPS13";
+            this.labelOPS13.Size = new System.Drawing.Size(71, 55);
+            this.labelOPS13.TabIndex = 184;
+            this.labelOPS13.Text = "OPS";
+            this.labelOPS13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPAnäS3Label
+            // labelAnaeS3
             // 
-            this.OPAnäS3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPAnäS3Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS3Label.Location = new System.Drawing.Point(746, 937);
-            this.OPAnäS3Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPAnäS3Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPAnäS3Label.Name = "OPAnäS3Label";
-            this.OPAnäS3Label.Size = new System.Drawing.Size(71, 55);
-            this.OPAnäS3Label.TabIndex = 183;
-            this.OPAnäS3Label.Text = "AnäS";
-            this.OPAnäS3Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnaeS3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelAnaeS3.ForeColor = System.Drawing.Color.White;
+            this.labelAnaeS3.Location = new System.Drawing.Point(746, 937);
+            this.labelAnaeS3.Margin = new System.Windows.Forms.Padding(0);
+            this.labelAnaeS3.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelAnaeS3.Name = "labelAnaeS3";
+            this.labelAnaeS3.Size = new System.Drawing.Size(71, 55);
+            this.labelAnaeS3.TabIndex = 183;
+            this.labelAnaeS3.Text = "AnäS";
+            this.labelAnaeS3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPRTA3Label
+            // labelRTA3
             // 
-            this.OPRTA3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPRTA3Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA3Label.Location = new System.Drawing.Point(676, 937);
-            this.OPRTA3Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPRTA3Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPRTA3Label.Name = "OPRTA3Label";
-            this.OPRTA3Label.Size = new System.Drawing.Size(71, 55);
-            this.OPRTA3Label.TabIndex = 182;
-            this.OPRTA3Label.Text = "RTA";
-            this.OPRTA3Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelRTA3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelRTA3.ForeColor = System.Drawing.Color.White;
+            this.labelRTA3.Location = new System.Drawing.Point(676, 937);
+            this.labelRTA3.Margin = new System.Windows.Forms.Padding(0);
+            this.labelRTA3.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelRTA3.Name = "labelRTA3";
+            this.labelRTA3.Size = new System.Drawing.Size(71, 55);
+            this.labelRTA3.TabIndex = 182;
+            this.labelRTA3.Text = "RTA";
+            this.labelRTA3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPS31Label
+            // labelOPS23
             // 
-            this.OPOPS31Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS31Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS31Label.Location = new System.Drawing.Point(1026, 937);
-            this.OPOPS31Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPS31Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPS31Label.Name = "OPOPS31Label";
-            this.OPOPS31Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPS31Label.TabIndex = 181;
-            this.OPOPS31Label.Text = "OPS";
-            this.OPOPS31Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPS23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPS23.ForeColor = System.Drawing.Color.White;
+            this.labelOPS23.Location = new System.Drawing.Point(1026, 937);
+            this.labelOPS23.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPS23.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPS23.Name = "labelOPS23";
+            this.labelOPS23.Size = new System.Drawing.Size(71, 55);
+            this.labelOPS23.TabIndex = 181;
+            this.labelOPS23.Text = "OPS";
+            this.labelOPS23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPAnä3Label
+            // labelAnae3
             // 
-            this.OPAnä3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPAnä3Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä3Label.Location = new System.Drawing.Point(816, 937);
-            this.OPAnä3Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPAnä3Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPAnä3Label.Name = "OPAnä3Label";
-            this.OPAnä3Label.Size = new System.Drawing.Size(71, 55);
-            this.OPAnä3Label.TabIndex = 180;
-            this.OPAnä3Label.Text = "Anä";
-            this.OPAnä3Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnae3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelAnae3.ForeColor = System.Drawing.Color.White;
+            this.labelAnae3.Location = new System.Drawing.Point(816, 937);
+            this.labelAnae3.Margin = new System.Windows.Forms.Padding(0);
+            this.labelAnae3.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelAnae3.Name = "labelAnae3";
+            this.labelAnae3.Size = new System.Drawing.Size(71, 55);
+            this.labelAnae3.TabIndex = 180;
+            this.labelAnae3.Text = "Anä";
+            this.labelAnae3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPB3Label
+            // labelOPB3
             // 
-            this.OPOPB3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPB3Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB3Label.Location = new System.Drawing.Point(886, 937);
-            this.OPOPB3Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPB3Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPB3Label.Name = "OPOPB3Label";
-            this.OPOPB3Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPB3Label.TabIndex = 179;
-            this.OPOPB3Label.Text = "OPB";
-            this.OPOPB3Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPB3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPB3.ForeColor = System.Drawing.Color.White;
+            this.labelOPB3.Location = new System.Drawing.Point(886, 937);
+            this.labelOPB3.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPB3.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPB3.Name = "labelOPB3";
+            this.labelOPB3.Size = new System.Drawing.Size(71, 55);
+            this.labelOPB3.TabIndex = 179;
+            this.labelOPB3.Text = "OPB";
+            this.labelOPB3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPC3Label
+            // labelOPC3
             // 
-            this.OPOPC3Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPC3Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPC3Label.Location = new System.Drawing.Point(1096, 937);
-            this.OPOPC3Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPC3Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPC3Label.Name = "OPOPC3Label";
-            this.OPOPC3Label.Size = new System.Drawing.Size(70, 55);
-            this.OPOPC3Label.TabIndex = 178;
-            this.OPOPC3Label.Text = "OPC";
-            this.OPOPC3Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPC3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPC3.ForeColor = System.Drawing.Color.White;
+            this.labelOPC3.Location = new System.Drawing.Point(1096, 937);
+            this.labelOPC3.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPC3.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPC3.Name = "labelOPC3";
+            this.labelOPC3.Size = new System.Drawing.Size(70, 55);
+            this.labelOPC3.TabIndex = 178;
+            this.labelOPC3.Text = "OPC";
+            this.labelOPC3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OP3Label
+            // labelOP3
             // 
-            this.OP3Label.AccessibleName = "";
-            this.OP3Label.AutoSize = true;
-            this.OP3Label.BackColor = System.Drawing.Color.Transparent;
-            this.OP3Label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OP3Label.Location = new System.Drawing.Point(680, 748);
-            this.OP3Label.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.OP3Label.Name = "OP3Label";
-            this.OP3Label.Size = new System.Drawing.Size(54, 25);
-            this.OP3Label.TabIndex = 177;
-            this.OP3Label.Text = "OP3";
+            this.labelOP3.AccessibleName = "";
+            this.labelOP3.AutoSize = true;
+            this.labelOP3.BackColor = System.Drawing.Color.Transparent;
+            this.labelOP3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelOP3.Location = new System.Drawing.Point(671, 748);
+            this.labelOP3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelOP3.Name = "labelOP3";
+            this.labelOP3.Size = new System.Drawing.Size(60, 25);
+            this.labelOP3.TabIndex = 177;
+            this.labelOP3.Text = "OP 3";
             // 
-            // OP3
+            // pictureBoxOP3
             // 
-            this.OP3.AccessibleName = "";
-            this.OP3.BackColor = System.Drawing.Color.Green;
-            this.OP3.Location = new System.Drawing.Point(676, 779);
-            this.OP3.Margin = new System.Windows.Forms.Padding(6);
-            this.OP3.Name = "OP3";
-            this.OP3.Size = new System.Drawing.Size(490, 213);
-            this.OP3.TabIndex = 176;
-            this.OP3.TabStop = false;
+            this.pictureBoxOP3.AccessibleName = "";
+            this.pictureBoxOP3.BackColor = System.Drawing.Color.Green;
+            this.pictureBoxOP3.Location = new System.Drawing.Point(676, 779);
+            this.pictureBoxOP3.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxOP3.Name = "pictureBoxOP3";
+            this.pictureBoxOP3.Size = new System.Drawing.Size(490, 213);
+            this.pictureBoxOP3.TabIndex = 176;
+            this.pictureBoxOP3.TabStop = false;
             // 
-            // OPOPS42Label
+            // labelOPS14
             // 
-            this.OPOPS42Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS42Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS42Label.Location = new System.Drawing.Point(1632, 937);
-            this.OPOPS42Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPS42Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPS42Label.Name = "OPOPS42Label";
-            this.OPOPS42Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPS42Label.TabIndex = 193;
-            this.OPOPS42Label.Text = "OPS";
-            this.OPOPS42Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPS14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPS14.ForeColor = System.Drawing.Color.White;
+            this.labelOPS14.Location = new System.Drawing.Point(1632, 937);
+            this.labelOPS14.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPS14.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPS14.Name = "labelOPS14";
+            this.labelOPS14.Size = new System.Drawing.Size(71, 55);
+            this.labelOPS14.TabIndex = 193;
+            this.labelOPS14.Text = "OPS";
+            this.labelOPS14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPAnäS4Label
+            // labelAnaeS4
             // 
-            this.OPAnäS4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPAnäS4Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnäS4Label.Location = new System.Drawing.Point(1422, 937);
-            this.OPAnäS4Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPAnäS4Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPAnäS4Label.Name = "OPAnäS4Label";
-            this.OPAnäS4Label.Size = new System.Drawing.Size(71, 55);
-            this.OPAnäS4Label.TabIndex = 192;
-            this.OPAnäS4Label.Text = "AnäS";
-            this.OPAnäS4Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnaeS4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelAnaeS4.ForeColor = System.Drawing.Color.White;
+            this.labelAnaeS4.Location = new System.Drawing.Point(1422, 937);
+            this.labelAnaeS4.Margin = new System.Windows.Forms.Padding(0);
+            this.labelAnaeS4.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelAnaeS4.Name = "labelAnaeS4";
+            this.labelAnaeS4.Size = new System.Drawing.Size(71, 55);
+            this.labelAnaeS4.TabIndex = 192;
+            this.labelAnaeS4.Text = "AnäS";
+            this.labelAnaeS4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPRTA4Label
+            // labelRTA4
             // 
-            this.OPRTA4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPRTA4Label.ForeColor = System.Drawing.Color.White;
-            this.OPRTA4Label.Location = new System.Drawing.Point(1352, 937);
-            this.OPRTA4Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPRTA4Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPRTA4Label.Name = "OPRTA4Label";
-            this.OPRTA4Label.Size = new System.Drawing.Size(71, 55);
-            this.OPRTA4Label.TabIndex = 191;
-            this.OPRTA4Label.Text = "RTA";
-            this.OPRTA4Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelRTA4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelRTA4.ForeColor = System.Drawing.Color.White;
+            this.labelRTA4.Location = new System.Drawing.Point(1352, 937);
+            this.labelRTA4.Margin = new System.Windows.Forms.Padding(0);
+            this.labelRTA4.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelRTA4.Name = "labelRTA4";
+            this.labelRTA4.Size = new System.Drawing.Size(71, 55);
+            this.labelRTA4.TabIndex = 191;
+            this.labelRTA4.Text = "RTA";
+            this.labelRTA4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPS41Label
+            // labelOPS24
             // 
-            this.OPOPS41Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPS41Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPS41Label.Location = new System.Drawing.Point(1702, 937);
-            this.OPOPS41Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPS41Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPS41Label.Name = "OPOPS41Label";
-            this.OPOPS41Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPS41Label.TabIndex = 190;
-            this.OPOPS41Label.Text = "OPS";
-            this.OPOPS41Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPS24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPS24.ForeColor = System.Drawing.Color.White;
+            this.labelOPS24.Location = new System.Drawing.Point(1702, 937);
+            this.labelOPS24.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPS24.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPS24.Name = "labelOPS24";
+            this.labelOPS24.Size = new System.Drawing.Size(71, 55);
+            this.labelOPS24.TabIndex = 190;
+            this.labelOPS24.Text = "OPS";
+            this.labelOPS24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPAnä4Label
+            // labelAnae4
             // 
-            this.OPAnä4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPAnä4Label.ForeColor = System.Drawing.Color.White;
-            this.OPAnä4Label.Location = new System.Drawing.Point(1492, 937);
-            this.OPAnä4Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPAnä4Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPAnä4Label.Name = "OPAnä4Label";
-            this.OPAnä4Label.Size = new System.Drawing.Size(71, 55);
-            this.OPAnä4Label.TabIndex = 189;
-            this.OPAnä4Label.Text = "Anä";
-            this.OPAnä4Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnae4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelAnae4.ForeColor = System.Drawing.Color.White;
+            this.labelAnae4.Location = new System.Drawing.Point(1492, 937);
+            this.labelAnae4.Margin = new System.Windows.Forms.Padding(0);
+            this.labelAnae4.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelAnae4.Name = "labelAnae4";
+            this.labelAnae4.Size = new System.Drawing.Size(71, 55);
+            this.labelAnae4.TabIndex = 189;
+            this.labelAnae4.Text = "Anä";
+            this.labelAnae4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPB4Label
+            // labelOPB4
             // 
-            this.OPOPB4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPB4Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPB4Label.Location = new System.Drawing.Point(1562, 937);
-            this.OPOPB4Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPB4Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPB4Label.Name = "OPOPB4Label";
-            this.OPOPB4Label.Size = new System.Drawing.Size(71, 55);
-            this.OPOPB4Label.TabIndex = 188;
-            this.OPOPB4Label.Text = "OPB";
-            this.OPOPB4Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPB4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPB4.ForeColor = System.Drawing.Color.White;
+            this.labelOPB4.Location = new System.Drawing.Point(1562, 937);
+            this.labelOPB4.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPB4.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPB4.Name = "labelOPB4";
+            this.labelOPB4.Size = new System.Drawing.Size(71, 55);
+            this.labelOPB4.TabIndex = 188;
+            this.labelOPB4.Text = "OPB";
+            this.labelOPB4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OPOPC4Label
+            // labelOPC4
             // 
-            this.OPOPC4Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
-            this.OPOPC4Label.ForeColor = System.Drawing.Color.White;
-            this.OPOPC4Label.Location = new System.Drawing.Point(1772, 937);
-            this.OPOPC4Label.Margin = new System.Windows.Forms.Padding(0);
-            this.OPOPC4Label.MaximumSize = new System.Drawing.Size(200, 56);
-            this.OPOPC4Label.Name = "OPOPC4Label";
-            this.OPOPC4Label.Size = new System.Drawing.Size(70, 55);
-            this.OPOPC4Label.TabIndex = 187;
-            this.OPOPC4Label.Text = "OPC";
-            this.OPOPC4Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOPC4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.labelOPC4.ForeColor = System.Drawing.Color.White;
+            this.labelOPC4.Location = new System.Drawing.Point(1772, 937);
+            this.labelOPC4.Margin = new System.Windows.Forms.Padding(0);
+            this.labelOPC4.MaximumSize = new System.Drawing.Size(200, 56);
+            this.labelOPC4.Name = "labelOPC4";
+            this.labelOPC4.Size = new System.Drawing.Size(70, 55);
+            this.labelOPC4.TabIndex = 187;
+            this.labelOPC4.Text = "OPC";
+            this.labelOPC4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OP4Label
+            // labelOP4
             // 
-            this.OP4Label.AccessibleName = "";
-            this.OP4Label.AutoSize = true;
-            this.OP4Label.BackColor = System.Drawing.Color.Transparent;
-            this.OP4Label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OP4Label.Location = new System.Drawing.Point(1356, 748);
-            this.OP4Label.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.OP4Label.Name = "OP4Label";
-            this.OP4Label.Size = new System.Drawing.Size(54, 25);
-            this.OP4Label.TabIndex = 186;
-            this.OP4Label.Text = "OP4";
+            this.labelOP4.AccessibleName = "";
+            this.labelOP4.AutoSize = true;
+            this.labelOP4.BackColor = System.Drawing.Color.Transparent;
+            this.labelOP4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelOP4.Location = new System.Drawing.Point(1347, 748);
+            this.labelOP4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelOP4.Name = "labelOP4";
+            this.labelOP4.Size = new System.Drawing.Size(60, 25);
+            this.labelOP4.TabIndex = 186;
+            this.labelOP4.Text = "OP 4";
             // 
-            // OP4
+            // pictureBoxOP4
             // 
-            this.OP4.AccessibleName = "";
-            this.OP4.BackColor = System.Drawing.Color.Green;
-            this.OP4.Location = new System.Drawing.Point(1352, 779);
-            this.OP4.Margin = new System.Windows.Forms.Padding(6);
-            this.OP4.Name = "OP4";
-            this.OP4.Size = new System.Drawing.Size(490, 213);
-            this.OP4.TabIndex = 185;
-            this.OP4.TabStop = false;
+            this.pictureBoxOP4.AccessibleName = "";
+            this.pictureBoxOP4.BackColor = System.Drawing.Color.Green;
+            this.pictureBoxOP4.Location = new System.Drawing.Point(1352, 779);
+            this.pictureBoxOP4.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxOP4.Name = "pictureBoxOP4";
+            this.pictureBoxOP4.Size = new System.Drawing.Size(490, 213);
+            this.pictureBoxOP4.TabIndex = 185;
+            this.pictureBoxOP4.TabStop = false;
             // 
             // buttonStart
             // 
@@ -1551,7 +1552,7 @@ namespace K4_Projekt
             this.buttonBreak.Name = "buttonBreak";
             this.buttonBreak.Size = new System.Drawing.Size(301, 79);
             this.buttonBreak.TabIndex = 195;
-            this.buttonBreak.Text = "PAUSE";
+            this.buttonBreak.Text = "BREAK";
             this.buttonBreak.UseVisualStyleBackColor = false;
             this.buttonBreak.Click += new System.EventHandler(this.buttonBreak_Click);
             // 
@@ -1564,97 +1565,97 @@ namespace K4_Projekt
             this.ClientSize = new System.Drawing.Size(2674, 1629);
             this.Controls.Add(this.buttonBreak);
             this.Controls.Add(this.buttonStart);
-            this.Controls.Add(this.OPOPS42Label);
-            this.Controls.Add(this.OPAnäS4Label);
-            this.Controls.Add(this.OPRTA4Label);
-            this.Controls.Add(this.OPOPS41Label);
-            this.Controls.Add(this.OPAnä4Label);
-            this.Controls.Add(this.OPOPB4Label);
-            this.Controls.Add(this.OPOPC4Label);
-            this.Controls.Add(this.OP4Label);
-            this.Controls.Add(this.OP4);
-            this.Controls.Add(this.OPOPS32Label);
-            this.Controls.Add(this.OPAnäS3Label);
-            this.Controls.Add(this.OPRTA3Label);
-            this.Controls.Add(this.OPOPS31Label);
-            this.Controls.Add(this.OPAnä3Label);
-            this.Controls.Add(this.OPOPB3Label);
-            this.Controls.Add(this.OPOPC3Label);
-            this.Controls.Add(this.OP3Label);
-            this.Controls.Add(this.OP3);
-            this.Controls.Add(this.OPOPS22Label);
-            this.Controls.Add(this.OPAnäS2Label);
-            this.Controls.Add(this.OPRTA2Label);
-            this.Controls.Add(this.OPOPS21Label);
-            this.Controls.Add(this.OPAnä2Label);
-            this.Controls.Add(this.OPOPB2Label);
-            this.Controls.Add(this.OPOPC2Label);
-            this.Controls.Add(this.OP2Label);
-            this.Controls.Add(this.OP2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBoxWaitingArea6);
-            this.Controls.Add(this.pictureBoxWaitingArea4);
-            this.Controls.Add(this.pictureBoxWaitingArea5);
-            this.Controls.Add(this.pictureBoxWaitingArea3);
-            this.Controls.Add(this.pictureBoxWaitingArea2);
-            this.Controls.Add(this.pictureBoxWaitingArea1);
+            this.Controls.Add(this.labelOPS14);
+            this.Controls.Add(this.labelAnaeS4);
+            this.Controls.Add(this.labelRTA4);
+            this.Controls.Add(this.labelOPS24);
+            this.Controls.Add(this.labelAnae4);
+            this.Controls.Add(this.labelOPB4);
+            this.Controls.Add(this.labelOPC4);
+            this.Controls.Add(this.labelOP4);
+            this.Controls.Add(this.pictureBoxOP4);
+            this.Controls.Add(this.labelOPS13);
+            this.Controls.Add(this.labelAnaeS3);
+            this.Controls.Add(this.labelRTA3);
+            this.Controls.Add(this.labelOPS23);
+            this.Controls.Add(this.labelAnae3);
+            this.Controls.Add(this.labelOPB3);
+            this.Controls.Add(this.labelOPC3);
+            this.Controls.Add(this.labelOP3);
+            this.Controls.Add(this.pictureBoxOP3);
+            this.Controls.Add(this.labelOPS12);
+            this.Controls.Add(this.labelAnaeS2);
+            this.Controls.Add(this.labelRTA2);
+            this.Controls.Add(this.labelOPS22);
+            this.Controls.Add(this.labelAnae2);
+            this.Controls.Add(this.labelOPB2);
+            this.Controls.Add(this.labelOPC2);
+            this.Controls.Add(this.labelOP2);
+            this.Controls.Add(this.pictureBoxOP2);
+            this.Controls.Add(this.pictureBoxAUVALogo);
+            this.Controls.Add(this.pictureBoxWaitingAreaPatient6);
+            this.Controls.Add(this.pictureBoxWaitingAreaPatient4);
+            this.Controls.Add(this.pictureBoxWaitingAreaPatient5);
+            this.Controls.Add(this.pictureBoxWaitingAreaPatient3);
+            this.Controls.Add(this.pictureBoxWaitingAreaPatient2);
+            this.Controls.Add(this.pictureBoxWaitingAreaPatient1);
             this.Controls.Add(this.labelWaitingArea);
             this.Controls.Add(this.pictureBoxWaitingArea);
             this.Controls.Add(this.labelOPWartebereich);
-            this.Controls.Add(this.pictureBoxOPWB6);
-            this.Controls.Add(this.pictureBoxOPWB4);
-            this.Controls.Add(this.pictureBoxOPWB5);
-            this.Controls.Add(this.pictureBoxOPWB3);
-            this.Controls.Add(this.pictureBoxOPWB2);
-            this.Controls.Add(this.pictureBoxOPWB1);
-            this.Controls.Add(this.pictureBoxOPWartebereich);
+            this.Controls.Add(this.pictureBoxOPWaitingareaPatient6);
+            this.Controls.Add(this.pictureBoxOPWaitingareaPatient4);
+            this.Controls.Add(this.pictureBoxOPWaitingareaPatient5);
+            this.Controls.Add(this.pictureBoxOPWaitingareaPatient3);
+            this.Controls.Add(this.pictureBoxOPWaitingareaPatient2);
+            this.Controls.Add(this.pictureBoxOPWaitingareaPatient1);
+            this.Controls.Add(this.pictureBoxOPWaitingarea);
             this.Controls.Add(this.groupBoxStatistic);
-            this.Controls.Add(this.groupBoxTimer);
+            this.Controls.Add(this.groupBoxRuntime);
             this.Controls.Add(this.textBoxEventlog);
-            this.Controls.Add(this.pictureBoxMortuary6);
-            this.Controls.Add(this.pictureBoxMortuary4);
-            this.Controls.Add(this.pictureBoxMortuary5);
-            this.Controls.Add(this.pictureBoxMortuary3);
-            this.Controls.Add(this.pictureBoxMortuary2);
-            this.Controls.Add(this.pictureBoxMortuary1);
-            this.Controls.Add(this.pictureBoxChurch6);
-            this.Controls.Add(this.pictureBoxChurch4);
-            this.Controls.Add(this.pictureBoxChurch5);
-            this.Controls.Add(this.pictureBoxChurch3);
-            this.Controls.Add(this.pictureBoxChurch2);
-            this.Controls.Add(this.pictureBoxChurch1);
+            this.Controls.Add(this.pictureBoxMortuaryPatient6);
+            this.Controls.Add(this.pictureBoxMortuaryPatient4);
+            this.Controls.Add(this.pictureBoxMortuaryPatient5);
+            this.Controls.Add(this.pictureBoxMortuaryPatient3);
+            this.Controls.Add(this.pictureBoxMortuaryPatient2);
+            this.Controls.Add(this.pictureBoxMortuaryPatient1);
+            this.Controls.Add(this.pictureBoxSilentRoomPatient6);
+            this.Controls.Add(this.pictureBoxSilentRoomPatient4);
+            this.Controls.Add(this.pictureBoxSilentRoomPatient5);
+            this.Controls.Add(this.pictureBoxSilentRoomPatient3);
+            this.Controls.Add(this.pictureBoxSilentRoomPatient2);
+            this.Controls.Add(this.pictureBoxSilentRoomPatient1);
             this.Controls.Add(this.labelMortuary);
-            this.Controls.Add(this.labelChurch);
+            this.Controls.Add(this.labelSilentRoom);
             this.Controls.Add(this.pictureBoxMortuary);
-            this.Controls.Add(this.pictureBoxChurch);
-            this.Controls.Add(this.labelBS);
-            this.Controls.Add(this.pictureBoxBS6);
-            this.Controls.Add(this.pictureBoxBS4);
-            this.Controls.Add(this.pictureBoxBS5);
-            this.Controls.Add(this.pictureBoxBS3);
-            this.Controls.Add(this.pictureBoxBS2);
-            this.Controls.Add(this.pictureBoxBS1);
+            this.Controls.Add(this.pictureBoxSilentRoom);
+            this.Controls.Add(this.labelWard);
+            this.Controls.Add(this.pictureBoxWardPatient6);
+            this.Controls.Add(this.pictureBoxWardPatient4);
+            this.Controls.Add(this.pictureBoxWardPatient5);
+            this.Controls.Add(this.pictureBoxWardPatient3);
+            this.Controls.Add(this.pictureBoxWardPatient2);
+            this.Controls.Add(this.pictureBoxWardPatient1);
             this.Controls.Add(this.pictureBoxWard);
-            this.Controls.Add(this.OPOPS12Label);
-            this.Controls.Add(this.OPAnäS1Label);
-            this.Controls.Add(this.OPRTA1Label);
-            this.Controls.Add(this.OPOPS11Label);
-            this.Controls.Add(this.OPAnä1Label);
-            this.Controls.Add(this.OPOPB1Label);
-            this.Controls.Add(this.OPOPC1Label);
-            this.Controls.Add(this.OP1Label);
-            this.Controls.Add(this.OP1);
-            this.Controls.Add(this.PatientTriage);
-            this.Controls.Add(this.Patient6);
-            this.Controls.Add(this.Patient4);
-            this.Controls.Add(this.Patient5);
-            this.Controls.Add(this.Patient3);
-            this.Controls.Add(this.Patient2);
-            this.Controls.Add(this.Patient1);
-            this.Controls.Add(this.Triagewagen);
+            this.Controls.Add(this.labelOPS11);
+            this.Controls.Add(this.labelAnaeS1);
+            this.Controls.Add(this.labelRTA1);
+            this.Controls.Add(this.labelOPS21);
+            this.Controls.Add(this.labelAnae1);
+            this.Controls.Add(this.labelOPB1);
+            this.Controls.Add(this.labelOPC1);
+            this.Controls.Add(this.labelOP1);
+            this.Controls.Add(this.pictureBoxOP1);
+            this.Controls.Add(this.pictureBoxPatientTriage);
+            this.Controls.Add(this.pictureBoxPatientWaitingTriage6);
+            this.Controls.Add(this.pictureBoxPatientWaitingTriage4);
+            this.Controls.Add(this.pictureBoxPatientWaitingTriage5);
+            this.Controls.Add(this.pictureBoxPatientWaitingTriage3);
+            this.Controls.Add(this.pictureBoxPatientWaitingTriage2);
+            this.Controls.Add(this.pictureBoxPatientWaitingTriage1);
+            this.Controls.Add(this.labelTriage);
             this.Controls.Add(this.Queue);
-            this.Controls.Add(this.Triageplatzbeschriftung);
-            this.Controls.Add(this.Triageplatz);
+            this.Controls.Add(this.labelTriagespace);
+            this.Controls.Add(this.pictureBoxTriagespace);
             this.Controls.Add(this.AUVA_LOGO);
             this.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1662,59 +1663,59 @@ namespace K4_Projekt
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "AUVA UKH Linz Triage-Simulator";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.Patient6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Patient1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Triageplatz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientWaitingTriage1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTriagespace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AUVA_LOGO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PatientTriage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientTriage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBS1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWardPatient1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChurch1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuary1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSilentRoomPatient1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMortuaryPatient1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).EndInit();
-            this.groupBoxTimer.ResumeLayout(false);
-            this.groupBoxTimer.PerformLayout();
+            this.groupBoxRuntime.ResumeLayout(false);
+            this.groupBoxRuntime.PerformLayout();
             this.groupBoxStatistic.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWB1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWartebereich)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingareaPatient1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOPWaitingarea)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingAreaPatient1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWaitingArea)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OP2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OP3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OP4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAUVALogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOP3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOP4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1725,106 +1726,106 @@ namespace K4_Projekt
         #endregion
 
         private PictureBox AUVA_LOGO;
-        private Label Triageplatzbeschriftung;
-        private PictureBox Triageplatz;
+        private Label labelTriagespace;
+        private PictureBox pictureBoxTriagespace;
         private Label Queue;
-        private Label Triagewagen;
-        private Label class1;
-        private Label class2;
-        private Label class3;
-        private Label class4;
-        private PictureBox Patient1;
-        private PictureBox Patient2;
-        private PictureBox Patient3;
-        private PictureBox Patient5;
-        private PictureBox Patient4;
-        private PictureBox Patient6;
-        private PictureBox PatientTriage;
+        private Label labelTriage;
+        private Label labelTriagegroup1;
+        private Label labelTriagegroup2;
+        private Label labelTriagegroup3;
+        private Label labelTriagegroup4;
+        private PictureBox pictureBoxPatientWaitingTriage1;
+        private PictureBox pictureBoxPatientWaitingTriage2;
+        private PictureBox pictureBoxPatientWaitingTriage3;
+        private PictureBox pictureBoxPatientWaitingTriage5;
+        private PictureBox pictureBoxPatientWaitingTriage4;
+        private PictureBox pictureBoxPatientWaitingTriage6;
+        private PictureBox pictureBoxPatientTriage;
         private TextBox EventLogFeld;
-        private Label OPOPS12Label;
-        private Label OPAnäS1Label;
-        private Label OPRTA1Label;
-        private Label OPOPS11Label;
-        private Label OPAnä1Label;
-        private Label OPOPB1Label;
-        private Label OPOPC1Label;
-        private Label OP1Label;
-        private PictureBox OP1;
+        private Label labelOPS11;
+        private Label labelAnaeS1;
+        private Label labelRTA1;
+        private Label labelOPS21;
+        private Label labelAnae1;
+        private Label labelOPB1;
+        private Label labelOPC1;
+        private Label labelOP1;
+        private PictureBox pictureBoxOP1;
         private PictureBox pictureBoxWard;
-        private PictureBox pictureBoxBS6;
-        private PictureBox pictureBoxBS4;
-        private PictureBox pictureBoxBS5;
-        private PictureBox pictureBoxBS3;
-        private PictureBox pictureBoxBS2;
-        private PictureBox pictureBoxBS1;
-        private Label labelBS;
-        private PictureBox pictureBoxChurch;
+        private PictureBox pictureBoxWardPatient6;
+        private PictureBox pictureBoxWardPatient4;
+        private PictureBox pictureBoxWardPatient5;
+        private PictureBox pictureBoxWardPatient3;
+        private PictureBox pictureBoxWardPatient2;
+        private PictureBox pictureBoxWardPatient1;
+        private Label labelWard;
+        private PictureBox pictureBoxSilentRoom;
         private PictureBox pictureBoxMortuary;
-        private Label labelChurch;
+        private Label labelSilentRoom;
         private Label labelMortuary;
-        private PictureBox pictureBoxChurch6;
-        private PictureBox pictureBoxChurch4;
-        private PictureBox pictureBoxChurch5;
-        private PictureBox pictureBoxChurch3;
-        private PictureBox pictureBoxChurch2;
-        private PictureBox pictureBoxChurch1;
-        private PictureBox pictureBoxMortuary6;
-        private PictureBox pictureBoxMortuary4;
-        private PictureBox pictureBoxMortuary5;
-        private PictureBox pictureBoxMortuary3;
-        private PictureBox pictureBoxMortuary2;
-        private PictureBox pictureBoxMortuary1;
+        private PictureBox pictureBoxSilentRoomPatient6;
+        private PictureBox pictureBoxSilentRoomPatient4;
+        private PictureBox pictureBoxSilentRoomPatient5;
+        private PictureBox pictureBoxSilentRoomPatient3;
+        private PictureBox pictureBoxSilentRoomPatient2;
+        private PictureBox pictureBoxSilentRoomPatient1;
+        private PictureBox pictureBoxMortuaryPatient6;
+        private PictureBox pictureBoxMortuaryPatient4;
+        private PictureBox pictureBoxMortuaryPatient5;
+        private PictureBox pictureBoxMortuaryPatient3;
+        private PictureBox pictureBoxMortuaryPatient2;
+        private PictureBox pictureBoxMortuaryPatient1;
         private TextBox textBoxEventlog;
         private TrackBar trackBarSpeed;
-        private GroupBox groupBoxTimer;
-        private TextBox textBoxTimer;
+        private GroupBox groupBoxRuntime;
+        private TextBox textBoxTime;
         private GroupBox groupBoxStatistic;
         private Label labelPatientAmount;
         private Timer timer;
         private Label labelOPWartebereich;
-        private PictureBox pictureBoxOPWB6;
-        private PictureBox pictureBoxOPWB4;
-        private PictureBox pictureBoxOPWB5;
-        private PictureBox pictureBoxOPWB3;
-        private PictureBox pictureBoxOPWB2;
-        private PictureBox pictureBoxOPWB1;
-        private PictureBox pictureBoxOPWartebereich;
-        private PictureBox pictureBoxWaitingArea6;
-        private PictureBox pictureBoxWaitingArea4;
-        private PictureBox pictureBoxWaitingArea5;
-        private PictureBox pictureBoxWaitingArea3;
-        private PictureBox pictureBoxWaitingArea2;
-        private PictureBox pictureBoxWaitingArea1;
+        private PictureBox pictureBoxOPWaitingareaPatient6;
+        private PictureBox pictureBoxOPWaitingareaPatient4;
+        private PictureBox pictureBoxOPWaitingareaPatient5;
+        private PictureBox pictureBoxOPWaitingareaPatient3;
+        private PictureBox pictureBoxOPWaitingareaPatient2;
+        private PictureBox pictureBoxOPWaitingareaPatient1;
+        private PictureBox pictureBoxOPWaitingarea;
+        private PictureBox pictureBoxWaitingAreaPatient6;
+        private PictureBox pictureBoxWaitingAreaPatient4;
+        private PictureBox pictureBoxWaitingAreaPatient5;
+        private PictureBox pictureBoxWaitingAreaPatient3;
+        private PictureBox pictureBoxWaitingAreaPatient2;
+        private PictureBox pictureBoxWaitingAreaPatient1;
         private Label labelWaitingArea;
         private PictureBox pictureBoxWaitingArea;
-        private PictureBox pictureBox1;
-        private Label OPOPS22Label;
-        private Label OPAnäS2Label;
-        private Label OPRTA2Label;
-        private Label OPOPS21Label;
-        private Label OPAnä2Label;
-        private Label OPOPB2Label;
-        private Label OPOPC2Label;
-        private Label OP2Label;
-        private PictureBox OP2;
-        private Label OPOPS32Label;
-        private Label OPAnäS3Label;
-        private Label OPRTA3Label;
-        private Label OPOPS31Label;
-        private Label OPAnä3Label;
-        private Label OPOPB3Label;
-        private Label OPOPC3Label;
-        private Label OP3Label;
-        private PictureBox OP3;
-        private Label OPOPS42Label;
-        private Label OPAnäS4Label;
-        private Label OPRTA4Label;
-        private Label OPOPS41Label;
-        private Label OPAnä4Label;
-        private Label OPOPB4Label;
-        private Label OPOPC4Label;
-        private Label OP4Label;
-        private PictureBox OP4;
+        private PictureBox pictureBoxAUVALogo;
+        private Label labelOPS12;
+        private Label labelAnaeS2;
+        private Label labelRTA2;
+        private Label labelOPS22;
+        private Label labelAnae2;
+        private Label labelOPB2;
+        private Label labelOPC2;
+        private Label labelOP2;
+        private PictureBox pictureBoxOP2;
+        private Label labelOPS13;
+        private Label labelAnaeS3;
+        private Label labelRTA3;
+        private Label labelOPS23;
+        private Label labelAnae3;
+        private Label labelOPB3;
+        private Label labelOPC3;
+        private Label labelOP3;
+        private PictureBox pictureBoxOP3;
+        private Label labelOPS14;
+        private Label labelAnaeS4;
+        private Label labelRTA4;
+        private Label labelOPS24;
+        private Label labelAnae4;
+        private Label labelOPB4;
+        private Label labelOPC4;
+        private Label labelOP4;
+        private PictureBox pictureBoxOP4;
         private Button buttonStart;
         private Button buttonBreak;
     }
