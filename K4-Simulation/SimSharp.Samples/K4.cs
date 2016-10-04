@@ -267,9 +267,10 @@ namespace SimSharp.Samples
             //PatientManager receives Patient list:
             patientManager.getInstance().createPatients(patientGen.getPatientList());//outside of process!!!!!!!     
             //initialize Stores
-            RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
+            RSStore.getInstance().initStores(env,chirurgs: 4, nurses: 4, support: 4, anesthesists: 4, anesthesistsNurse: 4, rtas: 4, ops: 4);
+            
             //Parameter for waitingTimes and RoomSpace
-            Parameter.getInstance().initialize(50, 50, 100,100, 30, 0, 3600, 1000, 1800, 3600, 25,600,1800,50);
+            Parameter.getInstance().initialize(_OPWaiting: 50, _mortuary: 50, _ward: 100, _silentRoom: 100, _triageTime: 30, _arriveMin: 0, _arriveMax: 3600, _OPWinTime: 1000, _OPMin: 1800, _OPMax: 3600, _OPDyingRate: 25, _OPBlockedMin: 600, _OPBlockedMax: 1800, _OPBlockedRate: 50);
 
             //Simulation starts
             env.Process(Steuerprozess(env));
@@ -284,10 +285,10 @@ namespace SimSharp.Samples
             //PatientManager receives Patient list:
             patientManager.getInstance().createPatients(patientGen.getPatientList());//outside of process!!!!!!!     
             //initialize Stores
-            RSStore.getInstance().initStores(env, 4, 4, 4, 4, 4, 4, 4);
+            RSStore.getInstance().initStores(env, chirurgs: 4, nurses: 4, support: 4, anesthesists: 4, anesthesistsNurse: 4, rtas: 4, ops: 4);
             //Parameter for waitingTimes and RoomSpace
-            Parameter.getInstance().initialize(50, 50, 100, 100, 30, 0, 3600, 1000, 1800, 3600, 25,600,1800,50);
-
+            Parameter.getInstance().initialize(_OPWaiting: 50, _mortuary: 50, _ward: 100, _silentRoom: 100, _triageTime: 30, _arriveMin: 0, _arriveMax: 3600, _OPWinTime: 1000, _OPMin: 1800, _OPMax: 3600, _OPDyingRate: 25, _OPBlockedMin: 600, _OPBlockedMax: 1800, _OPBlockedRate: 50);
+        
             //Simulation starts
             env.Process(Steuerprozess(env));
             env.RunD();
